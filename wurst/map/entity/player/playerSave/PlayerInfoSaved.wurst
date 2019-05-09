@@ -1,0 +1,83 @@
+package PlayerInfoSaved
+import PlayerAuthSaved
+import baseImport
+import dzServerSave
+
+
+//0 - 0 - 0
+//1 - 5 - 门派熟练度
+//6 -10 - 游戏积分
+//11-11 最高通关难度
+//12-12 最高单通难度
+//13-16 无尽波数
+//17-63 置0
+
+public function loadInfo(Players ps)
+    let p = ps._player
+    let index = p.getId()
+    if LOADSUCCESS[index]
+        let a = testAndLoad(p,KEY_INFO,KEY_INFO_SIGN)
+        if a == ""
+            signAndSave(p, KEY_INFO, KEY_INFO_SIGN, "0")
+        else if  a != "" and a.charAt(0) == "0"
+            ps.schoolScore  = c94to10(a.substring(1, 6))
+            ps.enableAddGameScore = true
+            ps.addGameScore(c94to10(a.substring(6, 11)) div 8)
+            ps.maxPassDiff  = a.substring(11, 12).toInt()
+            KEY_INFO_VAL[p.getId()*1000+1] = ps.maxPassDiff
+            ps.maxSinglePassDiff  = a.substring(12, 13).toInt()
+            KEY_INFO_VAL[p.getId()*1000+2] = ps.maxSinglePassDiff
+            ps.towerScore  = c94to10(a.substring(13, 17))
+            KEY_INFO_VAL[p.getId()*1000+3] = ps.towerScore
+            ps.endlessWare  = c94to10(a.substring(17, 20))
+            KEY_INFO_VAL[p.getId()*1000+5] = ps.endlessWare
+            ps.endlessScore  = c94to10(a.substring(20, 25))
+            KEY_INFO_VAL[p.getId()*1000+6] = ps.endlessScore
+            ps.dzLv = p.dzLevel()
+            KEY_INFO_VAL[p.getId()*1000+4] = ps.dzLv
+        let gs = ps.getGameScore()
+        if gs >= ps.dzLv * 1200 and ps.dzLv>0 and ps.dzLv <= 8
+            KEY_CHEK_VAL[index] = true
+        if gs >= ps.dzLv * 800 and ps.dzLv>0 and ps.dzLv <= 8
+            ps.subGameScore(gs - ps.dzLv * 800)
+        else if a.charAt(0) != "0" and a.charAt(0) != ""
+            if dzGetMapConfig("FIX") == "1"
+                signAndSave(p, KEY_INFO, KEY_INFO_SIGN, "0")
+            if dzGetMapConfig("CHECK") == "1"
+                KEY_CHEK_VAL[index] = true
+            if dzGetMapConfig("CLEAR") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误1,存档被重置!",100,p)
+                signAndSave(p, KEY_INFO, KEY_INFO_SIGN, "0")
+            if dzGetMapConfig("BAN") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
+                signAndSave(p, KEY_INFO, KEY_INFO_SIGN, "1")
+                LOADSUCCESS[index] = false
+            if dzGetMapConfig("CRASH") == "1"
+                if localPlayer == p
+                    Player(-1)
+// and gs > 288
+public function saveInfo(Players ps)
+    let p = ps._player
+    let index = p.getId()
+    if LOADSUCCESS[index]
+        var s = "0"
+        if KEY_CHEK_VAL[index] 
+            s = "o"
+        s += c10to94(ps.schoolScore, 5)
+        let gs = ps.getGameScore()
+        if gs >= ps.dzLv * 1200 and ps.dzLv>0 and ps.dzLv <= 8
+            KEY_CHEK_VAL[index] = true
+        if gs >= ps.dzLv * 800 and ps.dzLv>0 and ps.dzLv <= 8
+            ps.subGameScore(gs - ps.dzLv * 800)
+            // printTimedToPlayer("[系统]:你的积分超过等级限制,已被设置为当前地图等级最大值!",10,p)
+        s += c10to94(ps.getGameScore() * 8, 5)
+        s += (ps.maxPassDiff.toString())
+        s += (ps.maxSinglePassDiff.toString())
+        s += c10to94(ps.towerScore,4)
+        s += c10to94(ps.endlessWare,3)
+        s += c10to94(ps.endlessScore,5)
+        signAndSave(p, KEY_INFO, KEY_INFO_SIGN, s)
+
+
+@test function aa()
+    print(c10to94(80000,5))

@@ -1,0 +1,156 @@
+package unitAttr
+import base
+import attrPlus
+import public attrLib
+import itemAttr
+import YDJapiOther
+import attrGenerateAbility
+import YDAbilityState
+import JapiNative
+
+
+public class Unit
+    use Attr<unit>
+    private static let map = new HashMap<unit,thistype>
+    construct(unit i)
+        _logLevel   = Loglevel.ERROR
+        _self       = i
+        _hid        = _self.getHandleId()
+        _self.addAbilityPro(getAttrObjectId(this._self.getOwner(),AttrKey.STR ))
+        _self.addAbilityPro(getAttrObjectId(this._self.getOwner(),AttrKey.AGI ))
+        _self.addAbilityPro(getAttrObjectId(this._self.getOwner(),AttrKey.INE ))
+        map.put(i,this)
+
+    override function clear()
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            setAttr(a,0)
+    override function isAttrSaveHt()returns bool
+        return false     
+    override function isEmpty() returns bool
+        var flag = true
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            flag = flag and getAttr(a) == 0
+            if not flag
+                break
+        return flag
+
+    override function toString() returns string
+        return Attr.toString()
+    //先关闭英雄检查
+    static function getUnit(unit i) returns Unit
+        if i != null
+            if map.has(i)
+                return map.get(i)
+            else
+                let h = new Unit(i)
+                return h
+        return null
+    static function getUnit(unit i,AttrPlus attr) returns Unit
+        if i != null
+            if map.has(i)
+                return map.get(i)
+            else
+                let h = new Unit(i)
+                for key in attrKey2Hash
+                    h.addAttr(key, attr.getAttr(key))
+                destroy attr
+                return h
+        return null
+            
+
+    override function typeName() returns string
+        return "Unit"
+
+    function destr()
+        map.remove(_self)
+        for int index = 0 to 5
+            item i = _self.itemInSlot(index)
+            let is = Item.getItem(i)
+            if is != null and is.typeId != 0
+                is.destr()
+            else
+                i.remove()
+        this._self.remove()
+        _self       = null
+        _hid        = 0
+        destroy this
+
+    function clearUnit()
+        map.remove(_self)
+        _self       = null
+        _hid        = 0
+        destroy this
+
+    override function setAttr(AttrKey s,int data)
+        this.exState(s,getAttr(s), data)
+        Attr.setAttr(s, data)
+
+function Unit.exState(AttrKey s,int data,int new_data)
+    let origin = this._self.exState(s)
+    let val = origin + new_data - data
+    switch s
+        case AttrKey.HPM
+            let p = this._self.getHPPercent()
+            this._self.setHP(this._self.getMaxHP())
+            this._self.setState(EX_UnitState.maxHp,val)
+            this._self.setHP(p * this._self.getMaxHP())
+        case AttrKey.ATK 
+            this._self.setState(EX_UnitState.atkBase,val)
+        case AttrKey.DEF 
+            this._self.setState(EX_UnitState.armor,val)
+        case AttrKey.ASP 
+            this._self.setState(EX_UnitState.atkSpeed,val/100 ) 
+        case AttrKey.STR 
+            this._self.setStr(val.toInt())
+            if this.getAttr(AttrKey.strPlus) != 0 
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.STR ), 2)
+                this._self.exAbilData(EX_ABIL_YD.DATA_C,getAttrObjectId(this._self.getOwner(),AttrKey.STR ),1,this._self.getStr(false) / 100. * this.getAttr(AttrKey.strPlus))
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.STR ), 1)
+        case AttrKey.AGI 
+            this._self.setAgi(val.toInt())  
+            if this.getAttr(AttrKey.agiPlus) != 0 
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.AGI ), 2)
+                this._self.exAbilData(EX_ABIL_YD.DATA_A,getAttrObjectId(this._self.getOwner(),AttrKey.AGI ),1,this._self.getAgi(false) / 100. * this.getAttr(AttrKey.agiPlus))
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.AGI ), 1)
+        case AttrKey.INE 
+            this._self.setInt(val.toInt()) 
+            if this.getAttr(AttrKey.intPlus) != 0 
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.INE ), 2)
+                this._self.exAbilData(EX_ABIL_YD.DATA_B,getAttrObjectId(this._self.getOwner(),AttrKey.INE ),1,this._self.getInt(false) / 100. * this.getAttr(AttrKey.intPlus))
+                this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.INE ), 1)
+        case AttrKey.strPlus 
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.STR ), 2)
+            this._self.exAbilData(EX_ABIL_YD.DATA_C,getAttrObjectId(this._self.getOwner(),AttrKey.STR ),1,this._self.getStr(false) / 100. * new_data)
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.STR ), 1)
+        case AttrKey.agiPlus 
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.AGI ), 2)
+            this._self.exAbilData(EX_ABIL_YD.DATA_A,getAttrObjectId(this._self.getOwner(),AttrKey.AGI ),1,this._self.getAgi(false) / 100. * new_data)
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.AGI ), 1)
+        case AttrKey.intPlus 
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.INE ), 2)
+            this._self.exAbilData(EX_ABIL_YD.DATA_B,getAttrObjectId(this._self.getOwner(),AttrKey.INE ),1,this._self.getInt(false) / 100. * new_data)
+            this._self.setAbilityLevel(getAttrObjectId(this._self.getOwner(),AttrKey.INE ), 1)
+        default
+            skip
+function unit.exState(AttrKey s) returns real
+    switch s
+        case AttrKey.HPM
+            return this.getState(EX_UnitState.maxHp)
+        case AttrKey.ATK 
+            return this.getState(EX_UnitState.atkBase)
+        case AttrKey.DEF 
+            return this.getState(EX_UnitState.armor)
+        case AttrKey.ASP 
+            return this.getState(EX_UnitState.atkSpeed) * 100
+        case AttrKey.STR 
+            return this.getStr(false).toReal()
+        case AttrKey.AGI 
+            return this.getAgi(false).toReal()  
+        case AttrKey.INE 
+            return this.getInt(false).toReal()  
+        default
+            return 0
+
+

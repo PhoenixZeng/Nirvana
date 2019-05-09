@@ -1,0 +1,32 @@
+package attrPlus
+import attr
+
+public class AttrPlus
+    use Attr<int>
+    override function isAttrSaveHt()returns bool
+        return false
+    static function loadBookPageAttr(int id) returns thistype
+        let a = new AttrPlus()
+        for s in attrKey2Hash
+            a.addAttr(s,slk_abil.loadInt(id, s castTo int))
+        return a
+
+public class AttrPstc
+    use Attr<int>
+    override function isAttrSaveHt()returns bool
+        return false
+    static function loadBookPageAttr(int id) returns thistype
+        let a = new AttrPstc()
+        for s in attrKey2Hash
+            a.addAttr(s,slk_abil.loadInt(id, s castTo int))
+        return a
+
+public class AttrSpell
+    use Attr<int>
+    override function isAttrSaveHt()returns bool
+        return false
+    static function loadByItem(int id) returns thistype
+        let a = new AttrSpell()
+        for s in attrKey2Hash
+            a.addAttr(s,slk_item.loadInt(id, s castTo int))
+        return a

@@ -1,0 +1,11 @@
+package attrEvent
+import phLib
+
+init
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
+    ..addAction()->
+        if GetIssuedOrderId() >= 852002 and GetIssuedOrderId() <= 852007 and GetTriggerUnit().isHero()
+            //852002-852007是移动1-6格物品的命令，使用物品一样
+            pj_lastMovedItemInItemSlot = GetOrderTargetItem()
+

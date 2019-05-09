@@ -1,0 +1,102 @@
+package itemAttr
+import attr
+import public itemAttrLib
+// import EventMapper
+import Game
+import base
+
+public class Item
+    use Attr<item>
+    ItemType itemType
+    int  scale
+    int  id
+    unit owner
+    // private trigger onDeath
+    private static let map = new HashMap<item,thistype>
+    construct(item i)
+        _self       = i
+        _hid        = _self.getHandleId()
+        itemType    = i.getItemType()
+        loadFromHt()
+        log(owner.getName()+"&"+_self.getName()+"$"+(this castTo int)+"是否为空:"+isEmpty()+";hid"+_hid)
+        map.put(i, this)
+        if isEmpty()
+            for s in attrKey2Hash
+                addAttr(s,slk_item.loadInt(i.getTypeId(), s castTo int))
+
+
+    override function toString() returns string
+        return Handle.toString()
+    override function isAttrSaveHt()returns bool
+        return true
+    static function getItem(item i) returns Item
+        if i==null
+            return null
+        if i.getItemType() == ItemType.Other
+            return null
+        if map.has(i)
+            return map.get(i)
+        else
+            return new Item(i)
+
+    override function typeName() returns string
+        return "Item"
+
+    function boostTo(int toWhat)
+        if toWhat > 1
+            this.reset()
+            for i = 1 to toWhat
+                boost()
+    function boost()
+        this.scale++
+        switch itemType
+            case Equipment
+                this.mulAttr(AttrKey.ATK, 1.1)
+                this.mulAttr(AttrKey.ASP, 1.1)
+                if this.str > 0
+                    this.mulAttr(AttrKey.STR, 1.07)
+                if this.agi > 0
+                    this.mulAttr(AttrKey.AGI, 1.07)
+                if this.ine > 0
+                    this.mulAttr(AttrKey.INE, 1.07)
+            default
+        saveToHt()
+    function tryBoost(int chancePlus) returns bool
+        return GetRandomReal(0 , 1 - 0.01*chancePlus) < (Pow(2, GAME.PLUS_ITEM_DIFFICULT) * GAME.PLUS_ITEM_DIFFICULT * 90 )/((Pow(scale.toReal(), 2) + 1))
+
+    function reset()
+        this.clear()
+        scale = 0
+        for s in attrKey2Hash
+            addAttr(s,slk_item.loadInt(_self.getTypeId(), s castTo int))
+
+    override function loadFromHt()
+        if attrHt.loadInt(_hid, "type".getHash()) == _self.getTypeId()
+            Attr.loadFromHt()
+            scale = attrHt.loadInt(_hid, "scale".getHash())
+
+    override function saveToHt()
+        Attr.saveToHt()
+        attrHt.saveInt(_hid, "scale".getHash(), scale)
+        attrHt.saveInt(_hid, "type".getHash(), _self.getTypeId())
+        
+    
+    function destr() 
+        destr(true)
+    function destr(bool isRemove)
+        log(_self.getName()+"$"+(this castTo int)+"是否为空:"+isEmpty()+";hid"+_hid+"是否清除"+isRemove)
+        if not isRemove
+            saveToHt()
+        clear()
+        map.remove(_self)
+        if isRemove
+            // onDeath.destr()
+            clearHt()
+            RemoveItem(_self)
+        destroy this
+    
+    ondestroy
+        _self       = null
+        _hid        = 0
+        itemType    = ItemType.Other
+        owner       = null

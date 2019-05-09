@@ -1,0 +1,14 @@
+package randomDo
+
+public function random(real percent) returns bool
+    return GetRandomReal(0, 100)<percent
+public function real.random() returns bool
+    return GetRandomReal(0, 100)<this
+public function real.next() returns real
+    return GetRandomReal(0, this)
+public function real.nextInt() returns int
+    return GetRandomInt(0, (this - 0.5).toInt())
+public function real.float(real percent) returns real
+    return GetRandomReal(this*(1 - percent),this*(1 + percent))
+public function real.floatVal(real val) returns real
+    return GetRandomReal(this - val,this + val)

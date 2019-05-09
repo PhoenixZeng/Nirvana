@@ -1,0 +1,17 @@
+package DamageDispatcher
+import LinkedListModule
+import DmgType
+import base
+
+public bool flagDispatcher = true
+public bool flagDispatcherInner = true
+public bool flagNotFinally = true
+
+public abstract class DamageDispatcher
+    use LinkedListModule
+    abstract function do(DmgWrapper dmg)
+
+    static function on(DamageDispatcher add) returns DamageDispatcher
+        return add
+    function toString() returns string
+        return "DamageDispatcher$"+(this castTo int)

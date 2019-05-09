@@ -1,0 +1,122 @@
+package skin
+import Auth
+import LinkedListModule
+
+public class PetEntity
+    use LinkedListModule
+    static thistype def
+    string name
+    string cmd
+    int    id
+    real   power
+    Auth   auth
+    construct(string cmd,string name,int id,real  power,Auth   auth)
+        this.cmd = cmd
+        this.name = name
+        this.id = id
+        this.power = power
+        this.auth = auth
+
+public class WeaponSkin
+    use LinkedListModule
+    string cmd
+    string name
+    int id
+    Auth   auth
+    construct(string cmd,int id,string name,Auth   auth)
+        this.cmd = cmd
+        this.name = name
+        this.id = id
+        this.auth = auth
+
+public class HaloSkin
+    use LinkedListModule
+    string cmd
+    string name
+    int id
+    Auth   auth
+    construct(string cmd,int id,string name,Auth   auth)
+        this.cmd = cmd
+        this.name = name
+        this.id = id
+        this.auth = auth
+
+public class WingSkin
+    use LinkedListModule
+    string cmd
+    string name
+    int id
+    Auth   auth
+    construct(string cmd,int id,string name,Auth   auth)
+        this.cmd = cmd
+        this.name = name
+        this.id = id
+        this.auth = auth
+
+public class TitleSkin
+    use LinkedListModule
+    string cmd
+    string name
+    int id
+    Auth   auth
+    construct(string cmd,int id,string name,Auth   auth)
+        this.cmd = cmd
+        this.name = name
+        this.id = id
+        this.auth = auth
+
+public class PetSkin
+    int    id
+    Auth   auth
+    construct(int id,Auth   auth)
+        this.id = id
+        this.auth = auth
+
+
+init
+    new TitleSkin("-ch1" ,'SK15',"黑铁",_map_lv2)
+    new TitleSkin("-ch2" ,'SK16',"青铜",_map_lv5)
+    new TitleSkin("-ch3" ,'SK17',"白银",_map_lv8)
+    new TitleSkin("-ch4" ,'SK18',"黄金",_map_lv12)
+    new TitleSkin("-ch5" ,'SK19',"铂金",_map_lv16)
+    new TitleSkin("-ch6" ,'SK20',"钻石",_map_lv20)
+    new TitleSkin("-ch7" ,'SK21',"大师",_map_lv24)
+    new TitleSkin("-ch8" ,'SK22',"宗师",_map_lv28)
+    new TitleSkin("-ch9" ,'SK23',"王者",_map_lv30)
+    new TitleSkin("-ch10",'SK24',"皇者",rank100Auth)
+    new TitleSkin("-chxy",'SK33',"星悦至尊",starGuild)
+    new TitleSkin("-chzb",'SK34',"魔域主播",starGuild)
+
+    new HaloSkin("-gh1",'SK25',"日炎光环",_map_p1)
+    new HaloSkin("-gh2",'SK26',"森林光环",_map_p_lv2)
+    new HaloSkin("-gh3",'SK27',"炽焰光环",_map_p_lv3)
+    new HaloSkin("-gh4",'SK28',"时空光环",_map_p_lv4)
+    new HaloSkin("-gh5",'SK29',"死亡斗气",_map_p_lv5)
+    new HaloSkin("-gh6",'SK30',"寒冰斗气",defNotAuth)
+    new HaloSkin("-gh7",'SK31',"雷电护体",_halo_leidian)
+    new HaloSkin("-gh8",'SK32',"星光闪耀",_halo_xinguang)
+
+    new WeaponSkin("-wq1",'SK07',"斩光之剑",_map_sp1)
+    new WeaponSkin("-wq2",'SK08',"霜之哀伤",_map_sp_lv3)
+    new WeaponSkin("-wq3",'SK09',"囚火之剑",_map_sp_lv5)
+    new WeaponSkin("-wq4",'SK10',"魔王邪剑",defNotAuth)
+    new WeaponSkin("-wq5",'SK11',"屠龙宝刀",defNotAuth)
+    new WeaponSkin("-wq6",'SK12',"黄金圣剑",_weapon_huangjin)//商城道具
+    new WeaponSkin("-wq7",'SK13',"玄冰神剑",_weapon_xuanbing)//商城道具
+    new WeaponSkin("-wq8",'SK14',"邪神魔剑",_weapon_xieshen)//商城道具
+
+    new WingSkin("-cb1",'SK01',"冰火翅膀",_map_sp_lv2)
+    new WingSkin("-cb2",'SK02',"妖灵翅膀",_map_sp_lv4)
+    new WingSkin("-cb3",'SK03',"仙灵翅膀",defNotAuth)
+    new WingSkin("-cb4",'SK04',"黄金翅膀",_wing_huangjin)
+    new WingSkin("-cb5",'SK05',"真神翅膀",_wing_zhenshen)
+    new WingSkin("-cb6",'SK06',"圣羽翅膀",_wing_shengyu)
+
+    // new PetEntity("-cw1","牦牛"    ,'pT00',0.4,_map_p1)
+    // new PetEntity("-cw2","剧毒蝎"  ,'pT01',0.5,_map_p2)
+    // new PetEntity("-cw3","平原豪猪",'pT02',0.6,_map_p3)
+    // new PetEntity("-cw4","暗夜豹"  ,'pT03',0.7,_map_p4)
+    // new PetEntity("-cw5","南荒树狮",'pT04',0.8,_map_p5)
+    // new PetEntity("-cw6","幽灵狼"  ,'pT05',1.8,_pet_youlinlang)
+    // new PetEntity("-cw7","寒冰玄龟",'pT06',2.0,_pet_hanbingui)
+    // new PetEntity("-cw8","鬼灵虎"  ,'pT07',1.6,_pet_guilinhu)

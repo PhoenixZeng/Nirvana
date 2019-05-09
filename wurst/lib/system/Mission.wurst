@@ -1,0 +1,281 @@
+package Mission
+import baseImport
+import YDJapiOther
+/*
+//**********************************************************************************************************
+//** - 任务系统
+//** - 这个库可以让你随意创建杀怪任务，一行自定义代码就可以创建一个任务。不必再一个触发一个触发得写小任务了
+//** - 支持自定义金钱，经验，物品, 三维等奖励
+//** - 支持单人任务，支持多人同时进行任务互不干扰。可以随意创建多个任务。
+//**********************************************************************************************************
+
+// 注意事项：
+// 1 - 不可发布多个 任务名字 相同的任务
+// 2 - 如不需要金钱奖励 则直接输入 0 经验和物品也是一样
+*/
+
+constant real missionRange = 320 //进入NPC的这个范围值就可获取任务奖励
+constant real WENZI  = 10   //提示文字显示的时长
+//特效路径
+constant string TXLJ = "Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl"    
+//提示文字
+constant string TS1 = "奖励:"
+constant string TS2 = "进度:"
+constant string TS3 = "请"
+constant string TS4 = "完成任务!"
+constant string TS5 = "你已经接受过这个任务了!"
+constant string TS6 = "等级太低无法接受!"
+constant string TS7 = "你已经完成过这个任务了!"
+constant string TS8 = "接受成功!"
+constant string TS9 = "放弃失败!"
+constant string TS10 = "放弃成功!"
+constant string TS11 = "放弃失败,此任务不能放弃!"
+//-------------------------------------------------------------------------------------
+hashtable hx = InitHashtable()
+public enum AwardType
+    gold
+    lumber
+    exp
+    itemId
+    itemNum
+    str
+    agi
+    ine
+function prefix(Mission ms,string s) returns string
+    return "["+ms.name +"]: "+ s
+
+abstract class Mission
+    string name
+    int levelLimit = 0
+    int awardGold = 0
+    int awardLumber = 0
+    int awardExp = 0
+    int awardItemId = 0
+    int awardItemNum = 1
+    int awardStr = 0
+    int awardAgi = 0
+    int awardIne = 0
+    bool canRepeat = false
+    bool canCancel = true
+    static HashMap<string, thistype> missions = new HashMap<string, thistype>()
+    construct(string name)
+        this.name = name
+        missions.put(name, this)
+    function canRepeat()
+        canRepeat = true
+    function getAward(unit u)
+        printTimedToPlayer(prefix(this,TS1), 30, u.getOwner())
+        if awardGold > 0
+            u.getOwner().addGold(awardGold)
+            printTimedToPlayer(" - 金币:"+ awardGold, 30, u.getOwner())
+        if awardLumber > 0
+            u.getOwner().addLumber(awardLumber)
+            printTimedToPlayer(" - 木头:"+ awardLumber, 30, u.getOwner())
+        if awardExp > 0
+            u.getMainHero().addXp(awardExp, true)
+            printTimedToPlayer(" - 经验:"+ awardExp, 30, u.getOwner())
+        if awardStr > 0
+            u.getMainHero().addStr(awardStr)
+            printTimedToPlayer(" - 力量:" + awardStr, 30, u.getOwner())
+        if awardAgi > 0
+            u.getMainHero().addAgi(awardAgi)
+            printTimedToPlayer(" - 敏捷:" + awardAgi, 30, u.getOwner())
+        if awardIne > 0
+            u.getMainHero().addInt(awardIne)
+            printTimedToPlayer(" - 智力:" + awardIne, 30, u.getOwner())
+        if awardItemId > 0 and awardItemNum> 0
+            let ite = u.getMainHero().addItemChargesPro(awardItemId, awardItemNum)
+            if ite != null
+                let itemName = ite.getName()
+                if awardItemNum > 1
+                    printTimedToPlayer(" - 物品:"+ itemName + " X "+awardItemNum, 30, u.getOwner())
+                else
+                    printTimedToPlayer(" - 物品:"+ itemName, 30, u.getOwner())
+    function addAward(AwardType at,int val)
+        switch at
+            case gold
+                awardGold += val
+            case lumber
+                awardLumber += val
+            case exp
+                awardExp += val
+            case itemId
+                awardItemId = val
+            case itemNum
+                awardItemNum = val
+            case str
+                awardStr = val
+            case agi
+                awardAgi = val
+            case ine
+                awardIne = val
+    function setLevelLimit(int lv)
+        this.levelLimit = lv
+
+    abstract function isFinish(unit u) returns bool
+    abstract function onFinish(unit u)
+    abstract function onApply(unit u)
+    abstract function onCancel(unit u)
+
+public class SendMission extends Mission
+    static HashMap<trigger, thistype> tr2sm = new HashMap<trigger, thistype>()
+    bool   isItem = false
+    unit   submit
+    string itemName
+    int    itemId
+    int    itemNum = 1
+    trigger enterRange = CreateTrigger()
+    construct(string name)
+        super(name)
+        tr2sm.put(enterRange, this)
+    function setIsRealItem(bool isItem)
+        this.isItem = isItem
+    function addCond(int itemId,int itemNum)
+        this.itemId = itemId
+        this.itemNum = itemNum
+        this.itemName = slk_item.loadString(itemId, nameKey)
+        if itemName == null or itemName == ""
+            this.itemName = exLuaCode("(require 'jass.slk').item['"+itemId.toIdString()+"'].Name")
+    function addItemName(string name)
+        this.itemName = name
+    override function isFinish(unit u) returns bool
+        if isItem
+            if u.hasItemById(itemId)
+                let im = u.getItemById(itemId)
+                if itemNum > 1
+                    return im.getCharges() >= itemNum
+                else
+                    return im!=null
+            else
+                return false
+        return true
+    override function onFinish(unit u)
+        if isItem
+            let im = u.getItemById(itemId)
+            im.setChargesPro(im.getCharges() - itemNum)
+        hx.removeHandle(name.getHash(), u.getOwner().getId())
+        if not canRepeat
+            hx.saveBoolean(name.getHash(), Players.get(u) castTo int,true)
+        getAward(u)
+    override function onApply(unit u)
+        if itemNum > 1
+            printTimedToPlayer(prefix(this,TS3)+" "+itemNum+" 个 "+itemName+" 交给 "+submit.getName(),
+            30, u.getOwner())
+        else
+            printTimedToPlayer(prefix(this,TS3)+" "+itemName+" 交给 "+submit.getName(),30, u.getOwner())
+    
+    override function onCancel(unit u)
+
+    function setSubmit(unit u)
+        this.submit = u
+        enterRange
+        ..registerUnitInRange(u, missionRange,null)
+        enterRange.addAction() ->
+            let tr = GetTriggeringTrigger()
+            let ms = SendMission.tr2sm.get(tr)
+            let eu  = GetEnteringUnit()
+            let tu = hx.loadUnitHandle(ms.name.getHash(), eu.getOwner().getId())
+            if eu == tu and ms != null
+                //代表触发任务了
+                if ms.isFinish(eu)
+                    ms.onFinish(eu)
+            
+public class HuntMission extends Mission
+    static HashMap<trigger, thistype> tr2sm = new HashMap<trigger, thistype>()
+    int unitId
+    int unitNum
+    string unitName
+    trigger killListener = CreateTrigger()
+    construct(string name)
+        super(name)
+        tr2sm.put(killListener, this)
+    function setTarget(int unitId,int unitNum)
+        this.unitId = unitId
+        this.unitNum = unitNum
+        this.unitName = slk_unit.loadString(unitId, nameKey)
+    override function isFinish(unit u) returns bool
+        let current = hx.loadInt(name.getHash(), u.getOwner().getHandleId())
+        return current >= unitNum
+    override function onFinish(unit u)
+        hx.removeHandle(name.getHash(), u.getOwner().getId())
+        if not canRepeat
+            hx.saveBoolean(name.getHash(), Players.get(u) castTo int,true)
+        getAward(u)
+    override function onApply(unit u)
+        printTimedToPlayer(prefix(this,TS3)+"击杀 "+unitNum+" 个 "+unitName+" !",30,u.getOwner())
+        hx.saveInt(name.getHash(), u.getOwner().getHandleId(),0)
+    override function onCancel(unit u)
+        hx.removeInt(name.getHash(), u.getOwner().getHandleId())
+    function onHunt(unit u)
+        let current = hx.loadInt(name.getHash(), u.getOwner().getHandleId())
+        hx.saveInt(name.getHash(), u.getOwner().getHandleId(),current+1)
+        if not isFinish(u)
+            printTimedToPlayer(prefix(this,TS2)+" "+(current+1)+" / "+unitNum, 30, u.getOwner())
+        else
+            onFinish(u)
+
+    function build()
+        killListener
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+        ..addAction() ->
+            let k = GetKillingUnit()
+            let d = GetDyingUnit()
+            let t = GetTriggeringTrigger()
+            let ms = HuntMission.tr2sm.get(t)
+            let us = hx.loadUnitHandle(ms.name.getHash(), k.getOwner().getId())
+            if d.getTypeId() == ms.unitId and us != null and us.getOwner() == k.getOwner()
+                ms.onHunt(k)
+
+public function unit.cancelMission(string name)
+    this.cancelMission(name,true)
+public function unit.cancelMission(string name,bool showTip)
+    let ms = Mission.missions.get(name)
+    if ms != null
+        if not ms.canCancel
+            if showTip
+                printTimedToPlayer(TS11, 30, this.getOwner())
+        else if hx.hasHandle(name.getHash(), this.getOwner().getId())
+            if showTip
+                printTimedToPlayer("[任务]:"+name+TS10, 30, this.getOwner())
+            hx.removeHandle(name.getHash(), this.getOwner().getId())
+            ms.onCancel(this)
+        else
+            if showTip
+                printTimedToPlayer(TS9, 30, this.getOwner())
+    else
+        if showTip
+            printTimedToPlayer(TS9, 30, this.getOwner())
+
+        
+public function unit.isFinishMission(string name) returns bool
+    let ms = Mission.missions.get(name)
+    if ms != null
+        return not ms.canRepeat and hx.loadBoolean(name.getHash(), Players.get(this) castTo int) 
+    else
+        return false
+
+
+function showdTip(string tip,bool show,player p)
+    if show 
+        printTimedToPlayer(tip,5,p)
+
+public function unit.applyMission(string name,bool showTip)
+    let ms = Mission.missions.get(name)
+    if ms == null
+        showdTip("不存在的任务!", showTip, this.getOwner())
+    if ms != null and ms.levelLimit < this.getMainHero().getLevel()
+        if not ms.canRepeat and hx.loadBoolean(name.getHash(), Players.get(this) castTo int)
+            if showTip
+                printTimedToPlayer(TS7, 30, this.getOwner())
+        else if not hx.hasHandle(name.getHash(), this.getOwner().getId())
+            showdTip("[任务]:"+name+TS8, showTip, this.getOwner())
+            hx.saveUnitHandle(name.getHash(), this.getOwner().getId(), this.getMainHero())
+            ms.onApply(this)
+        else
+            showdTip(TS5, showTip, this.getOwner())
+    else
+        showdTip(TS6, showTip, this.getOwner())
+
+public function unit.applyMission(string name)
+    this.applyMission(name,false)
+

@@ -1,0 +1,14 @@
+package Level
+
+
+public class Level
+    static int lv = 0
+    
+    static function next() returns int
+        lv++
+        return lv
+
+    static function get() returns int
+        return lv
+    static function set(int i)
+        lv = i

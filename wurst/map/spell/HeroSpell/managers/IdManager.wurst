@@ -1,0 +1,16 @@
+package IdManager
+import HeroRandomSpellEntity
+
+public class IdManager
+    static RandomSpellEntity array zeroList
+    static int count = 0
+    static function add(RandomSpellEntity meta)
+        meta.meta = meta
+        zeroList[count] = meta
+        count++
+    static function get(int i) returns RandomSpellEntity
+        return zeroList[i]
+    static function getCount() returns int
+        return count
+    static function setMixture(int a, int b, int c)
+        RandomSpellEntity.setMixture(get(a), get(b), get(c))

@@ -1,0 +1,103 @@
+IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+
+	Frame "TEXT" "TXA1" {
+		FrameFont "Fonts\ziti.ttf", 0.001	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+		Frame "TEXT" "TXA2" {
+		FrameFont "Fonts\ziti.ttf", 0.002	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA3" {
+		FrameFont "Fonts\ziti.ttf", 0.003	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA4" {
+		FrameFont "Fonts\ziti.ttf", 0.004	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA5" {
+		FrameFont "Fonts\ziti.ttf", 0.005	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA6" {
+		FrameFont "Fonts\ziti.ttf", 0.006	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA7" {
+		FrameFont "Fonts\ziti.ttf", 0.007	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA8" {
+		FrameFont "Fonts\ziti.ttf", 0.008, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA9" {
+		FrameFont "Fonts\ziti.ttf", 0.009	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA10" {
+		FrameFont "Fonts\ziti.ttf", 0.010	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA11" {
+		FrameFont "Fonts\ziti.ttf", 0.011	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA12" {
+		FrameFont "Fonts\ziti.ttf", 0.012	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+
+				Frame "TEXT" "TXA13" {
+		FrameFont "Fonts\ziti.ttf", 0.013	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA14" {
+		FrameFont "Fonts\ziti.ttf", 0.014	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA15" {
+		FrameFont "Fonts\ziti.ttf", 0.015	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA16" {
+		FrameFont "Fonts\ziti.ttf", 0.016	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA17" {
+		FrameFont "Fonts\ziti.ttf", 0.017	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA18" {
+		FrameFont "Fonts\ziti.ttf", 0.018	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA19" {
+		FrameFont "Fonts\ziti.ttf", 0.019	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}		Frame "TEXT" "TXA20" {
+		FrameFont "Fonts\ziti.ttf", 0.020	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}		Frame "TEXT" "TXA21" {
+		FrameFont "Fonts\ziti.ttf", 0.021	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}		Frame "TEXT" "TXA22" {
+		FrameFont "Fonts\ziti.ttf", 0.022	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "TEXT" "TXA23" {
+		FrameFont "Fonts\ziti.ttf", 0.023	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}		Frame "TEXT" "TXA24" {
+		FrameFont "Fonts\ziti.ttf", 0.024	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}		Frame "TEXT" "TXA25" {
+		FrameFont "Fonts\ziti.ttf", 0.025	, "",
+		FontJustificationV JUSTIFYMIDDLE,//字体对齐V	
+	}
+			Frame "BACKDROP" "WU" {
+
+	}
+
+

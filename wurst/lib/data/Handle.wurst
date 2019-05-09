@@ -1,0 +1,33 @@
+package Handle
+import base
+
+public module Handle<T>
+    T _self
+    int _hid
+    Loglevel _logLevel = Loglevel.DEBUG
+    static Loglevel _logLevelStatic = Loglevel.DEBUG
+    static int _count = 0
+    static function count()returns int
+        return _count
+    construct()
+        _count++
+    ondestroy
+        _count--
+    function typeName() returns string
+        return "Handle"
+    function toString() returns string
+        return _hid+":"+index()+"@"+typeName()
+    function index() returns int
+        return this castTo int
+    static function logStatic(string msg)
+        printLog(localPlayer,_logLevelStatic, msg)
+    function log(string msg)
+        printLog(localPlayer,_logLevel, msg)
+    function log(int msg)
+        printLog(localPlayer,_logLevel, msg.toString())
+    function log(real msg)
+        printLog(localPlayer,_logLevel, msg.toString())
+    function log(bool msg)
+        printLog(localPlayer,_logLevel, msg.toString())
+    function log()
+        printLog(localPlayer,_logLevel, toString())

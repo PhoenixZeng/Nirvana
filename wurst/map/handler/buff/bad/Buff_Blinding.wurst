@@ -1,0 +1,55 @@
+package Buff_Blinding
+import public buffs
+import SuperableBuff
+
+public class Buff_Blinding extends SuperableBuff
+    static string name = "致盲"
+    static string modelPath = "model\\buff\\zhimang.mdx"
+    real chance = 10
+    static bool makeLevelTexture = false
+    override function isMakeLevelTexture() returns bool
+        let a = makeLevelTexture
+        if not a
+            makeLevelTexture = true
+        return a
+    override function getTexture() returns string
+        return "blp\\buff\\BTN_zhimang.blp"
+    override function isDebuff() returns bool
+        return true
+
+    override protected function onTargetChanges(unit _previous,unit target)
+    override protected function onCasterChanges(unit _previous,unit caster)
+
+    override function getDuration() returns real
+        return 5
+    override function getInterval() returns real
+        return 5
+    override function getName() returns string
+        return name
+    override function getMaxLv() returns int
+        return 6
+
+    override protected function onSuperpose()
+        target.eff(modelPath, "origin",getTimeleft())
+        this.chance =  10. * lv 
+    /**
+    * false to remove
+    */
+    override protected function onApplied() returns bool
+        onSuperpose()
+        return true
+
+    /**
+    * false to remove
+    */
+    override protected function onTick() returns bool
+        return true
+
+    /**
+    * false to keepRun
+    */
+    override protected function onRemoval() returns bool
+        return true
+
+    override protected function onDestr()
+

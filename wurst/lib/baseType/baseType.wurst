@@ -1,0 +1,4 @@
+package baseType
+
+function int.pow(real i) returns real
+    return this.toReal().pow(i)

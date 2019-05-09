@@ -1,0 +1,96 @@
+package HumanAttacker
+import LinkedList
+import HashSet
+import Attacker
+import baseImport
+
+
+public abstract class AbstractAttackers
+    static player   owner      = enemyNormal
+    abstract function create(Way way,vec2 pos) returns unit
+
+
+public class EnemyAttackers
+    static HashMap<int,EnemyAttackers> map = new HashMap<int,EnemyAttackers>
+    int                    ware
+    AbstractAttackers      enemy
+    construct(int ware ,AbstractAttackers ha)
+        enemy = ha
+        map.put(ware,this)
+
+    static function getEnemyAttacker(int ware) returns EnemyAttackers
+        if ware <= 36
+            return map.get(ware)
+        else
+            let a = ware mod 3
+            let lv = 33 + a
+            return map.get(lv)
+
+
+public class UnitAttackers extends AbstractAttackers
+    LinkedList<int> abilitys
+    LinkedList<int> items
+    int             id
+    static HashMap<unit,thistype> maps = new HashMap<unit,thistype>()
+
+    construct(int id)
+        super()
+        this.id = id
+    function addAbil(int abil)
+        if abilitys == null and abilitys.typeId == 0
+            abilitys   = new LinkedList<int>()
+        abilitys.add(abil)
+    function addItem(vararg int items_)
+        if items == null and items.typeId == 0
+            items   = new LinkedList<int>()
+        for i in items_
+            items.add(i)
+    override function create(Way way,vec2 pos) returns unit
+        let u = createUnit(enemyNormal,id, pos,0 .fromDeg())
+        if not u.isHero()
+            u.setTimedLife(300)
+        if abilitys != null and abilitys.typeId != 0
+            for abi in abilitys
+                u.addAbilityPro(abi)
+        if items != null and items.typeId != 0
+            for i in items
+                u.addItemById(i)
+        new Attacker(u,way)
+        u.setWay(way)
+        maps.put(u , this)
+        return u
+    ondestroy
+        if abilitys != null and abilitys.typeId != 0
+            destroy abilitys
+            abilitys = null
+        if items != null and items.typeId != 0
+            destroy items
+            items = null
+            
+public class BossAttackers extends AbstractAttackers
+    string     titlePath
+    HashSet<UnitAttackers> hero = new HashSet<UnitAttackers>
+    UnitAttackers units
+    construct()
+        super()
+    construct(int id)
+        super()
+        units = new UnitAttackers(id)
+    function addHero(vararg UnitAttackers ha)
+        for i in ha
+            hero.add(i)
+    function addUnit(UnitAttackers ha)
+        units = ha
+    override function create(Way way,vec2 pos) returns unit
+        if units != null
+            return units.create(way, pos)
+        return null
+    function createHero(Way way,vec2 pos) returns unit
+        unit cb = null
+        for i in hero
+            cb = i.create(way, pos)
+            cb.setLevelPro(Level.get())
+            cb.setWay(way)
+            // cb.addAbilityPro(bossTitle[(lv-1) div 10])
+            new Attacker(cb,way)
+        return cb

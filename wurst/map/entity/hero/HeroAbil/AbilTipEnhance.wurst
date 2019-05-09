@@ -1,0 +1,137 @@
+package AbilTipEnhance
+// import HashMap
+// import LinkedList
+// import SchoolAbil
+// import YDAbilityState
+// import slk
+// import SpellsId
+
+public class TagAbil
+    string tag
+    int    id
+    construct(string tag,int id)
+        this.tag = tag
+        this.id = id
+
+    // function flushTip(unit u,IterableMap<int,SchoolAbil> sas)
+    //     let a = AbilTipEnhanceEntity.map.get(id)
+    //     if a != null
+    //         a.flushTip(u,sas)
+
+// public class AbilTipEnhanceEntity
+//     static let map = new HashMap<int, thistype>
+//     int id
+//     string desc
+//     LinkedList<EnhanceEntry> enhances = new LinkedList<EnhanceEntry>
+//     static let tip = "根据技能品级不同,会额外附加括号中的数值!"
+
+//     construct(int id)
+//         this.id = id
+//         this.desc = slk_abil.loadString(id,"desc".getHash())
+//         map.put(id, this)
+
+//     function addEnhance(string name,string desc)
+//         let se = SchoolSpellEntity.name2this.get(name)
+//         if se != null
+//             enhances.add(new EnhanceEntry(se,name,desc))
+
+//     function flushTip(unit u,IterableMap<int,SchoolAbil> sas)
+//         string s = desc  +"\n"
+//         s = s  +"伤害公式:(全属性+主属性)*境界系数*系数|n"
+//         s = s  +color(216, 57, 17).toColorString()+"[门派技能激活效果]:|n"
+//         for i in enhances
+//             EnhanceEntry temp = null
+//             for abilId in sas
+//                 if i.se.abilId == abilId
+//                     temp = i
+//                     break
+//             if temp != null
+//                 s += color(17, 216, 66).toColorString()+ "[" + i.name + "] " + i.desc +"\n"
+//             else
+//                 s += color(91, 104, 94).toColorString()+ "[" + i.name + "] " + i.desc +"\n"
+//         s+=tip
+//         u.exAbilData(EX_ABIL_YD.UBERTIP, id, 1,s)
+
+//     static class EnhanceEntry
+//         SchoolSpellEntity se
+//         string name
+//         string desc
+//         construct(SchoolSpellEntity se,string name,string desc)
+//             this.se = se
+//             this.name = name
+//             this.desc = desc
+// init
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroBiyao_spell_qinlianzhenqi_id    )
+//     ..addEnhance("[青云]玄冰劲气", "全体队友<-无敌 * 1.5(+0.3)秒")
+//     ..addEnhance("[天音]佛光普照", "全体队友<-暴怒 * 2.5(+0.3)秒")
+//     ..addEnhance("[焚香]火气流转", "全体队友<-强化 Lv.3(+1) * 5秒")
+//     ..addEnhance("[魔教]修罗降世", "伤害+100(+40)%")
+//     ..addEnhance("[魔教]唯我劲气", "敌人<-眩晕 * 1.5(+0.3)秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroFaxiang_spell_wanfochaozhong_id )
+//     ..addEnhance("[魔教]玄冰劲气", "伤害+30(+5)%")
+//     ..addEnhance("[天音]无量真言", "敌人<-眩晕 * 1.5秒")
+//     ..addEnhance("[天音]寂灭蔽日", "自身<-无敌 * 2.5(+0.3)秒")
+//     ..addEnhance("[焚香]火气流转", "伤害范围+100(+50)")
+//     ..addEnhance("[江湖]天玑剑诀", "伤害+50(+20)%")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroLinjinyu_spell_qijiezhanlong_id )
+//     ..addEnhance("[青云]斩鬼神" ,"伤害+50(+20)%")
+//     ..addEnhance("[焚香]业火燃魂" ,"敌人<-破绽 Lv.1(+1) * 5秒")
+//     ..addEnhance("[天音]佛光普照" ,"敌人<-致盲 Lv.1(+1) * 5秒")
+//     ..addEnhance("[魔教]唯我劲气" ,"斩击数+3")
+//     ..addEnhance("[江湖]炼神剑诀" ,"伤害+30(+5)%")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroLuxueqi_spell_shuanghanjianyu_id)
+//     ..addEnhance("[青云]玄冰劲气", "敌人<-虚弱 Lv.1(+1) * 5秒")
+//     ..addEnhance("[青云]神剑御雷", "弹幕数量翻倍,伤害范围+100")
+//     ..addEnhance("[天音]狮子吼",   "自身<-无敌 * 3(+1)秒")
+//     ..addEnhance("[焚香]火灵炽体", "敌人<-致盲 Lv.1(+1) * 5秒")
+//     ..addEnhance("[江湖]白月剑诀", "伤害+30(+5)%")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroQihao_spell_longyinjiutian_id   )
+//     ..addEnhance("[青云]雷云剑气", "持续时间+3秒")
+//     ..addEnhance("[天音]寂灭蔽日", "伤害+50(+10)%")
+//     ..addEnhance("[焚香]业火燃魂", "自身<-强化 Lv.1(+1) * 5秒")
+//     ..addEnhance("[魔教]邪魔剑气", "伤害+30(+5)%")
+//     ..addEnhance("[江湖]通神剑诀", "敌人<-眩晕 * 1.1(+0.1)秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroShitou_spell_bahuangkuangluan_id)
+//     ..addEnhance("[青云]雷云剑气", "伤害+30(+5)%")
+//     ..addEnhance("[天音]狮子吼"  , "自身<-强化 Lv.1(+1) * 5秒")
+//     ..addEnhance("[天音]无量真言", "自身<-无敌 * 2.5(+0.3)秒")
+//     ..addEnhance("[焚香]火灵炽体", "伤害范围+100(+50)")
+//     ..addEnhance("[魔教]修罗降世", "持续时间+5秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroTianliner_spell_linqikuosan_id  )
+//     ..addEnhance("[青云]玄冰劲气", "敌人<-虚弱 Lv.3(+1) * 5秒")
+//     ..addEnhance("[天音]寂灭蔽日", "伤害+50(+10)%")
+//     ..addEnhance("[天音]佛光普照", "队友<-护体 Lv.3(+1) * 5秒")
+//     ..addEnhance("[焚香]火灵炽体", "自身<-强化 Lv.1(+1) * 5秒")
+//     ..addEnhance("[江湖]白月剑诀", "敌人<-眩晕 * 1.2(+0.2)秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroXiaohuan_spell_dinhundafa_id    )
+//     ..addEnhance("[青云]神剑御雷", "伤害+50(+20)%")
+//     ..addEnhance("[天音]无量真言", "伤害+50(+20)%")
+//     ..addEnhance("[焚香]烈焰炙天", "伤害+50(+20)%")
+//     ..addEnhance("[魔教]修罗降世", "伤害+50(+20)%")
+//     ..addEnhance("[江湖]天玑剑诀", "伤害+50(+20)%")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroXiaoyicai_spell_xuanyunbufa_id  )
+//     ..addEnhance("[青云]玄冰劲气", "自身<-神行 * 10(+5)秒")
+//     ..addEnhance("[天音]佛光普照", "自身<-精准 * 6(+2)秒")
+//     ..addEnhance("[焚香]火气流转", "自身<-强化 Lv.1(+1) * 5秒")
+//     ..addEnhance("[魔教]修罗降世", "自身<-无敌 * 2.5(+0.3)秒")
+//     ..addEnhance("[江湖]天玑剑诀", "自身<-暴怒 * 2.5(+0.3)秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroYegoudaoren_spell_shixueshaqi_id)
+//     ..addEnhance("[青云]斩鬼神"  ,"伤害+40(+10)%")
+//     ..addEnhance("[焚香]业火燃魂", "敌人<-虚弱 Lv.1(+1) * 5秒")
+//     ..addEnhance("[魔教]邪魔剑气", "伤害+20(+5)%")
+//     ..addEnhance("[魔教]唯我劲气", "敌人<-致盲 Lv.1(+1) * 5秒")
+//     ..addEnhance("[魔教]修罗降世", "敌人<-破绽 Lv.2(+1) * 5秒")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroZengshushu_spell_poyunliujue_id )
+//     ..addEnhance("[青云]斩鬼神  ", "斩击数+3")
+//     ..addEnhance("[青云]雷云剑气", "伤害+30(+10)%")
+//     ..addEnhance("[焚香]业火燃魂", "敌人<-破绽 Lv.2(+1) * 5秒")
+//     ..addEnhance("[天音]佛光普照", "敌人<-致盲 Lv.2(+1) * 5秒")
+//     ..addEnhance("[江湖]炼神剑诀", "伤害+30(+10)%")
+//     new AbilTipEnhanceEntity(HeroActiveSpell.heroZhangxiaofan_spell_fomodaofa_id )
+//     ..addEnhance("[青云]玄冰劲气", "敌人<-虚弱 Lv.1 * 5秒")
+//     ..addEnhance("[天音]佛光普照", "伤害范围+200(+30)")
+//     ..addEnhance("[焚香]火气流转", "敌人<-破绽 Lv.1 * 5秒")
+//     ..addEnhance("[魔教]邪魔剑气", "吸收伤害值10%的生命")
+//     ..addEnhance("[江湖]白月剑诀", "伤害+50(+5)%")
+
+  

@@ -1,0 +1,52 @@
+package UnitAgho
+import UnitLimit
+
+public class UnitAgho
+    use UnitLimit
+    static let name = "隐身"
+    static let id = 'Agho'
+    static function apply(unit u,real time) returns thistype
+        let c = get(u)
+        if c == null
+            let a = getThis()
+            a.target = u
+            a.time = time
+            a.onApply(u, time)
+            return a
+        else
+            c.onCover(u,time)
+            return c
+    override static function get(unit u) returns thistype
+        thistype pre = null
+        for i in UnitAgho
+            if i.target == u
+                pre = i
+        return pre
+
+    override static function getThis() returns thistype
+        return new UnitAgho()
+
+    override function getName() returns string
+        return name
+            
+    override function onApply(unit u,real time)
+        u.addAbility(id)
+        this.time = time
+    override static function removal(unit u)
+        for i in UnitAgho
+            if i.target == u
+                i.onRemoval(u)
+    override function onRemoval(unit u)
+        u.removeAbility(id)
+        destr()
+        
+    override function destr()
+        this.time = 0
+        this.timePost = 0
+        destroy this
+    override static function engine()
+        task = onAlways(frame) tk->
+            for i in UnitAgho
+                i.do()
+init
+    UnitAgho.engine()

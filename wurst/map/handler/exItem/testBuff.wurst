@@ -1,0 +1,128 @@
+package testBuff
+import BuffFactory
+import dzFrame
+import base
+import LinkedList
+import HashMap
+
+public class BuffCeil
+    static let map = new HashMap<int,thistype>()
+    int   index
+    Frame back
+    Frame backButton
+    Buff  bf
+    construct(int index)
+        this.index = index
+        this.back = new Frame("BACKDROP","buff图标"+index)
+        ..setSize(0.02, 0.02)
+        this.backButton = new Frame("BUTTON","buff图标响应"+index)
+        ..setSize(0.02, 0.02)
+        ..setAllPoints(back)
+        map.put(backButton.frame,this)
+    function show(bool flag)
+        back.show(flag)
+        backButton.setEnable(flag)
+    function of(Buff bf)
+        clear()
+        this.bf = bf
+        if bf instanceof SuperableBuff
+            let sbf = (bf castTo SuperableBuff)
+            back.setTexture(sbf.getLevelTexture(sbf.lv), 0)
+        else
+            back.setTexture(bf.getTexture(), 0)
+        show(true)
+        
+    function clear()
+        this.bf = null
+        show(false)
+public class BuffTip
+    static Frame desc = new Frame("TEXT","buff详细描述")..setSize(0.1, 0.02)
+
+public class BuffPanel
+    static Frame back
+    static LinkedList<BuffCeil> good = new LinkedList<BuffCeil>()
+    static LinkedList<BuffCeil> bad  = new LinkedList<BuffCeil>()
+unit target
+
+public function testBuffInit()
+    let hero = new Frame(EX_DefaultFrame_DZ.heroBarButton(0),"herossss")
+    BuffPanel.back = new Frame("BACKDROP","buff底栏")
+    ..setPoint(AnchorPoint.TOPLEFT, hero, AnchorPoint.BOTTOMLEFT, 0, -.03)
+    ..show(false)
+    Frame last = BuffPanel.back
+    for i = 1 to 10
+        let b = new BuffCeil(i)..show(false)
+        BuffPanel.good.add(b)
+        b.back.setPoint(AnchorPoint.TOPLEFT, last, AnchorPoint.TOPRIGHT, 0, 0)
+        last = b.back
+        // b.backButton.addEvent(FrameEvents.FOCUS_ENTER, false)->
+        //     let f = Frame.find()
+        //     BuffTip.desc
+        //     ..setPoint(AnchorPoint.BOTTOMLEFT, f, AnchorPoint.TOPLEFT, 0, 0)
+        //     if DzGetTriggerUIEventPlayer() == localPlayer
+        //         BuffTip.desc..show(true)
+        //     let fb = BuffCeil.map.get(f.frame)
+        //     if fb.bf != null and fb.bf.typeId != 0
+        //         string lv = ""
+        //         if fb.bf instanceof SuperableBuff
+        //             lv = "Lv."+(fb.bf castTo SuperableBuff).lv
+        //         BuffTip.desc
+        //         ..setText(fb.bf.getName()+lv)
+        // b.backButton.addEvent(FrameEvents.FOCUS_LEAVE, false)->
+        //     if DzGetTriggerUIEventPlayer() == localPlayer
+        //         BuffTip.desc..setText("")..show(true)
+    last = BuffPanel.back
+    for i = 11 to 20
+        let b = new BuffCeil(i)..show(false)
+        BuffPanel.bad.add(b)
+        b.back.setPoint(AnchorPoint.BOTTOMLEFT, last, AnchorPoint.BOTTOMRIGHT, 0, 0)
+        last = b.back
+        // b.backButton.addEvent(FrameEvents.FOCUS_ENTER, false)->
+        //     if DzGetTriggerUIEventPlayer() == localPlayer
+        //         let f = Frame.find()
+        //         BuffTip.desc
+        //         ..setPoint(AnchorPoint.BOTTOMLEFT, f, AnchorPoint.TOPLEFT, 0, 0)
+        //         ..show(true)
+        //         let fb = BuffCeil.map.get(f.frame)
+        //         if fb.bf != null
+        //             string lv = ""
+        //             if fb.bf instanceof SuperableBuff
+        //                 lv = "Lv."+(fb.bf castTo SuperableBuff).lv
+        //             BuffTip.desc.setText(fb.bf.getName()+lv)
+        // b.backButton.addEvent(FrameEvents.FOCUS_LEAVE, false)->
+        //     if DzGetTriggerUIEventPlayer() == localPlayer
+        //         BuffTip.desc..setText("")..show(false)
+
+    // BuffPanel.back.setSize(0.001, 0.06)
+    
+    // CreateTrigger()
+    // ..registerAnyUnitEvent( EVENT_PLAYER_UNIT_SELECTED)
+    // ..addAction() ->
+    //     let u = GetTriggerUnit()
+    //     let p = GetTriggerPlayer()
+    //     if GetLocalPlayer() == p
+    //         target = u
+    // onAlways(0.5) ts ->
+    //     if target != null
+    //         let list = Buff.getAllWhereIsTarget(target)
+    //         if list != null and list.typeId != 0
+    //             let g = BuffPanel.good.iterator()
+    //             let b = BuffPanel.bad.iterator()
+    //             for i in list
+    //                 if i.getTimeleft() > 1
+    //                     if i.isDebuff()
+    //                         b.next().of(i)
+    //                     else
+    //                         g.next().of(i)
+    //             while g.hasNext()
+    //                 g.next().clear()
+    //             while b.hasNext()
+    //                 b.next().clear()
+    //         else
+    //             let g = BuffPanel.good.iterator()
+    //             let b = BuffPanel.bad.iterator()
+    //             while g.hasNext()
+    //                 g.next().clear()
+    //             while b.hasNext()
+    //                 b.next().clear()
+

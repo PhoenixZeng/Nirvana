@@ -1,0 +1,163 @@
+package AgentItemRecipe
+import base
+import LinkedListModule
+import HashMap
+import HashList
+import itemLib
+
+let lv = Loglevel.TRACE
+
+public class AgentItemRecipe
+    use LinkedListModule
+    static hashtable tx = InitHashtable()
+    static HashMap<int,AgentItemRecipe> targets = new HashMap<int,AgentItemRecipe>()
+    int index
+    int agentId
+    int target
+    int printer = 1
+    private construct()
+    static function of(int agentId,int target) returns AgentItemRecipe
+        let a = new AgentItemRecipe()
+        a.index = AgentItemRecipe.size
+        a.initTarget(agentId, target)
+        targets.put(target, a)
+        return a    
+
+    private function initTarget(int agentId,int target)
+        this.agentId = agentId
+        this.target = target
+        tx.saveInt(AgentItemRecipe.size, 0, target)
+        tx.saveInt(AgentItemRecipe.size, 1, agentId)
+
+    function toString() returns string
+        string s = ""
+        let lists = loadAsList(agentId)
+        for list in lists
+            for AgentItemComponent ic in list.list
+                if(ic.quantity==1)
+                    s += ic.component.toIdString() + " + "
+                else
+                    s += ic.component.toIdString()+"["+ic.quantity+"]" + " + "
+            s = s.substring(0,s.length()-3)
+            s += " = " + this.target.toIdString()
+            s += " @ " + this.agentId.toIdString() + "\n"
+        destrItemComponentList(lists)
+        return s
+
+    function addComponent(int id, int quantity)
+        printer ++ 
+        tx.saveInt(index, printer, id)
+        printer ++ 
+        tx.saveInt(index, printer, quantity)
+    function addComponent(int id)
+        addComponent(id,1)
+    function addComponents(vararg int ids)
+        for i in ids
+            addComponent(i)
+    function build()
+        printer = 0
+        destroy this
+
+    private static function loadAsList(int agentId) returns HashList<AgentItemRecipeComponents>
+        let list = new HashList<AgentItemRecipeComponents>()
+        for j = 0 to AgentItemRecipe.size
+            if tx.loadInt(j, 1) == agentId
+                let sublist = new HashList<AgentItemComponent>()
+                for i = 1 to 6
+                    var printer = i * 2 + 2
+                    printer --
+                    let num = tx.loadInt(j, printer)
+                    printer -- 
+                    let ite = tx.loadInt(j, printer)
+                    if num != 0 and ite != 0
+                        sublist.add(new AgentItemComponent(ite,num))
+                list.add(new AgentItemRecipeComponents(tx.loadInt(j, 0),tx.loadInt(j, 1),sublist))
+        return list
+    
+    private static function destrItemComponentList(HashList<AgentItemRecipeComponents> lists)
+        for list in lists
+            destroy list
+        destroy lists
+    
+    private static function canCraft(HashList<AgentItemComponent> list,HashList<item> items) returns bool
+        var flag = not list.isEmpty()
+        for i in list
+            var flagCurrent = false
+            for is in items
+                if is.getTypeId() == i.component
+                    let a = is.getCharges()
+                    if a == 0 and i.quantity == 1
+                        flagCurrent = true
+                    else
+                        flagCurrent = a >= i.quantity
+            flag = flag and flagCurrent
+        return flag
+    
+    static function getComponentsString(HashList<AgentItemComponent> list) returns string
+        string fold = "["
+        for i in list
+            fold += i.toString() + ","
+        // let fold = list.foldl<string>("[", (i, q) -> q + i.toString() + ",")
+        return fold.substring(0, fold.length()-1) + "]"
+    static function getComponentsString(HashList<item> list) returns string
+        string fold = "["
+        for i in list
+            fold += i.getCharges()+ "*" + i.getTypeId().toIdString() + ","
+        return fold.substring(0, fold.length()-1) + "]"
+
+    static function tryCraft(int agentId,HashList<item> items) returns int
+        var id = 0
+        let lists = loadAsList(agentId)
+        printLog(localPlayer,lv,"tryCraft#has:"+getComponentsString(items))
+        for list in lists
+            printLog(localPlayer,lv,"tryCraft#need:"+getComponentsString(list.list))
+            printLog(localPlayer,lv,"tryCraft#canCraft:"+canCraft(list.list, items))
+            if canCraft(list.list, items)
+                for i in list.list
+                    for is in items
+                        if is.getTypeId() == i.component
+                            is.setChargesPro(is.getCharges() - i.quantity)
+                            break
+                id = list.target
+                break
+        destrItemComponentList(lists)
+        destroy items
+        return id
+
+class AgentItemRecipeComponents
+    int target
+    int agentId
+    HashList<AgentItemComponent> list
+    construct(int target,
+        int agentId,
+        HashList<AgentItemComponent> list)
+        this.target = target
+        this.agentId = agentId
+        this.list = list
+
+
+
+class AgentItemComponent
+    int component
+    int quantity = 1
+    construct(int id, int count)
+        component = id
+        quantity = count
+    construct(int id)
+        component = id
+        quantity = 1
+    function toString() returns string
+        return quantity + "*" + component.toIdString() + "\n"
+
+init
+
+@test function aa()
+    for i = 0 to 3
+        for j = 0 to 3
+            for k = 0 to 3
+                print("k"+k)
+                if k == 2
+                    break
+                break
+            print("j"+j)
+        print("i"+i)

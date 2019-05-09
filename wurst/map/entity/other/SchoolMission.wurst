@@ -1,0 +1,378 @@
+package SchoolMission
+// import Mission
+// import baseImport
+// import Practice
+// import Npc
+
+// public class SchoolMission
+//     string name
+//     int lv
+//     construct(string  name)
+//         this.name   = name
+
+//     function forUnit(unit u)
+//         u.applyMission(name)
+
+//     function cancelForUnit(unit u)
+//         u.cancelMission(name)
+
+// public class HurtBossSchoolMission extends SchoolMission
+//     static let map = new HashMap<int,thistype>()
+//     static int indexPrinter = 0
+//     int index
+//     unit npc
+//     construct(string  name,unit u)
+//         super(name)
+//         super.lv = 4
+//         indexPrinter++
+//         index = indexPrinter
+//         this.npc = u
+//         map.put(index, this)
+
+//     static function random() returns thistype
+//         return map.get(GetRandomInt(1,indexPrinter))
+//     override function forUnit(unit u)
+//         if localPlayer == u.getOwner()
+//             PingMinimap(npc.getPos().x,npc.getPos().y,5)
+//         super.forUnit(u)
+
+
+// init
+//     new HurtBossSchoolMission("[门派]:挑战|cFF1BE6B8灵玄宫门主|r"  ,NPC.byName("灵玄宫门主"  ).u)
+//     new HurtBossSchoolMission("[门派]:挑战|cFF1BE6B8藏剑山庄庄主|r",NPC.byName("藏剑山庄庄主").u)
+//     new HurtBossSchoolMission("[门派]:挑战|cFF1BE6B8霸刀门门主|r"  ,NPC.byName("霸刀门门主"  ).u)
+
+// public class HurtDungeonBossSchoolMission extends SchoolMission
+//     static let map = new HashMap<int,thistype>()
+//     static int indexPrinter = 0
+//     int index
+//     construct(string  name)
+//         super(name)
+//         super.lv = 3
+//         indexPrinter++
+//         index = indexPrinter
+//         map.put(index, this)
+
+//     static function random(int i) returns thistype
+//         var s = i
+//         if s <= 0
+//             s = 1
+//         if s > indexPrinter
+//             s = indexPrinter
+//         return map.get(s)
+        
+// public class HurtDungeonUnitSchoolMission extends SchoolMission
+//     static let map = new HashMap<int,thistype>()
+//     static int indexPrinter = 0
+//     int index
+//     construct(string  name)
+//         super(name)
+//         super.lv = 2
+//         indexPrinter++
+//         index = indexPrinter
+//         map.put(index, this)
+//     static function random(int i) returns thistype
+//         var s = i
+//         if s <= 0
+//             s = 1
+//         if s > indexPrinter
+//             s = indexPrinter
+//         return map.get(s)
+    
+// init
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8熔岩怪物|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8地狱火|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8黑石精|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8狗头人|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8豪猪人|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8半人马|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8毒虫|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8淤泥怪|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8邪灵触手|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8蛊虫|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8剧毒蜘蛛|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8死灵魔物|r")
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8幻境怪物|r") 
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8幻境邪物|r") 
+//     new HurtDungeonUnitSchoolMission("[门派]:清理|cFF1BE6B8幻境魔物|r") 
+
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8三尾妖狐|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8六尾灵狐|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8荒岛巨熊|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8荒岛猛犸|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8地缚魔|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8沼泽邪灵|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8血欲之母|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8七彩蜈蚣|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8幻境邪魔怪|r")
+//     new HurtDungeonBossSchoolMission("[门派]:击杀|cFF1BE6B8幻境统领|r")
+
+// public class SendSchoolMission extends SchoolMission
+//     static let map = new HashMap<int,thistype>()
+//     static int indexPrinter = 0
+//     int index
+//     unit npc
+//     construct(string  name,unit u)
+//         super(name)
+//         this.npc = u
+//         super.lv = 1
+//         indexPrinter++
+//         index = indexPrinter
+//         map.put(index, this)
+
+//     override function forUnit(unit u)
+//         if localPlayer == u.getOwner()
+//             PingMinimap(npc.getPos().x,npc.getPos().y,5)
+//         super.forUnit(u)
+
+//     static function random() returns thistype
+//         return map.get(GetRandomInt(1,indexPrinter))
+
+// init
+//     new SendSchoolMission("[门派]:送信|cFF1BE6B8灵玄宫门主|r"  ,NPC.byName("灵玄宫门主"  ).u)
+//     new SendSchoolMission("[门派]:送信|cFF1BE6B8藏剑山庄庄主|r",NPC.byName("藏剑山庄庄主").u)
+//     new SendSchoolMission("[门派]:送信|cFF1BE6B8霸刀门门主|r"  ,NPC.byName("霸刀门门主"  ).u)
+
+// public class PlayerSchoolMissionMannger
+//     static let map = new HashMap<player,thistype>()
+//     int numLimit = 10000
+//     int num
+//     Players p
+//     SchoolMission mission
+//     int lastMissionType = 0
+//     construct(Players p)
+//         this.p = p
+//         this.numLimit += p.schoolMissionNumPlus
+//         map.put(p._player, this)
+
+//     function applyMission()
+//         if p.testGameScore(1)
+//             if num <= numLimit
+//                 var a = GetRandomInt(1, 3)
+//                 let pi = p.hero.xiuxian.getIndex()
+//                 if pi >= 20
+//                     a = GetRandomInt(1, 4)
+//                 while a == lastMissionType
+//                     a = GetRandomInt(1, 3)
+//                     if pi >= 20
+//                         a = GetRandomInt(1, 4)
+//                 lastMissionType = a
+//                 SchoolMission m = null
+//                 if a == 4
+//                     m = HurtBossSchoolMission.random()
+//                 else if a== 3
+//                     m = HurtDungeonBossSchoolMission.random(p.hero.xiuxian.entity.index div 3)
+//                 else if a== 2
+//                     m = HurtDungeonUnitSchoolMission.random(p.hero.xiuxian.entity.index div 2)
+//                 else if a== 1
+//                     m = SendSchoolMission.random()
+//                 if m != null
+//                     cancelMission()
+//                     this.mission = m
+//                     mission.forUnit(p.hero._self)
+//                     num ++
+//                 p.subGameScore(1)
+//             else
+//                 printTimedToPlayer("[门派]:你已经完成了门派的所有任务了!", 10, p._player)
+//         else
+//             printTimedToPlayer("[门派]:游戏积分不足!", 10, p._player)
+            
+//     function cancelMission()
+//         if mission != null
+//             mission.cancelForUnit(p.hero._self)
+// init
+//     CreateTrigger()
+//     ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)
+//     ..addAction() ->
+//         let s = GetSoldItem()
+//         if s.getTypeId() == 'MS0K'
+//             let bu = GetBuyingUnit()
+//             var m = PlayerSchoolMissionMannger.map.get(bu.getOwner())
+//             if m == null
+//                 m = new PlayerSchoolMissionMannger(Players.get(bu.getOwner()))
+//             m.applyMission()
+
+
+//     // new HuntMission("[门派]:清理|cFF1BE6B8蝙蝠|r")
+//     // ..setTarget('h500', 30)
+//     // ..addAward(AwardType.itemId, 'I62X')
+//     // ..build()
+//     // ..canRepeat()
+//     // new HuntMission("[门派]:清理|cFF1BE6B8鬼魂|r")
+//     // ..setTarget('h501', 30)
+//     // ..addAward(AwardType.itemId, 'I62X')
+//     // ..build()
+//     // ..canRepeat()
+//     // new HuntMission("[门派]:清理|cFF1BE6B8死灵|r")
+//     // ..setTarget('h502', 30)
+//     // ..addAward(AwardType.itemId, 'I62X')
+//     // ..build()
+//     // ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8熔岩怪物|r")
+//     ..setTarget('h503', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8地狱火|r")
+//     ..setTarget('h504', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8黑石精|r")
+//     ..setTarget('h505', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8狗头人|r")
+//     ..setTarget('h506', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8豪猪人|r")
+//     ..setTarget('h507', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8半人马|r")
+//     ..setTarget('h508', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8毒虫|r")
+//     ..setTarget('h509', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8淤泥怪|r")
+//     ..setTarget('h50A', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8邪灵触手|r")
+//     ..setTarget('h50B', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8蛊虫|r")
+//     ..setTarget('h50C', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8剧毒蜘蛛|r")
+//     ..setTarget('h50D', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:清理|cFF1BE6B8魔化蛊虫|r")
+//     ..setTarget('h50E', 30)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[副本]:清理|cFF1BE6B8幻境怪物|r")
+//     ..setTarget('h50F', 20)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[副本]:清理|cFF1BE6B8幻境邪物|r")
+//     ..setTarget('h50G', 20)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[副本]:清理|cFF1BE6B8幻境魔物|r")
+//     ..setTarget('h50H', 20)
+//     ..addAward(AwardType.itemId, 'I62X')
+//     ..build()
+//     ..canRepeat()
+
+//     // new HuntMission("[门派]:击杀|cFF1BE6B8死灵魔物|r")
+//     // ..setTarget('H600',1)
+//     // ..addAward(AwardType.itemId, 'I62Y')
+//     // ..build()
+//     // ..canRepeat()
+//     // new HuntMission("[门派]:击杀|cFF1BE6B8死灵统领|r")
+//     // ..setTarget('H601',1)
+//     // ..addAward(AwardType.itemId, 'I62Y')
+//     // ..build()
+//     // ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8三尾妖狐|r")
+//     ..setTarget('H603',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8六尾灵狐|r")
+//     ..setTarget('H604',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8荒岛巨熊|r")
+//     ..setTarget('H606',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8荒岛猛犸|r")
+//     ..setTarget('H607',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8地缚魔|r")  
+//     ..setTarget('H609',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8沼泽邪灵|r")
+//     ..setTarget('H60A',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8血欲之母|r")
+//     ..setTarget('H60C',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8七彩蜈蚣|r")
+//     ..setTarget('H60D',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8幻境邪魔怪|r")
+//     ..setTarget('H60F',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:击杀|cFF1BE6B8幻境统领|r")
+//     ..setTarget('H60G',1)
+//     ..addAward(AwardType.itemId, 'I62Y')
+//     ..build()
+//     ..canRepeat()
+
+//     new HuntMission("[门派]:挑战|cFF1BE6B8霸刀门门主|r")
+//     ..setTarget('H430',1)
+//     ..addAward(AwardType.itemId, 'I62Z')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:挑战|cFF1BE6B8藏剑山庄庄主|r")
+//     ..setTarget('H431',1)
+//     ..addAward(AwardType.itemId, 'I62Z')
+//     ..build()
+//     ..canRepeat()
+//     new HuntMission("[门派]:挑战|cFF1BE6B8灵玄宫门主|r")
+//     ..setTarget('H432',1)
+//     ..addAward(AwardType.itemId, 'I62Z')
+//     ..build()
+//     ..canRepeat()
+
+//     new SendMission("[门派]:送信|cFF1BE6B8灵玄宫门主|r")
+//     ..addItemName("信")
+//     ..addAward(AwardType.itemId, 'I62W')
+//     ..setSubmit(NPC.byName("灵玄宫门主"  ).u)
+//     ..canRepeat()
+//     new SendMission("[门派]:送信|cFF1BE6B8藏剑山庄庄主|r")
+//     ..addItemName("信")
+//     ..addAward(AwardType.itemId, 'I62W')
+//     ..setSubmit(NPC.byName("藏剑山庄庄主"  ).u)
+//     ..canRepeat()
+//     new SendMission("[门派]:送信|cFF1BE6B8霸刀门门主|r")
+//     ..addItemName("信")
+//     ..addAward(AwardType.itemId, 'I62W')
+//     ..setSubmit(NPC.byName("霸刀门门主"  ).u)
+//     ..canRepeat()

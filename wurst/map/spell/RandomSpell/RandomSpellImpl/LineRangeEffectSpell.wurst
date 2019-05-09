@@ -1,0 +1,198 @@
+package LineRangeEffectSpell
+import RandomSpell
+import HashMap
+import RandomSpellBasicManager
+import AbstractPassiveDamageDispatcher
+import LinearEffect
+import Execute
+import DmgType
+
+public class NameLineRangeEffectPair
+    static let map = new HashMap<int,thistype>()
+    static int printer = 0
+    string name
+    string art
+    string pathRange
+
+    construct(string name, string art, string pathRange)
+        this.name = name
+        this.art = art
+        this.pathRange = pathRange
+        map.put(printer, this)
+        printer ++
+
+    static function get() returns thistype
+        return map.get(map.size().toReal().nextInt())
+    static function inite()
+        new NameLineRangeEffectPair("圣火裁决[大招]","blp\\RangeEffectSpell\\shenghuocaijue.blp","war3mapImported\\[Sepll]LinaSun _T1_MagicMatrix.mdx")
+        new NameLineRangeEffectPair("黑暗深渊[大招]","blp\\RangeEffectSpell\\heianshenyuan.blp","war3mapImported\\AZ_BlackSmoke01.mdx")
+        new NameLineRangeEffectPair("青龙降世[大招]","blp\\RangeEffectSpell\\qinglongjiangshi.blp","war3mapImported\\AZ_CoCoGuanyu_E1.mdx")
+        new NameLineRangeEffectPair("地狱烈焰[大招]","blp\\RangeEffectSpell\\diyulieyan.blp","war3mapImported\\AZ_Doomdragon_D.mdx")
+        new NameLineRangeEffectPair("烈狱突刺[大招]","blp\\RangeEffectSpell\\lieyutuci.blp","war3mapImported\\AZ_CWLava_T.MDX")
+        new NameLineRangeEffectPair("烈焰焚天[大招]","blp\\RangeEffectSpell\\lieyanfentian.blp","war3mapImported\\AZ_Firewall.MDX")
+        new NameLineRangeEffectPair("神罚之雷[大招]","blp\\RangeEffectSpell\\shenfazhilei.blp","war3mapImported\\AZ_Goods_TP_Caster(3).MDX")
+        new NameLineRangeEffectPair("狂雷风暴[大招]","blp\\RangeEffectSpell\\kuangleifengbao.blp","war3mapImported\\AZ_Kaer_C.MDX")
+        new NameLineRangeEffectPair("血狱魔蝠[大招]","blp\\RangeEffectSpell\\xueyumofu.blp","war3mapImported\\AZ_Nevermore_X(1).mdx")
+        
+/*
+属性项：
+    0：全属性
+    1：力量
+    2：敏捷
+    3：智力
+    4：力量+敏捷
+    5：力量+智力
+    6：敏捷+力量
+    7：敏捷+智力
+    8：智力+力量
+    9：智力+敏捷
+*/
+
+public class LineRangeEffectSpell extends RandomSpell
+    string pathRange
+    Prop prop
+    real power
+
+    int  count
+    real range
+    real dist 
+    real delay
+    AbstractPassiveDamageDispatcher  disper
+
+    construct()
+        super()
+
+    override function toString() returns string
+        return "LineRangeEffectSpell&"+"art:"+art+"name:"+name+"tip:"+tip + " id:"+id.toIdString()
+
+    override function levelUp() returns bool
+        if lv < 10
+            lv ++
+            power *= 1.2
+            makeTip()
+            flushSpell()
+            registerDispatcher()
+            return true
+        return false
+    
+    function registerDispatcher()
+        if disper != null and disper.typeId != 0
+            destroy disper
+        disper = AbstractPassiveDamageDispatcher.on(name) (dd,dmg)->
+            let a = dmg.i.getPos().angleTo(dmg.j.getPos())
+            for c = 1 to count
+                execute() ->
+                    new LineRangeEffectSpellCast(this,u,dmg.j.getPos().withTerrainZ(),5,range,
+                    (a.degrees() + 360/count * c).fromDeg(),dist)
+        disper
+        ..setHurtRange(range)
+        ..setHurt(power,0)
+        ..setAbilCond(id, 10)
+        ..setType(UnitDamageType.Spell)
+        ..setEffect(pathRange)
+        ..setProp(prop)
+
+    static function getDmgCount() returns int
+        if 20 .random()
+            return 3
+        else if 60 .random()
+            return 4
+        return (8 .next()).toInt() + 1
+    static function getDmgDelay(int count) returns real
+        if count <= 5
+            return 0.6 / count
+        else
+            return 0.1
+    function makeTip()
+        tip = "有概率造成范围伤害|n品级:"+getLevelName(level)+"|n伤害段数:"+count+"|n伤害间隔:"+delay.toString(2)+"|n威力系数:"+power.toString(2)+"|n关联属性:"+prop.toString()+"|n伤害范围:"+range.toString(2)
+
+    override function initSpell()
+        this.level = getLevel()
+        randomData()
+        makeTip()
+
+
+    override function onReRandom()
+        lv = 1
+        this.level = getLevel()
+        randomData()
+        makeTip()
+        flushSpell()
+
+    override function randomData()
+        let pair = NameLineRangeEffectPair.get()
+        this.name = pair.name
+        this.art  = pair.art
+        this.pathRange = pair.pathRange
+        this.range = 100 * 1.3 .pow(level - 1.)
+        this.dist = 100
+        this.prop = (10 .nextInt()) castTo Prop
+        switch prop
+            case Prop.ALL
+                this.power = 1.0 * 1.2 .pow(level - 1.)
+            case Prop.STR
+                this.power = 2.0 * 1.2 .pow(level - 1.)
+            case Prop.AGI
+                this.power = 2.0 * 1.2 .pow(level - 1.)
+            case Prop.INT
+                this.power = 2.0 * 1.2 .pow(level - 1.)
+            default
+                this.power = 1.5 * 1.2 .pow(level - 1.)
+        this.power.float(0.2)
+        this.power = power / 3
+        this.count = getDmgCount()
+        if count > 1
+            this.power = power / count
+            this.delay = getDmgDelay(count)
+
+    override function onApply(Hero u)
+        if id == 0
+            id = RandomSpellBasicManager.get()
+        this.u = u
+        u._self.addAbilityPro(id)
+        flushSpell()
+        registerDispatcher()
+    override function onRemove()
+        u._self.removeAbility(id)
+        destroy disper
+
+class LineRangeEffectSpellCast extends DelayedLinearEffect
+    static real delay_ = 0.1
+    Hero h
+    string eff 
+    real power
+    construct(
+            LineRangeEffectSpell es,
+            Hero h,
+            vec3    origin,
+            int     count ,
+            real    range ,
+            angle   face  ,
+            real    dist  
+            )
+        super(origin,count,range,face,0 .fromDeg(),dist,0,delay_)
+        this.h = h
+        this.eff = es.pathRange
+        this.power = es.power
+        mover_start()
+    override function getEffectPath() returns string
+        return eff
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSum() * power
+        h._self.damageSpell(u, dmg)
+    override function onEnd()
+        super.onEnd()
+
+@test function aa()
+    NameLineRangeEffectPair.inite()
+    for i = 1 to 10
+        let a = new LineRangeEffectSpell()
+        a.initSpell()
+        if a != null
+            print("id:"+a.id.toIdString())
+            print("name:"+a.name)
+            print("art:"+a.art)
+            print("pathRange:"+a.pathRange)
+            print("tip:"+a.tip)

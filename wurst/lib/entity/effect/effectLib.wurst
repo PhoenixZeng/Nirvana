@@ -1,0 +1,79 @@
+package effectLib
+import CenterTimer
+
+public bool array showOthersEffect = [false,false,false,false,false,false,false,false,false,false,false,false]
+
+public function efft(string path, vec2 pos) returns effect
+    return addEffectCom(path, pos)
+
+public function efft(string path, widget target, string attachPointName) returns effect
+    return addEffectCom(path, target, attachPointName)
+
+public function efft(string path, vec2 pos,player owner) returns effect
+    var p = path
+    if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        p = ""
+    return addEffectCom(p, pos)
+
+public function efft(string path, widget target, string attachPointName,player owner) returns effect
+    var p = path
+    if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        p = ""
+    return addEffectCom(p, target, attachPointName)
+
+public function eff(string path, vec2 pos)
+    addEffectCom(path, pos).destr()
+
+public function eff(string path, widget target, string attachPointName)
+    addEffectCom(path, target, attachPointName).destr()
+
+public function eff(string path, vec2 pos,player owner)
+    var p = path
+    if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        p = ""
+    addEffectCom(p, pos).destr()
+
+public function eff(string path, widget target, string attachPointName,player owner)
+    var p = path
+    if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        p = ""
+    addEffectCom(p, target, attachPointName).destr()
+
+function addEffectCom(string path, vec2 pos) returns effect
+    return AddSpecialEffect(path, pos.x, pos.y)
+
+function addEffectCom(string path, widget target, string attachPointName) returns effect
+    return AddSpecialEffectTarget(path, target, attachPointName)
+
+public function unit.eff(string path)
+    eff(path,this, "chest")
+
+public function unit.eff(string path,string ref)
+    eff(path,this, ref)
+
+public function unit.eff(string path,real time)
+    let fx = addEffectCom(path, this, "chest")
+    onAfter(time) i->
+        fx.destr()
+
+public function unit.eff(string path,string ref,real time)
+    let fx = addEffectCom(path, this, ref)
+    onAfter(time) i->
+        fx.destr()
+
+public function unit.eff(string path,player owner)
+    eff(path,this, "chest",owner)
+
+public function unit.eff(string path,string ref,player owner)
+    eff(path,this, ref,owner)
+
+public function unit.eff(string path,real time,player owner)
+    this.eff(path,"chest",time,owner)
+
+public function unit.eff(string path,string ref,real time,player owner)
+    var p = path
+    if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        p = ""
+    let fx = addEffectCom(p, this, ref)
+    onAfter(time) i->
+        fx.destr()

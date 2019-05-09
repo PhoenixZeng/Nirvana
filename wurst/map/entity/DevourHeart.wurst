@@ -1,0 +1,83 @@
+package DevourHeart
+import HashMap
+
+public class DevourHeartEntity
+    static let map = new HashMap<int,thistype>()
+    int clazz
+    int id
+    string name
+    int lv
+    int itemId
+
+    construct(int lv,int clazz,int itemId,int id ,string name)
+        this.id = id
+        this.clazz = clazz
+        this.name = name
+        this.lv = lv
+        this.itemId = itemId
+        map.put(id, this)
+
+    static function initi()
+        new DevourHeartEntity(3,1,'Y151','JS01',"盗贼王")
+        new DevourHeartEntity(3,1,'Y152','JS02',"鱼人首领")
+        new DevourHeartEntity(3,1,'Y153','JS03',"森林狼王")
+        new DevourHeartEntity(3,1,'Y154','JS04',"豪猪王")
+        new DevourHeartEntity(3,2,'Y161','JS05',"达拉内尔主教")
+        new DevourHeartEntity(3,2,'Y162','JS06',"食人魔酋长")
+        new DevourHeartEntity(3,2,'Y163','JS07',"狗头人酋长")
+        new DevourHeartEntity(3,2,'Y164','JS08',"矿井魔蝎")
+        new DevourHeartEntity(3,3,'Y171','JS09',"炎魔")
+        new DevourHeartEntity(3,3,'Y172','JS0A',"巨型蜥蜴")
+        new DevourHeartEntity(3,3,'Y173','JS0B',"千年龙龟")
+        new DevourHeartEntity(3,3,'Y174','JS0C',"成年巨龙")
+        new DevourHeartEntity(3,4,'Y181','JS0D',"冰霜巨魔酋长")
+        new DevourHeartEntity(3,4,'Y182','JS0E',"丛林巨魔酋长")
+        new DevourHeartEntity(3,4,'Y183','JS0F',"娜迦暴君")
+        new DevourHeartEntity(3,4,'Y184','JS0G',"黑暗巨魔酋长")
+        new DevourHeartEntity(3,5,'Y191','JS0H',"火元素领主")
+        new DevourHeartEntity(3,5,'Y192','JS0I',"风元素领主")
+        new DevourHeartEntity(3,5,'Y193','JS0J',"水元素领主")
+        new DevourHeartEntity(3,5,'Y194','JS0K',"土元素领主")
+        new DevourHeartEntity(2,1,'Y151','JS0L',"盗贼王")
+        new DevourHeartEntity(2,1,'Y152','JS0M',"鱼人首领")
+        new DevourHeartEntity(2,1,'Y153','JS0N',"森林狼王")
+        new DevourHeartEntity(2,1,'Y154','JS0O',"豪猪王")
+        new DevourHeartEntity(2,2,'Y161','JS0P',"达拉内尔主教")
+        new DevourHeartEntity(2,2,'Y162','JS0Q',"食人魔酋长")
+        new DevourHeartEntity(2,2,'Y163','JS0R',"狗头人酋长")
+        new DevourHeartEntity(2,2,'Y164','JS0S',"矿井魔蝎")
+        new DevourHeartEntity(2,3,'Y171','JS0T',"炎魔")
+        new DevourHeartEntity(2,3,'Y172','JS0U',"巨型蜥蜴")
+        new DevourHeartEntity(2,3,'Y173','JS0V',"千年龙龟")
+        new DevourHeartEntity(2,3,'Y174','JS0W',"成年巨龙")
+        new DevourHeartEntity(2,4,'Y181','JS0X',"冰霜巨魔酋长")
+        new DevourHeartEntity(2,4,'Y182','JS0Y',"丛林巨魔酋长")
+        new DevourHeartEntity(2,4,'Y183','JS0Z',"娜迦暴君")
+        new DevourHeartEntity(2,4,'Y184','JS10',"黑暗巨魔酋长")
+        new DevourHeartEntity(2,5,'Y191','JS11',"火元素领主")
+        new DevourHeartEntity(2,5,'Y192','JS12',"风元素领主")
+        new DevourHeartEntity(2,5,'Y193','JS13',"水元素领主")
+        new DevourHeartEntity(2,5,'Y194','JS14',"土元素领主")
+        new DevourHeartEntity(1,1,'Y151','JS15',"盗贼王")
+        new DevourHeartEntity(1,1,'Y152','JS16',"鱼人首领")
+        new DevourHeartEntity(1,1,'Y153','JS17',"森林狼王")
+        new DevourHeartEntity(1,1,'Y154','JS18',"豪猪王")
+        new DevourHeartEntity(1,2,'Y161','JS19',"达拉内尔主教")
+        new DevourHeartEntity(1,2,'Y162','JS1A',"食人魔酋长")
+        new DevourHeartEntity(1,2,'Y163','JS1B',"狗头人酋长")
+        new DevourHeartEntity(1,2,'Y164','JS1C',"矿井魔蝎")
+        new DevourHeartEntity(1,3,'Y171','JS1D',"炎魔")
+        new DevourHeartEntity(1,3,'Y172','JS1E',"巨型蜥蜴")
+        new DevourHeartEntity(1,3,'Y173','JS1F',"千年龙龟")
+        new DevourHeartEntity(1,3,'Y174','JS1G',"成年巨龙")
+        new DevourHeartEntity(1,4,'Y181','JS1H',"冰霜巨魔酋长")
+        new DevourHeartEntity(1,4,'Y182','JS1I',"丛林巨魔酋长")
+        new DevourHeartEntity(1,4,'Y183','JS1J',"娜迦暴君")
+        new DevourHeartEntity(1,4,'Y184','JS1K',"黑暗巨魔酋长")
+        new DevourHeartEntity(1,5,'Y191','JS1L',"火元素领主")
+        new DevourHeartEntity(1,5,'Y192','JS1M',"风元素领主")
+        new DevourHeartEntity(1,5,'Y193','JS1N',"水元素领主")
+        new DevourHeartEntity(1,5,'Y194','JS1O',"土元素领主")
+
+init
+    DevourHeartEntity.initi()

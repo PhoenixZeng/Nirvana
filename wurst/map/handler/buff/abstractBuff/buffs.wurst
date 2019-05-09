@@ -1,0 +1,369 @@
+package buffs
+
+import TimerUtils
+import BuffHashList
+import HashMap
+import base
+import Execute
+import OnUnitEnterLeave
+import public effectLib
+
+/**
+ * Simple abstract class for building buffs
+ *
+ * Example
+ *
+  	class BuffA extends Buff
+		override protected function onTargetChanges(unit _previous,unit target)
+		override protected function onCasterChanges(unit _previous,unit caster)
+		override function getInterval() returns real
+			return 5
+		//* false to remove
+		override function getName() returns string
+			return "name"
+		//* false to remove
+		override protected function onCover(Buff has) returns bool
+			return true
+		//* false to remove
+		override protected function onApplied() returns bool
+			return true
+
+		//* false to remove
+		override protected function onTick() returns bool
+			return true
+
+		//* false to keepRun
+		override protected function onRemoval() returns bool
+			return true
+ *	You can also grab all the buffs that a unit has
+ *	
+ *	Buff.getAllWhereIsCaster(unit)
+ *	or
+ *	Buff.getAllWhereIsTarget(unit)
+ */
+public abstract class Buff
+	protected abstract function onTargetChanges(unit _previous,unit target)
+	protected abstract function onCasterChanges(unit _previous,unit caster)
+	abstract function getInterval() returns real
+	abstract function getName() returns string
+
+	construct()
+		allBuffs.put(this castTo int,this)
+	ondestroy
+		allBuffs.remove(this castTo int)
+
+	function isDebuff() returns bool
+		return true
+
+	function getTexture() returns string
+		return "ReplaceableTextures\\CommandButtons\\BTNFootman.blp"
+
+	/**
+	 * 覆盖时false to remove
+	 */
+	protected abstract function onCover(Buff had) returns bool
+	/**
+	 * 施加时false to remove
+	 */
+	protected abstract function onApplied() returns bool
+	
+	/**
+	 * 心跳时false to remove
+	 */
+	protected abstract function onTick() returns bool
+	
+	/**
+	 * 移除时false to keepRun
+	 */
+	protected abstract function onRemoval() returns bool
+	/**
+	 * 破坏时
+	 */
+	protected abstract function onDestr() 
+	
+	function getDuration() returns real
+		return 1
+
+	protected static HashMap<int,Buff> allBuffs = new HashMap<int,Buff>()
+
+	/**
+	 * Storing all caster buffs
+	 */
+	protected static HashMap<unit, BuffHashList<Buff>> casterBuffs = new HashMap<unit, BuffHashList<Buff>>()
+
+	/**
+	 * Storing all target buffs
+	 */
+	protected static HashMap<unit, BuffHashList<Buff>> targetBuffs = new HashMap<unit, BuffHashList<Buff>>() 
+
+	/**
+	 *
+	 */
+	protected unit caster
+	
+	/**
+	 *
+	 */
+	protected unit target
+	
+	/**
+	 * Remaining time of the buff (in case if any)
+	 */
+	protected real timeleft
+	
+	/**
+	 *
+	 */
+	protected timer _timer
+	
+	/**
+	 * We do not want to call apply multiple times when a buff is already
+	 * running
+	 */
+	protected boolean running
+	
+	/**
+	 * Get all the buffs of a unit where is the caster
+	 */
+	static function getAllWhereIsCaster(unit whichUnit) returns BuffHashList<Buff>
+		return Buff.casterBuffs.get(whichUnit)
+	
+	/**
+	 * Get how many buffs does a unit have where it is the caster 
+	 */
+	static function countAllWhereIsCaster(unit whichUnit) returns int
+		return Buff.casterBuffs.get(whichUnit).size()
+	
+	/**
+	 * Get all the buffs of a unit where is the target
+	 */
+	static function getAllWhereIsTarget(unit whichUnit) returns BuffHashList<Buff>
+		return Buff.targetBuffs.get(whichUnit)
+	
+	/**
+	 * Get how many buffs does a unit have where it is the target 
+	 */
+	static function countAllWhereIsTarget(unit whichUnit) returns int
+		return Buff.targetBuffs.get(whichUnit).size()
+	
+	/**
+	 * Safe way to work with HashList (since it doesn't autocreate itself).
+	 * Also, when the size of the HashList is cero destroy it
+	 *
+	 * @param HashMap<unit, HashList<Buff> whichHash It can be casterBuffs or targetBuffs
+	 * @param Buff whichBuff Which Buff is going to be added or removed to the list
+	 * @param unit whichUnit
+	 * @param boolean add or remove from the list? (false to remove) 
+	 */
+	static protected function registerBuff(HashMap<unit, BuffHashList<Buff>> whichHash, Buff whichBuff, unit whichUnit)
+		BuffHashList<Buff> buffs = whichHash.get(whichUnit) 
+		if (buffs == null)
+			buffs = new BuffHashList<Buff>
+			whichHash.put(whichUnit, buffs)
+		buffs.add(whichBuff)
+
+	static protected function unRegisterBuff(HashMap<unit, BuffHashList<Buff>> whichHash, Buff whichBuff, unit whichUnit)
+		BuffHashList<Buff> buffs = whichHash.get(whichUnit) 
+		if (buffs != null and buffs.typeId != 0)
+			buffs.remove(whichBuff)
+			for i in buffs
+				if i.typeId == 0
+					buffs.remove(i)
+					i = null
+					destroy i
+			if (buffs.size() == 0)
+				whichHash.remove(whichUnit)
+				destroy buffs
+
+
+	function getCaster() returns unit
+		return this.caster
+	
+	/**
+	 * Set a new caster and fire the casterChange event
+	 */	
+	function setCaster(unit caster) returns Buff
+		unit previous
+		
+		if (caster != null)
+			previous = this.caster
+			
+			this.caster = caster
+			
+			if previous != null and caster != previous
+				Buff.unRegisterBuff(Buff.casterBuffs, this, previous)
+				this.onCasterChanges(previous,caster)
+			
+			Buff.registerBuff(Buff.casterBuffs, this, caster)
+		return this
+	
+	/**
+	 *
+	 */	
+	function getTarget() returns unit
+		return this.target
+	
+	/**
+	 * Set the new target and fire the targetChange event
+	 */	
+	function setTarget(unit target) returns Buff
+		unit previous
+		
+		if (target != null)
+			previous = this.target
+			
+			this.target = target
+			
+			if (previous != null and previous != this.target)
+				Buff.unRegisterBuff(Buff.targetBuffs, this, previous)
+				this.onTargetChanges(previous,target)
+			
+			Buff.registerBuff(Buff.targetBuffs, this, target)
+		return this
+	
+	/**
+	 *
+	 */
+	function getTimeleft() returns real
+		return this.timeleft
+	
+	/**
+	 * Set timeleft (careful, if you set a value lower or equal to 0
+	 * the buff will end up calling finish)
+	 */	
+	function setTimeleft(real timeleft) returns Buff
+		this.timeleft = timeleft
+		
+		if (this.timeleft <= 0)
+			this.finish()
+		
+		return this
+	
+	/**
+	 * Check if unit can be affected by the buff (true if it can)
+	 */
+	function canBeAffected(unit _target) returns bool
+		return true
+		
+	/**
+	 * Finish the buff' effect
+	 */	
+	function finish() returns bool
+		bool deallocate = this.onRemoval()
+		if deallocate
+			this.destr()
+		return deallocate
+
+	function destr()
+		this.onDestr()
+		Buff.unRegisterBuff(Buff.casterBuffs, this, this.caster)
+		Buff.unRegisterBuff(Buff.targetBuffs, this, this.target)
+		if _timer != null
+			_timer.release()
+		this.target = null
+		this.timeleft = 0
+		this._timer = null
+		this.running = false
+		destroy this
+	
+	function toString() returns string
+		return getName()+"->"+target.getName()+":"+timeleft.toInt()+"$"+this castTo int+"@Buffs"
+	
+	/**
+	 * Timer auxiliar. Fire the timeout event, update timeleft and start over
+	 */
+	protected static function onTimeoutEx()
+		Buff _buff = GetExpiredTimer().getData() castTo Buff
+		_buff._timer.pause()
+
+		if not _buff.onTick() and _buff.target.isAlive()
+			_buff.destr()
+			return 
+		_buff.timeleft -= _buff.getInterval()
+		
+		if _buff.getTimeleft() <= 0
+			if _buff.finish()
+				return
+		_buff._timer.start(_buff.getInterval(), function onTimeoutEx)
+		
+	/**
+	 * Apply buff' effect on unit for a duration (return true if everything
+	 * went ok). Keep in mind that if the buff is already running, it will
+	 * return false and nothing will happend.
+	 */	
+	function apply(unit target, real duration) returns bool
+		if (running)
+			return false
+		if (target == null)
+			return false
+		if (this.caster == null)
+			return false
+		if (this.canBeAffected(target) == false)
+			return false
+		
+		let buffs = Buff.getAllWhereIsTarget(target)
+		// print("buff产生:"+getName()+",当前索引:"+(this castTo int).toString())
+		if buffs!=null and buffs.typeId != 0 and not buffs.isEmpty()
+			// print("->  当前单位buff总数:"+buffs.size().toString())
+			for bf in buffs
+				if bf == null or bf.typeId == 0
+					buffs.remove(bf)
+				else if bf.getName() == this.getName()
+					if not bf.onCover(this)
+						this.destr()
+						return false
+	
+		this.setTarget(target)
+
+		if duration > 0.03
+			this.timeleft = duration
+		else
+			this.timeleft = getDuration()
+		this.running = true
+		let canCast = this.onApplied()
+		if canCast
+		
+			if (this.timeleft > 0)
+				this._timer = getTimer()
+				this._timer.setData(this castTo int)
+				this._timer.start(this.getInterval(), function onTimeoutEx)
+			else
+				this.finish()
+		else
+			this.destr()
+		return canCast
+	
+	/**
+	 * Apply with a duration of default
+	 */	
+	function apply(unit target) returns bool
+		return this.apply(target, getDuration())
+
+function finishBuffs(BuffHashList<Buff> buffs)
+	if  buffs != null and buffs.typeId != 0 and buffs.size() > 0 
+		for _buff in buffs
+			if _buff.typeId != 0 and _buff != null
+				_buff.destr()
+		destroy buffs
+
+function finishAllBuffsOfLeaverUnit()
+	unit leaver = getEnterLeaveUnit()
+	try() ->
+		finishBuffs(Buff.getAllWhereIsCaster(leaver))
+		Buff.casterBuffs.remove(leaver)
+		finishBuffs(Buff.getAllWhereIsTarget(leaver))
+		Buff.targetBuffs.remove(leaver)
+
+function finishAllBuffsOfDeathUnit()
+	unit leaver = GetTriggerUnit()
+	try() ->
+		finishBuffs(Buff.getAllWhereIsCaster(leaver))
+		Buff.casterBuffs.remove(leaver)
+		finishBuffs(Buff.getAllWhereIsTarget(leaver))
+		Buff.targetBuffs.remove(leaver)
+		
+init
+	// onLeave(function finishAllBuffsOfLeaverUnit)
+	CreateTrigger()
+	..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+	..addAction(function finishAllBuffsOfDeathUnit)

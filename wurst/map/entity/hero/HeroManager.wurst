@@ -1,0 +1,19 @@
+package HeroManager
+import public Hero
+import public HeroEntity
+import SpellHero
+
+
+//根据单位类型创建对应实体类
+public function getHero(unit i) returns Hero
+    let he = HeroEntity.get(i.getTypeId())
+    Hero h = null
+    if he != null
+        switch he.name
+            case "AA"
+                h = new Hero(i) 
+            default
+                h = new SpellHero(i)
+    return h
+
+            

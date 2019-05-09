@@ -1,0 +1,53 @@
+package Buff_WindWalk
+import buffs
+import YDJapiOther
+
+
+public class Buff_WindWalk extends Buff
+    static string name = "神行"
+    static string modelPath = "model\\buff\\shenxing.mdx"
+    static int foot = EX_MoveType.FOOT
+    static int windwalk = EX_MoveType.WINDWALK
+
+    override function isDebuff() returns bool
+        return false
+    override function getTexture() returns string
+        return "blp\\buff\\BTN_shenxing.blp"
+    override protected function onTargetChanges(unit _previous,unit target)
+    override protected function onCasterChanges(unit _previous,unit caster)
+
+    override function getDuration() returns real
+        return 5
+    override function getInterval() returns real
+        return 5
+    override function getName() returns string
+        return name
+
+    override function onCover(Buff now) returns bool
+        timeleft += now.timeleft
+        target.eff(modelPath, "origin",getTimeleft())
+        return false
+
+    /**
+    * false to remove
+    */
+    override protected function onApplied() returns bool
+        target.eff(modelPath, "origin",getTimeleft())
+        target.exMoveType(windwalk)
+        return true
+
+    /**
+    * false to remove
+    */
+    override protected function onTick() returns bool
+        return true
+
+    /**
+    * false to keepRun
+    */
+    override protected function onRemoval() returns bool
+        target.exMoveType(foot)
+        return true
+
+    override protected function onDestr()
+        target.exMoveType(foot)

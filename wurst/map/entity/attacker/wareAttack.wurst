@@ -1,0 +1,136 @@
+package wareAttack
+import DialogTimer
+import LevelHandler
+import wareAttackCommon
+import HumanAttacker
+import baseImport
+import path
+import winAndLose
+import deathHandler
+import BeastGod
+
+DialogTimerTask endTask
+
+function finalTrigger()
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+    ..addAction()->
+        let u = GetTriggerUnit()
+        if  users.containsUnit(u) 
+            if u.getMainHero() == u
+                atAfter(5,u.getOwner().getName()+"复活:")
+                ..onOver(itk->begin 
+                    u.revive(finalCome.pos, true)
+                end)
+                ..run()
+        else if u == BG.beastGod._self
+            colorsPrint("[胜利]:虚空大君已经被你们击杀!")
+            registerWin()
+            endTask.pause()
+            endTask.dlg.display(false)
+
+    CreateTrigger()
+    ..registerLeaveRegion(final.i, Filter(()->users.containsUnit(GetFilterUnit()) and GetFilterUnit().isHero()))
+    ..addAction() ->
+        GetTriggerUnit().getOwner().print("[系统]:无法离开!")
+        GetTriggerUnit().setPosPro(finalCome.pos)
+
+public function attackFinal()
+    //将泉水位置改成到最终区域
+    springReturn = finalCome
+    eachPlayer() i->
+        Players.get(i).hero._self.setPosPro(finalCome.pos)
+    deathHandler.disable()
+    finalTrigger()
+    print("[系统]:开启最终决战,所有人强制传送到决战之地!死亡后将原地复活!")
+    print("[系统]:无论是否打败,都将在3分钟内结束!")
+    BG.beastGod._self.setInvulnerable(false)
+    HOME.basic.setInvulnerable(true)
+    CreateTrigger()
+    ..registerUnitEvent(BG.beastGod._self, EVENT_UNIT_DEATH)
+    ..addAction() ->
+        if GetDyingUnit() == BG.beastGod._self
+            if endTask != null and endTask.isRunning
+                endTask.endIt()
+    endTask = atAfter(180, "决战时间")
+    endTask.onTime() i->
+        if BG.beastGod._self.isAlive()
+            colorsPrint("[失败]:虚空大君已经逃跑了!")
+            BG.beastGod._self.pause()
+            BG.beastGod._self.hide()
+            registerDefeat()
+        else
+            colorsPrint("[胜利]:虚空大君已经被你们击杀!")
+            registerWin()
+    endTask.run()
+
+function attackEachWare(int ware)
+    for ps = 0 to 2
+        let p = ps castTo Way
+        let a = EnemyAttackers.getEnemyAttacker(ware)
+        attackTimeEvery = atAfterCount(1, 12)
+        attackTimeEvery.onTime() i->
+            a.enemy.create(p, Path.get(p).start.pos)
+        attackTimeEvery.onOver() i->
+            if GAME.playerSizeStart <= 2
+                if ps == 1
+                    if a.enemy.typeId == BossAttackers.typeId
+                        let b = a.enemy castTo BossAttackers
+                        b.createHero(p, Path.get(p).start.pos)
+            else
+                if ps != 1
+                    if a.enemy.typeId == BossAttackers.typeId
+                        let b = a.enemy castTo BossAttackers
+                        b.createHero(p, Path.get(p).start.pos)
+            if ps == 1
+                attackCheck()
+        attackTimeEvery.run()
+
+function attackEachWareWait(int ware)
+    int delay = 120
+    if GAME.endless
+        delay = 80
+    if ware <= 30
+        if ware mod 6 == 0
+            attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻[BOSS]:")
+        else
+            attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻:")
+        attackTimeWait.onTime() i->
+            if ware mod 3 == 0
+                colorsPrint("[系统]:第"+ware+"波攻击来袭!此波为BOSS关!")
+            else
+                colorsPrint("[系统]:第"+ware+"波攻击来袭!")
+            attackEachWare(ware)
+        attackTimeWait.run()
+    else
+        if not GAME.endless
+            colorsPrint("[系统]:即将开启最终决战,所有人会被强制传送到决战之地!")
+            attackTimeWait = atAfter(120, "最终决战:")
+            attackTimeWait.onTime() i->
+                colorsPrint("[系统]:最终决战开始!")
+                attackFinal()
+            attackTimeWait.run()
+        else
+            if ware mod 5 == 0
+                attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻[BOSS]:")
+            else
+                attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻:")
+            attackTimeWait.onTime() i->
+                if ware mod 5 == 0
+                    colorsPrint("[系统]:第"+ware+"波攻击来袭!此波为BOSS关!")
+                else
+                    colorsPrint("[系统]:第"+ware+"波攻击来袭!")
+                attackEachWare(ware)
+            attackTimeWait.run()
+
+public function attackStart()
+    attackTimeFirst = atAfter(120,"开始进攻")
+    attackTimeFirst.onTime() task->
+        attackEachWareWait(Level.next())
+    attackTimeFirst.run()
+
+function attackCheck()
+    // attackCheckTimer.startPeriodic(1) ->
+    if not stop
+        // attackCheckTimer.pause()
+        attackEachWareWait(nextLevel())

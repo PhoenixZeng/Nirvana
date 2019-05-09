@@ -1,0 +1,147 @@
+package UnitAInv
+import UnitLimit
+
+public class UnitAInv
+    use UnitLimit
+    static let name = "无敌"
+    static function apply(unit u,real time) returns thistype
+        let c = get(u)
+        if c == null
+            let a = getThis()
+            a.target = u
+            a.time = time
+            a.onApply(u, time)
+            return a
+        else
+            c.onCover(u,time)
+            return c
+
+    override static function get(unit u) returns thistype
+        thistype pre = null
+        for i in UnitAInv
+            if i.target == u
+                pre = i
+        return pre
+
+    override function getName() returns string
+        return name
+
+    override static function getThis() returns thistype
+        return new UnitAInv()
+            
+    override function onApply(unit u,real time)
+            
+    override static function removal(unit u)
+        for i in UnitAInv
+            if i.target == u
+                i.onRemoval(u)
+    override function onRemoval(unit u)
+        destr()
+        
+    override function destr()
+        this.time = 0
+        this.timePost = 0
+        destroy this
+    override static function engine()
+        task = onAlways(frame) tk->
+            for i in UnitAInv
+                i.do()
+
+
+public class UnitPhysicalAInv
+    use UnitLimit
+    static function apply(unit u,real time) returns thistype
+        let c = get(u)
+        if c == null
+            let a = getThis()
+            a.target = u
+            a.time = time
+            a.onApply(u, time)
+            return a
+        else
+            c.onCover(u,time)
+            return c
+    override static function get(unit u) returns thistype
+        thistype pre = null
+        for i in UnitPhysicalAInv
+            if i.target == u
+                pre = i
+        return pre
+    static let name = "物免"
+    override function getName() returns string
+        return name
+    override function onApply(unit u,real time)
+
+    override static function getThis() returns thistype
+        let a = new UnitPhysicalAInv()
+        return a
+            
+    override static function removal(unit u)
+        for i in UnitPhysicalAInv
+            if i.target == u
+                i.onRemoval(u)
+    override function onRemoval(unit u)
+        destr()
+        
+    override function destr()
+        this.time = 0
+        this.timePost = 0
+        destroy this
+    override static function engine()
+        task = onAlways(frame) tk->
+            for i in UnitPhysicalAInv
+                i.do()
+
+
+public class UnitMagicAInv
+    use UnitLimit
+    static let name = "魔免"
+
+    static function apply(unit u,real time) returns thistype
+        let c = get(u)
+        if c == null
+            let a = getThis()
+            a.target = u
+            a.time = time
+            a.onApply(u, time)
+            return a
+        else
+            c.onCover(u,time)
+            return c
+
+    override static function get(unit u) returns thistype
+        thistype pre = null
+        for i in UnitMagicAInv
+            if i.target == u
+                pre = i
+        return pre
+
+    override function getName() returns string
+        return name
+
+    override static function getThis() returns thistype
+        return new UnitMagicAInv()
+            
+    override function onApply(unit u,real time)
+            
+    override static function removal(unit u)
+        for i in UnitMagicAInv
+            if i.target == u
+                i.onRemoval(u)
+    override function onRemoval(unit u)
+        destr()
+        
+    override function destr()
+        this.time = 0
+        this.timePost = 0
+        destroy this
+    override static function engine()
+        task = onAlways(frame) tk->
+            for i in UnitMagicAInv
+                i.do()
+
+
+init
+    UnitAInv.engine()
+    UnitPhysicalAInv.engine()
+    UnitMagicAInv.engine()

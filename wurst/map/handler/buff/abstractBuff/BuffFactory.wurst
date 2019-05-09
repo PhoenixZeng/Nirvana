@@ -1,0 +1,35 @@
+package BuffFactory
+import public buffs
+import public Buff_Slow
+import public Buff_Flaws
+import public Buff_Blinding
+import public Buff_Disarm
+import public Buff_Stun
+import public Buff_Weak
+import public Buff_Accurate
+import public Buff_AInv
+import public Buff_Enhance
+import public Buff_Fury
+import public Buff_Protector
+import public Buff_WindWalk
+
+
+public function unit.getBuff(string name) returns Buff
+    let list = Buff.getAllWhereIsTarget(this)
+    if list != null and list.typeId != 0 and not list.isEmpty()
+        for bf in list
+            if bf.typeId == 0
+                list.remove(bf)
+        for bf in list
+            if bf.getName() == name
+                return bf
+    return null
+public function unit.addBuff(unit target,Buff bf,real time) returns Buff
+    return bf
+    ..setCaster(this)
+    ..apply(target,time)
+
+public function unit.addBuff(unit target,Buff bf) returns Buff
+    return bf
+    ..setCaster(this)
+    ..apply(target)

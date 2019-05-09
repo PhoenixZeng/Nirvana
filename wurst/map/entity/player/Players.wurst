@@ -1,0 +1,182 @@
+package Players
+import LinkedListModule
+import HashMap
+import HeroManager
+import public PlayerCommon
+import public Forces
+import Auth
+import HashSet
+import WorkRoomOrnament
+
+public function unit.getMainHeros() returns Hero
+    return Players.get(this).hero
+
+public class Players
+    use LinkedListModule
+    static HashMap<player,thistype> map = new HashMap<player,thistype>()
+    static trigger selectHeroTrg
+    let  workRoomOrnaments = new HashMap<unit,WorkRoomOrnament>()
+    string name
+    unit   selectedUnit
+    player _player
+    vec2   personalPos
+    Hero   hero
+    unit   bb
+    unit   store
+    //积分
+    private string  score = "_"
+    //门派积分
+    int    schoolScore          = 0
+    int    schoolMissionNumPlus = 0
+    //dz
+    int    dzLv                 = 0
+    int    maxPassDiff          = 0
+    int    maxSinglePassDiff    = 0
+    int    towerScore           = 0
+    int    endlessWare          = 0
+
+    int    index
+    bool   inGame             = true
+
+    bool   enableAddGameScore = false
+
+    real   killScore          = 0
+    int    defenseScore       = 0
+    int    gemScore           = 0
+    int    endlessScore       = 0
+
+    int    convertMainAttrVal           = 10000
+    int    convertMainAttrCost          = 300
+    int    convertAttrVal               = 5000
+    real   convertAttrValMul            = 2.5
+    int    convertAttrCost              = 300
+    int    convertAttrCount             = 0
+    int    convertHpVal                 = 50000
+    real   convertHpValMul              = 2.5
+    int    convertHpCost                = 300
+    int    convertHpCount               = 0
+    int    convertAtkVal                = 20000
+    real   convertAtkValMul             = 2.5
+    int    convertAtkCost               = 300
+    int    convertAtkCount              = 0
+
+    int    convertExKillScoreVal        = 20
+    real   convertExKillScoreValMul     = 1
+    int    convertExKillScoreCost       = 1000
+    int    convertExKillScoreCount      = 0
+
+    static int    convertCostMul        = 2
+    static int    convertCountLimit     = 10
+
+    static int    clearGemCost          = 20
+    static int    clearGemCostSingle    = 20
+    static int    challBeastGodSubCost  = 30
+
+    static int    convertGemCostDef     = 5000
+    static int    convertGemCostKill    = 20000
+
+    int array[4]  studySpellCount       = [0,0,0,0]
+    int           studySpellExCount     = 0
+    static int    upSpellBasicCost      = 100
+    int     randomSpellCount = 0
+    static int    randomSpellLimit      = 10
+    static int    studySpellLimit       = 1
+
+    int array[4]  exCount               = [0,0,0,0]
+
+    //lv award
+    int    exExp      = 0 //%
+    int    exDrop     = 0 //%
+    int    exInitGold = 0
+    int    exPropPlus = 0
+
+    int    exKillScoreMul = 0
+
+    bool   newbieGiftFlag   = false
+    bool   channelFlag      = false
+    bool   plGoldFlag       = false
+    bool   plLumberFlag     = false
+    bool   addGroupGiftFlag = false
+
+    HashList<Auth> auths = new HashList<Auth>
+
+    PlayerRole role = PlayerRole.Normal
+
+    ondestroy
+        map.remove(this._player)
+
+    private construct(player p)
+        this._player = p
+        this.index   = p.getId()
+        this.name = p.getName() + ""
+        map.put(p, this)
+
+    function addGameScore(int i)
+        if enableAddGameScore
+            score = c10to94((c94to10(score) div 8 + i)*8,5)
+            enableAddGameScore = not enableAddGameScore
+        else
+            hero.setChecked()
+            score = c10to94((c94to10(score) div 8 + i)*8,5)
+
+    function testGameScore(int i) returns bool
+        return i <= c94to10(score) div 8
+    
+    function subGameScore(int i) returns bool
+        if i < 0
+            return false
+        int iScore = c94to10(score) div 8
+        if iScore < i
+            return false
+        else
+            iScore = iScore - i
+            score = c10to94(iScore * 8,5)
+            return true
+
+    function subSchoolScore(int i) returns bool
+        if schoolScore < i
+            return false
+        else
+            schoolScore -= i
+            return true
+
+    function getGameScore() returns int
+        return c94to10(score) div 8
+
+    function subKillScore(int i) returns bool
+        if killScore >= i
+            killScore -= i
+            return true
+        else
+            return false
+
+    function addAuth(Auth u)
+        auths.add(u)
+
+    function testAuth(Auth u) returns bool
+        if u == null
+            return true
+        if auths == null
+            return false
+        return auths.has(u)
+
+    function testRole(PlayerRole role) returns bool
+        return this.role castTo int >= role castTo int 
+    
+    function setRole(PlayerRole role)
+        this.role = role
+
+    static function get(player p) returns thistype
+        if p.isIngame()
+            if map.has(p)
+                return map.get(p)
+            return new Players(p)
+        return null
+    static function get(int i) returns thistype
+        let p = Player(i)
+        return get(p)
+    static function get(unit i) returns thistype
+        let p = i.getOwner()
+        return get(p)
+
+        

@@ -1,0 +1,29 @@
+package path
+import public way
+import public Rects
+import LinkedListModule
+import HashMap
+
+
+public class Path
+    use LinkedListModule
+    Way way
+    WayRects  start
+    static HashMap<Way,thistype> map = new HashMap<Way,thistype>
+    static Path left
+    static Path center
+    static Path right
+
+    construct(WayRects start,Way way)
+        this.way = way
+        this.start = start
+        map.put(way,this)
+    
+    static function get(Way way) returns Path
+        return map.get(way)
+
+init
+    Path.left = new Path(path_center1,Way.Left)
+    Path.center = new Path(path_center2,Way.Center)
+    Path.right = new Path(path_center3,Way.Right)
+    

@@ -1,0 +1,316 @@
+package dzGameFrame
+import dzFrame
+import ClosureTimers
+import LinkedListModule
+import baseImport
+import dzSync
+import Hero
+import attrLib
+import BlizzardAPI
+
+public class HeroAttr
+    use LinkedListModule
+    static Frame closed
+    static Frame opened
+    static Frame array infos
+    static Frame array vals
+    static string array str
+    static let map = new HashMap<player,thistype>
+    Players ps
+    bool isOpen
+    construct(player p)
+        this.ps = Players.get(p)
+        isOpen = false
+        map.put(p, this)
+
+    function onFlush()
+        let h = ps.hero
+        if ps._player == localPlayer
+            vals[ 0] ..setText(h.getAttr(AttrKey.addDmg     ).toString()) //附加伤害
+            vals[ 8] ..setText(h.getAttr(AttrKey.dmgPlus    ).toString()) //伤害增幅
+            vals[ 1] ..setText(h.getAttr(AttrKey.ctcProb    ).toString()) //暴击概率
+            vals[ 9] ..setText(h.getAttr(AttrKey.ctcDmg     ).toString()) //暴击伤害
+            vals[ 2] ..setText(h.getAttr(AttrKey.absorb     ).toString()) //伤害吸血
+            vals[10] ..setText(h.getAttr(AttrKey.finDmg     ).toString()) //最终伤害
+            vals[ 3] ..setText(h.getAttr(AttrKey.dmgResi    ).toString()) //伤害抵抗
+            vals[11] ..setText(h.getAttr(AttrKey.dmgSub     ).toString()) //伤害减免
+            vals[ 4] ..setText(h.getAttr(AttrKey.dmgBack    ).toString()) //伤害反弹
+            vals[12] ..setText(h.getAttr(AttrKey.propLevelUp).toString()) //升级属性
+            vals[ 5] ..setText(h.getAttr(AttrKey.propKilled ).toString()) //杀敌属性
+            vals[13] ..setText(h.getAttr(AttrKey.propTimed  ).toString()) //每秒属性
+            vals[ 6] ..setText(h.getAttr(AttrKey.strPlus    ).toString()) //伤害反弹
+            vals[14] ..setText(h.getAttr(AttrKey.agiPlus    ).toString()) //升级属性
+            vals[ 7] ..setText(h.getAttr(AttrKey.intPlus    ).toString()) //杀敌属性
+
+    private function show(bool b)
+        isOpen = b
+        if ps._player == localPlayer
+            opened.show( b)
+            closed.show(not b)
+    
+    function switchShow()
+        show(not isOpen)
+        
+
+    static function initi()
+        str[ 0] = color(255, 255, 255).toColorString()+"附加伤害:|r"
+        str[ 8] = color(255, 255, 255).toColorString()+"伤害增幅:|r"
+        str[ 1] = color(255, 255, 255).toColorString()+"暴击概率:|r"
+        str[ 9] = color(255, 255, 255).toColorString()+"暴击伤害:|r"
+        str[ 2] = color(255, 255, 255).toColorString()+"攻击吸血:|r"
+        str[10] = color(255, 255, 255).toColorString()+"最终伤害:|r"
+        str[ 3] = color(255, 255, 255).toColorString()+"伤害抵抗:|r"
+        str[11] = color(255, 255, 255).toColorString()+"伤害减免:|r"
+        str[ 4] = color(255, 255, 255).toColorString()+"伤害反弹:|r"
+        str[12] = color(255, 255, 255).toColorString()+"升级属性:|r"
+        str[ 5] = color(255, 255, 255).toColorString()+"杀敌属性:|r"
+        str[13] = color(255, 255, 255).toColorString()+"每秒属性:|r"
+        str[ 6] = color(255, 255, 255).toColorString()+"力量增幅:|r"
+        str[14] = color(255, 255, 255).toColorString()+"敏捷增幅:|r"
+        str[ 7] = color(255, 255, 255).toColorString()+"智力增幅:|r"
+        str[15] = color(255, 255, 255).toColorString()+"神秘属性:|r"
+        opened = new Frame("BACKDROP", "属性开")
+        ..setSize(0.13, 0.23)
+        ..setTexture("UI\\attrPlusNo.blp", 0)
+        ..setPoint(AnchorPoint.TOPLEFT, new Frame(EX_DefaultFrame_DZ.heroBarButton(0)), AnchorPoint.BOTTOMLEFT, -0.008, -0.1)
+        closed = new Frame("BACKDROP", "属性关")
+        ..setSize(0.126, 0.222)
+        ..setTexture("UI\\attrPlusOff.blp", 0)
+        ..setPoint(AnchorPoint.TOPLEFT, opened, AnchorPoint.TOPLEFT, 0, 0)
+        ..setAlpha(200)
+        for i = 0 to 7
+            for j = 0 to 1
+                let k = i + j * 8
+                infos[k] = new Frame("TEXT","attr_info"+k,opened,"TXA8")
+                ..setText(str[k])
+                ..setPoint(AnchorPoint.TOPLEFT, opened, AnchorPoint.TOPLEFT, 0.012 + j * 0.051, -0.03 + -0.02*i )
+                vals[k]  = new Frame("TEXT","attr_val"+k,opened,"TXA8")
+                ..setPoint(AnchorPoint.TOPLEFT, opened, AnchorPoint.TOPLEFT, 0.045 + j * 0.051, -0.03 + -0.02*i )
+                // ..setTextColor(476491)
+                ..setText("0")
+
+        closed..show(true)
+        opened..show(false)
+
+        eachPlayer() i->
+            new HeroAttr(Player(i))
+        doPeriodically(0.5) task->
+            for i in HeroAttr
+                if i.ps.hero != null and i.isOpen
+                    i.onFlush()
+
+public class HpBar
+    use LinkedListModule
+    static Frame hpBarBase
+    static Frame hpBar1
+    static Frame hpBar2
+    static Frame hpBarName
+    static Frame hpBarHpVal
+    static let map = new HashMap<player,thistype>
+    player p
+    unit u
+    real val
+    int  time
+    construct(player p)
+        this.p = p
+        u = null
+        val = 1
+        map.put(p, this)
+
+    function flushBar()
+        var bl =  u.getHP() / u.getMaxHP()
+        var name = u.getName()
+        var hpMax = u.getMaxHP()
+        var sMax = hpMax.toInt().toString()
+        if hpMax > 1000000
+            sMax = (hpMax / 10000).toInt().toString() + "万"
+        var hp = u.getHP()
+        var sHp = hp.toInt().toString()
+        if hp > 1000000
+            sHp = (hp / 10000).toInt().toString() + "万"
+        if localPlayer == p
+            hpBarName.setText(name)
+            hpBarHpVal.setText(sHp + " / " +sMax + " ( " + (bl*100).toInt() + "% )")
+            hpBarBase.show(true)
+            hpBar1.setSize(bl * 0.3, 0.02)
+
+
+    function flushBackBar()
+        var k = u.getHP() / u.getMaxHP()
+        if val > k
+            if val - 0.01 < k
+                val = k
+            else
+                if val - 0.01 > 1.25* k
+                    if val-  0.01 > 1.50 * k
+                        val -=   (val - k)/2
+                    else
+                        val -=   (val - k)/3
+                else
+                    val -=  0.01
+        if val < k
+            val = k
+        if localPlayer == p
+            hpBar2.setSize(val * 0.3, 0.02)
+
+    function onFlush( bool flag )
+        if u != null and  u.isAliveTrick() and time > 0
+            time --
+            if flag
+                flushBar()
+            flushBackBar()
+            return
+        else
+            val = 1
+            time = 0
+            if localPlayer == p
+                hpBarBase.show(false)
+
+    static function inite()
+        hpBarBase =  new Frame(BzFrameType.BACKDROP,"血条1")
+        ..setPoint(AnchorPoint.CENTER, Frame.gameBaseUI, AnchorPoint.CENTER, 0, 0.23)
+        ..setTexture("UI\\Widgets\\BattleNet\\bnet-userlist-back.blp", 0)
+        ..setSize(0.318, 0.033)
+        ..setAlpha(225)
+        hpBar1 =  new Frame(BzFrameType.BACKDROP,"血条2",hpBarBase,"template")
+        ..setPoint(AnchorPoint.LEFT, hpBarBase, AnchorPoint.LEFT, 0.0091, 0)
+        ..setTexture("ReplaceableTextures\\TeamColor\\TeamColor00.blp", 0)
+        ..setSize(0, 0.02)
+        ..setAlpha(210)
+        hpBar2 =  new Frame(BzFrameType.BACKDROP,"血条3",hpBarBase,"template")
+        ..setPoint(AnchorPoint.LEFT, hpBarBase, AnchorPoint.LEFT, 0.0091, 0)
+        ..setTexture("ReplaceableTextures\\TeamColor\\TeamColor00.blp", 0)
+        ..setSize(0, 0.02)
+        ..setAlpha(110)
+        hpBarName =  new Frame(BzFrameType.TEXT,"名字",hpBarBase,"TXA14")
+        ..setPoint(AnchorPoint.LEFT, hpBarBase, AnchorPoint.LEFT, 0.02, 0)
+        ..setText("敌人")
+        hpBarHpVal =  new Frame(BzFrameType.TEXT,"血量",hpBarBase,"TXA12")
+        ..setPoint(AnchorPoint.LEFT, hpBarName, AnchorPoint.RIGHT, 0.01, 0)
+        ..setText("0/0（0%）")
+        hpBarBase.show(false)
+
+        eachPlayer( ) i->
+            new HpBar(Player(i))
+        var i = 0
+        doPeriodically(0.1) task->
+            i++
+            for hp in HpBar
+                hp.onFlush(i mod 2 == 0)
+                
+public Frame array frame_icon
+public Frame frame_tipBack
+public Frame frame_tipText
+public Frame frame_help
+public Frame array frame_button
+string array str
+public function dzFrameInit()
+    var i = 0
+    for x = 0 to 2
+        for y = 0 to 1
+            DzFrameClearAllPoints( DzFrameGetItemBarButton(i) )
+            DzFrameSetSize( DzFrameGetItemBarButton(i), 0.032, 0.032 )
+            if i != 0
+                DzFrameSetPoint( DzFrameGetItemBarButton(i), 0, DzFrameGetItemBarButton(0), 0, 0.0385*y, -0.037*x)
+            else
+                DzFrameSetAbsolutePoint( DzFrameGetItemBarButton(i), 0, 0.5165, 0.111 )
+            i++
+    var j = 0
+    for x = 0 to 2
+        for y = 0 to 3
+            DzFrameClearAllPoints( DzFrameGetCommandBarButton(x, y) )
+            DzFrameSetSize( DzFrameGetCommandBarButton(x, y), 0.032, 0.032 )
+            if j > 0
+                DzFrameSetPoint( DzFrameGetCommandBarButton(x, y), 0, DzFrameGetCommandBarButton(0, 0), 0, 0.038* y, -0.0395* x )
+            else
+                DzFrameSetAbsolutePoint( DzFrameGetCommandBarButton(x, y), 0, 0.641, 0.115 )
+            j++
+
+    str[1]   = "UI\\UI_CHP.blp"
+    str[101] = "UI\\UI_CHG.blp"
+    str[2]   = "UI\\UI_LGP.blp"
+    str[102] = "UI\\UI_LGG.blp"
+    str[3]   = "UI\\UI_MPP.blp"
+    str[103] = "UI\\UI_MPG.blp"
+    str[4]   = "UI\\UI_CJP.blp"
+    str[104] = "UI\\UI_CJG.blp"
+    str[5]   = "UI\\UI_QDP.blp"
+    str[105] = "UI\\UI_QDG.blp"
+    str[6]   = "UI\\UI_BZP.blp"
+    str[106] = "UI\\UI_BZG.blp"
+    str[1001] = "回城(F2)"
+    str[1002] = "去练功房(F3)"
+    str[1003] = "回泉水(F4)"
+    str[1004] = "该系统暂未开放"
+    str[1005] = "该系统暂未开放"
+    str[1006] = "查看帮助"
+    for ix = 1 to 6
+        frame_icon[ix] = new Frame(BzFrameType.BACKDROP,"NN"+ix)
+        ..setTexture(str[ix], 0)
+        ..setSize(0.032, 0.032)
+    DzFrameSetAbsolutePoint( frame_icon[1].frame,AnchorPoint.CENTER, 0.1395 + 0.018, 0.098  )
+    DzFrameSetAbsolutePoint( frame_icon[2].frame,AnchorPoint.CENTER, 0.1805 + 0.018, 0.098  )
+    DzFrameSetAbsolutePoint( frame_icon[3].frame,AnchorPoint.CENTER, 0.1395 + 0.018, 0.0645 )
+    DzFrameSetAbsolutePoint( frame_icon[4].frame,AnchorPoint.CENTER, 0.1805 + 0.018, 0.0645 )
+    DzFrameSetAbsolutePoint( frame_icon[5].frame,AnchorPoint.CENTER, 0.1395 + 0.018, 0.031  )
+    DzFrameSetAbsolutePoint( frame_icon[6].frame,AnchorPoint.CENTER, 0.1805 + 0.018, 0.031  )
+    for x = 1 to 6
+        frame_button[x] = new Frame(BzFrameType.GLUETEXTBUTTON,x+"UI按钮",frame_icon[x],"template")
+        ..setAllPoints(frame_icon[x])
+        ..setData("index", x)
+        frame_button[x]..addEvent(FrameEvents.MOUSE_ENTER) -> 
+            let f = Frame.find()
+            let index = f.getData("index")
+            frame_icon[index].setTexture(str[100+index], 0)
+            frame_tipText.setText(str[1000 + index])
+            frame_tipBack.show(true)
+        frame_button[x]..addEvent(FrameEvents.MOUSE_LEAVE) ->
+            let f = Frame.find()
+            let index = f.getData("index")
+            frame_icon[index].setTexture(str[0+index], 0)
+            frame_tipBack.show(false)
+        frame_button[x]..addEvent(FrameEvents.PRESSED) ->
+            let f = Frame.find()
+            let index = f.getData("index")
+            switch index
+                case 1
+                    exSyncData("cmd","hg")
+                case 2
+                    exSyncData("cmd","hj")
+                case 3
+                    exSyncData("cmd","hs")
+                case 4
+                case 5
+                case 6
+                    frame_help.show(true)
+        
+    frame_tipBack = new Frame(BzFrameType.BACKDROP,"UIts框背景")
+    ..setTexture("UI\\Glues\\SinglePlayer\\HumanCampaign3D\\Black32.blp", 0)
+    ..setAbsolutePoint(AnchorPoint.BOTTOMLEFT, 0.01, 0.13)
+    ..setSize(0.2, 0.02)
+    ..setAlpha(150)
+    frame_tipText = new Frame(BzFrameType.TEXT,"UI提示框文字",frame_tipBack,"TXA10")
+    ..setPoint(AnchorPoint.TOPLEFT, frame_tipBack,AnchorPoint.TOPLEFT, 0.01, -0.005)
+    ..setSize(0.19, 0)
+    frame_tipBack..show(false)
+    frame_help = new Frame(BzFrameType.BACKDROP,"帮助框")
+    ..setSize(0.7, 0.5)
+    ..setPoint(AnchorPoint.CENTER, Frame.gameBaseUI, AnchorPoint.CENTER, 0, 0)
+    ..setTexture("UI\\help.tga", 0)
+    ..setAlpha(225)
+    ..show(true)
+
+init
+    DzLoadToc( "UI\\Shadow.toc" )
+    for a = 0 to 4
+        int last = DzFrameGetMinimapButton(a)
+        DzFrameClearAllPoints( last )
+        if a == 0
+            DzFrameSetPoint(last,6,DzFrameGetMinimap(),8,0,0.01 )
+        else
+            DzFrameSetPoint(last,6,DzFrameGetMinimapButton(a-1),0,0,0 )
+    DzFrameClearAllPoints( DzFrameGetMinimap() )
+    DzFrameSetSize( DzFrameGetMinimap(), 0.115, 0.118 )
+    DzFrameSetAbsolutePoint( DzFrameGetMinimap(), 6, 0.0050, 0.001 )
+    DzFrameClearAllPoints( DzFrameGetTooltip() )
+    DzFrameSetAbsolutePoint( DzFrameGetTooltip(), 6, 0.58, 0.14 )

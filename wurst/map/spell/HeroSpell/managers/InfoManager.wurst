@@ -1,0 +1,21 @@
+package InfoManager
+import HashMap
+import HeroRandomSpellEntity
+import ItemManager
+import YDAbilityState
+
+
+public class InfoManager
+    static let map = new HashMap<string,RandomSpellEntity>()
+    static function set(RandomSpellEntity meta)
+        let itemId = ItemManager.r2i(meta.metaType)
+        createItem(itemId,vec2(0,0)).remove()
+        meta.name = itemId.exItemTypeData(EX_ITEM_YD.TIP)
+        map.put(meta.name, meta)
+    static function get(string name) returns RandomSpellEntity
+        if map.get(name) == null
+            Log.error("没有找到随机技能:"+name)
+        return map.get(name)
+
+    static function setMixture(string a, string b, string c)
+        RandomSpellEntity.setMixture(get(a), get(b), get(c))

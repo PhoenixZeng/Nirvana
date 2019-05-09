@@ -1,0 +1,30 @@
+package itemAttrLib
+import public slk
+
+public enum ItemType
+    Equipment
+    Consumables
+    Gem
+    Only
+    Other
+
+public function ItemType.toString() returns string
+    switch this
+        case Equipment
+            return "Equipment"
+        case Consumables
+            return "Consumables"
+        case Gem
+            return "Gem"
+        case Only
+            return "Only"
+        default
+            return "Other"
+
+public function item.getItemType() returns ItemType
+    
+    let a = this.getLevel() - 1
+    return a castTo ItemType
+
+@Test function a()
+    print(((-1) castTo ItemType).toString())

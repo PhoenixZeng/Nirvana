@@ -1,0 +1,306 @@
+package HeroSpellBox
+import HeroRandomSpellEntity
+import HeroRandomSpellManager
+import Hero
+import DialogBox
+import DmgType
+import ItemManager
+import YDAbilityState
+
+
+function int .getSpellBoxId(int loc) returns int
+    return 'RA00'+this*256 + loc
+
+public function getRandomSpellBoxs(Hero h) returns RandomSpellBoxs
+    return RandomSpellBoxs.list[h._self.getOwner().getId()]
+public function getRandomSpellBoxs(int pid) returns RandomSpellBoxs
+    return RandomSpellBoxs.list[pid]
+public function getRandomSpellBoxs(player p) returns RandomSpellBoxs
+    return RandomSpellBoxs.list[p.getId()]
+public function getRandomSpellBoxs(unit u) returns RandomSpellBoxs
+    return RandomSpellBoxs.list[u.getOwner().getId()]
+
+interface OnConfirmCallBack
+    function do()
+
+public class RandomSpellBoxs
+    int pid
+    Hero hero
+    static let abilityNum = 4
+    static let playerNum = 5
+    static RandomSpellBoxs array list
+    function onAttack(unit u)
+        for loc = 0 to abilityNum - 1
+            RandomSpellBox.get(pid, loc).entity.onAttack(u)
+    function onDamage(DmgWrapper dw) returns DmgWrapper
+        DmgWrapper dwn = dw
+        for loc = 0 to abilityNum - 1
+            dwn = RandomSpellBox.get(pid, loc).entity.onDamage(dwn)
+        return dwn
+    function onDamaged(DmgWrapper dw) returns DmgWrapper
+        DmgWrapper dwn = dw
+        for loc = 0 to abilityNum - 1
+            dwn = RandomSpellBox.get(pid, loc).entity.onDamaged(dwn)
+        return dwn
+    function onBBAttack(unit i,unit j)
+        for loc = 0 to abilityNum - 1
+            RandomSpellBox.get(pid, loc).entity.onBBAttack(i,j)
+    // function onKill(unit i,unit j)
+    //     for loc = 0 to abilityNum - 1
+    //         RandomSpellBox.get(pid, loc).entity.onKill(i,j)
+    function onCast(int id,targets tar)
+        for loc = 0 to abilityNum - 1
+            let e = RandomSpellBox.get(pid, loc).entity
+            if e instanceof ActiveRandomSpellEntity
+                (e castTo ActiveRandomSpellEntity).onTestCast(id,tar)
+    function getBox(int loc) returns RandomSpellBox
+        return RandomSpellBox.get(pid, loc)
+
+    function unlock(int loc) returns bool
+        let get = RandomSpellBox.get(pid, loc)
+        if get.entity == RandomSpellEntityManager._close
+            hero._self.addAbilityPro(pid.getSpellBoxId(loc))
+            get.change(RandomSpellEntityManager._null)
+            Log.debug(hero._self.getName()+":"+pid.getSpellBoxId(loc).toIdString())
+            return true
+        return false
+
+    function unlock() returns bool
+        bool b = false
+        for loc = 0 to abilityNum - 1
+            if unlock(loc)
+                b = true
+                break
+        return b
+
+    function onTryForget()
+        LinkedList<RandomSpellBox> canForget = new LinkedList<RandomSpellBox>()
+        RandomSpellBox currentBox
+        for loc = 0 to abilityNum - 1
+            currentBox = RandomSpellBox.get(pid, loc)
+            if currentBox.entity.canForget
+                canForget.add(currentBox)
+        
+        DialogBox box = new DialogBox("选择忘记技能!")
+        if canForget.size() > 0
+            for rBox in canForget
+                box.addButton("忘记 "+rBox.entity.getName()) ->
+                    let want = rBox.entity
+                    rBox.change(RandomSpellEntityManager._null)
+                    hero._self.addItemById(ItemManager.r2i(want.metaType))
+                    destroy box
+            box.addButton("取消") ->
+                destroy box
+        else
+            box.addButton("取消(没有可忘记技能)") ->
+                destroy box
+
+        box.display(Player(pid), true)
+        destroy canForget
+
+    function confirmDialogBox(RandomSpellEntity entity,item t,player p,OnConfirmCallBack cb)
+        entity.metaLoadInfo()
+        let db = new DialogBox(entity.getUbertip())
+        db.addButton("确认")->
+            cb.do()
+            t.remove()
+            destroy cb
+            destroy db
+        db.addButton("取消")->
+            destroy db
+        db.display(p, true)
+
+    function findRepetition(RandomSpellEntity upgrade) returns RandomSpellBox
+        for loc = 0 to abilityNum - 1
+            let currentBox = RandomSpellBox.get(pid, loc)
+            let currentBoxSpell = currentBox.entity
+            if RandomSpellEntity.isRepetition(upgrade,currentBoxSpell)
+                return currentBox
+        return null
+    
+    function repetitionUpgrade(RandomSpellBox currentBox,RandomSpellEntity material,RandomSpellBox materBox,RandomSpellEntity upgrade,item t,DialogBox box)
+        string str = ""
+        let currentBoxSpell = currentBox.entity
+        if RandomSpellBox.mixtureUpgrade
+            if currentBoxSpell.canUpgradeByBook
+                if currentBoxSpell.isLevelUpgradable()
+                    box.addButton("[升级] "+material.getName()+" + "+materBox.entity.getName()+" -> "+currentBoxSpell.getNameLvStr(currentBoxSpell.getLv()+1)) ->
+                        confirmDialogBox(currentBox.entity,t,Player(pid)) ->
+                            materBox.change(RandomSpellEntityManager._null)
+                            currentBox.levelUp()
+                        destroy box
+                else
+                    str = "[ "+upgrade.getName()+" 已经达到满级]"
+            else
+                str = "[ "+upgrade.getName()+" 不允许技能书升级]"
+        else
+            str = "[ "+upgrade.getName()+" 技能已合成过了]"
+        if str != ""
+            box.addButton(str) ->
+                destroy box
+
+    function onClickItem(RandomSpellEntity entity,item t)
+        RandomSpellEntity material = entity.meta
+        LinkedList<RandomSpellBox> materialBoxs = new LinkedList<RandomSpellBox>()
+        RandomSpellBox addedBox = null
+        RandomSpellBox spaceBox = null
+
+        RandomSpellBox currentBox
+        RandomSpellEntity currentBoxSpell
+        for loc = 0 to abilityNum - 1
+            currentBox = RandomSpellBox.get(pid, loc)
+            currentBoxSpell = currentBox.entity
+            if currentBoxSpell == RandomSpellEntityManager._null
+                spaceBox = spaceBox == null ? currentBox : spaceBox
+            else
+                let formula = currentBoxSpell.tryGetUpgardeFormulaFrom(material)
+                if formula != null
+                    materialBoxs.add(currentBox)
+                if currentBoxSpell.meta == material
+                    addedBox = currentBox
+
+        string str
+        DialogBox box = new DialogBox("使用技能书: "+material.getName())
+        if spaceBox != null and addedBox == null
+            box.addButton("[学习] "+material.getName()) ->
+                confirmDialogBox(material,t,Player(pid)) ->
+                    spaceBox.change(material)
+                destroy box
+        else if addedBox == null
+            box.addButton("[无可用技能位](轮回后增加,最大4个)") ->
+                destroy box
+    
+        if addedBox != null or RandomSpellBox.repeatUpgrade
+            str = ""
+            if RandomSpellBox.repeatUpgrade and addedBox != null
+                if addedBox.entity.isLevelUpgradable()
+                    if addedBox.entity.canUpgradeByBook
+                        box.addButton("[升级] "+addedBox.entity.getName()) ->
+                            confirmDialogBox(entity,t,Player(pid)) ->
+                                addedBox.levelUp()
+                            destroy box
+                    else
+                        str = "[ "+addedBox.entity.getName()+" 不允许技能书升级]"
+                else
+                    str = "[ "+addedBox.entity.getName()+" 已经达到满级]"
+            else if addedBox != null
+                str = "[技能 "+addedBox.entity.getName()+" 已经学习过了]"
+            if str != ""
+                box.addButton(str) ->
+                    destroy box
+        if materialBoxs.size() > 0
+            for materBox in materialBoxs
+                let upgrade = materBox.entity.tryGetUpgardeFormulaFrom(material).upgrade
+                let repetition = findRepetition(upgrade)
+                if repetition != null
+                    repetitionUpgrade(repetition,material,materBox,upgrade,t,box)
+                else
+                    box.addButton("[融合] "+material.getName()+" + "+materBox.entity.getName()+" = "+ upgrade.getName()) ->
+                        confirmDialogBox(upgrade,t,Player(pid)) ->
+                            let lv = materBox.entity.lv div 2
+                            materBox.change(upgrade)
+                            materBox.levelUp(lv)
+                        destroy box
+                    for loc = 0 to abilityNum - 1
+                        currentBox = RandomSpellBox.get(pid, loc)
+                        currentBoxSpell = currentBox.entity
+                        if currentBox != materBox
+                            let upgrade2 = currentBoxSpell.tryGetUpgardeFormulaFrom(upgrade).upgrade
+                            let repetition2 = findRepetition(upgrade2)
+                            if upgrade2 != null and repetition2 == null
+                                box.addButton("[融合] "+material.getName()+" + "+materBox.entity.getName()+" + "+ currentBoxSpell.getName() +" = "+ upgrade2.getName()) ->
+                                    confirmDialogBox(upgrade2,t,Player(pid)) ->
+                                        let lv = currentBoxSpell.lv div 2
+                                        materBox.change(RandomSpellEntityManager._null)
+                                        currentBox.change(upgrade2)
+                                        currentBox.levelUp(lv)
+                                    destroy box
+
+        box.addButton("取消") ->
+            destroy box
+
+        box.display(Player(pid), true)
+        destroy materialBoxs
+
+    function onHeroCreate(Hero hero)
+        this.hero = hero
+        for loc = 0 to abilityNum - 1
+            getBox(loc).hero = hero
+
+    static function inite()
+        for id = 0 to playerNum - 1
+            list[id] = new RandomSpellBoxs()
+            list[id].pid = id
+    
+
+public class RandomSpellBox
+    static RandomSpellBox array list
+    int abilId
+    int index
+    Hero hero
+    RandomSpellEntity entity
+    static let repeatUpgrade = true
+    static let mixtureUpgrade = true
+    static function get(int pid,int loc) returns RandomSpellBox
+        return list[pid*abilityNum+loc]
+    static function inite()
+        for i = 0 to playerNum - 1
+            for loc = 0 to abilityNum - 1
+                list[i*abilityNum+loc] = new RandomSpellBox()
+                list[i*abilityNum+loc].entity = RandomSpellEntityManager._close
+                list[i*abilityNum+loc].abilId = i .getSpellBoxId(loc)
+                list[i*abilityNum+loc].index = loc
+
+    function change(RandomSpellEntity meta)
+        entity.apply(false)
+        entity = meta.newEntity(meta.metaType)
+        if not entity.isMeta()
+            entity.hero = hero
+            entity.abilId = abilId
+            if entity instanceof ActiveRandomSpellEntity
+                (entity castTo ActiveRandomSpellEntity).setBoxInfo(abilId,index)
+        hero._self.exAbilCooldown(abilId,0)
+        entity.initApply(hero,abilId)
+        entity.flushTip(hero,abilId)
+
+    function tryGetUpgradeSpellFrom(RandomSpellEntity material) returns RandomSpellEntity
+        let t = entity.tryGetUpgardeFormulaFrom(material)
+        if t != null
+            return t.upgrade
+        return null
+
+    function canUpgradeByBook() returns bool
+        return entity.canUpgradeByBook
+
+    function levelUp()
+        levelUp(1)
+    function levelUp(int i)
+        if canUpgradeByBook() and entity.isLevelUpgradable()
+            entity.levelUp(i)
+
+init
+    RandomSpellBoxs.inite()
+    RandomSpellBox.inite()
+
+init
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_USE_ITEM)
+    .addAction() ->
+        let t = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        let p = u.getOwner()
+        let itemId = t.getTypeId()
+        if itemId.inIdRange('IR00', 'IRZZ'+1)
+            if itemId == 'IRZZ'
+                createItem(RandomSpellEntityManager.poolGeneral.getRandomBook(), u.getPos())
+            else if itemId == 'IRZY'
+                if getRandomSpellBoxs(u).unlock()
+                    printTimedToPlayer("技能解锁成功!", 10., p)
+                else
+                    printTimedToPlayer("解锁失败,无可解锁技能位!", 10., p)
+            else if itemId == 'IRZW'
+                getRandomSpellBoxs(u).onTryForget()
+            else
+                let rid = ItemManager.i2r(itemId)
+                let zero = getHeroRandomSpell(rid)
+                if zero != null
+                    getRandomSpellBoxs(u).onClickItem(zero,t)

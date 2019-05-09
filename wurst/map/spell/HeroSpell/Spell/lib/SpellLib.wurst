@@ -1,0 +1,52 @@
+package SpellLib
+import Hero
+/**
+*   伤害值 圆心 半径
+*/
+function unit.damageRange(real dmg,vec2 pos,real range)
+    group g = CreateGroup()..enumUnitsInRange(pos, range)
+    while g.hasNext()
+        let us = g.next()
+        if enemyFilter(this, us)
+            this.damageSpell(us, dmg)
+    g.clear()
+    g.destr()
+
+/**
+*   伤害值 圆心 范围特效
+*/
+public function unit.damageRange(real dmg,vec2 pos,string path_range,player owner)
+    eff(path_range, pos,owner)
+    this.damageRange(dmg,pos,500)
+
+/**
+*   伤害值 圆心 半径 单位特效
+*/
+function unit.damageRangePoint(real dmg,vec2 pos,real range,string path_point,player owner)
+    group g = CreateGroup()..enumUnitsInRange(pos, range)
+    while g.hasNext()
+        let us = g.next()
+        if enemyFilter(this, us)
+            this.damageSpell(us, dmg)
+            us.eff(path_point,"origin",owner)
+    g.clear()
+    g.destr()
+
+
+
+/**
+*   伤害值 圆心 半径 单位特效 范围特效
+*/
+public function unit.damageRangePoint(real dmg,vec2 pos,real range,string path_range,string path_point,player owner)
+    eff(path_range, pos,owner)
+    this.damageRangePoint(dmg, pos,range,path_point,owner)
+
+/**
+*   随机标准正态分布(0,1)
+*/
+public function randomNormalDistribution() returns real
+    var sum=0.0
+    for i = 1 to 12
+        sum=sum+GetRandomReal(0, 1)
+    return sum/12.0
+    

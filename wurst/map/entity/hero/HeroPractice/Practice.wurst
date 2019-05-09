@@ -1,0 +1,38 @@
+package Practice
+import attrMapper
+import PracticeEntity
+
+public class Practice
+    Unit u
+    Books book
+    Pages printer
+    PracticeEntity entity
+    construct(Unit u,Books bk)
+        this.u = u
+        this.book = bk
+        this.printer = book.getSubBook("炼体").getPage("0次炼体")
+        entity = PracticeEntity.get("0次炼体")
+        printer.activation()
+        u.addExAttr(AttrPlus.loadBookPageAttr(printer.page.id), 1)
+
+    function getPracticeString() returns string
+        return printer.page.name
+
+    function getIndex() returns int
+        return entity.index
+
+    function onPracticeUp(string name) returns PracticeEntity
+        if entity.getNext().pg == name
+            entity = PracticeEntity.get(name)
+            printer = book.getSubBook(entity.sb).getPage(entity.pg)
+            printer.activation()
+            u.addExAttr(AttrPlus.loadBookPageAttr(printer.page.id), 1)
+            printTimedToPlayer("[炼体]:成功!", 10, u._self.getOwner())
+            return entity
+        else
+            printTimedToPlayer("[炼体]:炼体程度不符合,失败!", 10, u._self.getOwner())
+            printTimedToPlayer("[炼体]:下一个炼体:"+entity.getNext().pg, 10, u._self.getOwner())
+            printTimedToPlayer("[炼体]:提升的炼体:"+name, 10, u._self.getOwner())
+            return null
+
+    

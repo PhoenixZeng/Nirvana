@@ -1,0 +1,185 @@
+package attrLib
+import HashMap
+import public slk
+
+
+public let attrKeySize = 21
+
+public enum AttrKey
+    ATK
+    DEF
+    ASP
+    HPM
+    STR
+    AGI
+    INE
+    dmgPlus
+    ctcProb
+    ctcDmg
+    absorb
+    addDmg
+    finDmg
+    dmgResi
+    dmgSub
+    dmgBack
+    //0-15
+    propLevelUp
+    propKilled 
+    propTimed  
+    //0-18
+    strPlus//力量增幅 
+    agiPlus//敏捷增幅
+    intPlus//智力增幅
+    //0-21
+
+public IterableMap<int,AttrKey> attrHash2Key   = new IterableMap<int,AttrKey>
+public IterableMap<AttrKey,int> attrKey2Hash = new IterableMap<AttrKey,int>
+public IterableMap<AttrKey,int> towerAttrkeys = new IterableMap<AttrKey,int>
+    
+public function AttrKey.getName() returns string
+    switch this
+        case AttrKey.HPM
+            return"血量"
+        case AttrKey.ATK 
+            return"攻击"   
+        case AttrKey.DEF 
+            return"护甲"
+        case AttrKey.ASP 
+            return"攻速"   
+        case AttrKey.STR 
+            return"力量"   
+        case AttrKey.AGI 
+            return"敏捷"   
+        case AttrKey.INE 
+            return"智力"
+        case dmgPlus
+            return "伤害增幅"
+        case ctcProb
+            return "暴击概率"
+        case ctcDmg 
+            return "暴击伤害"
+        case absorb 
+            return "攻击吸血"
+        case addDmg 
+            return "附加伤害"
+        case finDmg 
+            return "最终伤害"
+        case dmgResi
+            return "伤害抵抗"
+        case dmgSub 
+            return "伤害减免"
+        case dmgBack
+            return "伤害反弹"
+        case propLevelUp
+            return "升级属性成长"
+        case propKilled
+            return "杀敌属性成长"
+        case propTimed
+            return "每秒属性成长"
+        case strPlus
+            return "力量增幅" 
+        case agiPlus
+            return "敏捷增幅"
+        case intPlus
+            return "智力增幅"
+        default
+            return ""
+public function string.toAttrKey() returns AttrKey
+    switch this
+        case "血量"
+            return AttrKey.HPM
+        case "攻击" 
+            return AttrKey.ATK 
+        case "护甲" 
+            return AttrKey.DEF
+        case "攻速" 
+            return AttrKey.ASP 
+        case "力量" 
+            return AttrKey.STR
+        case "敏捷"  
+            return AttrKey.AGI
+        case "智力" 
+            return AttrKey.INE
+        case "伤害增幅"
+            return AttrKey.dmgPlus 
+        case "暴击概率"
+            return AttrKey.ctcProb 
+        case "暴击伤害"
+            return AttrKey.ctcDmg  
+        case "攻击吸血"
+            return AttrKey.absorb  
+        case "附加伤害"
+            return AttrKey.addDmg  
+        case "最终伤害"
+            return AttrKey.finDmg  
+        case "伤害抵抗"
+            return AttrKey.dmgResi 
+        case "伤害减免"
+            return AttrKey.dmgSub  
+        case "伤害反弹"
+            return AttrKey.dmgBack 
+        case "升级属性成长"
+            return AttrKey.propLevelUp
+        case "杀敌属性成长"
+            return AttrKey.propKilled
+        case "每秒属性成长"
+            return AttrKey.propTimed
+        case "力量增幅"
+            return AttrKey.strPlus 
+        case "敏捷增幅"
+            return AttrKey.agiPlus
+        case "智力增幅"
+            return AttrKey.intPlus
+        default
+            return AttrKey.HPM
+public function int.toAttrKey() returns AttrKey
+    return attrHash2Key.get(this)
+public function AttrKey.getHash() returns int
+    return this.getName().getHash()
+
+init
+    attrHash2Key.put("血量".getHash() , AttrKey.HPM)
+    attrHash2Key.put("攻击".getHash() , AttrKey.ATK)
+    attrHash2Key.put("护甲".getHash() , AttrKey.DEF)
+    attrHash2Key.put("攻速".getHash() , AttrKey.ASP)
+    attrHash2Key.put("力量".getHash() , AttrKey.STR)
+    attrHash2Key.put("敏捷".getHash() , AttrKey.AGI)
+    attrHash2Key.put("智力".getHash() , AttrKey.INE)
+    attrHash2Key.put("伤害增幅".getHash() , AttrKey.dmgPlus)
+    attrHash2Key.put("暴击概率".getHash() , AttrKey.ctcProb)
+    attrHash2Key.put("暴击伤害".getHash() , AttrKey.ctcDmg )
+    attrHash2Key.put("攻击吸血".getHash() , AttrKey.absorb )
+    attrHash2Key.put("附加伤害".getHash() , AttrKey.addDmg )
+    attrHash2Key.put("最终伤害".getHash() , AttrKey.finDmg )
+    attrHash2Key.put("伤害抵抗".getHash() , AttrKey.dmgResi)
+    attrHash2Key.put("伤害减免".getHash() , AttrKey.dmgSub )
+    attrHash2Key.put("伤害反弹".getHash() , AttrKey.dmgBack )
+    attrHash2Key.put("升级属性成长".getHash() , AttrKey.propLevelUp )
+    attrHash2Key.put("杀敌属性成长".getHash() , AttrKey.propKilled  )
+    attrHash2Key.put("每秒属性成长".getHash() , AttrKey.propTimed   )
+    attrHash2Key.put("力量增幅".getHash() , AttrKey.strPlus) 
+    attrHash2Key.put("敏捷增幅".getHash() , AttrKey.agiPlus)
+    attrHash2Key.put("智力增幅".getHash() , AttrKey.intPlus)
+    
+    attrKey2Hash.put(AttrKey.HPM,"血量".getHash())
+    attrKey2Hash.put(AttrKey.ATK,"攻击".getHash())
+    attrKey2Hash.put(AttrKey.DEF,"护甲".getHash())
+    attrKey2Hash.put(AttrKey.ASP,"攻速".getHash())
+    attrKey2Hash.put(AttrKey.STR,"力量".getHash())
+    attrKey2Hash.put(AttrKey.AGI,"敏捷".getHash())
+    attrKey2Hash.put(AttrKey.INE,"智力".getHash())
+    attrKey2Hash.put(AttrKey.dmgPlus , "伤害增幅".getHash())
+    attrKey2Hash.put(AttrKey.ctcProb , "暴击概率".getHash())
+    attrKey2Hash.put(AttrKey.ctcDmg  , "暴击伤害".getHash())
+    attrKey2Hash.put(AttrKey.absorb  , "攻击吸血".getHash())
+    attrKey2Hash.put(AttrKey.addDmg  , "附加伤害".getHash())
+    attrKey2Hash.put(AttrKey.finDmg  , "最终伤害".getHash())
+    attrKey2Hash.put(AttrKey.dmgResi , "伤害抵抗".getHash())
+    attrKey2Hash.put(AttrKey.dmgSub  , "伤害减免".getHash())
+    attrKey2Hash.put(AttrKey.dmgBack , "伤害反弹".getHash())
+    attrKey2Hash.put(AttrKey.propLevelUp , "升级属性成长".getHash())
+    attrKey2Hash.put(AttrKey.propKilled  , "杀敌属性成长".getHash())
+    attrKey2Hash.put(AttrKey.propTimed   , "每秒属性成长".getHash())
+    attrKey2Hash.put(AttrKey.strPlus , "力量增幅".getHash()) 
+    attrKey2Hash.put(AttrKey.agiPlus , "敏捷增幅".getHash())
+    attrKey2Hash.put(AttrKey.intPlus , "智力增幅".getHash())

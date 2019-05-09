@@ -1,0 +1,4 @@
+package AbilityBuff
+import public buffs
+
+public abstract class AbilityBuff extends Buff

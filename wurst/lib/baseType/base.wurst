@@ -1,0 +1,76 @@
+package base
+import stringLib
+import ObjectIds
+
+public function int.inIdRange(int min,int max) returns bool
+	return this >= min and this < max
+public function int.inIdOffsetRange(int min,int offset) returns bool
+	return this >= min and this < (min+offset + 1)
+
+public function string.op_plus(int i) returns string
+	return this + i.toString()
+public function string.op_plus(real i) returns string
+	return this + i.toString()
+public function string.op_plus(bool i) returns string
+	return this + i.toString()
+public function int.op_plus(string i) returns string
+	return this.toString() + i
+public function int.op_plus(bool i) returns int
+	return this + i.toInt()
+public function real.op_plus(string i) returns string
+	return this.toString() + i
+public function real.op_plus(bool i) returns real
+	return this + i.toInt()
+public function bool.op_plus(string i) returns string
+	return this.toString() + i
+public function bool.op_plus(real i) returns real
+	return this.toInt() + i
+public function bool.op_plus(int i) returns int
+	return this.toInt() + i
+public function bool.op_plus(bool i) returns bool
+	return this and i
+
+public function string.op_minus(int i) returns int
+	return this.forInt() - i
+public function string.op_minus(real i) returns real
+	return this.forInt() - i
+public function string.op_minus(bool i) returns int
+	return this.forInt() - i.toInt()
+public function int.op_minus(string i) returns int
+	return this - i.forInt()
+public function int.op_minus(bool i) returns int
+	return this - i.toInt()
+public function real.op_minus(bool i) returns real
+	return this - i.toInt()
+public function real.op_minus(string i) returns real
+	return this - i.forInt()
+public function bool.op_minus(string i) returns int
+	return this.toInt() - i.forInt()
+public function bool.op_minus(int i) returns int
+	return this.toInt() - i
+public function bool.op_minus(real i) returns real
+	return this.toInt() - i
+public function bool.op_minus(bool i) returns bool
+	return this or i
+	
+public function int.toIdString() returns string
+	return toRawCode(this)
+
+
+public function unit.op_plus(string i) returns string
+	return this.getName() + i
+public function string.op_plus(unit i) returns string
+	return this + i.getName()
+	
+public function item.op_plus(string i) returns string
+	return this.getName() + i
+public function string.op_plus(item i) returns string
+	return this + i.getName()
+
+public function color.forString(string s) returns string
+	return this.toColorString() + s + "|r"
+
+public function color.print(string s)
+	print(this.forString(s))
+
+

@@ -1,0 +1,145 @@
+package ItemRecipe
+import base
+import LinkedListModule
+import HashList
+import itemLib
+import unitLib
+
+function unit.craft() 
+    for ItemRecipe ir in ItemRecipe
+        if(this.canCraft(ir))
+            //print(ir.toString())
+            this.removeItems(ir)
+            this.addItemById(ir.target)
+
+function unit.removeItems(ItemRecipe ir)
+    for ItemComponent ic in ir.components
+        for int i = 0 to 5
+            item tempItem = this.itemInSlot(i)
+            if(tempItem!=null and tempItem.getTypeId() == ic.component)
+                tempItem.addChargesPro(-ic.quantity)
+                break
+
+
+function unit.canCraft(ItemRecipe recipe) returns boolean
+    return recipe.canCraft(this)
+
+function unit.hasItem(int id, int quantity) returns boolean
+    HashList<item> inventory = this.getInventroy()
+    int count = 0
+    for item i in inventory
+        if(i.getTypeId() == id)
+            var c = i.getCharges()
+            if(c==0)
+                count ++
+            else
+                return c>=quantity
+    return count >= quantity
+
+class ItemComponent
+    int component
+    int quantity = 1
+    construct(int id, int count)
+        component = id
+        quantity = count
+    construct(int id)
+        component = id
+    
+
+class ItemRecipe
+    use LinkedListModule
+    HashList<ItemComponent> components = new HashList<ItemComponent>()
+    int target
+    construct(int target)
+        this.target = target
+    private construct(int target,int i)
+        this.addComponent(i)
+        this.target = target
+    construct(int target,int i1,int i2)
+        this.addComponent(i1)
+        this.addComponent(i2)
+        this.target = target
+    construct(int target,int i1,int i2,int i3)
+        this.addComponent(i1 )
+        this.addComponent(i2 )
+        this.addComponent(i3 )
+        this.target = target
+    construct(int target,int i1,int i2,int i3,int i4)
+        this.addComponent(i1 )
+        this.addComponent(i2 )
+        this.addComponent(i3 )
+        this.addComponent(i4 )
+        this.target = target
+    construct(int target,int i1,int i2,int i3,int i4,int i5)
+        this.addComponent(i1 )
+        this.addComponent(i2 )
+        this.addComponent(i3 )
+        this.addComponent(i4 )
+        this.addComponent(i5 )
+        this.target = target
+    construct(int target,int i1,int i2,int i3,int i4,int i5,int i6)
+        this.addComponent(i1 )
+        this.addComponent(i2 )
+        this.addComponent(i3 )
+        this.addComponent(i4 )
+        this.addComponent(i5 )
+        this.addComponent(i6 )
+        this.target = target
+
+    function toString() returns string
+        string s = ""
+        for ItemComponent ic in components
+            if(ic.quantity==1)
+                s += ic.component.toIdString() + " + "
+            else
+                s += ic.component.toIdString()+"["+ic.quantity+"]" + " + "
+        s = s.substring(0,s.length()-3)
+        s += " = " + this.target.toIdString()
+        return s
+
+    function addComponent(int id, int quantity)
+        components.add(new ItemComponent(id, quantity))
+
+    function addComponent(int id)
+        components.add(new ItemComponent(id))
+   
+    function canCraft(unit u) returns boolean
+        bool target = true
+        for ItemComponent ic in components
+            if(u.hasItem(ic.component, ic.quantity) == false)
+                target = false
+                break
+        return target
+    
+    ondestroy
+        destroy components
+
+
+   
+// unit u
+// Create recipe and add components	
+init
+    // new ItemRecipe('shar')
+    // ..addComponent('whwd', 2)
+    // ..addComponent('pghe', 1)
+    // ..addComponent('phlt', 1)
+
+    // // Crafting Demo
+
+    // u = createUnit(players[0], 'Hpal', vec2(0, 0), angle(0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('pghe', vec2(0, 0))
+    // createItem('phlt', vec2(0, 0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('pghe', vec2(0, 0))
+    // createItem('phlt', vec2(0, 0))
+
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    // ..addAction(()->begin
+    //     GetTriggerUnit().craft()
+    //     print(GetManipulatedItem().getName())
+    // end)
+    

@@ -1,0 +1,75 @@
+package GeneralActiveRandomSpell
+// import HeroRandomSpellEntity
+// import Hero
+// import MissileRandomSpell
+// import ContinueCastTimer
+// import SpellLib
+
+// /**
+// *   移动射击 - 主动
+// */
+// public class GeneralBulletMovingEmissionActiveRandomSpellEntity extends CastRandomSpellEntity implements MissileMoverHitInterface , ContinueCastTimerInterface
+//     use RandomSpellModule
+//     real cool
+//     string missilePath
+
+//     int  emissionDelay
+//     int  emissionCount
+
+//     real hitRange
+//     real missileRange
+//     real missileTime
+//     real dmgFactor
+//     Prop prop
+
+//     override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+//         let dmg = hero._self.getPropVal(prop) * dmgFactor * (1.15).pow(lv+.0)
+//         hero._self.damageSpell(u, dmg)
+        
+//     function copyData()
+//         let _meta = meta castTo GeneralBulletMovingEmissionActiveRandomSpellEntity
+//         this.cool            = _meta.cool            
+//         this.missilePath     = _meta.missilePath     
+//         this.emissionDelay   = _meta.emissionDelay   
+//         this.emissionCount   = _meta.emissionCount   
+//         this.hitRange        = _meta.hitRange    
+//         this.missileRange    = _meta.missileRange    
+//         this.missileTime     = _meta.missileTime     
+//         this.dmgFactor       = _meta.dmgFactor       
+//         this.prop            = _meta.prop            
+
+//     function setData(string missilePath,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,real missileRange,real missileTime,real hitRange)
+//         this.cool            = cool            
+//         this.missilePath     = missilePath     
+//         this.emissionDelay   = (emissionDelay*100).toInt()
+//         this.emissionCount   = emissionCount   
+//         this.hitRange        = hitRange        
+//         this.missileRange    = missileRange    
+//         this.missileTime     = missileTime     
+//         this.dmgFactor       = dmgFactor       
+//         this.prop            = prop            
+
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     function emission(angle uface)
+//         let caster = hero._self
+//         let pos =  caster.getPos()
+//         let face = uface + (randomNormalDistribution()*10-5).fromDeg()
+//         onMissileSpellEmission(missilePath,caster,pos,face,hero.owner)
+//         ..mover_setSpeed(missileRange/missileTime, 0)
+//         ..mover_setDist(missileRange)
+//         ..setHitRange(hitRange)
+//         ..mover_start()
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         if not hero._self.isAliveTrick()
+//             return
+//         emission((t.tar.p).getAngle())
+//     override function onCast(targets tar)
+//         let caster = hero._self
+//         let offset = tar.p - caster.getPos()
+//         setContinueCast(targets(offset, caster),emissionDelay,emissionCount)
+//     override function createEntity() returns RandomSpellEntity
+//         return new GeneralBulletMovingEmissionActiveRandomSpellEntity()
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(3, 600, cool)

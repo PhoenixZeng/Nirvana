@@ -1,0 +1,38 @@
+package Tip
+import  LinkedListModule
+import CenterTimer
+
+public class Tip
+    use LinkedListModule
+    string tip
+    static Tip pointer
+
+    static function add(string s) returns Tip
+        let a = new Tip()
+        a.tip = s
+        return a
+
+    function show()
+        printTimed(color(11, 194, 201).toColorString()+"[提示]:"+tip+"|r", 60)
+
+    static function initi()
+        Tip.add("本图大部分物品均可使用宠物购买!")
+        Tip.add("材料和装备分别放在人物或者宠物背包都可以直接合成")
+        Tip.add("指令-gd四位数字,如-gd2000 可以调整镜头高度")
+        Tip.add("指令hg可以回家,F2也可以")
+        Tip.add("指令hj可以去练功房,F3也可以")
+        Tip.add("指令hs可以去泉水,F4也可以")
+        Tip.add("指令sx可以查看英雄属性")
+        Tip.add("指令-xs可以开启关闭伤害文字显示")
+        Tip.add("指令-jnxs可以开启关闭队友技能特效显示")
+        Tip.add("按住alt+数字1-6可以把宝宝身上的物品快速给英雄(小键盘不算)")
+        Tip.add("每0.2秒只显示一次伤害,没伤害显示不代表没有造成伤害")
+        Tip.add("商城道具是开局自动领取的,不需要手动去点,查看人物身上的技能查看激活命令!")
+        Tip.add("基本装备升级完后,需要前往副本继续升级.全部升级完成去后山入体!")
+        Tip.add("击杀副本中的BOSS会掉落精髓,获得同一个副本中的4个精髓可以进行轮回!")
+        Tip.add("高级副本中具有隐藏要素!")
+        Tip.add("进攻BOSS会掉落技能书!")
+        Tip.pointer = Tip.getFirst()
+        onAlways(60) ts ->
+            Tip.pointer.show()
+            Tip.pointer = Tip.pointer.getNext()

@@ -1,0 +1,160 @@
+package TargetMissileRandomSpell
+// import Hero
+// import Missile
+// import Mover
+// import CenterTimer
+// import LinkedListModule
+
+
+// public interface TargetMissileNormalInterface
+//     function onMissileHit(TargetMissileNromalWithInterface missile)
+//     function onMissileEmission(string path,vec3 pos,unit tar,player owner) returns TargetMissileNromalWithInterface
+//         var p = path
+//         if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+//             p = ""
+//         return new TargetMissileNromalWithInterface(this,pos,tar,p)
+
+// public class TargetMissileNromalWithInterface extends TargetMissileMover
+//     TargetMissileNormalInterface cb
+//     ondestroy
+//         cb = null
+//     construct(TargetMissileNormalInterface cb,vec3 startPos,unit tar,string path)
+//         this.cb = cb
+//         this.origin = startPos
+//         this.tar = tar
+//         dummy = new Fx(startPos,0 .fromDeg() ,path)
+//         dummy.getDummy().lookAt("origin", tar)
+//         setPos(origin)
+
+//     override function abstractOffset() returns vec3
+//         return vec3(0, 0, 0)
+//     override function endInterface()
+//         cb.onMissileHit(this)
+
+// public interface TargetMissileRandomVec3Interface
+//     function onMissileHit(TargetMissileRandomVec3WithInterface missile)
+//     function onMissileEmission(string path,vec3 pos,unit tar,player owner) returns TargetMissileRandomVec3WithInterface
+//         var p = path
+//         if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+//             p = ""
+//         return new TargetMissileRandomVec3WithInterface(this,pos,tar,p)
+
+// public class TargetMissileRandomVec3WithInterface extends TargetMissileRandomVec3Mover
+//     TargetMissileRandomVec3Interface cb
+//     ondestroy
+//         cb = null
+//     construct(TargetMissileRandomVec3Interface cb,vec3 startPos,unit tar,string path)
+//         this.randomVec3 = vec3(0, 0, 0)
+//         this.cb = cb
+//         this.origin = startPos
+//         this.tar = tar
+//         dummy = new Fx(startPos,0 .fromDeg() ,path)
+//         dummy.getDummy().lookAt("origin", tar)
+//     /**
+//     * 为 TargetMissile 添加分运动 - 匀速直线的, 运动单位向量, 运动距离 , 运动速度
+//     */
+//     function setRandomVec3(vec3 vec3,real dis,real speed)
+//         this.randomVec3 = vec3.setLength(1)
+//         this.randomDis = dis
+//         this.randomSpeed = speed * __frame
+//     /**
+//     * 为 TargetMissile 添加分运动 - 变速直线的, 运动单位向量, 运动距离 , 运动速度
+//     */
+//     function setRandomVec3(vec3 vec3,real dis,real speed,real speedPlus)
+//         setRandomVec3(vec3,dis,speed)
+//         this.randomSpeedPlus = speedPlus * __frame
+//     override function endInterface()
+//         cb.onMissileHit(this)
+
+// public abstract class TargetMissileRandomVec3Mover extends TargetMissileMover
+//     vec3 randomVec3        = vec3(0, 0, 0)
+//     real randomSpeedPlus   = 0
+//     real randomSpeed       = 0
+//     real randomDis         = 0
+
+//     ondestroy
+//         randomVec3        = vec3(0, 0, 0)
+//         randomSpeedPlus   = 0
+//         randomSpeed       = 0
+//         randomDis         = 0
+
+//     override function abstractOffset() returns vec3
+//         vec3 ran
+//         if randomDis > 0
+//             randomSpeed += randomSpeedPlus
+//             randomDis -= randomSpeed
+//             ran = randomSpeed * randomVec3
+//         else
+//             ran = vec3(0, 0, 0)
+//         return ran
+
+// public abstract class TargetMissileMover
+//     use LinkedListModule
+//     use Mover
+
+//     Fx dummy
+//     vec3 origin
+//     unit tar
+
+//     ondestroy
+//         dummy             = null
+//         origin            = vec3(0, 0, 0)
+//         tar               = null
+
+//     abstract function endInterface()
+//     override function onStart()
+//         setPos(origin)
+//     override function getPos() returns vec3
+//         return origin
+//     override function onEnd()
+//         dummy.getDummy().resetLookAt()
+//         dummy.hiddenDestroy()
+//         destroy this
+//     override function onHitWall() returns boolean
+//         return true
+    
+//     abstract function abstractOffset() returns vec3
+
+//     override function setPos(vec3 vec3)
+//         origin = vec3 + abstractOffset()
+//         dummy.getDummy()..setXYZ(origin)
+
+//         let offset = tar.getPos().withZ(25) - origin
+//         let offsetPer = (tar.getPos().withZ(25) - origin).setLength(1)
+//         let face = offsetPer.toVec2().getAngle()
+//         let ang  = angle(Atan2(offsetPer.z,(offsetPer.x*offsetPer.x+offsetPer.y*offsetPer.y)))
+//         mover_setFace(face, __facePlus)
+//         mover_setAngle(ang, __anglePlus)
+
+//         if offset.lengthSquared() < 125
+//             endInterface()
+//             onEnd()
+
+//     override function onTick()
+//     override function getHit() returns group
+//         return ENUM_GROUP
+//     override function isHit(unit u) returns boolean
+//         return tar == u
+//     override function onHit(unit u)
+//     override static function engine()
+//         onAlways(Mover.__frame) task->
+//             for i in TargetMissileMover
+//                 i.do()
+    
+//     static function randomVec3() returns vec3
+//         return vec3(GetRandomReal(-1, 1), GetRandomReal(-1, 1), GetRandomReal(0, 1))
+//     static function randomNormalDistributionBack(vec2 offset) returns vec3
+//         let r1 = TargetMissileMover.randomNormalDistribution()
+//         let r2 = GetRandomReal(0, 1)
+//         let z = SquareRoot(1-r2*r2)
+//         let ranVec2 = (offset.rotate(angle(PI/2+PI*r1))).setLength(r2)
+//         return ranVec2.withZ(z)
+//     static function randomNormalDistribution() returns real
+//         var sum=0.0
+//         for i = 1 to 12
+//             sum=sum+GetRandomReal(0, 1)
+//         return sum/12.0
+
+// init
+//     TargetMissileMover.engine()
+

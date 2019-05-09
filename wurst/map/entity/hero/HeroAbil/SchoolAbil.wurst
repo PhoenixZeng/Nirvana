@@ -1,0 +1,84 @@
+package SchoolAbil
+// import slk
+// import HashMap
+// import phLib
+// import SpellsId
+
+
+// public class SchoolSpellEntity
+//     private static let item2this = new HashMap<int,thistype>
+//     static let abil2this = new HashMap<int,thistype>
+//     static let name2this = new HashMap<string,thistype>
+//     int itemId
+//     int abilId
+//     int needScore
+//     string school
+//     string name
+//     static function of(int id,int abilId,string name)returns thistype
+//         let a = new SchoolSpellEntity()
+//         a.itemId = id
+//         a.abilId =  abilId
+//         a.name = name
+//         a.needScore = slk_abil.loadInt(a.abilId, "needScore".getHash())
+//         a.school = slk_abil.loadString(a.abilId, "school".getHash())
+//         item2this.put(id, a)
+//         abil2this.put(abilId, a)
+//         name2this.put(name, a)
+//         return a
+//     static function has(int id) returns bool
+//         return item2this.has(id)
+//     static function get(int id) returns thistype
+//         return item2this.get(id)
+
+// public class SchoolAbil
+//     SchoolSpellEntity se
+//     int id
+//     int lv
+//     string classes
+//     string name
+//     static function getSchoolAbil(SchoolSpellEntity se)returns SchoolAbil
+//         if se.abilId.inIdRange('A100', 'A200')
+//             int a = 0
+//             if 10 .random()
+//                 a = 4
+//             else if 20 .random()
+//                 a = 3
+//             else if 40 .random()
+//                 a = 2
+//             else if 80 .random()
+//                 a = 1
+//             let s = new SchoolAbil()
+//             s.name = se.name
+//             s.se = se
+//             s.lv = a
+//             s.id = se.abilId + a
+//             s.classes = SchoolSpell.schoolSpellClass[a]
+//             return s
+//         else
+//             let s = new SchoolAbil()
+//             s.name = se.name
+//             s.se = se
+//             s.lv = 0
+//             s.id = se.abilId
+//             return s
+// init
+//     SchoolSpellEntity.of('L100','A100',"[青云]雷云剑气")
+//     SchoolSpellEntity.of('L110','A110',"[青云]玄冰劲气") 
+//     SchoolSpellEntity.of('L120','A120',"[青云]斩鬼神")  
+//     SchoolSpellEntity.of('L203','A00C',"[青云]神剑御雷")
+//     SchoolSpellEntity.of('L130','A130',"[魔教]邪魔剑气") 
+//     SchoolSpellEntity.of('L140','A140',"[魔教]唯我劲气") 
+//     SchoolSpellEntity.of('L150','A150',"[魔教]鬼神附体") 
+//     SchoolSpellEntity.of('L202','A00P',"[魔教]修罗降世")
+//     SchoolSpellEntity.of('L160','A160',"[天音]狮子吼")  
+//     SchoolSpellEntity.of('L170','A170',"[天音]佛光普照") 
+//     SchoolSpellEntity.of('L180','A180',"[天音]寂灭蔽日") 
+//     SchoolSpellEntity.of('L200','A00Q',"[天音]无量真言")
+//     SchoolSpellEntity.of('L190','A190',"[焚香]火气流转") 
+//     SchoolSpellEntity.of('L1A0','A1A0',"[焚香]火灵炽体") 
+//     SchoolSpellEntity.of('L1B0','A1B0',"[焚香]业火燃魂") 
+//     SchoolSpellEntity.of('L204','A00R',"[焚香]烈焰炙天")
+//     SchoolSpellEntity.of('L1C0','A1C0',"[江湖]炼神剑诀") 
+//     SchoolSpellEntity.of('L1D0','A1D0',"[江湖]通神剑诀") 
+//     SchoolSpellEntity.of('L1E0','A1E0',"[江湖]白月剑诀") 
+//     SchoolSpellEntity.of('L201','A00S',"[江湖]天玑剑诀")

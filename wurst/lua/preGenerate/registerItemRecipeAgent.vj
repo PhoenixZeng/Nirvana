@@ -1,0 +1,20 @@
+<?
+    require "utils"
+    local slk = require "slk"
+?>
+library itemRecipeAgent initializer itemRecipeAgentInit
+
+    function itemRecipeAgentInit takes nothing returns nothing
+<?
+    local info = {2,233,236,332,333,334,335,340}
+    for id,i in pairs(slk.item) do
+        if  isIn(info,i.HP)  then
+        ?>
+            call SaveInteger(j_slk_item,'<?=id?>',<?=hash('goldcost')?>,<?=i.goldcost?>)
+            call SaveInteger(j_slk_item,'<?=id?>',<?=hash('lumbercost')?>,<?=i.lumbercost?>)
+        <?
+        end
+    end
+?>
+    endfunction
+endlibrary

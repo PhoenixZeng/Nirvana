@@ -1,0 +1,100 @@
+package HeroRandomSpellManager
+import HeroRandomSpellEntity
+import SpellMetaInit
+import IdManager
+import InfoManager
+import ItemManager
+import Execute
+
+function RandomSpellEntity.getItemId() returns int
+    return ItemManager.r2i(this.metaType)
+
+module RandomSpellPool
+    static RandomSpellEntity array pool
+    static int count = 0
+    string name
+    function put(RandomSpellEntity entity)
+        bool repetition = false
+        for i = 0 to count - 1
+            if pool[i] == entity
+                repetition = true
+
+        if not repetition
+            pool[count] = entity
+            count ++
+        else
+            Log.info("试图往技能池"+getName()+"放入同样的技能:"+entity.getName())
+
+
+    function hasByItemId(int itemId) returns bool
+        for i = 0 to count - 1
+            if pool[i].getItemId() == itemId
+                return true
+        return false
+
+    function getRandom() returns RandomSpellEntity
+        return pool[GetRandomInt(0, count-1)]
+    function getRandomBook() returns int
+        return getRandom().getItemId()
+    function add(int i)
+        put(IdManager.get(i))
+    function add(string name)
+        put(InfoManager.get(name))
+    function add(RandomSpellEntity entity)
+        put(entity)
+    function getName() returns string
+        return name
+
+public function getHeroRandomSpell(int i) returns RandomSpellEntity
+    if i >= 0 and i < getHeroRandomSpellSize()
+        return IdManager.get(i)
+    return null
+public function getHeroRandomSpellSize() returns int
+    return IdManager.getCount()
+
+function RandomSpellEntity.initMeta()
+    IdManager.add(this)
+    InfoManager.set(this)
+
+class RandomSpellEntityManager
+    static let poolGeneral = new PoolGeneral("默认技能池")
+    static let poolRare = new PoolRare("稀有技能池")
+    static let poolEpic = new PoolEpic("史诗技能池")
+
+    static let _close = new CloseRandomSpellEntity()..setMeta()..setTypeMeta()..setMaxLv(1)..setCanForget(false)
+    static let _null  = new NullRandomSpellEntity()..setMeta()..setTypeMeta()..setMaxLv(1)..setCanForget(false)
+
+    static function initRandomSpell()
+        execute() ->
+            initSpellMeta()
+        execute() ->
+            for i = 0 to  RandomSpellEntity.metaCount
+                RandomSpellEntity.metas[i].initMeta()
+            for i = 2 to  33
+                poolGeneral.add(i)
+            for i = 34 to  49
+                poolRare.add(i)
+            for i = 50 to  65
+                poolEpic.add(i)
+        execute() ->
+            initSpellMixs()
+
+    static function get(int i) returns RandomSpellEntity
+        return IdManager.get(i)
+    static function get(string i) returns RandomSpellEntity
+        return InfoManager.get(i)
+        
+    static class PoolGeneral
+        use RandomSpellPool
+        construct(string name)
+            this.name = name
+    static class PoolRare
+        use RandomSpellPool
+        construct(string name)
+            this.name = name
+    static class PoolEpic
+        use RandomSpellPool
+        construct(string name)
+            this.name = name
+
+    

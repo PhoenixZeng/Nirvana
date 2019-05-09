@@ -1,0 +1,272 @@
+package attr
+import public HashMap
+import public unitLib
+import public ClosureTimers
+import public attrLib
+import public Handle
+import phLib
+
+
+/**
+ * 属性 抽象
+ */
+public module Attr<T>
+    use Handle<T>
+    static hashtable attrHt = InitHashtable()
+    int hpm=0
+    int atk=0
+    int def=0
+    int asp=0
+    int str=0
+    int agi=0
+    int ine=0 // 6
+
+    int dmgPlus = 0//伤害增幅%	100
+    int ctcProb = 0//暴击概率%	0
+    int ctcDmg  = 0//暴击伤害%	150
+    int absorb  = 0//攻击吸血%	0
+    int addDmg  = 0//附加伤害%	0
+    int finDmg  = 0//最终伤害%	0
+    int dmgResi = 0//伤害抵抗%	0
+    int dmgSub  = 0//伤害减免%	0
+    int dmgBack = 0//伤害反弹%	0  // 15
+
+    int propLevelUp = 0 
+    int propKilled  = 0
+    int propTimed   = 0 //18
+
+    int strPlus     = 0//力量增幅 
+    int agiPlus     = 0//敏捷增幅
+    int intPlus     = 0//智力增幅  21
+
+    abstract function isAttrSaveHt()returns bool
+
+    override function toString() returns string
+        return "Attr:"+Handle.toString()
+    function printAttr(player p)
+        if hpm != 0
+            printTimedToPlayer("   血量:"+hpm       ,20,p)
+        if atk != 0
+            printTimedToPlayer("   攻击:"+atk       ,20,p)
+        if asp != 0
+            printTimedToPlayer("   攻速:"+asp       ,20,p)
+        if def != 0
+            printTimedToPlayer("   防御:"+def       ,20,p)
+        if str != 0
+            printTimedToPlayer("   力量:"+str       ,20,p)
+        if agi != 0
+            printTimedToPlayer("   敏捷:"+agi       ,20,p)
+        if ine != 0
+            printTimedToPlayer("   智力:"+ine       ,20,p)
+        if addDmg != 0
+            printTimedToPlayer("附加伤害:"+addDmg,     20,p)
+        if ctcProb != 0
+            printTimedToPlayer("暴击概率:"+ctcProb,     20,p)
+        if ctcDmg != 0
+            printTimedToPlayer("暴击伤害:"+ctcDmg,      20,p)
+        if absorb != 0
+            printTimedToPlayer("伤害吸血:"+absorb,      20,p)
+        if dmgPlus != 0
+            printTimedToPlayer("伤害增幅:"+dmgPlus,      20,p)
+        if finDmg != 0
+            printTimedToPlayer("最终伤害:"+finDmg,      20,p)
+        if dmgResi != 0
+            printTimedToPlayer("伤害抵抗:"+dmgResi,     20,p)
+        if dmgSub != 0
+            printTimedToPlayer("伤害减免:"+dmgSub,      20,p)
+        if dmgBack     != 0
+            printTimedToPlayer("伤害反弹:"+dmgBack,     20,p)
+        if propLevelUp != 0
+            printTimedToPlayer("升级属性:"+propLevelUp, 20,p)
+        if propKilled  != 0
+            printTimedToPlayer("杀敌属性:"+propKilled,  20,p)
+        if propTimed   != 0
+            printTimedToPlayer("每秒属性:"+propTimed,   20,p)
+        if strPlus != 0
+            printTimedToPlayer("力量增幅:"+strPlus, 20,p)
+        if agiPlus  != 0
+            printTimedToPlayer("敏捷增幅:"+agiPlus,  20,p)
+        if intPlus   != 0
+            printTimedToPlayer("智力增幅:"+intPlus,   20,p)
+    function printAttr()
+        printAttr(Player(0))
+
+
+    function setAttr(int s,int data)
+        setAttr(attrHash2Key.get(s),data)
+    function setAttr(AttrKey s,int data)
+        setAttr(s, data,true)
+    function setAttr(AttrKey s,int data,bool setHt)
+        if setHt and isAttrSaveHt()
+            saveToHt(s, data)
+        switch s
+            case AttrKey.HPM
+                this.hpm=data
+            case AttrKey.ATK
+                this.atk=data
+            case AttrKey.DEF
+                this.def=data
+            case AttrKey.ASP
+                this.asp=data
+            case AttrKey.STR
+                this.str=data
+            case AttrKey.AGI
+                this.agi=data
+            case AttrKey.INE
+                this.ine=data
+            case dmgPlus
+                this.dmgPlus=data
+            case ctcProb
+                this.ctcProb=data
+            case ctcDmg 
+                this.ctcDmg =data
+            case absorb 
+                this.absorb =data
+            case addDmg 
+                this.addDmg =data
+            case finDmg 
+                this.finDmg =data
+            case dmgResi
+                this.dmgResi=data
+            case dmgSub 
+                this.dmgSub =data
+            case dmgBack
+                this.dmgBack =data
+            case propLevelUp
+                this.propLevelUp =data
+            case propKilled
+                this.propKilled =data
+            case propTimed
+                this.propTimed =data
+            case strPlus
+                this.strPlus =data
+            case agiPlus
+                this.agiPlus =data
+            case intPlus
+                this.intPlus =data
+            default
+
+        
+    function addAttr(int s,int data)
+        if data != 0
+            addAttr(attrHash2Key.get(s),data)
+    function addAttr(AttrKey s,int data)
+        if data != 0
+            setAttr(s, getAttr(s) + data)
+    function mulAttr(int s,real data)
+        if data != 0
+            mulAttr(attrHash2Key.get(s), data)
+    function mulAttr(AttrKey s,real data)
+        if data != 0
+            setAttr(s, (getAttr(s) * data).toInt())
+        
+    function getAttr(AttrKey k) returns int
+        switch k
+            case AttrKey.HPM
+                return this.hpm
+            case AttrKey.ATK
+                return this.atk
+            case AttrKey.DEF
+                return this.def
+            case AttrKey.ASP
+                return this.asp
+            case AttrKey.STR
+                return this.str
+            case AttrKey.AGI
+                return this.agi
+            case AttrKey.INE
+                return this.ine
+            case dmgPlus
+                return this.dmgPlus
+            case ctcProb
+                return this.ctcProb
+            case ctcDmg 
+                return this.ctcDmg 
+            case absorb 
+                return this.absorb 
+            case addDmg 
+                return this.addDmg 
+            case finDmg 
+                return this.finDmg 
+            case dmgResi
+                return this.dmgResi
+            case dmgSub 
+                return this.dmgSub 
+            case dmgBack
+                return this.dmgBack
+            case propLevelUp
+                return this.propLevelUp
+            case propKilled
+                return this.propKilled
+            case propTimed
+                return this.propTimed
+            case strPlus
+                return this.strPlus
+            case agiPlus
+                return this.agiPlus
+            case intPlus
+                return this.intPlus
+            default
+                return 0
+    
+    function addAttrs(thistype data)
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            addAttr(a,data.getAttr(a))
+    function subAttrs(thistype data)
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            addAttr(a,-data.getAttr(a))
+    function setAttrs(thistype data)
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            setAttr(a,data.getAttr(a))
+        
+    function clear()
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            setAttr(a,0,false)
+            
+    function isEmpty() returns bool
+        var flag = true
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            flag = flag and getAttr(a) == 0//== getDefaultVal(a)
+            if not flag
+                break
+        return flag
+    function isNotEmpty() returns bool
+        return not isEmpty()
+    
+    function loadFromHt()
+        hpm=attrHt.loadInt(_hid, AttrKey.HPM castTo int)
+        atk=attrHt.loadInt(_hid, AttrKey.ATK castTo int)
+        def=attrHt.loadInt(_hid, AttrKey.DEF castTo int)
+        asp=attrHt.loadInt(_hid, AttrKey.ASP castTo int)
+        str=attrHt.loadInt(_hid, AttrKey.STR castTo int)
+        agi=attrHt.loadInt(_hid, AttrKey.AGI castTo int)
+        ine=attrHt.loadInt(_hid, AttrKey.INE castTo int)
+        dmgPlus=attrHt.loadInt(_hid, AttrKey.dmgPlus castTo int)
+        ctcProb=attrHt.loadInt(_hid, AttrKey.ctcProb castTo int)
+        ctcDmg =attrHt.loadInt(_hid, AttrKey.ctcDmg  castTo int)
+        absorb =attrHt.loadInt(_hid, AttrKey.absorb  castTo int)
+        addDmg =attrHt.loadInt(_hid, AttrKey.addDmg  castTo int)
+        finDmg =attrHt.loadInt(_hid, AttrKey.finDmg  castTo int)
+        dmgResi=attrHt.loadInt(_hid, AttrKey.dmgResi castTo int)
+        dmgSub =attrHt.loadInt(_hid, AttrKey.dmgSub  castTo int)
+        dmgBack=attrHt.loadInt(_hid, AttrKey.dmgBack castTo int)
+        propLevelUp=attrHt.loadInt(_hid, AttrKey.propLevelUp castTo int)
+        propKilled =attrHt.loadInt(_hid, AttrKey.propKilled  castTo int)
+        propTimed  =attrHt.loadInt(_hid, AttrKey.propTimed   castTo int)
+        strPlus =attrHt.loadInt(_hid, AttrKey.strPlus castTo int)
+        agiPlus =attrHt.loadInt(_hid, AttrKey.agiPlus  castTo int)
+        intPlus =attrHt.loadInt(_hid, AttrKey.intPlus   castTo int)
+    function clearHt()
+        attrHt.flushChild(_hid)
+
+    function saveToHt()
+        for i = 0 to attrKeySize
+            let a = i castTo AttrKey
+            attrHt.saveInt(_hid, i,getAttr(a))
+    function saveToHt(AttrKey s,int data)
+        attrHt.saveInt(_hid, s castTo int,data)

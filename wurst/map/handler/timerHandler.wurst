@@ -1,0 +1,43 @@
+package timerHandler
+import CenterTimer
+import Players
+import Game
+import PlayersSave
+import ClosureTimers
+import HeroService
+
+/**
+ * 时效性处理器
+ */
+public function initTimeHandler()
+    onAlways(600) task->
+        eachPlayer() j->
+            let s = Players.get(j)
+            int add = 0
+            if not GAME.difficult == 0
+                add=3
+            s.enableAddGameScore = true
+            s.addGameScore(add)
+            s.save()
+    onAlways(600) task->
+        eachPlayer() j->
+            let s = Players.get(j)
+            if not GAME.difficult == 0
+                doAfter(2) ->
+                    printTimedToPlayer("[系统]:当前游戏积分+3", 30, s._player)
+    doPeriodically(300) is->
+        //顺便清理地图上的物品
+        print("[系统]:清除地上的无效物品造成短暂卡顿!")
+        EnumItemsInRect(GetPlayableMapRect(),Filter(()->(not GetFilterItem().isAlive()) and GetFilterItem().isPowerup() )) ->
+            let t = GetEnumItem()
+            t.setLife(2)
+            RemoveItem(t)
+
+    onAlways(1) task->
+        eachPlayer() j->
+            let s = Players.get(j)
+            if s.hero != null
+                let hs = HeroService.get(s.hero)
+                hs.onHeartbeat()
+
+    

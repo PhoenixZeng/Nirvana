@@ -1,0 +1,47 @@
+package bag
+import LinkedList
+import phLib
+
+constant bagToken = 'e000'
+constant bagSpell = 'A000'
+
+public class Bag
+    int  size
+    unit self
+    int current = 1
+    LinkedList<unit> tokens = new LinkedList<unit>()
+
+    construct(unit u,int size)
+        if size > 0
+            this.self = u
+            this.size  = size
+            tokens.add(u)
+            for i = 1 to size
+                let c = createUnit(Player(15), bagToken, vec2(0, 0), 0 .fromDeg())
+                c.hide()
+                tokens.add(c)
+        else
+            destroy this
+
+    function swap()
+        swap(self,tokens.get(current))
+        current++
+        if current mod size == 0
+            current = 1
+
+    private function swap(unit i ,unit j)
+        let items = i.getInventroy()
+        let items2 = j.getInventroy()
+        for t in items
+            t.setPos(0, 0)
+        for t in items2
+            i.addItemHandle(t)
+        for t in items
+            j.addItemHandle(t)
+
+
+
+
+
+@test function a()
+    

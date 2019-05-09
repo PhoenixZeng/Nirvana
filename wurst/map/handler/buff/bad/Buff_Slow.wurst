@@ -1,0 +1,57 @@
+package Buff_Slow
+import public SuperableBuff
+
+public class Buff_Slow extends SuperableBuff
+    static string name = "减速"
+    static string modelPath = "model\\buff\\jiansu.mdx"
+
+    static real subSpeed = 80
+    static real subSpeedPlus = 50
+    real originSpeel = 0
+    static bool makeLevelTexture = false
+    override function isMakeLevelTexture() returns bool
+        let a = makeLevelTexture
+        if not a
+            makeLevelTexture = true
+        return a
+    override function isDebuff() returns bool
+        return true
+
+    override protected function onTargetChanges(unit _previous,unit target)
+    override protected function onCasterChanges(unit _previous,unit caster)
+    override function getDuration() returns real
+        return 5
+    override function getInterval() returns real
+        return 5
+    override function getName() returns string
+        return name
+    override function getMaxLv() returns int
+        return 5
+
+    override protected function onSuperpose()
+        target.eff(modelPath, "origin",getTimeleft())
+        target.setMoveSpeed(originSpeel - subSpeed - (lv - 1) * subSpeedPlus)
+    /**
+    * false to remove
+    */
+    override protected function onApplied() returns bool
+        onSuperpose()
+        originSpeel = target.getMoveSpeed()
+        target.setMoveSpeed(originSpeel - subSpeed)
+        return true
+
+    /**
+    * false to remove
+    */
+    override protected function onTick() returns bool
+        return true
+
+    /**
+    * false to keepRun
+    */
+    override protected function onRemoval() returns bool
+        target.setMoveSpeed(originSpeel)
+        return true
+
+    override protected function onDestr()
+        target.setMoveSpeed(originSpeel)

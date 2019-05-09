@@ -1,0 +1,36 @@
+package DungeonSpec
+import EventMapper
+import baseImport
+import Rects
+
+bool snowLakeComed = false
+
+init
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+    ..addAction()->
+        let u = SPELL.caster()
+        let a = SPELL.id()
+        let us = u.getMainHero()
+        if a == 'A007'
+            if snowLakeComed
+                u.getOwner().print("信好像失去了魔力!(有人已经进去过了)")
+            else 
+                us.setPosPro(vec2(6700,-8500))
+                u.getOwner().print("信发出一阵光芒,把你传送到湖心岛里了!")
+                if us.hasItemById('ZD0G')
+                    us.getOwner().print("公主之心发生了一些变化!")
+                    us.addItemById('I631')
+                    snowLakeComed = true
+                else
+                    u.getOwner().print("然而什么事情也没有发生!(英雄身上缺少公主之心)")
+        else if  a == 'A009'
+            u.getOwner().print("礼服口袋里似乎有一张地图,你顺着地图,找到了这个地方!")
+            us.setPosPro(hideWay4.pos)
+
+    CreateTrigger()
+    .. registerEnterRegion(hideWay1.i,Filter(()->GetFilterUnit().isHero()))
+    ..addAction() ->
+        let u = GetTriggerUnit()
+        u.setPosPro(hideWay2.pos)
+        u.getOwner().print("你被传送到了奇怪的地方!")

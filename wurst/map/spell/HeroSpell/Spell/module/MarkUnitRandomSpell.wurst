@@ -1,0 +1,74 @@
+package MarkUnitRandomSpell
+import CenterTimer
+import phLib
+
+string array path
+int markUnitMoudleCount = -1
+
+function putMarkUnitMoudle(string path0,string path1,string path2) returns int
+    markUnitMoudleCount++
+    path[markUnitMoudleCount*3+0] = path0
+    path[markUnitMoudleCount*3+1] = path1
+    path[markUnitMoudleCount*3+2] = path2
+    return markUnitMoudleCount
+function removeMarkUnitMoudle(int index)
+    path[index*3+0] = path[markUnitMoudleCount*3]
+    path[index*3+1] = path[markUnitMoudleCount*3+1]
+    path[index*3+2] = path[markUnitMoudleCount*3+2]
+    path[markUnitMoudleCount*3+0] = null
+    path[markUnitMoudleCount*3+1] = null
+    path[markUnitMoudleCount*3+2] = null
+    markUnitMoudleCount --
+function setPathMoudle(int index,string path0,string path1,string path2)
+    path[index*3+0] = path0
+    path[index*3+1] = path1
+    path[index*3+2] = path2
+
+public module MarkUnitMoudle
+    unit tabUnit = null
+    int layer = 0
+    int tabTime = 0
+    effect eff = null
+    int markUnitMoudleIndex = 0
+    abstract function onhit(unit tar)
+    abstract function onBoom(unit tar)
+    function setPath(string path0,string path1,string path2)
+        setPathMoudle(markUnitMoudleIndex,path0,path1,path2)
+    construct()
+        markUnitMoudleIndex = putMarkUnitMoudle("","","")
+    ondestroy
+        tabUnit = null
+        layer = 0
+        tabTime = 0
+        if eff != null
+            eff.destr()
+            eff = null
+        removeMarkUnitMoudle(markUnitMoudleIndex)
+    function refreshTab()
+        eff.destr()
+        eff = efft(path[layer-1],tabUnit, "origin")
+        tabTime = CenterTimer.current
+    function addLayerAndRefreshTab()
+        layer ++
+        refreshTab()
+    function refreshTab(unit u)
+        if u != null
+            layer = 1
+            tabUnit = u
+            refreshTab()
+        else
+            if eff != null
+                eff.destr()
+                eff = null
+            layer = 0
+            tabUnit = null
+            tabTime = 0
+    function onAttack(unit u)
+        if CenterTimer.current > tabTime + 300 or u != tabUnit
+            refreshTab(u)
+            return
+        if layer < 3
+            addLayerAndRefreshTab()
+        else
+            onBoom(u)
+            refreshTab(null)

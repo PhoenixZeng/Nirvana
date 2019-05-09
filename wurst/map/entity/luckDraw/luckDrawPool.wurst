@@ -1,0 +1,63 @@
+package luckDrawPool
+import LinkedList
+import luckDraw
+// import baseImport
+
+
+/**
+ * 这里是抽奖包
+ */
+public class LuckDrawPool
+    LinkedList<LuckDraw> pool
+    LuckDrawPoolType poolClass
+    int           totalChance = 0
+    int           luckDrawSize= 0
+
+    construct(LuckDrawPoolType l)
+        poolClass = l
+        pool = new LinkedList<LuckDraw>
+
+    function add(LuckDraw ld)
+        pool.add(ld)
+        totalChance+=ld.chance
+        luckDrawSize++
+
+    function draw() returns LuckDraw
+        var rm = GetRandomInt(0, totalChance)
+        var temp = 0
+        for i in pool
+            temp+=i.chance
+            if rm<=temp
+                return i
+        return pool.get(luckDrawSize-1)
+
+
+
+LuckDrawPool normal  
+LuckDrawPool senior  
+LuckDrawPool supreme 
+LuckDrawPool special 
+LuckDrawPool nonUsed 
+
+init
+    // normal  = new LuckDrawPool(LuckDrawPoolType.Normal)
+    // senior  = new LuckDrawPool(LuckDrawPoolType.Senior)
+    // supreme = new LuckDrawPool(LuckDrawPoolType.Supreme)
+    // special = new LuckDrawPool(LuckDrawPoolType.Special)
+    // nonUsed = new LuckDrawPool(LuckDrawPoolType.NonUsed)
+
+    // eachPlayer() i->
+        //注册物品被使用事件
+        // CreateTrigger()
+        // ..registerPlayerUnitEvent(Player(i),EVENT_PLAYER_UNIT_USE_ITEM,null)
+        // ..addAction()-> 
+        //     let id = GetManipulatedItem().getTypeId()
+        //     if LuckDraw.map.has(id)
+        //         let ld = LuckDraw.map.get(id)
+        //         if ld.typeId == BuilderAvatar.typeId
+        //             let ba = (ld castTo BuilderAvatar)
+        //             if not ba.used(GetTriggerUnit())
+        //                 GetTriggerUnit().addItemById(id)
+                    
+
+    // normal.add(new BuilderAvatar(BuilderType.N, 'H201' , 1  ))

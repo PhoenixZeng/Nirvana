@@ -1,0 +1,27 @@
+package filterLib
+import unitLib
+
+public function targetFilter(unit u,unit j) returns bool
+    return  GetUnitAbilityLevel(u,'Aloc') <= 0 
+    and j.isAlive() and j.isAliveTrick()
+    and not IsUnitType(j, UNIT_TYPE_STRUCTURE)
+    and GetUnitAbilityLevel(j,'Aloc') <= 0 
+
+public function aliveFilter(unit j) returns bool
+    return  GetUnitAbilityLevel(j,'Aloc') <= 0 
+    and j.isAlive() and j.isAliveTrick()
+    and not IsUnitType(j, UNIT_TYPE_STRUCTURE)
+public function aliveHeroFilter(unit j) returns bool
+    return  GetUnitAbilityLevel(j,'Aloc') <= 0 
+    and j.isAlive() and j.isAliveTrick()
+    and not IsUnitType(j, UNIT_TYPE_STRUCTURE)
+    and j.isHero()
+
+public function invFilter(unit j) returns bool
+    return  GetUnitAbilityLevel(j,'AInv') <= 0 
+
+public function enemyFilter(unit u,unit j) returns bool
+    return u.getOwner().isEnemyOf(j.getOwner()) and j.isAliveTrick() and j.isAlive()
+
+public function allyFilter(unit u,unit j) returns bool
+    return u.getOwner().isAllyOf(j.getOwner()) and j.isAliveTrick() and j.isAlive()

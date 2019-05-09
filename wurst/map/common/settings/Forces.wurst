@@ -1,0 +1,58 @@
+package Forces
+
+public force users  = CreateForce()
+public force enemy = CreateForce()
+
+public player playerBase    = Player(9)
+
+public player enemyNormal   = Player(10)
+public player enemySpecial  = Player(11)
+
+public unit array heros
+public unit array bbs
+
+
+interface PlayersDo
+    function do(int playerIndex)
+
+public function unit.isMainHero() returns unit
+    return heros[this.getOwner().getId()]
+public function unit.getMainHero() returns unit
+    return heros[this.getOwner().getId()]
+public function unit.getBB() returns unit
+    return bbs[this.getOwner().getId()]
+public function player.getMainHero() returns unit
+    return heros[this.getId()]
+public function player.getBB() returns unit
+    return bbs[this.getId()]
+
+public function eachPlayer(PlayersDo do)
+    for i = 0 to 5
+        if Player(i).isIngame()
+            do.do(i)
+    destroy do
+public function getOnlinePlayerSize() returns int
+    var a = 0
+    for i = 0 to 5
+        if Player(i).isIngame()
+            a++
+    return a
+public function eachAllPlayer(PlayersDo do)
+    for i = 0 to 11
+        do.do(i)
+    destroy do
+public function getMainPlayer() returns player
+    for i = 0 to 5
+        if Player(i).isIngame()
+            return Player(i)
+    return Player(0)
+init
+    users.enumPlayers(Filter(()->GetFilterPlayer().getId()<6))
+
+    enemy
+    ..addPlayer(Player(10))
+    ..addPlayer(Player(11))
+
+    SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(enemyNormal, PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(enemySpecial, PLAYER_STATE_GIVES_BOUNTY, 1)

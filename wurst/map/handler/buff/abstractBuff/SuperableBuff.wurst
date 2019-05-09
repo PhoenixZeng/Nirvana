@@ -1,0 +1,57 @@
+package SuperableBuff
+import public buffs
+import base
+import YDJapiOther
+
+public abstract class SuperableBuff extends Buff
+    int  lv = 1
+    abstract function getMaxLv() returns int
+
+    abstract function onSuperpose()
+
+    override function toString() returns string
+        return getName()+"->"+target.getName()+"^"+lv+":"+timeleft.toInt()+"$"+this castTo int+"@SBuff"
+
+    function setLv(int lv)
+        this.lv = lv
+
+    protected function superposeLv(int i,int j) returns int
+        let a = min(i,getMaxLv())
+        let b = min(j,getMaxLv())
+        var c = max(a,b)
+        let d = min(a,b)
+        if d>= c/2
+            c++
+        return min(c,getMaxLv())
+
+
+    function superpose(int lv,real duration)
+        this.lv = superposeLv(this.lv,lv)
+        setTimeleft(max(getTimeleft(),duration))
+    /**
+    * false to remove
+    */
+    override protected function onCover(Buff now) returns bool
+        if now instanceof thistype
+            let sb = now castTo thistype
+            onSuperpose()
+            superpose(sb.lv,getDuration())
+            return false
+        else
+            return true
+
+    abstract function isMakeLevelTexture() returns bool
+
+    function getLevelTexture(int lv) returns string
+        let a = getTexture()
+        if not isMakeLevelTexture()
+            exBlendButtonIcon("blp\\subscript\\1.blp",a,a+".1.blp")
+            exBlendButtonIcon("blp\\subscript\\2.blp",a,a+".2.blp")
+            exBlendButtonIcon("blp\\subscript\\3.blp",a,a+".3.blp")
+            exBlendButtonIcon("blp\\subscript\\4.blp",a,a+".4.blp")
+            exBlendButtonIcon("blp\\subscript\\5.blp",a,a+".5.blp")
+            exBlendButtonIcon("blp\\subscript\\6.blp",a,a+".6.blp")
+            exBlendButtonIcon("blp\\subscript\\7.blp",a,a+".7.blp")
+            exBlendButtonIcon("blp\\subscript\\8.blp",a,a+".8.blp")
+            exBlendButtonIcon("blp\\subscript\\9.blp",a,a+".9.blp")
+        return a + "." + lv + ".blp"

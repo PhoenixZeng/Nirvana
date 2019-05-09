@@ -1,0 +1,239 @@
+package HeroSpellClass
+import RangeEffect
+import Hero
+import YDEffect
+import LinearEffect
+import Missile
+import Mover
+import ClosureTimers
+import YDJapiOther
+
+
+public class Shenshengzhiguang extends RangeEffect
+    Hero h
+    static string targetEff = "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"
+    effect casterEffect
+    construct(Hero h,real range,real time)
+        super(h._self,range,time)
+        config(0.3, 0)
+        this.h = h
+    override function onEnd()
+        casterEffect.destr()
+    override function onStart()
+        h._self.addBuff(h._self, new Buff_AInv(),time)
+    override function onTick()
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * 0.36
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+        u.addEffect(targetEff, "origin").destr()
+    override function isEnd() returns bool
+        return (not h._self.isAliveTrick()) or super.isEnd()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function getPos() returns vec2
+        return h._self.getPos()
+
+
+public class Jianrenfengbao extends RangeEffect
+    Hero h
+    effect eff
+    static string effect_path = "war3mapImported\\AZ_KingLeoric(SDWZ)_E.mdx"
+    construct(Hero h,real range,real time)
+        super(h._self,range,time)
+        config(0.3, 0)
+        this.h = h
+        eff = addEffect("war3mapImported\\AZ_JUGG_F1.MDX", h._self,"origin")
+        eff.exSize(2)
+
+    override function onEnd()
+        eff.destr()
+    override function onStart()
+    override function onTick()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * 0.5
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+        u.addEffect(effect_path, "origin")
+        ..destr()
+    override function getPos() returns vec2
+        return h._self.getPos()
+    override function isEnd() returns bool
+        return (not h._self.isAliveTrick()) or super.isEnd()
+
+
+
+public class Shuangdongxinxing extends DelayedLinearEffect
+    static real delay_ = 0.1
+    static string eff = "Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"
+    Hero h
+    real power
+    construct(
+            Hero h,
+            real    power,
+            vec3    origin,
+            int     count ,
+            real    range ,
+            angle   face  ,
+            real    dist  
+            )
+        super(origin,count,range,face,0 .fromDeg(),dist,0,delay_)
+        this.power = power
+        this.h = h
+        mover_start()
+    override function getEffectPath() returns string
+        return eff
+    override function getHitRange() returns real
+        return range
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * power
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+    override function onEnd()
+        super.onEnd()
+
+public class MovedShoot extends Missile
+    Hero h
+    construct(Hero h,real dist,Fx me,vec3 pos,real time)
+        super(me,pos,time)
+        this.h = h
+        range = 100
+        mover_setDist(dist)
+        mover_start()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * 0.7
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+
+public class Qunxinzuiluo extends RangeEffect
+    Hero h
+    static string targetEff = "war3mapImported\\AZ_PotM(1)_T1_Impact.mdx"
+    static string eff = "war3mapImported\\AZ_Lina(2)_T2_Blast.mdx"
+    effect casterEffect
+    construct(Hero h,real range,real time)
+        super(h._self,range,time)
+        config(0.3, 0)
+        this.h = h
+    override function onEnd()
+        casterEffect.destr()
+    override function onStart()
+    override function onTick()
+        eff(eff,getPos())
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * 0.36
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+        u.addEffect(targetEff, "origin").destr()
+    override function isEnd() returns bool
+        return (not h._self.isAliveTrick()) or super.isEnd()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function getPos() returns vec2
+        return h._self.getPos()
+
+
+public class Baofengjianyu extends RangeEffect
+    vec2      target
+    Hero h
+    static string targetEff = "war3mapImported\\AZ_Goods_TP_Target_effect(3).mdx"
+    effect casterEffect
+    construct(Hero h,vec2 target,real range,real time)
+        super(h._self,range,time)
+        config(0.3, 0)
+        this.target = target
+        this.h = h
+    override function onEnd()
+        casterEffect.destr()
+    override function onStart()
+    override function onTick()
+        eff(targetEff, target)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * 1.
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+        u.addEffect(targetEff, "origin").destr()
+    override function isEnd() returns bool
+        return (not h._self.isAliveTrick()) or super.isEnd()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function getPos() returns vec2
+        return target
+
+
+
+public class Fenghuangchongfeng
+    use Mover
+    Hero h
+    effect eff
+    real range
+    construct(Hero h,string effPath,real time,real range,vec2 p)
+        this.h = h
+        this.range = range
+        this.eff = h._self.addEffect(effPath, "chest")
+        doPeriodicallyTimed(Mover.__frame,time) task->
+            do()
+            if task.isLast()
+                destroy this
+        let a = h._self.getPos().angleTo(p)
+        let d = h._self.getPos().distanceTo(p)
+        h._self.setTurnSpeed(1)
+        h._self.setFacing(a)
+        mover_setSpeed(d/time, 0)
+        mover_setFace(a, 0 .fromDeg())
+        mover_setDist(d)
+        mover_setDelay(0.1)
+        mover_start()
+    
+    override function getPos() returns vec3
+        return h._self.getPos3Real()
+
+    override function onStart()
+                
+    override function onTick()
+        let p = getPos().toVec2()
+        let a = createUnit(Player(13), h._self.getTypeId(), p, h._self.getFacingAngle())
+        a.setVertexColor(0,0,0,255)
+        a.pause()
+        a.setAnimation(GetRandomInt(0, 10))
+        a.addAbilityPro('Aloc')
+        a.addAbilityPro('Avul')
+        a.setPos(p)
+        a.exFacing(h._self.getFacingAngle().degrees())
+        var dmg = h._self.getPropSumAndMain() * 1.5
+        let g = getHit()
+        for i in g
+            if enemyFilter(h._self, i)
+                h._self.damageSpell(i, dmg)
+        g.clear()
+        doPeriodicallyCounted(0.2, 10) cb ->
+            a.setVertexColor(0,0,0,(cb.getCount() * 25.5).toInt())
+            a.setTimeScale(0)
+            if cb.isLast()
+                a.remove()
+
+    override function getHitRange() returns real
+        return range
+    override function onEnd()
+        h._self.eff("Abilities\\Spells\\NightElf\\BattleRoar\\RoarCaster.mdl")
+        eff.destr()
+    override function setPos(vec3 pos)
+        let p = pos.toVec2()
+        if not IsTerrainPathable(p.x , p.y, PATHING_TYPE_WALKABILITY)
+            h._self.setXY(p)
+    override function getHit() returns group
+        ENUM_GROUP.enumUnitsInRange(h._self.getPos(), range)
+        return ENUM_GROUP//me.getPos3().inRange(target, range)
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit u)
+        var dmg = h._self.getPropSumAndMain() * .8
+        dmg *= h.getNirvanaArg()
+        h._self.damageSpell(u, dmg)
+
+    override static function engine()

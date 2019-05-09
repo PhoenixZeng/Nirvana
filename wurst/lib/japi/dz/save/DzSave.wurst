@@ -1,0 +1,119 @@
+package DzSave
+
+@ifNotDefined public native DzAPI_Map_SaveServerValue        ( player whichPlayer, string key, string value ) returns boolean
+@ifNotDefined public native DzAPI_Map_GetServerValue         ( player whichPlayer, string key ) returns string
+@ifNotDefined public native DzAPI_Map_Ladder_SetStat         ( player whichPlayer, string key, string value ) 
+@ifNotDefined public native DzAPI_Map_IsRPGLadder            ( ) returns boolean
+@ifNotDefined public native DzAPI_Map_GetGameStartTime       ( ) returns integer
+@ifNotDefined public native DzAPI_Map_Stat_SetStat           ( player whichPlayer, string key, string value ) 
+@ifNotDefined public native DzAPI_Map_GetMatchType      		( ) returns integer
+@ifNotDefined public native DzAPI_Map_Ladder_SetPlayerStat   ( player whichPlayer, string key, string value ) 
+@ifNotDefined public native DzAPI_Map_GetServerValueErrorCode ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_GetLadderLevel         ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_IsRedVIP               ( player whichPlayer ) returns boolean
+@ifNotDefined public native DzAPI_Map_IsBlueVIP              ( player whichPlayer ) returns boolean
+@ifNotDefined public native DzAPI_Map_GetLadderRank          ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_GetMapLevelRank        ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_GetGuildName           ( player whichPlayer ) returns string
+@ifNotDefined public native DzAPI_Map_GetGuildRole           ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_IsRPGLobby             ( ) returns boolean
+@ifNotDefined public native DzAPI_Map_GetMapLevel            ( player whichPlayer ) returns integer
+@ifNotDefined public native DzAPI_Map_MissionComplete        ( player whichPlayer, string key, string value ) 
+@ifNotDefined public native DzAPI_Map_GetActivityData        ( ) returns string
+@ifNotDefined public native DzAPI_Map_GetMapConfig           ( string key ) returns string
+@ifNotDefined public native DzAPI_Map_HasMallItem            ( player whichPlayer, string key ) returns boolean
+
+
+@ifNotDefined public function GetPlayerServerValueSuccess ( player whichPlayer ) returns boolean
+    if(DzAPI_Map_GetServerValueErrorCode(whichPlayer)==0)
+        return true
+    else
+        return false
+
+@ifNotDefined public function DzAPI_Map_StoreInteger ( player whichPlayer, string key, integer value ) 
+    var key1="I"+key
+    DzAPI_Map_SaveServerValue(whichPlayer,key1,I2S(value))
+
+@ifNotDefined public function DzAPI_Map_GetStoredInteger ( player whichPlayer, string key ) returns integer
+    integer value
+    var key1="I"+key
+    value=S2I(DzAPI_Map_GetServerValue(whichPlayer,key1))
+    return value
+
+@ifNotDefined public function DzAPI_Map_StoreReal ( player whichPlayer, string key, real value ) 
+    var key1="R"+key
+    DzAPI_Map_SaveServerValue(whichPlayer,key1,R2S(value))
+
+@ifNotDefined public function DzAPI_Map_GetStoredReal ( player whichPlayer, string key ) returns real
+    var key1="R"+key
+    return S2R(DzAPI_Map_GetServerValue(whichPlayer,key1))
+
+@ifNotDefined public function DzAPI_Map_StoreBoolean ( player whichPlayer, string key, boolean value ) 
+    var key1="B"+key
+    if(value)
+        DzAPI_Map_SaveServerValue(whichPlayer,key1,"1")
+    else
+        DzAPI_Map_SaveServerValue(whichPlayer,key1,"0")
+
+@ifNotDefined public function DzAPI_Map_GetStoredBoolean ( player whichPlayer, string key ) returns boolean
+    var key1="B"+key
+    return DzAPI_Map_GetServerValue(whichPlayer,key1)=="1"
+
+@ifNotDefined public function DzAPI_Map_StoreString ( player whichPlayer, string key, string value ) 
+    var key1 ="S"+key
+    DzAPI_Map_SaveServerValue(whichPlayer,key1,value)
+    
+@ifNotDefined public function DzAPI_Map_GetStoredString ( player whichPlayer, string key ) returns string
+    return DzAPI_Map_GetServerValue(whichPlayer,"S"+key)
+
+@ifNotDefined public function DzAPI_Map_GetStoredUnitType ( player whichPlayer, string key ) returns integer
+    var key1="I"+key
+    return S2I(DzAPI_Map_GetServerValue(whichPlayer,key1))
+
+@ifNotDefined public function DzAPI_Map_GetStoredAbilityId ( player whichPlayer, string key ) returns integer
+    var key1="I"+key
+    return S2I(DzAPI_Map_GetServerValue(whichPlayer,key1))
+
+@ifNotDefined public function DzAPI_Map_FlushStoredMission ( player whichPlayer, string key ) 
+    DzAPI_Map_SaveServerValue(whichPlayer,key,null)
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitIntegerData ( player whichPlayer, string key, integer value ) 
+    DzAPI_Map_Ladder_SetStat(whichPlayer,key,I2S(value))
+
+@ifNotDefined public function DzAPI_Map_Stat_SubmitUnitIdData ( player whichPlayer, string key,integer value ) 
+    if(value!=0)
+        DzAPI_Map_Ladder_SetStat(whichPlayer,key,I2S(value))
+
+@ifNotDefined public function DzAPI_Map_Stat_SubmitUnitData ( player whichPlayer, string key,unit value ) 
+    DzAPI_Map_Stat_SubmitUnitIdData(whichPlayer,key,GetUnitTypeId(value))
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitAblityIdData ( player whichPlayer, string key, integer value ) 
+    if(value!=0)
+        DzAPI_Map_Ladder_SetStat(whichPlayer,key,I2S(value))
+    
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitItemIdData ( player whichPlayer, string key, integer value ) 
+    string S
+    if(value!=0)
+        S=I2S(value)
+        DzAPI_Map_Ladder_SetStat(whichPlayer,key,S)
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitItemData ( player whichPlayer, string key, item value ) 
+    DzAPI_Map_Ladder_SubmitItemIdData(whichPlayer,key,GetItemTypeId(value))
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitBooleanData ( player whichPlayer, string key,boolean value  ) 
+    if(value)
+        DzAPI_Map_Ladder_SetStat(whichPlayer,key,"1")
+    else
+        DzAPI_Map_Ladder_SetStat(whichPlayer,key,"0")
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitTitle ( player whichPlayer, string value  ) 
+    DzAPI_Map_Ladder_SetStat(whichPlayer,value,"1")
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitPlayerRank ( player whichPlayer, integer value ) 
+    DzAPI_Map_Ladder_SetPlayerStat(whichPlayer,"RankIndex",I2S(value))
+
+
+@ifNotDefined public function DzAPI_Map_Ladder_SubmitPlayerExtraExp ( player whichPlayer, integer value ) 
+    DzAPI_Map_Ladder_SetStat(whichPlayer,"ExtraExp",I2S(value))
+

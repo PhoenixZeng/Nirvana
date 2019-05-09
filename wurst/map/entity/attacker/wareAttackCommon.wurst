@@ -1,0 +1,25 @@
+package wareAttackCommon
+import DialogTimer
+
+public DialogTimerTask attackTimeFirst
+public DialogTimerTask attackTimeEvery
+public DialogTimerTask attackTimeWait
+
+public int attackerNum
+public int array enemyTypeId
+public timer attackCheckTimer = CreateTimer()
+public bool stop = false
+
+public function stopAttack(bool b) returns bool
+    if attackTimeWait != null and attackTimeWait.typeId != 0 and attackTimeWait.isRunning == true
+        stop = b
+        if b
+            if not attackTimeWait.isPause
+                attackTimeWait.pause()
+        else
+            if  attackTimeWait.isPause
+                attackTimeWait.restart()
+        return true
+    else
+        return false
+        

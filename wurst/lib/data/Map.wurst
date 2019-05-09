@@ -1,0 +1,143 @@
+package Map
+
+/**
+* 最大存储空间 8192*16=131072
+* 建议 1024 * 128
+*/
+class Map<T>
+    int k
+    static int array node0
+    static int array node1
+    static int array node2
+    static int array node3
+    static int array node4
+    static int array node5
+    static int array node6
+    static int array node7
+    static int array node8
+    static int array node9
+    static int array node10
+    static int array node11
+    static int array node12
+    static int array node13
+    static int array node14
+    static int array node15
+    construct(int k)
+        this.k = k
+
+    function get(int x,int y) returns T
+        let index = x*k+y
+        let w = index div 8192
+        let i = index mod 8192
+        switch w
+            case 0
+                return node0[i] castTo T
+            case 1
+                return node1[i] castTo T
+            case 2
+                return node2[i] castTo T
+            case 3
+                return node3[i] castTo T
+            case 4
+                return node4[i] castTo T
+            case 5
+                return node5[i] castTo T
+            case 6
+                return node6[i] castTo T
+            case 7
+                return node7[i] castTo T
+            case 8
+                return node8[i] castTo T
+            case 9
+                return node9[i] castTo T
+            case 10
+                return node10[i] castTo T
+            case 11
+                return node11[i] castTo T
+            case 12
+                return node12[i] castTo T
+            case 13
+                return node13[i] castTo T
+            case 14
+                return node14[i] castTo T
+            case 15
+                return node15[i] castTo T
+            default
+                return null
+        
+    function put(int x,int y,T t) returns T
+        let index = x*k+y
+        let w = index div 8192
+        let i = index mod 8192
+        switch w
+            case 0
+                let ot = node0[i] castTo T
+                node0[i] = (t castTo int)
+                return ot
+            case 1
+                let ot = node1[i] castTo T
+                node1[i] = (t castTo int)
+                return ot
+            case 2
+                let ot = node2[i] castTo T
+                node2[i] = (t castTo int)
+                return ot
+            case 3
+                let ot = node3[i] castTo T
+                node3[i] = (t castTo int)
+                return ot
+            case 4
+                let ot = node4[i] castTo T
+                node4[i] = (t castTo int)
+                return ot
+            case 5
+                let ot = node5[i] castTo T
+                node5[i] = (t castTo int)
+                return ot
+            case 6
+                let ot = node6[i] castTo T
+                node6[i] = (t castTo int)
+                return ot
+            case 7
+                let ot = node7[i] castTo T
+                node7[i] = (t castTo int)
+                return ot
+            case 8
+                let ot = node8[i] castTo T
+                node8[i] = (t castTo int)
+                return ot
+            case 9
+                let ot = node9[i] castTo T
+                node9[i] = (t castTo int)
+                return ot
+            case 10
+                let ot = node10[i] castTo T
+                node10[i] = (t castTo int)
+                return ot
+            case 11
+                let ot = node11[i] castTo T
+                node11[i] = (t castTo int)
+                return ot
+            case 12
+                let ot = node12[i] castTo T
+                node12[i] = (t castTo int)
+                return ot
+            case 13
+                let ot = node13[i] castTo T
+                node13[i] = (t castTo int)
+                return ot
+            case 14
+                let ot = node14[i] castTo T
+                node14[i] = (t castTo int)
+                return ot
+            case 15
+                let ot = node15[i] castTo T
+                node15[i] = (t castTo int)
+                return ot
+            default
+                return null
+
+@Test function aa()
+    let s= new Map<int>(100)
+    s.put(81, 92, 131284)
+    print(s.get(81, 92))

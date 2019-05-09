@@ -1,0 +1,288 @@
+package unitLib
+import HashList
+import DmgType
+import itemLib
+import YDJapiOther
+
+hashtable ht = InitHashtable()
+constant codeKey = "真实伤害".getHash()
+public constant primaryPropKey = "主属性".getHash()
+
+public tuple targets(vec2 p,unit u)
+
+public function unit.getFace() returns real
+    return GetUnitFacing(this)
+public function unit.getStr() returns int
+    return this.getStr(true)
+public function unit.getAgi() returns int
+    return this.getAgi(true)
+public function unit.getInt() returns int
+    return this.getInt(true)
+public function unit.getPropSum() returns int
+    return this.getStr(true) + this.getAgi(true) + this.getInt(true)
+public function unit.getPropSumAndMain() returns int
+    return this.getPropSum() + this.getMainProp()
+public function unit.getDef() returns real
+    return this.getState(EX_UnitState.armor)
+public function unit.getMainProp() returns int
+    int ma = this.loadInt(primaryPropKey)
+    if ma == 0
+        let as = this.exMainProp()
+        switch as
+            case "STR"
+                ma = 1
+            case "AGI"
+                ma = 2
+            case "INT"
+                ma = 3
+        this.save(primaryPropKey, ma)
+    var i = 0
+    switch ma
+        case 1
+            i = this.getStr(true)
+        case 2
+            i = this.getAgi(true)
+        case 3
+            i = this.getInt(true)
+    return i
+
+public function unit.getPropProd() returns int
+    return this.getStr(true) * this.getAgi(true) * this.getInt(true)
+public function unit.getSubHP() returns real
+    return this.getMaxHP() - this.getHP()
+public function unit.getSubHPPercent() returns real
+    return (this.getMaxHP() - this.getHP())/this.getMaxHP()
+public function unit.getHPPercent() returns real
+    return this.getHP()/this.getMaxHP()
+
+public function unit.getInventroy() returns HashList<item>
+    HashList<item> list = new HashList<item>()
+    for int i = 0 to 5
+        item tempItem = this.itemInSlot(i)
+        if(tempItem != null)
+            list.add(tempItem)
+    return list
+
+public function unit.getItem(int index) returns item
+    return this.itemInSlot(index)
+
+public function unit.setPosPro(vec2 pos)
+    this.setPosPro(pos,0)
+public function unit.setPosPro(vec2 pos,real time)
+    this.setPos(pos)
+    this.getOwner().panCamToTimed(this, time)
+    this.getOwner().clearSelection()
+    this.getOwner().select(this)
+
+public function unit.addAbilityPro(int abilId)
+    this..addAbility(abilId)..makeAbilityPermanent(abilId, true)
+
+public function unit.isHero() returns bool
+    return this.isType(UNIT_TYPE_HERO)
+
+public function unit.isDummy() returns bool
+    return this.getAbilityLevel('Aloc') > 0
+
+public function unit.isBuilding() returns bool
+    return this.isType(UNIT_TYPE_STRUCTURE)
+
+public function unit.replace(int newUnitId) returns unit
+    return ReplaceUnitBJ(this, newUnitId, bj_UNIT_STATE_METHOD_DEFAULTS)
+
+public function unit.setLevelPro( int level)
+    if this.isHero()
+        let lv = this.getLevel()
+        if level>lv
+            this.setLevel(level, false)
+        else
+            this.removeLevels(lv-level)
+public function unit.setLevelPro( int level,bool canSee)
+    if this.isHero()
+        let lv = this.getLevel()
+        if level>lv
+            this.setLevel(level, canSee)
+        else
+            this.removeLevels(lv-level)
+public function unit.setAbilityLevelPro(int abilId, int lvl)
+    if lvl == 0
+        this.removeAbility(abilId)
+        return
+    let oLv = this.getAbilityLevel(abilId)
+    if oLv == 0
+        this.addAbility(abilId)
+    this.setAbilityLevel(abilId, lvl)
+public function unit.recover(real i)
+    this.setHP(this.getHP() +  i)
+public function unit.recover(real i,bool b)
+    if b
+        this.setHP(this.getHP() +  this.getMaxHP() * i)
+    else
+        this.setHP(this.getHP() +  i)
+    
+public function unit.addItemChargesPro(int itemId,int charges) returns item
+    if this.hasItemById(itemId)
+        let item_ = GetItemOfTypeFromUnitBJ(this,itemId)
+        let i =GetItemCharges(item_)
+        if(i+charges>0)
+            SetItemCharges(item_, i+charges)
+        else
+            item_.remove()
+        return item_
+    else
+        if charges > 0
+            let item_ = this.addItemById(itemId)
+            let i =GetItemCharges(item_)
+            if i > 0
+                item_.setCharges(charges)
+            return item_
+        else
+            return null
+
+public function unit.setItemChargesPro(int itemId,int charges)
+    if this.hasItemById(itemId)
+        let item_ = GetItemOfTypeFromUnitBJ(this,itemId)
+        let i =GetItemCharges(item_)
+        if(i>0)
+            item_.setChargesPro(charges)
+    else
+        if charges > 0
+            let item_ = this.addItemById(itemId)
+            item_.setCharges(charges)
+            let i =GetItemCharges(item_)
+            if i > 0
+                item_.setCharges(charges)
+
+public function unit.damageTarget(unit target, real amount,damagetype damageType)
+    UnitDamageTarget(this, target, amount, false, false, ATTACK_TYPE_CHAOS, damageType, WEAPON_TYPE_WHOKNOWS)
+public function unit.damageTarget(unit target, real amount, attacktype attacktyp,damagetype damageType)
+    UnitDamageTarget(this, target, amount, false, false, attacktyp, damageType, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.damageAttack(unit target, real amount)
+    UnitDamageTarget(this, target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+public function unit.damageAttackNoDef(unit target, real amount)
+    UnitDamageTarget(this, target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_ENHANCED, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.damageAttack(unit target, real amount, attacktype attacktyp)
+    UnitDamageTarget(this, target, amount, false, false, attacktyp, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.damageSpell(unit target, real amount)
+    UnitDamageTarget(this, target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_FIRE, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.damageNulled(unit target)
+    UnitDamageTarget(this, target, 0, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public enum UnitDamageType
+    Attack
+    AttackNoDef
+    Spell
+    Real
+    Percent
+    Null
+
+public enum Prop
+    ALL
+    STR
+    AGI
+    INT
+    STR_AGI
+    STR_INT
+    AGI_STR
+    AGI_INT
+    INT_STR
+    INT_AGI
+    ALL_MAIN
+    MAIN
+    ATK
+
+
+public function unit.getPropVal(Prop prop) returns real
+    real val
+    switch prop
+        case ALL
+            val = this.getPropSum() *1.
+        case STR
+            val = this.getStr() *1.
+        case AGI
+            val = this.getAgi() *1.
+        case INT
+            val = this.getInt() *1.
+        case STR_AGI
+            val = this.getStr() + this.getAgi()/2
+        case STR_INT
+            val = this.getStr() + this.getInt()/2
+        case AGI_STR
+            val = this.getAgi() + this.getStr()/2
+        case AGI_INT
+            val = this.getAgi() + this.getInt()/2
+        case INT_STR
+            val = this.getInt() + this.getStr()/2
+        case INT_AGI
+            val = this.getInt() + this.getAgi()/2
+        case ALL_MAIN
+            val = this.getPropSumAndMain() *1.
+        case MAIN
+            val = this.getMainProp() *1.
+        case ATK
+            val = this.getState(EX_UnitState.atkMin)
+        default
+            val = 0.
+    return val
+
+
+
+public function unit.damage(unit target,UnitDamageType t ,real damage)
+    switch t
+        case Attack
+            this.damageAttack(target, damage)
+        case AttackNoDef
+            this.damageAttackNoDef(target, damage)
+        case Spell
+            this.damageSpell(target, damage)
+        case Real
+            this.damageCode(target, damage)
+        case Percent
+            this.damageCode(target, damage * target.getMaxHP())
+        case Null
+            this.damageAttack(target, 0)
+        default
+
+
+
+public function unit.save(int key,int value)
+    ht.saveInt(this.getHandleId(), key, value)
+public function unit.load<T>(int key) returns T
+    return ht.loadInt(this.getHandleId(), key) castTo T
+public function unit.loadInt(int key) returns int
+    return ht.loadInt(this.getHandleId(), key)
+public function unit.save(int key,real value)
+    ht.saveReal(this.getHandleId(), key, value)
+public function unit.loadReal(int key) returns real
+    return ht.loadReal(this.getHandleId(), key)
+public function unit.save(int key,string value)
+    ht.saveString(this.getHandleId(), key, value)
+public function unit.loadStr(int key) returns string
+    return ht.loadString(this.getHandleId(), key)
+public function unit.save(int key,bool value)
+    ht.saveBoolean(this.getHandleId(), key, value)
+public function unit.loadBool(int key) returns bool
+    return ht.loadBoolean(this.getHandleId(), key)
+public function unit.clearData(int key)
+    ht.flushChild(key)
+public function unit.hasBool(int key) returns bool
+    return ht.hasBoolean(this.getHandleId(), key)
+public function unit.hasReal(int key) returns bool
+    return ht.hasReal(this.getHandleId(), key)
+public function unit.hasInt(int key) returns bool
+    return ht.hasInt(this.getHandleId(), key)
+public function unit.hasString(int key) returns bool
+    return ht.hasString(this.getHandleId(), key)
+
+
+public function unit.damageCode(unit target, real amount)
+    dealCodeDamage(this, target, amount)
+public function unit.getCodeDamage() returns real
+    let s = this.loadReal(codeKey)
+    this.clearData(codeKey)
+    return s
+
+

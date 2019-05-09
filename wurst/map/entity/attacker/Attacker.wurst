@@ -1,0 +1,71 @@
+package Attacker
+import unitAttr
+import path
+import LinkedListModule
+import baseImport
+import ClosureTimers
+import Orders
+
+public class Attacker extends Unit
+    use LinkedListModule
+    vec2 target
+    Way  way
+    private static let map = new HashMap<unit,thistype>
+    override function toString() returns string
+        return "Attack:"+
+        "  target:"+target.toString()+
+        "  way"+ way castTo int
+
+    construct(unit i,Way way)
+        super(i)
+        target = vec2(0, 0)
+        this.way = way
+        map.put(i, this)
+    static function getAttacker(unit u) returns thistype
+        return map.get(u)
+
+    function onInMainRect(WayRects rects)
+        target =  rects.next.pos
+        _self.issuePointOrder("attack", target)
+
+    function onMain()
+        if target == vec2(0, 0)
+            switch way
+                case Left
+                    target = Path.left.start.next.pos
+                case Right
+                    target = Path.right.start.next.pos
+                case Center
+                    target = Path.center.start.next.pos
+        _self.issuePointOrder("attack", target)
+    
+    override function destr()
+        target = vec2(0, 0)
+        map.remove(_self)
+        super.destr()
+
+init
+    let g = CreateGroup()
+    doPeriodically(10) is->
+        g.enumUnitsInRect(attack.origin, Filter(()->GetFilterUnit().getOwner()==enemyNormal))
+        for i from g
+            let us = Attacker.getAttacker(i)
+            if us != null and us.typeId != 0 and i.isAlive()
+                if i.getCurrentOrder() != Orders.attack
+                    us.onMain()
+                else if i.isHero()
+                    us.onMain()
+        g.clear()
+    for p in Path
+        for r in p.start.rects
+            CreateTrigger()
+            ..registerEnterRegion(r.i,null)
+            ..addAction()->
+                let u = GetEnteringUnit()
+                let c = GetTriggeringRegion().getRects()
+                if enemy.containsUnit(u) and c.typeId == WayRects.typeId
+                    let us = Attacker.getAttacker(u)
+                    let cs = c castTo WayRects
+                    if us != null and (cs.way == us.way)
+                        if c != home
+                            us.onInMainRect(cs)

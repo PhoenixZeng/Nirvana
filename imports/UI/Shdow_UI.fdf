@@ -1,0 +1,69 @@
+﻿// -- INCLUDE FILES 引用控件模板文件---------------------------------------------------------
+IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
+IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+
+//******************************
+//*
+//* MAIN MENU BUTTONS
+//*
+//******
+// 游戏界面
+
+Frame "BACKDROP" "HPBar"{
+	Width 0.5,
+	Height 0.04,
+	BackdropTileBackground,
+	BackdropBackground  "blank.blp",
+	BackdropBackgroundSize  0.128,
+	BackdropBackgroundInsets 0.01 0.01 0.01 0.01,
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.030,
+	BackdropEdgeFile  "UI\Widgets\BattleNet\bnet-dialoguebox-border.blp",
+	BackdropBlendAll,
+	Frame "BACKDROP" "HPBarBG"{
+		Width 0.5,
+		Height 0.04,
+		SetPoint LEFT, "HPBar", LEFT, 0, 0,
+		BackdropTileBackground,
+		BackdropBackgroundSize  0.128,
+		BackdropBackgroundInsets 0.008 0.008 0.008 0.008,
+		BackdropBackground  "ReplaceableTextures\TeamColor\TeamColor06.blp",
+		BackdropBlendAll,
+	}
+	Frame "TEXT" "HPText" {
+		SetAllPoints,
+		FontJustificationH JUSTIFYCENTER,
+		FontJustificationV JUSTIFYMIDDLE,
+		FontFlags "FIXEDSIZE",
+		Text "0/0",
+	}
+}
+
+
+Frame "BACKDROP" "GameUI" {
+        BackdropBlendAll, //Blend，开启透明通道
+
+}
+	Frame "TEXT" "HPText" {
+		SetAllPoints,
+		FontJustificationH JUSTIFYCENTER,
+		FontJustificationV JUSTIFYMIDDLE,
+		FontFlags "FIXEDSIZE",
+		Text "0/0",
+	}
+}
+// 设置图标
+Frame "BACKDROP" "GameUI_Icon" {
+        BackdropBlendAll, //Blend，开启透明通道
+}
+
+    // 设置模型
+    Frame "SPRITE" "GameUI_Model" {
+    }
+
+    // 设置按钮
+    Frame "GLUETEXTBUTTON" "GameUI_Button" INHERITS WITHCHILDREN "BlankButtonTemplate" {
+        SetAllPoints, //尺寸与锚点全部附加在父控件MallItem上
+    }
+
+

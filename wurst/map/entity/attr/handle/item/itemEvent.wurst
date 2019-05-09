@@ -1,0 +1,42 @@
+package itemEvent
+
+init
+
+
+
+    // 拾取事件 已废弃 采用hero专用的
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    // ..addAction()->
+    //     let u = GetManipulatingUnit()
+    //     let i = GetManipulatedItem()
+    //     if enemy.containsUnit(u)
+    //         u.addItemAttr(i)
+    //     else
+    //         if i.getCharges() > 0
+    //             for int j = 0 to 5
+    //                 item tempItem = u.itemInSlot(j)
+    //                 if tempItem != i and i.getTypeId() == tempItem.getTypeId()
+    //                     tempItem.addChargesPro(i.getCharges())
+    //                     i.remove()
+    //                     break
+    //         else if users.containsUnit(u) and u.isHero()
+    //             if  i.getItemType() == ItemType.Equipment
+    //                 // for int j = 0 to 5
+    //                 //     item tempItem = u.itemInSlot(j)
+    //                 //     if tempItem != i and i.getItemType() == tempItem.getItemType() 
+    //                 //         i.setPos(u.getPos())
+    //                 //         printTimedToPlayer("你已经有同类唯一装备了,已将"+i.getName()+"丢弃!",10,u.getOwner())
+    //                 //         break
+    //                 nullTimer()->
+    //                     if u.hasItem(i)
+    //                         u.addItemAttr(i)
+                    
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DROP_ITEM)
+    // ..addAction()->
+    //     let u = ITEM.u()
+    //     let i = ITEM.i()
+    //     if u.isHero() and users.containsUnit(u)
+    //         if  i.getItemType() == ItemType.Equipment
+    //             u.dropItemAttr(i)

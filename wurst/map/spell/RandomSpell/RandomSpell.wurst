@@ -1,0 +1,75 @@
+package RandomSpell
+import public Hero
+import YDAbilityState
+
+public abstract class RandomSpell
+    Hero u
+    int lv = 1
+    int id
+    string name
+    string art
+    string tip
+    int level
+    construct()
+        initSpell()
+
+    function toString() returns string
+        return "RandomSpell&"+"art:"+art+"name:"+name+"tip:"+tip
+
+    static function getLevel() returns int
+        if 10 .random()
+            return 4
+        else if 20 .random()
+            return 3
+        else if 40 .random()
+            return 2
+        else if 80 .random()
+            return 1
+        return 5
+
+    static function getLevelName(int level) returns string
+        string names = "DCBAS"
+        return names.substring(level - 1, level)
+    
+    function flushSpell()
+        u._self.exAbilData(EX_ABIL_YD.TIP,id,1,name + "[" + getLevelName(level) + "] - 等级" + lv)
+        u._self.exAbilData(EX_ABIL_YD.UBERTIP,id,1,tip)
+        u._self.exAbilData(EX_ABIL_YD.ART,id,1,art)
+
+    abstract function onReRandom()
+    abstract function levelUp() returns bool
+    abstract function initSpell()
+    abstract function randomData()
+    abstract function onApply(Hero u)
+    abstract function onRemove()
+
+
+public function Prop.toString() returns string
+    switch this
+        case ALL
+            return "全属性"
+        case STR
+            return "力量"
+        case AGI
+            return "敏捷"
+        case INT
+            return "智力"
+        case STR_AGI
+            return "力量(主)+敏捷(副)"
+        case STR_INT
+            return "力量(主)+智力(副)"
+        case AGI_STR
+            return "敏捷(主)+力量(副)"
+        case AGI_INT
+            return "敏捷(主)+智力(副)"
+        case INT_STR
+            return "智力(主)+力量(副)"
+        case INT_AGI
+            return "智力(主)+敏捷(副)"
+        case ALL_MAIN
+            return "全属性+主属性"
+        case MAIN
+            return "主属性"
+        case ATK
+            return "攻击力"
+    return "无"

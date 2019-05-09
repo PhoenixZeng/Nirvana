@@ -1,0 +1,339 @@
+package AIBoss
+import HashMap
+import LinkedListModule
+import HashList
+import unitLib
+
+/*
+
+    算法解释
+
+    首先考虑Boss两次释放同一个技能不应该超过一个数值,即技能的冷却时间 cd 。
+    当Boss受到玩家挑战时，技能的释放间隔 d 应该为 cd 的 1.5 - 2 倍。
+    当Boss全力反击玩家时，技能的释放间隔 d 为 cd 的 1 倍
+
+    energy(蓝量) :
+        全力反击一段时间后，频率减少，使用 energy 来控制一段时间内,Boss最多释放的技能频率。
+
+    power(力量) :
+        主要的随机算法:
+            powerUpRate : power 提升的概率 , 每秒尝试提升一次, 每次 power 提升, powerUpRate 刷新为 0
+            每当时间过去 1s ，根据 Boss所处的环境 增加 一定的powerUpRate
+        
+        技能的使用需要消耗 power.
+
+
+*/
+
+public int GAMETIME = 0
+init
+    CreateTimer().startPeriodic(0.01) ->
+        GAMETIME ++
+
+int array RATEARRAY = [3000,1430,850,560,387,291,228,180,146,120,102,88,76,67,59,51,47,41,37]
+
+public class BossStatus
+    AIBoss ai
+    unit boss
+
+    int attackedTime
+    unit attacker
+
+    int depressedhprate
+    int hprate
+
+    int attackingTime
+    unit atkTar
+
+    int enemyHeroCount
+
+    int spellContinue
+
+    trigger tri
+    static let map = new HashMap<trigger,thistype>()
+
+    ondestroy
+        boss = null
+        attackedTime = 0
+        attacker = null
+        depressedhprate = 0
+        hprate = 0
+        attackingTime = 0
+        atkTar = null
+        enemyHeroCount = 0
+        spellContinue = 0
+        tri.destr()
+        tri = null
+
+    construct(AIBoss ai)
+        this.ai = ai
+        this.boss = ai.boss
+        initTrig()
+
+    function isWorking() returns bool
+        return GAMETIME < attackedTime + 1000
+
+    function trigAction()
+        if GetDyingUnit() != null
+            ai.death()
+            return
+        if GetAttacker() != null
+            attackedTime  = GAMETIME
+            attacker = GetAttacker()
+        if GetIssuedOrderId() == 851983 or GetIssuedOrderId() == 851985
+            attackingTime = GAMETIME
+            atkTar = GetOrderTargetUnit()
+
+    static function _trigAction()
+        let t = GetTriggeringTrigger()
+        let i = map.get(t)
+        i.trigAction()
+
+    function initTrig()
+        tri = CreateTrigger()
+        ..registerUnitEvent(boss, EVENT_UNIT_ATTACKED)
+        ..registerUnitEvent(boss, EVENT_UNIT_DEATH)
+        ..addAction(function _trigAction)
+        map.put(tri, this)
+
+    function isAttacked() returns bool
+        return GAMETIME - attackedTime < 105
+
+    function spellContinue(int continue)
+        spellContinue = GAMETIME + continue
+
+    function isSpelling() returns bool
+        return GAMETIME < spellContinue
+
+    function findhero()
+        player filterPlayer = boss.getOwner()
+        group g = CreateGroup()..enumUnitsInRange(boss.getPos(), 1200, null)
+        enemyHeroCount = 0
+        while g.hasNext()
+            let us = g.next()
+            if IsUnitType(us, UNIT_TYPE_HERO)
+                if IsUnitEnemy(us, filterPlayer)
+                    enemyHeroCount++
+
+    function hpstatus()
+        int last = hprate
+        hprate = (boss.getHP()/boss.getMaxHP()*10000).toInt()
+        depressedhprate = last - hprate
+
+    function period()
+        hpstatus()
+        findhero()
+
+
+public abstract class AIBossSpellType
+    int cooldown
+    int continue
+    bool destr = false
+    function set(real cooldown,real continue)
+        this.cooldown = (cooldown * 100).toInt()
+        this.continue = (continue * 100).toInt()
+
+    abstract function do(targets tar)
+
+
+public class AIBossSpell
+    AIBoss ai
+    int spellTime
+
+    AIBossSpellType _type
+    int power
+    real weight
+
+    //compute
+    int energy
+
+
+    ondestroy
+        if _type.destr
+            destroy _type
+
+    construct(AIBoss ai,AIBossSpellType _type)
+        this.ai = ai
+        this._type = _type
+        this.power = 1
+        this.weight = 1
+
+    construct(AIBoss ai,AIBossSpellType _type,int power,real weight)
+        this.ai = ai
+        this._type = _type
+        this.power = power
+        this.weight = weight
+    
+    function setWeiget(real weight)
+        this.weight = weight
+
+    function doSpell()
+        cost()
+        spellTime = GAMETIME
+        _type.do(targets(ai.boss.getPos(), ai.boss))
+
+    function cost()
+        ai.power -= power
+        ai.energy -= energy
+
+    function viable() returns bool
+        if power > ai.power
+            return false
+        if energy > ai.energy
+            return false
+        if spellTime + _type.cooldown > GAMETIME
+            return false
+        return true
+
+public abstract class AIBoss
+    use LinkedListModule
+    let spells = new HashList<AIBossSpell>()
+
+    unit boss
+
+    int power = 0
+    int powerMax = 10
+    int prob = 0
+    int probBasicUp = 0
+    int probBottom = 0
+
+    static int energyMax = 10000
+    int energy = energyMax
+    int energyPer = 0
+
+    BossStatus status
+
+    ondestroy
+        destroy status
+        destroy spells
+        boss = null
+
+    construct(unit boss)
+        this.boss = boss
+        status = new BossStatus(this)
+        // spells.add()
+        startTimer()
+        initSpell()
+
+    abstract function initSpell()
+
+    function death()
+        destroy this
+
+    function powerUpPeriod() returns int
+        int up = 50 + probBasicUp
+        Log.debug("powerUpPeriod")
+        if status.isAttacked()
+            up += probBasicUp
+            Log.debug("powerUpPeriod isAttacked+"+probBasicUp.toString())
+        if status.depressedhprate > 200
+            up += 100
+            Log.debug("powerUpPeriod depressedhprate+100")
+        if status.hprate < 5000
+            up += 100
+            Log.debug("powerUpPeriod hprate<.5 +100")
+        if status.enemyHeroCount > 1
+            up += 100
+            Log.debug("powerUpPeriod enemyHeroCount>1 +100")
+        if status.hprate < 1500
+            up += 400
+            Log.debug("powerUpPeriod hprate<.15 +400")
+        if power > 5 and energy < 3000
+            up += up div 2
+            Log.debug("powerUpPeriod div 2")
+        return up
+
+    function powerPeriod()
+        if status.isWorking()
+            prob += powerUpPeriod()
+            if prob > GetRandomInt(0, 10000)
+                prob = probBottom
+                power ++
+
+                if power > powerMax
+                    power = powerMax
+
+            if prob < 0
+                prob = 0
+
+        else
+            prob = 0
+            if 5 > GetRandomInt(0, 100)
+                power --
+                if power < 0
+                    power = 0
+
+    function energyPeriod()
+        energy += this.energyPer
+        if energy > energyMax
+            energy = energyMax
+        else if energy < 0
+            energy = 0
+
+    function doSpellPeriod()
+        if not status.isSpelling()
+            for i in spells
+                if i.viable() and not status.isSpelling()
+                    i.doSpell()
+                    status.spellContinue(i._type.continue)
+
+    function period()
+        status.period()
+        powerPeriod()
+        energyPeriod()
+        Log.debug("["+(GAMETIME div 100).toString()+"]energy:"+energy.toString()+", power:"+power.toString())
+        doSpellPeriod()
+
+    /**
+    *   参数 懒惰值 , 恢复因子, 持续度
+    */
+    function compute(real _lazy,real _craze)
+        let lazy = _lazy         //懒惰值 - 表示该boss预计释放频率 (1.5-2)
+        let craze = _craze       //疯狂值 - 疯狂施法时的持续时间 (消灭boss需要的时间)
+        let reply_rate = 1 / (craze) / (lazy - 1)
+        energyPer = (reply_rate * 10000).toInt()
+
+        real weight = 0
+        for i in spells
+            weight += i.weight
+
+        for i in spells
+            i.energy = (lazy * 10000 * reply_rate * (i.weight / weight) * (i._type.cooldown/100)).toInt()
+
+        real restore = 0
+        for i in spells
+            restore += i.power / ((i._type.cooldown/100) * ((lazy - 1)*0.8+1))
+        let t = (1 / restore).toInt() + 1
+        probBasicUp = t > 2 ? RATEARRAY[ t-2 ] : 5000
+
+let period = CreateTimer()
+function startTimer()
+    period.startPeriodic(1, function doAIBossPeriod)
+function doAIBossPeriod()
+    if AIBoss.size > 0
+        for elem in AIBoss
+            elem.period()
+    else
+        GetExpiredTimer().pause()
+        Log.info("停止了!")
+
+        // 每秒增加概率              power+1需要的秒数
+        // 0.0037	                20
+        // 0.0041	                19
+        // 0.0047	                18
+        // 0.0051	                17
+        // 0.0059	                16
+        // 0.0067	                15
+        // 0.0076	                14
+        // 0.0088	                13
+        // 0.0102	                12
+        // 0.0120	                11
+        // 0.0146	                10
+        // 0.018	                 9
+        // 0.0228	                 8
+        // 0.0291	                 7
+        // 0.0387	                 6
+        // 0.056	                 5
+        // 0.085	                 4
+        // 0.143	                 3
+        // 0.3		                 2

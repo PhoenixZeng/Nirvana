@@ -1,0 +1,18 @@
+package PracticePassiveDamageDispatcher
+import PassiveDamageDispatcher
+import Hero
+
+public class PracticePassiveDamageDispatcher extends PassiveDamageDispatcher
+    construct()
+    construct(string name)
+        super(name)
+
+    override function toString() returns string
+        return "PracticePassiveDamageDispatcher$"+(this castTo int)
+
+    override function getDamageDual(unit origin,int lv,real damage) returns real
+        var dmg = super.getDamageDual(origin, lv, damage)
+        let h = Hero.getHero(origin)
+        if h != null
+            dmg *= h.getPracticeSpellArgs()
+        return dmg

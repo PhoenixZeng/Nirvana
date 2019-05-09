@@ -1,0 +1,21 @@
+package dispatcherSpell
+import PassiveDamageDispatcher
+import PracticePassiveDamageDispatcher
+import SpellsId
+import unitLib
+
+function initSpell()
+    new PracticePassiveDamageDispatcher("基本范围伤害")
+    ..setHurtRange(500)
+    ..setHurtDamageThr(1)
+    ..setAbilCond(HeroActiveSpell.jump, 10)
+    ..setType(UnitDamageType.Spell)
+    ..setEffect("model\\effect\\basic_range_1.mdx")
+    new PracticePassiveDamageDispatcher("基本范围伤害1")
+    ..setHurtRange(400)
+    ..setHurtDamageThr(0.2)
+    ..setAbilCond(HeroActiveSpell.jump, 100)
+    ..setType(UnitDamageType.Spell)
+
+init
+    initSpell()

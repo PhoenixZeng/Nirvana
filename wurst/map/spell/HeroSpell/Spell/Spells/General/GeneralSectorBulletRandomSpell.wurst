@@ -1,0 +1,174 @@
+package GeneralSectorBulletRandomSpell
+import HeroRandomSpellEntity
+import Hero
+import MissileRandomSpell
+import ContinueCastTimer
+import CenterTimer
+
+/**
+*  扇形射线 - 主动
+*/
+public class GeneralSectorBulletActiveRandomSpellEntity extends CastRandomSpellEntity implements MissileMoverHitInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    string missilePath
+
+    int  emissionDelay
+    int  emissionCount
+
+    int  missileCount
+    real missileRight
+    real missileInterval
+    real missileRange
+    real missileTime
+    real dmgFactor
+    Prop prop
+
+    function copyData()
+        let _meta = meta castTo GeneralSectorBulletActiveRandomSpellEntity
+        this.cool            = _meta.cool            
+        this.missilePath     = _meta.missilePath     
+        this.emissionDelay   = _meta.emissionDelay   
+        this.emissionCount   = _meta.emissionCount   
+        this.missileCount    = _meta.missileCount    
+        this.missileRight    = _meta.missileRight    
+        this.missileInterval = _meta.missileInterval 
+        this.missileRange    = _meta.missileRange    
+        this.missileTime     = _meta.missileTime     
+        this.dmgFactor       = _meta.dmgFactor       
+        this.prop            = _meta.prop            
+
+    function setData(string missilePath,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,real missileRange,real missileTime,int missileCount,real missileRight,real missileInterval)
+        this.cool            = cool            
+        this.missilePath     = missilePath     
+        this.emissionDelay   = (emissionDelay*100).toInt()
+        this.emissionCount   = emissionCount   
+        this.missileCount    = missileCount    
+        this.missileRight    = missileRight    
+        this.missileInterval = missileInterval 
+        this.missileRange    = missileRange    
+        this.missileTime     = missileTime     
+        this.dmgFactor       = dmgFactor       
+        this.prop            = prop            
+    override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+        let dmg = hero._self.getPropVal(prop) * dmgFactor * (1.1).pow(lv-1.)
+        hero._self.damageSpell(u, dmg)
+        
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+    function emission(targets tar)
+        let caster = hero._self
+        let pos =  caster.getPos()
+        let face = (tar.p - pos).getAngle()
+        let missile = onMissileSpellEmission(missilePath,caster,pos,face,hero.owner)
+        ..mover_setSpeed(missileRange/missileTime, 0)
+        ..mover_setDist(missileRange)
+        ..setHitRange(200)
+        if missileCount > 1
+            setMoreMissileOneDamage(missile, caster, missileCount, missileRight, missileInterval)
+        else
+            missile.mover_start()
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(t.tar)
+    override function onCast(targets tar)
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            emission(tar)
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralSectorBulletActiveRandomSpellEntity()
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(3, 600, cool)
+
+/**
+*  扇形射线 - 攻击触发
+*/
+public class GeneralSectorBulletPassiveRandomSpellEntity extends AttackRandomSpellEntity implements MissileMoverHitInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    int cool
+    string missilePath
+
+    real castProb
+
+    int  emissionDelay
+    int  emissionCount
+
+    int  missileCount
+    real missileRight
+    real missileInterval
+    real missileRange
+    real missileTime
+    real dmgFactor
+    Prop prop
+
+    //
+    int castTime = 0
+
+    ondestroy
+        castTime = 0
+    function copyData()
+        let _meta = meta castTo GeneralSectorBulletPassiveRandomSpellEntity
+        this.cool            = _meta.cool
+        this.castProb        = _meta.castProb
+        this.missilePath     = _meta.missilePath     
+        this.emissionDelay   = _meta.emissionDelay   
+        this.emissionCount   = _meta.emissionCount   
+        this.missileCount    = _meta.missileCount    
+        this.missileRight    = _meta.missileRight    
+        this.missileInterval = _meta.missileInterval 
+        this.missileRange    = _meta.missileRange    
+        this.missileTime     = _meta.missileTime     
+        this.dmgFactor       = _meta.dmgFactor       
+        this.prop            = _meta.prop            
+    function setData(string missilePath,Prop prop,real dmgFactor,real castProb,real cool,real emissionDelay,int emissionCount,real missileRange,real missileTime,int missileCount,real missileRight,real missileInterval)
+        this.cool            = (cool*100).toInt()
+        this.castProb        = castProb
+        this.missilePath     = missilePath     
+        this.emissionDelay   = (emissionDelay*100).toInt()   
+        this.emissionCount   = emissionCount   
+        this.missileCount    = missileCount    
+        this.missileRight    = missileRight    
+        this.missileInterval = missileInterval 
+        this.missileRange    = missileRange    
+        this.missileTime     = missileTime     
+        this.dmgFactor       = dmgFactor       
+        this.prop            = prop            
+
+    override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+        let dmg = hero._self.getPropVal(prop) * dmgFactor * (1.1).pow(lv-1.)
+        hero._self.damageSpell(u, dmg)
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+    function emission(targets tar)
+        let caster = hero._self
+        let pos =  caster.getPos()
+        let face = (tar.p - pos).getAngle()
+        let missile = onMissileSpellEmission(missilePath,caster,pos,face,hero.owner)
+        ..mover_setSpeed(missileRange/missileTime, 0)
+        ..mover_setDist(missileRange)
+        ..setHitRange(200)
+        if missileCount > 1
+            setMoreMissileOneDamage(missile, caster, missileCount, missileRight, missileInterval)
+        else
+            missile.mover_start()
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(t.tar)
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralSectorBulletPassiveRandomSpellEntity()
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb.random()
+                castTime = CenterTimer.current
+                targets tar = targets(u.getPos(), u)
+                if emissionCount > 1
+                    setContinueCast(tar,emissionDelay,emissionCount)
+                else
+                    emission(tar)

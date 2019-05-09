@@ -1,0 +1,46 @@
+package PracticeEntity
+import public Book
+import LinkedListModule
+import HashMap
+
+public class PracticeEntity
+    use LinkedListModule
+    private static HashMap<string,thistype> entities = new HashMap<string,thistype>
+    static let challForPractice = new HashMap<int,string>
+    static int     indexPrinter = 0
+    int     index
+    string  sb
+    string  pg
+    construct(string sbName,string pgName)
+        indexPrinter++
+        index = indexPrinter
+        sb = sbName
+        pg = pgName
+        entities.put(pgName, this)
+    static function get(string name) returns thistype
+        return entities.get(name)
+
+    static function initPracticeEntity()
+        new PracticeEntity("炼体", "0次炼体")
+        new PracticeEntity("炼体", "1次炼体")
+        new PracticeEntity("炼体", "2次炼体")
+        new PracticeEntity("炼体", "3次炼体")
+        new PracticeEntity("炼体", "4次炼体")
+        new PracticeEntity("炼体", "5次炼体")
+        new PracticeEntity("炼体", "6次炼体")
+        new PracticeEntity("炼体", "7次炼体")
+        new PracticeEntity("炼体", "8次炼体")
+        new PracticeEntity("炼体", "9次炼体")
+        new PracticeEntity("炼体","10次炼体")
+        challForPractice
+        ..put('H500', "1次炼体")
+        ..put('H501', "2次炼体")
+        ..put('H502', "3次炼体")
+        ..put('H503', "4次炼体")
+        ..put('H504', "5次炼体")
+        ..put('H505', "6次炼体")
+        ..put('H506', "7次炼体")
+        ..put('H507', "8次炼体")
+        ..put('H508', "9次炼体")
+        ..put('H509',"10次炼体")
+        

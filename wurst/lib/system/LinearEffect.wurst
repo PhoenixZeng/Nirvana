@@ -1,0 +1,116 @@
+package LinearEffect
+import phLib
+import CenterTimer
+import Mover
+import YDEffect
+
+//delayed Instant
+public abstract class LinearEffect
+    vec2    origin
+    int     count = 1
+    real    range = 500
+    angle   face  = 0 .fromDeg()
+    angle   facePlus = 0 .fromDeg()
+    real    dist  = 300
+    real    distPlus = 0
+    construct(vec2    origin,
+            int     count ,
+            real    range ,
+            angle   face  ,
+            angle   facePlus ,
+            real    dist  ,
+            real    distPlus)
+        this.origin = origin
+        this.count = count
+        this.face = face
+        this.facePlus = facePlus
+        this.range = range
+        this.dist = dist
+        this.distPlus = distPlus
+        cast()
+
+    abstract function getEffectPath() returns string
+
+    function clear()
+        range       = 50
+        face        = 0 .fromDeg()
+        facePlus    = 0 .fromDeg()
+        count       = 1
+        dist        = 300
+        distPlus    = 0
+    function cast()
+        var pos = origin
+        for i = 1 to count
+            face += facePlus
+            dist += distPlus
+            pos = pos.polarOffset(face, dist)
+            eff(getEffectPath(),pos)
+            ENUM_GROUP.enumUnitsInRange(pos, range)
+            for u from ENUM_GROUP
+                onHit(u)
+            ENUM_GROUP.clear()
+        destroy this
+
+    abstract function onHit(unit u)
+
+    ondestroy
+        clear()
+
+public abstract class DelayedLinearEffect
+    use Mover
+    vec3 origin
+    real range = 500
+    real delay = 1
+    real scale = 1
+    abstract function getEffectPath() returns string
+    construct(vec3    origin)
+        this.origin = origin
+    construct(
+        vec3    origin,
+        int     count ,
+        real    range ,
+        angle   face  ,
+        angle   facePlus ,
+        real    dist  ,
+        real    distPlus,
+        real    delay
+        )
+        this.origin = origin
+        this.range = range
+        mover_setCount(count)
+        mover_setDelay(delay)
+        mover_setSpeed(dist/delay, distPlus/delay)
+        mover_setFace(face, facePlus)
+        mover_setAngle(0 .asAngleDegrees()  , 0 .asAngleDegrees())
+
+    override function onTick()
+        effect eff = addEffect(getEffectPath(), getPos().toVec2())
+        eff.exSize(scale)
+        eff.destr()
+
+    function setHitRange(real range)
+        this.range = range
+
+    override function getPos() returns vec3
+        return origin
+    override function onStart()
+    override function getHitRange() returns real
+        return 100
+    override function onEnd()
+        destroy this
+    override function setPos(vec3 pos)
+        origin = pos
+    override function getHit() returns group
+        ENUM_GROUP.enumUnitsInRange(origin.toVec2(), range)
+        return ENUM_GROUP//me.getPos3().inRange(target, range)
+    override function isHit(unit u) returns bool
+        return true
+    override function onHit(unit u)
+    
+    override static function engine()
+        onAlways(Mover.__frame) task->
+            for i in DelayedLinearEffect
+                i.do()
+
+init
+    DelayedLinearEffect.engine()

@@ -1,0 +1,17 @@
+package slk
+
+public hashtable slk_unit = j_slk_unit
+public hashtable slk_item = j_slk_item
+public hashtable slk_abil = j_slk_abil
+
+public let nameKey = "name".getHash()
+public let descKey = "desc".getHash()
+public let fragmentKey = "fragment".getHash()
+/**
+ * 单位此项作为杀敌积分
+ */
+public let goldcostKey = "goldcost".getHash()
+/**
+ * 单位此项作为守城积分
+ */
+public let lumbercostKey = "lumbercost".getHash()

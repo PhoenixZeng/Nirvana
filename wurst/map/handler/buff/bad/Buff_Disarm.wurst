@@ -1,0 +1,52 @@
+package Buff_Disarm
+import public buffs
+import public UnitAbun
+
+public class Buff_Disarm extends Buff
+    static string name = "缴械"
+    static string modelPath = "model\\buff\\jiaoxie.mdx"
+    UnitAbun us
+
+    override function getTexture() returns string
+        return "blp\\buff\\BTN_jiaoxie.blp"
+    override function isDebuff() returns bool
+        return true
+
+    override protected function onTargetChanges(unit _previous,unit target)
+    override protected function onCasterChanges(unit _previous,unit caster)
+
+    override function getDuration() returns real
+        return 0.1
+    override function getInterval() returns real
+        return 0.1
+    override function getName() returns string
+        return name
+
+    override function onCover(Buff now) returns bool
+        timeleft += now.timeleft
+        target.eff(modelPath, "origin",getTimeleft())
+        return false
+
+    /**
+    * false to remove
+    */
+    override protected function onApplied() returns bool
+        target.eff(modelPath, "origin",getTimeleft())
+        UnitAbun.apply(target, 0)
+        return true
+
+    /**
+    * false to remove
+    */
+    override protected function onTick() returns bool
+        return true
+
+    /**
+    * false to keepRun
+    */
+    override protected function onRemoval() returns bool
+        UnitAbun.removal(target)
+        return true
+
+    override protected function onDestr()
+        UnitAbun.removal(target)

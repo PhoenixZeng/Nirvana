@@ -1,0 +1,106 @@
+package WorkRoomOrnament
+import phLib
+import attr
+import HashSet
+
+public class WorkRoomOrnamentLevelAttrs
+    use Attr<int>
+    static let map = new HashMap<string,thistype>()
+    string name
+    int lv
+    construct(string name,int lv)
+        this.name = name
+        this.lv = lv
+        map.put(name , this)
+    override function isAttrSaveHt()returns bool
+        return false
+
+    static function initi()
+        new WorkRoomOrnamentLevelAttrs("攻击之塔1",1)..addAttr(AttrKey.ATK, 15000)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔2",2)..addAttr(AttrKey.ATK, 43000)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔3",3)..addAttr(AttrKey.ATK, 116000)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔4",4)..addAttr(AttrKey.ATK, 320000)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔5",5)..addAttr(AttrKey.ATK, 720000)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔6",6)..addAttr(AttrKey.ATK, 1600000)..addAttr(AttrKey.dmgPlus, 15)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔7",7)..addAttr(AttrKey.ATK, 2250000)..addAttr(AttrKey.dmgPlus, 30)
+        new WorkRoomOrnamentLevelAttrs("攻击之塔8",8)..addAttr(AttrKey.ATK, 4500000)..addAttr(AttrKey.dmgPlus, 45)
+        
+        new WorkRoomOrnamentLevelAttrs("生命之塔1",1)..addAttr(AttrKey.HPM, 30000)
+        new WorkRoomOrnamentLevelAttrs("生命之塔2",2)..addAttr(AttrKey.HPM, 86000)
+        new WorkRoomOrnamentLevelAttrs("生命之塔3",3)..addAttr(AttrKey.HPM, 232000)
+        new WorkRoomOrnamentLevelAttrs("生命之塔4",4)..addAttr(AttrKey.HPM, 640000)
+        new WorkRoomOrnamentLevelAttrs("生命之塔5",5)..addAttr(AttrKey.HPM, 1440000)
+        new WorkRoomOrnamentLevelAttrs("生命之塔6",6)..addAttr(AttrKey.HPM, 3200000)..addAttr(AttrKey.dmgSub, 5 )..addAttr(AttrKey.dmgResi, 2)
+        new WorkRoomOrnamentLevelAttrs("生命之塔7",7)..addAttr(AttrKey.HPM, 4500000)..addAttr(AttrKey.dmgSub, 10)..addAttr(AttrKey.dmgResi, 4)
+        new WorkRoomOrnamentLevelAttrs("生命之塔8",8)..addAttr(AttrKey.HPM, 9000000)..addAttr(AttrKey.dmgSub, 15)..addAttr(AttrKey.dmgResi, 6)
+        
+        new WorkRoomOrnamentLevelAttrs("力量之塔1",1)..addAttr(AttrKey.STR, 5000)
+        new WorkRoomOrnamentLevelAttrs("力量之塔2",2)..addAttr(AttrKey.STR, 15000)
+        new WorkRoomOrnamentLevelAttrs("力量之塔3",3)..addAttr(AttrKey.STR, 38000)
+        new WorkRoomOrnamentLevelAttrs("力量之塔4",4)..addAttr(AttrKey.STR, 110000)
+        new WorkRoomOrnamentLevelAttrs("力量之塔5",5)..addAttr(AttrKey.STR, 240000)
+        new WorkRoomOrnamentLevelAttrs("力量之塔6",6)..addAttr(AttrKey.STR, 520000)..addAttr(AttrKey.strPlus, 10)
+        new WorkRoomOrnamentLevelAttrs("力量之塔7",7)..addAttr(AttrKey.STR, 750000)..addAttr(AttrKey.strPlus, 20)
+        new WorkRoomOrnamentLevelAttrs("力量之塔8",8)..addAttr(AttrKey.STR, 1500000)..addAttr(AttrKey.strPlus, 30)
+        
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔1",1)..addAttr(AttrKey.AGI, 5000)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔2",2)..addAttr(AttrKey.AGI, 15000)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔3",3)..addAttr(AttrKey.AGI, 38000)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔4",4)..addAttr(AttrKey.AGI, 110000)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔5",5)..addAttr(AttrKey.AGI, 240000)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔6",6)..addAttr(AttrKey.AGI, 520000)..addAttr(AttrKey.agiPlus, 10)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔7",7)..addAttr(AttrKey.AGI, 750000)..addAttr(AttrKey.agiPlus, 20)
+        new WorkRoomOrnamentLevelAttrs("敏捷之塔8",8)..addAttr(AttrKey.AGI, 1500000)..addAttr(AttrKey.agiPlus, 30)
+        
+        new WorkRoomOrnamentLevelAttrs("智力之塔1",1)..addAttr(AttrKey.INE, 5000)
+        new WorkRoomOrnamentLevelAttrs("智力之塔2",2)..addAttr(AttrKey.INE, 15000)
+        new WorkRoomOrnamentLevelAttrs("智力之塔3",3)..addAttr(AttrKey.INE, 38000)
+        new WorkRoomOrnamentLevelAttrs("智力之塔4",4)..addAttr(AttrKey.INE, 110000)
+        new WorkRoomOrnamentLevelAttrs("智力之塔5",5)..addAttr(AttrKey.INE, 240000)
+        new WorkRoomOrnamentLevelAttrs("智力之塔6",6)..addAttr(AttrKey.INE, 520000)..addAttr(AttrKey.intPlus, 10)
+        new WorkRoomOrnamentLevelAttrs("智力之塔7",7)..addAttr(AttrKey.INE, 750000)..addAttr(AttrKey.intPlus, 20)
+        new WorkRoomOrnamentLevelAttrs("智力之塔8",8)..addAttr(AttrKey.INE, 1500000)..addAttr(AttrKey.intPlus, 30)
+
+public class WorkRoomOrnamentEntity
+    private static let map = new HashMap<int,thistype>()
+    private static let set = new HashSet<thistype>()
+    int id
+    int itemId
+    string name
+    construct( int id,int itemId,string name)
+        this.id = id
+        this.itemId = itemId
+        this.name = name
+        map.put(id, this)
+        set.add(this)
+    static function get(int id) returns thistype
+        return map.get(id)
+
+    static function exGet() returns thistype
+        if 80 .random()
+            return null
+        return set.get(GetRandomInt(0, set.size()-1))
+
+    static function initi()
+        new WorkRoomOrnamentEntity('zsw1','I000',"攻击之塔")
+        new WorkRoomOrnamentEntity('zsw2','I003',"生命之塔")
+        new WorkRoomOrnamentEntity('zsw3','I001',"力量之塔")
+        new WorkRoomOrnamentEntity('zsw4','I002',"敏捷之塔")
+        new WorkRoomOrnamentEntity('zsw5','I004',"智力之塔")
+
+public class WorkRoomOrnament
+    WorkRoomOrnamentEntity entity
+    unit u
+    int  lv = 1
+    construct(WorkRoomOrnamentEntity entity,unit build)
+        this.entity = entity
+        this.u = build
+        this.lv = 1
+    function canUpgrade() returns bool
+        return lv < 8
+    function getAttr() returns WorkRoomOrnamentLevelAttrs
+        return WorkRoomOrnamentLevelAttrs.map.get(entity.name + lv)
+
+init
+    WorkRoomOrnamentLevelAttrs.initi()
+    WorkRoomOrnamentEntity.initi()

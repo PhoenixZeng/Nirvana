@@ -1,0 +1,36 @@
+package YDWEJapiOther
+import JapiNative
+
+@ifNotDefined public function YDWEIsEventPhysicalDamage ( ) returns boolean
+    return 0 != EXGetEventDamageData(1)
+
+@ifNotDefined public function YDWEIsEventAttackDamage ( ) returns boolean
+    return 0 != EXGetEventDamageData(2)
+
+@ifNotDefined public function YDWEIsEventRangedDamage (  ) returns boolean
+    return 0 != EXGetEventDamageData(3)
+
+@ifNotDefined public function YDWEIsEventDamageType (damagetype damageType ) returns boolean
+    return damageType == ConvertDamageType(EXGetEventDamageData(4))
+
+@ifNotDefined public function YDWEIsEventWeaponType (weapontype weaponType ) returns boolean
+    return weaponType == ConvertWeaponType(EXGetEventDamageData(5))
+
+@ifNotDefined public function YDWEIsEventAttackType (attacktype attackType ) returns boolean
+    return attackType == ConvertAttackType(EXGetEventDamageData(6))
+
+@ifNotDefined public function YDWESetEventDamage (real amount ) returns boolean
+    return EXSetEventDamage(amount)
+
+@ifNotDefined public function YDWESetEffectLoc ( effect e, location loc )
+    EXSetEffectXY(e, GetLocationX(loc), GetLocationY(loc))
+
+@ifNotDefined public function YDWEUnitAddStun ( unit u)
+    EXPauseUnit(u, true)
+
+@ifNotDefined public function YDWEUnitRemoveStun ( unit u )
+    EXPauseUnit(u, false)
+
+@ifNotDefined public function YDWEDisplayChat ( player p, integer chat_recipient, string message )
+    EXDisplayChat(p, chat_recipient, message)
+

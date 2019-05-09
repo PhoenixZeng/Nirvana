@@ -1,0 +1,338 @@
+BACKDROP            背景
+HIGHLIGHT           突出
+MODEL               模型
+CONTROL             控制
+CHATDISPLAY         聊天显示
+SPRITE              模型
+DIALOG              对话
+SLIDER              滑块
+SCROLLBAR           滚动条
+
+TEXT                文本
+TEXTAREA            文本域
+BUTTON              按钮
+TEXTBUTTON          文本按钮(TEXT  + BUTTON )
+GLUEBUTTON          固定按钮
+GLUETEXTBUTTON      固定文本按钮(继承TEXTBUTTON,内嵌TEXT)
+FRAME               框架
+
+MENU                菜单
+POPUPMENU           弹出菜单
+GLUEPOPUPMENU       固定弹出菜单
+
+CHECKBOX            复选框
+GLUECHECKBOX        固定复选框
+EDITBOX             编辑框
+GLUEEDITBOX         固定编辑框
+LISTBOX             列表框
+
+SIMPLEFRAME         简单框架
+SIMPLESTATUSBAR     简易工具栏
+SIMPLECHECKBOX      简单复选框
+SIMPLEBUTTON        简单按钮
+
+BACKDROP
+    BackdropBackground
+    BackdropBlendAll
+    BackdropBackgroundSize
+    BackdropBackgroundInsets
+    BackdropCornerFlags
+    BackdropCornerSize
+    BackdropEdgeFile
+    BackdropTileBackground
+    Width
+    Height
+    SetPoint
+    UseActiveContext
+    BackdropMirrored
+    SetAllPoints
+    DecorateFileNames
+    BackdropCornerFile
+    BackdropLeftFile
+    BackdropRightFile
+    BackdropTopFile
+    BackdropBottomFile
+    BackdropHalfSides
+
+TEXTBUTTON
+    Height
+    Width
+    ControlStyle
+    ButtonPushedTextOffset
+    ControlBackdrop
+    ControlPushedBackdrop
+    ControlDisabledBackdrop
+    ControlMouseOverHighlight
+    DecorateFileNames
+    FrameFont
+    ButtonText
+    SetPoint
+    ControlFocusHighlight
+
+HIGHLIGHT
+    HighlightType
+    HighlightAlphaFile
+    HighlightAlphaMode
+    SetAllPoints
+    HighlightColor
+    UseActiveContext
+    Height
+    Width
+    SetPoint
+    DecorateFileNames
+
+TEXT
+    FrameFont
+    FontJustificationH
+    FontJustificationV
+    FontFlags
+    FontColor
+    FontHighlightColor
+    FontDisabledColor
+    FontShadowColor
+    FontShadowOffset
+    SetAllPoints
+    Text
+    SetPoint
+    Height
+    DecorateFileNames
+    Width
+    ControlShortcutKey
+    UseActiveContext
+    FontJustificationOffset
+    LayerStyle
+
+GLUETEXTBUTTON
+    SetAllPoints
+    Width
+    Height
+    SetPoint
+    ControlShortcutKey
+    TabFocusDefault
+    TabFocusNext
+    ButtonText
+    ControlStyle
+    ControlBackdrop
+    ControlMouseOverHighlight
+    ButtonPushedTextOffset
+    ControlPushedBackdrop
+    ControlDisabledBackdrop
+    ControlDisabledPushedBackdrop
+    DecorateFileNames
+    FrameFont
+    UseActiveContext
+
+POPUPMENU
+    Height
+    Width
+    ControlBackdrop
+    ControlDisabledBackdrop
+    SetPoint
+    PopupButtonInset
+    ControlPushedBackdrop
+    UseActiveContext
+
+GLUECHECKBOX
+    SetPoint
+    Width
+    Height
+    ControlStyle
+    CheckBoxCheckHighlight
+    ControlMouseOverHighlight
+    UseActiveContext
+    ControlBackdrop
+    ControlDisabledBackdrop
+    ControlPushedBackdrop
+    CheckBoxDisabledCheckHighlight
+
+MENU
+    UseActiveContext
+    MenuItem
+    Height
+    DecorateFileNames
+    FrameFont
+    MenuTextHighlightColor
+    MenuItemHeight
+    MenuBorder
+    ControlBackdrop
+
+SCROLLBAR
+    SetPoint
+    UseActiveContext
+    Height
+    Width
+    SliderLayoutVertical
+    ControlBackdrop
+
+CONTROL
+    Width
+    Height
+    ControlBackdrop
+    UseActiveContext
+
+GLUEBUTTON
+    Height
+    Width
+    ControlStyle
+    ControlFocusHighlight
+    ControlMouseOverHighlight
+    SetPoint
+    ControlShortcutKey
+    TabFocusNext
+    ControlBackdrop
+    ControlPushedBackdrop
+    ControlDisabledBackdrop
+    ControlDisabledPushedBackdrop
+    UseActiveContext
+
+FRAME
+    SetPoint
+    Width
+    Height
+    SetAllPoints
+    TabFocusPush
+    UseActiveContext
+    DecorateFileNames
+    FrameFont
+    LayerStyle
+    Frame
+
+SPRITE
+    SetAllPoints
+    BackgroundArt
+    Width
+    Height
+    SetPoint
+    UseActiveContext
+
+TEXTAREA
+    DecorateFileNames
+    FrameFont
+    TextAreaLineHeight
+    TextAreaLineGap
+    TextAreaInset
+    TextAreaMaxLines
+    Height
+    Width
+    SetPoint
+    TextAreaScrollBar
+    ControlBackdrop
+
+EDITBOX
+    Height
+    Width
+    SetPoint
+    TabFocusNext
+    TabFocusDefault
+    EditBorderSize
+    EditCursorColor
+    ControlBackdrop
+
+DIALOG
+    Height
+    Width
+    DialogBackdrop
+    DecorateFileNames
+    FrameFont
+    UseActiveContext
+
+BUTTON
+    Width
+    Height
+    ControlBackdrop
+    ControlDisabledBackdrop
+    SetPoint
+    UseActiveContext
+    ControlStyle
+    ControlMouseOverHighlight
+
+SLIDER
+    Height
+    Width
+    SetPoint
+    SliderMinValue
+    SliderMaxValue
+    SliderInitialValue
+    SliderStepSize
+    SliderLayoutHorizontal
+    ControlBackdrop
+    ControlDisabledBackdrop
+
+LISTBOX
+    ListBoxBorder
+    ControlBackdrop
+    ListBoxScrollBar
+
+CHECKBOX
+    Width
+    Height
+    ControlBackdrop
+    ControlPushedBackdrop
+    ControlDisabledBackdrop
+    CheckBoxCheckHighlight
+    CheckBoxDisabledCheckHighlight
+
+CHATDISPLAY
+    DecorateFileNames
+    FrameFont
+    ChatDisplayLineHeight
+    ChatDisplayBorderSize
+    ControlBackdrop
+    ChatDisplayScrollBar
+    ChatDisplayEditBox
+
+GLUEEDITBOX
+    Width
+    SetPoint
+
+GLUEPOPUPMENU
+    SetPoint
+    Width
+    UseActiveContext
+
+MODEL
+    BackgroundArt
+    SetAllPoints
+    LayerStyle
+    SetPoint
+
+SIMPLEFRAME
+    DecorateFileNames
+    Texture
+    SetAllPoints
+    Layer
+    String
+    Width
+    Height
+    UseActiveContext
+    SetPoint
+
+SIMPLESTATUSBAR
+    DecorateFileNames
+    SetPoint
+    Width
+    Height
+    BarTexture
+
+SIMPLECHECKBOX
+    DecorateFileNames
+    SetPoint
+    Width
+    Height
+    NormalTexture
+    PushedTexture
+    CheckedTexture
+
+SIMPLEBUTTON
+    DecorateFileNames
+    Width
+    Height
+    ButtonPushedTextOffset
+    NormalTexture
+    PushedTexture
+    DisabledTexture
+    UseHighlight
+    SetPoint
+    NormalText
+    DisabledText
+    HighlightText

@@ -1,0 +1,50 @@
+// package MultipleSpell
+// import Hero
+// import DmgType
+// import SpellData
+
+// public module SpellAction
+//     abstract function onApply(HeroSpell hs)
+//     abstract function onRemove(HeroSpell hs)
+//     abstract function onCast(HeroSpell hs,targets t)
+//     abstract function onAttack(HeroSpell hs,unit u)
+//     abstract function onDamage(HeroSpell hs,DmgWrapper dmg) returns DmgWrapper
+//     abstract function onDamaged(HeroSpell hs,DmgWrapper dmg) returns DmgWrapper
+//     abstract function onKill(HeroSpell hs,unit u)
+
+// public module SpellView
+//     abstract function onUpdate(HeroSpell hs)
+
+// public abstract class Spell
+//     use SpellAction
+//     use SpellView
+//     string name
+//     string tip
+//     string art
+//     int    maxLv
+
+        
+
+// public class HeroSpell
+//     Hero h
+//     Spell spell
+//     SpellData data = new SpellData()
+//     int lv
+//     construct(Hero h,Spell spell)
+//         this.h = h
+//         this.spell = spell
+//     function levelUp()
+//     function onApply()
+//         spell.onApply(this)
+//     function onCast(targets t)
+//         spell.onCast(this, t)
+//     function onAttack(unit u)
+//         spell.onAttack(this,u)
+//     function onDamage(DmgWrapper dmg) returns DmgWrapper
+//         return spell.onDamage(this,dmg)
+//     function onDamaged(DmgWrapper dmg) returns DmgWrapper
+//         return spell.onDamaged(this,dmg)
+//     function onKill(unit u)
+//         spell.onKill(this,u)
+//     function onUpdate()
+//         spell.onUpdate(this)

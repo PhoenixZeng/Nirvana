@@ -1,0 +1,16 @@
+package way
+import HashMap
+
+public enum Way
+    Left
+    Center
+    Right
+
+HashMap<unit,Way> map = new HashMap<unit,Way>()
+
+public function unit.setWay(Way way)
+    map.put(this, way)
+
+public function unit.getWay() returns Way
+    return map.get(this)
+

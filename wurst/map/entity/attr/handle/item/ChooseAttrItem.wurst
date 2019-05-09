@@ -1,0 +1,89 @@
+package ChooseAttrItem
+import attrMapper
+import HashMap
+import public AffixItemEntity
+import public ItemAffix
+import base
+import DialogBox
+
+enum ChooseAttrType
+    HP
+    ATK
+    DEF
+    ATTR
+    STR
+    AGI
+    INT
+    ASP
+
+public class ChooseAttrItemTip
+    int index
+    string tip
+
+    function makeTip() returns string
+        return "["+index+"]:"+tip
+
+    function getPrefix()
+
+
+
+public class ChooseAttrItem extends Item
+    private static let map = new HashMap<item,thistype>
+    int    chooseCount       = 0
+
+    int    chooseAttr3Val    = 100
+    int    chooseAttr1Val    = 200
+    int    chooseHpVal       = 3000
+    int    chooseAtkVal      = 800
+
+    real   choosePowerStdVal1   = 10
+    real   choosePowerStdVal2   = 0.075
+
+    real   choosePowerProVal1   = 10
+    real   choosePowerProVal2   = 0.075
+    // val * count * pow(val1,val2*count)
+    construct(item i)
+        super(i)
+        map.put(i, this)
+    override function toString() returns string 
+        var a = _hid + "$" + _self.getName() + "@" + owner.getName() + "%" + this castTo int +"->"
+        return a
+    static function getAffixsItem(item i) returns thistype
+        if i!=null
+            if map.has(i)
+                return map.get(i)
+            else if i.getItemType() == ItemType.Equipment and i.getLife() == 533
+                return new ChooseAttrItem(i)
+        return null
+
+    override function loadFromHt()
+        super.loadFromHt()
+
+    function onChooseAttr()
+        let valStd = (chooseCount * Pow(choosePowerStdVal1, choosePowerStdVal2 * chooseCount)).toInt()
+        let valPro = (chooseCount * Pow(choosePowerProVal1, choosePowerProVal2 * chooseCount)).toInt()
+        let box1 = new DialogBox("选择属性")
+        box1.addButton("血量+"+valStd*chooseHpVal)->
+            this.addAttr(AttrKey.HPM, valStd*chooseHpVal)
+            destroy box1
+        box1.addButton("攻击+"+valStd*chooseAtkVal)->
+            this.addAttr(AttrKey.ATK, valStd*chooseHpVal)
+            destroy box1
+        box1.addButton("三维+"+valStd*chooseAttr3Val)->
+            this.addAttr(AttrKey.STR, valStd*chooseHpVal)
+            this.addAttr(AttrKey.AGI, valStd*chooseHpVal)
+            this.addAttr(AttrKey.INE, valStd*chooseHpVal)
+            destroy box1
+        box1.addButton("力量+"+valStd*chooseAttr1Val)->
+            this.addAttr(AttrKey.STR, valStd*chooseHpVal)
+            destroy box1
+        box1.addButton("敏捷+"+valStd*chooseAttr1Val)->
+            this.addAttr(AttrKey.AGI, valStd*chooseHpVal)
+            destroy box1
+        box1.addButton("智力+"+valStd*chooseAttr1Val)->
+            this.addAttr(AttrKey.INE, valStd*chooseHpVal)
+            destroy box1
+        
+
+    ondestroy
+        map.remove(_self)

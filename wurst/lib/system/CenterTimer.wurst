@@ -1,0 +1,93 @@
+package CenterTimer
+import LinkedListModule
+import Execute
+import base
+
+public class CenterTimer
+    static int   current = 0
+    static timer center  = CreateTimer()
+    static int   inter   = 1
+    static thistype baseTimer = new CenterTimer()
+    static function register(TimerTask task)
+        task.dur   = task.dur + current
+        task.nextTime  = task.inter + current
+    static function start()
+        center.startPeriodic(inter/100) ->
+            current+=inter
+            for i in TimerTask
+                if i.isPause
+                    i.dur += i.inter
+                if current >= i.nextTime
+                    if i.isDebug
+                        print("当前时钟"+current +"此任务:"+(current >= i.nextTime)+ " ->任务信息:"+i.toString())
+                    if not i.isPause
+                        i.doTime++
+                        execute()->
+                            i.run(i)
+                        if i.nextTime >= i.dur
+                            if i.doWhen != null and i.doWhen.typeId != 0
+                                execute()->
+                                    i.doWhen.run(i)
+                            if i.typeId != 0
+                                i.destr()
+                    i.nextTime = current + i.inter
+
+public interface OnTimerTaskEnd
+    abstract function run(TimerTask i)
+
+public abstract class TimerTask
+    use LinkedListModule
+    int    dur   = 1
+    int    nextTime  = 0
+    int    inter = 1
+    int    doTime= 0
+    bool   isPause = false
+    bool   isDebug = false
+    OnTimerTaskEnd doWhen
+    abstract function run(TimerTask i)
+    function toString() returns string
+        return this castTo int +"->dur:"+dur.toString() + "nextTime:"+nextTime.toString()
+         + "inter:"+inter.toString() + "doTime:" + doTime.toString()
+    function isLast()returns bool
+        return dur  < inter + nextTime
+
+    function debug()
+        isDebug = true
+    function pause()
+        isPause = true
+    function restart()
+        isPause = false
+    function destr()
+        if isDebug
+            print("计时器任务被移除!"+this.toString())
+        if doWhen != null and doWhen.typeId != 0
+            destroy doWhen
+            doWhen = null
+        destroy this
+    function onEnd(OnTimerTaskEnd doWhen)
+        this.doWhen = doWhen
+
+public function onNow(TimerTask task) returns TimerTask
+    task.dur   = 0
+    CenterTimer.register(task)
+    return task
+public function onAfter(real delay,TimerTask task) returns TimerTask
+    task.inter = (delay * 100).toInt()
+    task.dur   = (delay * 100).toInt()
+    CenterTimer.register(task)
+    return task
+public function onAfterCount(real delay,int count,TimerTask task) returns TimerTask
+    task.inter = (delay * 100).toInt()
+    task.dur   = (delay * 100).toInt() * count
+    CenterTimer.register(task)
+    return task
+public function onAlways(real delay,TimerTask task) returns TimerTask
+    task.inter = (delay * 100).toInt()
+    task.dur   = 999999999
+    CenterTimer.register(task)
+    return task
+
+init
+    CenterTimer.start()
+
+    

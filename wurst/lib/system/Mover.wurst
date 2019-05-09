@@ -1,0 +1,181 @@
+package Mover
+import public Handle
+import public HashMap
+import LinkedListModule
+import phLib
+
+
+/**
+    位移器 必须实现
+    abstract function getPos() returns vec3
+    abstract function onStart()
+    abstract function onTick()
+    abstract function isHit() returns bool
+    abstract function onHit()
+    abstract function onHitWall() returns bool
+    abstract function onEnd()
+    abstract function setPos(vec3 vec3)
+    abstract static function engine()
+ */
+public module Mover
+    use LinkedListModule
+    static real       __frame     = 0.03
+    protected real    __delay     = 0.1
+    protected real    __speed     = 0
+    protected real    __speedPlus = 0
+    protected angle   __face      = 0 .asAngleDegrees()
+    protected angle   __facePlus  = 0 .asAngleDegrees()
+    protected angle   __angle     = 0 .asAngleDegrees()
+    protected angle   __anglePlus = 0 .asAngleDegrees()
+
+    protected real    __continueTime
+    protected real    __continueDist
+    protected int     __continueCount
+
+    protected vec3    __startPos
+    protected vec3    __endPos
+    protected real    __tickTimePost   = 0
+    protected real    __timePost       = 0
+    protected real    __distPost       = 0
+    protected real    __hitDistPost    = 0
+    protected int     __countPost      = 0
+    protected int     __hitPost        = 0
+    protected group   __beenHit  = CreateGroup()
+
+    protected bool      __isMoving = false
+    protected bool      __pause    = false
+    protected bool      __isBeDestory = false
+
+    construct()
+        __isBeDestory = false
+
+    function setBeenHit(group p)
+        __beenHit.destr()
+        __beenHit = p
+    function getBeenHit() returns group
+        return __beenHit
+
+    function mover_toString() returns string
+        return ("mover"+
+        "\n spd:"+__speed/__frame     +
+        "\n spa:"+__speedPlus/__frame /__frame  +
+        "\n fac:"+__face.degrees()      +
+        "\n fca:"+__facePlus.degrees() /__frame  +
+        "\n ang:"+__angle.degrees()   +
+        "\n ana:"+__anglePlus.degrees()/__frame  +
+        "\n ism:"+__isMoving  +
+        "\n pau:"+__pause 
+        )
+
+    protected function clear()
+        __delay           = 0.1
+        __speed           = 0
+        __face            = 0 .asAngleDegrees()
+        __angle           = 0 .asAngleDegrees()
+        __speedPlus       = 0
+        __facePlus        = 0 .asAngleDegrees()
+        __anglePlus       = 0 .asAngleDegrees()
+        __continueTime    = 0
+        __continueDist    = 0
+        __continueCount   = 0
+        __timePost        = 0
+        __tickTimePost    = 0
+        __distPost        = 0
+        __hitPost         = 0
+        __countPost       = 0
+        __pause           = false
+        __isBeDestory     = true
+
+    function mover_setTime(real time)
+        this.__continueTime = time
+    function mover_setDist(real dist)
+        this.__continueDist = dist
+    function mover_setCount(int count)
+        this.__continueCount = count
+    function mover_setDelay(real delay)
+        this.__delay = delay
+    function mover_setSpeed(real speed,real speed_plus)
+        this.__speed = speed  * __frame
+        this.__speedPlus = speed_plus * __frame * __frame
+    function mover_setFace(angle face,angle face_plus)
+        this.__face = face
+        this.__facePlus = face_plus * __frame
+    function mover_setAngle(angle angle,angle angle_plus)
+        this.__angle = angle
+        this.__anglePlus = angle_plus * __frame
+
+    function mover_pause()
+        this.__pause = true
+    function mover_unPause()
+        this.__pause = false
+
+    function mover_start()   
+        if not __isMoving
+            __isMoving = true
+            __startPos = getPos()
+            __isBeDestory = false
+            onStart()
+    function mover_end()
+        if __isMoving
+            __isMoving = false
+            __endPos = getPos()
+            clear()
+            onEnd()
+    ondestroy
+        __beenHit.clear()
+        __beenHit.destr()
+        clear()
+
+    protected function getNextPos() returns vec3
+        var p = getPos()
+        this.mover_next()
+        let x = p.x + __speed * __angle.cos() * __face.cos()
+        let y = p.y + __speed * __angle.cos() * __face.sin()
+        let z = p.z + __speed * __angle.sin()
+        let ps = vec3(x, y, z)
+        return ps.fix()
+    protected function mover_next()
+        __speed += __speedPlus
+        __face  += __facePlus
+        __angle += __anglePlus
+
+    function isMoveEnd() returns bool
+        return (__continueTime > 0 and __timePost >= __continueTime)
+        or (__continueCount > 0 and __countPost >= __continueCount)
+        or (__continueDist > 0 and __distPost >= __continueDist)
+    abstract function getPos() returns vec3
+    abstract function onStart()
+    abstract function onTick()
+    abstract function getHit() returns group
+    abstract function getHitRange() returns real
+    abstract function isHit(unit u) returns bool
+    abstract function onHit(unit u)
+    abstract function onEnd()
+    abstract function setPos(vec3 vec3)
+
+    function do()
+        if __isMoving and not __pause and not __isBeDestory
+            let next = getNextPos()
+            setPos(next)
+            __distPost += __speed
+            __tickTimePost += __frame
+            __timePost += __frame
+            __hitDistPost += __speed
+            if not __isBeDestory and __tickTimePost >= __delay
+                __tickTimePost -= __delay
+                __countPost ++
+                onTick()
+            if not __isBeDestory and __hitDistPost >= getHitRange()
+                let g = getHit()
+                if g.size() > 0
+                    for u in g
+                        if not __isBeDestory and not __beenHit.contains(u) and isHit(u)
+                            __hitPost ++
+                            onHit(u)
+                            __beenHit.addUnit(u)
+                    g.clear()
+                __hitDistPost = 0
+            if not __isBeDestory and isMoveEnd() 
+                mover_end()
+
+    abstract static function engine()

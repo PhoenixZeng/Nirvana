@@ -1,0 +1,20 @@
+package attackHandler
+import Forces
+
+public trigger cantAttackFriend
+
+init
+    /*
+     * 禁止攻击队友
+     */
+    cantAttackFriend = CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_ATTACKED)
+    ..addAction() ->
+        let a1 = GetAttacker()
+        let b1 = GetTriggerUnit()
+        if users.containsUnit(a1) and users.containsUnit(b1)
+            a1.issueImmediateOrder("stop")
+        else if users.containsUnit(a1) and playerBase == b1.getOwner()
+            a1.issueImmediateOrder("stop")
+
+        

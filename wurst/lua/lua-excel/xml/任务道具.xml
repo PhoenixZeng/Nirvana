@@ -1,0 +1,1159 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Phoenix</Author>
+  <LastAuthor>Phoenix Zeng</LastAuthor>
+  <Created>2018-10-13T14:56:26Z</Created>
+  <LastSaved>2019-05-06T03:15:33Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>8748</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="ItemData">
+  <Table ss:ExpandedColumnCount="47" ss:ExpandedRowCount="33" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.55">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
+   <Column ss:AutoFitWidth="0" ss:Width="189"/>
+   <Column ss:AutoFitWidth="0" ss:Width="473.40000000000003"/>
+   <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="211.8"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="136.19999999999999"/>
+   <Column ss:AutoFitWidth="0" ss:Width="50.4" ss:Span="1"/>
+   <Column ss:Index="26" ss:AutoFitWidth="0" ss:Width="125.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="64.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="56.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="41.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="109.19999999999999"/>
+   <Column ss:AutoFitWidth="0" ss:Width="93.600000000000009"/>
+   <Column ss:Index="34" ss:AutoFitWidth="0" ss:Width="98.4"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TYPE</Data></Cell>
+    <Cell><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">oid</Data></Cell>
+    <Cell><Data ss:Type="String">iabi</Data></Cell>
+    <Cell><Data ss:Type="String">_pname</Data></Cell>
+    <Cell><Data ss:Type="String">_paward</Data></Cell>
+    <Cell><Data ss:Type="String">unam</Data></Cell>
+    <Cell><Data ss:Type="String">ides</Data></Cell>
+    <Cell><Data ss:Type="String">utip</Data></Cell>
+    <Cell><Data ss:Type="String">utub</Data></Cell>
+    <Cell><Data ss:Type="String">uhot</Data></Cell>
+    <Cell><Data ss:Type="String">iico</Data></Cell>
+    <Cell><Data ss:Type="String">isca</Data></Cell>
+    <Cell><Data ss:Type="String">ifil</Data></Cell>
+    <Cell><Data ss:Type="String">ubpx</Data></Cell>
+    <Cell><Data ss:Type="String">ubpy</Data></Cell>
+    <Cell><Data ss:Type="String">ubpx</Data></Cell>
+    <Cell><Data ss:Type="String">ubpy</Data></Cell>
+    <Cell><Data ss:Type="String">issc</Data></Cell>
+    <Cell><Data ss:Type="String">iclr</Data></Cell>
+    <Cell><Data ss:Type="String">iclb</Data></Cell>
+    <Cell><Data ss:Type="String">iclg</Data></Cell>
+    <Cell><Data ss:Type="String">iarm</Data></Cell>
+    <Cell><Data ss:Type="String">ilvo</Data></Cell>
+    <Cell><Data ss:Type="String">ilev</Data></Cell>
+    <Cell><Data ss:Type="String">icla</Data></Cell>
+    <Cell><Data ss:Type="String">igol</Data></Cell>
+    <Cell><Data ss:Type="String">ihtp</Data></Cell>
+    <Cell><Data ss:Type="String">isst</Data></Cell>
+    <Cell><Data ss:Type="String">istr</Data></Cell>
+    <Cell><Data ss:Type="String">ilum</Data></Cell>
+    <Cell><Data ss:Type="String">isto</Data></Cell>
+    <Cell><Data ss:Type="String">ipri</Data></Cell>
+    <Cell><Data ss:Type="String">icid</Data></Cell>
+    <Cell><Data ss:Type="String">iicd</Data></Cell>
+    <Cell><Data ss:Type="String">imor</Data></Cell>
+    <Cell><Data ss:Type="String">idrp</Data></Cell>
+    <Cell><Data ss:Type="String">ipow</Data></Cell>
+    <Cell><Data ss:Type="String">isel</Data></Cell>
+    <Cell><Data ss:Type="String">ipaw</Data></Cell>
+    <Cell><Data ss:Type="String">idro</Data></Cell>
+    <Cell><Data ss:Type="String">iprn</Data></Cell>
+    <Cell><Data ss:Type="String">iuse</Data></Cell>
+    <Cell><Data ss:Type="String">iper</Data></Cell>
+    <Cell><Data ss:Type="String">iusa</Data></Cell>
+    <Cell><Data ss:Type="String">ureq</Data></Cell>
+    <Cell><Data ss:Type="String">urqa</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">COMMENT</Data></Cell>
+    <Cell><Data ss:Type="String">物品ID</Data></Cell>
+    <Cell><Data ss:Type="String">物品模板ID</Data></Cell>
+    <Cell><Data ss:Type="String">技能 - 技能</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">文本 - 名字</Data></Cell>
+    <Cell><Data ss:Type="String">文本 - 说明</Data></Cell>
+    <Cell><Data ss:Type="String">文本 - 提示工具 - 基础</Data></Cell>
+    <Cell><Data ss:Type="String">文本 - 提示工具 - 扩展</Data></Cell>
+    <Cell><Data ss:Type="String">文本 - 热键</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 界面图标</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 模型缩放</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 使用模型</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 按钮位置(X)</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 按钮位置(Y)</Data></Cell>
+    <Cell><Data ss:Type="String">x</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 选择圈大小(编辑器)</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 颜色值(红)</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 颜色值(蓝)</Data></Cell>
+    <Cell><Data ss:Type="String">显示 - 颜色值(绿)</Data></Cell>
+    <Cell><Data ss:Type="String">战斗 - 装甲类型</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 等级(旧版)</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 等级</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 物品分类</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 黄金消耗</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 生命值</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 购买开始时间</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 购买时间间隔</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 木材消耗</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 最大库存量</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 优先权</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - CD间隔组</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 无视CD间隔</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 有效的物品转换目标</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 持有者死亡时掉落</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 捡取时自动使用</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 可被市场出售</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 可以被抵押</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 可以丢弃</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 可作为随机物品</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 使用次数</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 使用完会消失</Data></Cell>
+    <Cell><Data ss:Type="String">状态 - 主动使用</Data></Cell>
+    <Cell><Data ss:Type="String">科技树 - 需求</Data></Cell>
+    <Cell><Data ss:Type="String">科技树 - 需求值</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS00</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">盗贼</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">制式升级断水装备</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水装备|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水装备|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS01</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">鱼人</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv1|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS02</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">森林狼</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv2|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS03</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">豪猪</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv3|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS04</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">达拉内尔信徒</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">断水升级玄铁装备</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁装备|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁装备|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS05</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">食人魔</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv1|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS06</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">狗头人</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv2|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS07</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">矿井蝎子</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv3|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS08</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">熔岩怪物</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">玄铁升级烈焰装备</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰装备|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰装备|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS09</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">火焰蜥蜴</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv1|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0A</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">烈焰龙龟</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv2|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0B</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">幼龙</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv3|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0C</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">冰霜巨魔</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">烈焰升级龙吟装备</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟装备|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟装备|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0D</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">丛林巨魔</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv1|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0E</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">娜迦护卫</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv2|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0F</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">黑暗巨魔</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv3|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0G</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">火元素</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">龙吟升级神使装备</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使装备|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使装备|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0H</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">风元素</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv1|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0I</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">水元素</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv2|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0J</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">土元素</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv3|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0K</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s62"/>
+    <Cell><Data ss:Type="String">[支线 - 重复]:狩猎任务</Data></Cell>
+    <Cell><Data ss:Type="String">接受狩猎任务.每次接取消耗游戏积分1点.重复接取时,自动放弃上一个任务.|n狩猎任务奖励狩猎积分!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[支线 - 重复]:狩猎任务</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">接受狩猎任务.每次接取消耗游戏积分1点.重复接取时,自动放弃上一个任务.|n狩猎任务奖励狩猎积分!</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0L</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">装备提升</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8装备提升|r</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">初始装备通过在练功房挑战升级|n升级到等级5后,需要击杀指定副本怪物才可升级(装备上有介绍)|n升级到神使装备后,可以进行融合圣魂珠(需要满轮回)[相关NPC]:装备升级</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8装备提升|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">初始装备通过在练功房挑战升级|n升级到等级5后,需要击杀指定副本怪物才可升级(装备上有介绍)|n升级到神使装备后,可以进行融合圣魂珠(需要满轮回)[相关NPC]:装备升级</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNArcaniteMelee.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0M</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">轮回</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8轮回|r</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">每吞噬指定等级的怪物精髓(副本BOSS掉落)就可以进行轮回|n轮回后英雄会变,每个英雄的轮回技能会一直保留|n[提示]:轮回达到满级后可以进行定向轮回一次,还可以进行圣魂信仰选择来合成圣魂(后山)|n[相关NPC]:轮回使者</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8轮回|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">每吞噬指定等级的怪物精髓(副本BOSS掉落)就可以进行轮回|n轮回后英雄会变,每个英雄的轮回技能会一直保留|n[提示]:轮回达到满级后可以进行定向轮回一次,还可以进行圣魂信仰选择来合成圣魂(后山)|n[相关NPC]:轮回使者</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNStaffOfPreservation.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0N</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">熔炼套装</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8熔炼套装|r</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">套装装备从对应副本中掉落!|n每个套装装备分8件,任意的3件套装即可凑成套装,凑成套装的情况下可以进行熔炼来获取套装效果.|n指定的3件套装可以熔炼成特殊的套装效果!|n每个品级的套装只能熔炼一次.|n[提示]:熔炼过后装备消失,在[人物宝典]技能中可以看到|n[相关NPC]:套装熔炼|n</Data></Cell>
+    <Cell ss:Formula="=R[2]C[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8防守|r</Data></Cell>
+    <Cell ss:Formula="=R[2]C[-2]"><Data ss:Type="String">一共30波,击杀怪物可以获得守家积分,|n[提示]:守家积分可以用于超级强化基地,会赠送属性|n[相关NPC]:基地</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNDefend.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0O</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">副本</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8副本|r</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">副本掉落对应品次的怪物精髓,套装装备,宝珠,藏宝图。|n[相关NPC]:副本传送|n</Data></Cell>
+    <Cell ss:Formula="=R[-1]C[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8熔炼套装|r</Data></Cell>
+    <Cell ss:Formula="=R[-1]C[-2]"><Data ss:Type="String">套装装备从对应副本中掉落!|n每个套装装备分8件,任意的3件套装即可凑成套装,凑成套装的情况下可以进行熔炼来获取套装效果.|n指定的3件套装可以熔炼成特殊的套装效果!|n每个品级的套装只能熔炼一次.|n[提示]:熔炼过后装备消失,在[人物宝典]技能中可以看到|n[相关NPC]:套装熔炼|n</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNOrbofSlowness.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0P</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">防守</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8防守|r</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">一共30波,击杀怪物可以获得守家积分,|n[提示]:守家积分可以用于超级强化基地,会赠送属性|n[相关NPC]:基地</Data></Cell>
+    <Cell ss:Formula="=R[-1]C[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8副本|r</Data></Cell>
+    <Cell ss:Formula="=R[-1]C[-2]"><Data ss:Type="String">副本掉落对应品次的怪物精髓,套装装备,宝珠,藏宝图。|n[相关NPC]:副本传送|n</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNGhoul.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0Q</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">无尽模式</Data></Cell>
+    <Cell ss:Index="7" ss:Formula="=&quot;[新手指引]:|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[新手指引]:|cFF1BE6B8无尽模式|r</Data></Cell>
+    <Cell><Data ss:Type="String">无尽模式会根据波数获取无尽积分|n无尽积分可兑换特殊道具|n未开放</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[新手指引]:|cFF1BE6B8无尽模式|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">无尽模式会根据波数获取无尽积分|n无尽积分可兑换特殊道具|n未开放</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNGhoul.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0R</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">天地灵气</Data></Cell>
+    <Cell><Data ss:Type="String">定魂精髓</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]:清理|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[任务]:清理|cFF1BE6B8天地灵气|r</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - &quot;&amp;RC[-2]"><Data
+      ss:Type="String">此地的|cFF1BE6B8天地灵气|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - 定魂精髓</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8天地灵气|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8天地灵气|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - 定魂精髓</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNThunderLizardEgg.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0S</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">狼</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">雪花</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]:清理|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[任务]:清理|cFF1BE6B8狼|r</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8狼|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8雪花|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8狼|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8狼|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8雪花|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0T</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">蝎子</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">冰块</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]:清理|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[任务]:清理|cFF1BE6B8蝎子|r</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8蝎子|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8冰块|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8蝎子|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8蝎子|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8冰块|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0U</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">冰晶元素</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">千年玄冰</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]:清理|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[任务]:清理|cFF1BE6B8冰晶元素|r</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8冰晶元素|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8千年玄冰|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8冰晶元素|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8冰晶元素|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8千年玄冰|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>2</SplitHorizontal>
+   <TopRowBottomPane>2</TopRowBottomPane>
+   <SplitVertical>7</SplitVertical>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>23</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

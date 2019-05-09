@@ -1,0 +1,37 @@
+package AuthCheck
+import  Auth
+import Players
+
+
+public function Players.initAuth()
+    for i in Auth
+        if i.test.test(i,this._player)
+            this.auths.add(i)
+
+public class AuthName extends Auth
+    string name2
+    construct(string name,string name2)
+        super(name)
+        this.name2 = name2
+        test = (a,p)->
+            let hash = Players.get(p).name.getHash()
+            return hash == name.getHash() or hash == name2.getHash()
+
+
+public class AuthUnitName extends Auth
+    unit u
+    construct(string name,unit u)
+        super(name)
+        test = (a,p)->
+            return Players.get(p).name.getHash() == u.getName().getHash()
+
+
+AuthTest endlessTestImpl =(a,p) ->  Players.get(p).endlessWare >= (a castTo AuthEndless).ware
+
+
+
+init
+    //todo
+    // _weapon_tianrenzhang_huo   .setTest(endlessTestImpl)
+    // _weapon_shuangzhiaishang   .setTest(endlessTestImpl)
+    // _wing_tianshi              .setTest(endlessTestImpl)

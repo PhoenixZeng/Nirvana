@@ -1,0 +1,120 @@
+package DialogTimer
+import HashMap
+import LinkedListModule
+import base
+
+abstract class DialogTimerTaskAction
+    DialogTimerTask task
+    function register(DialogTimerTask task)
+        this.task = task
+    abstract function run(DialogTimerTask task)
+abstract class DialogTimerTaskEnd extends DialogTimerTaskAction
+abstract class DialogTimerTaskStart extends DialogTimerTaskAction
+abstract class DialogTimerTaskInter extends DialogTimerTaskAction
+
+public class DialogTimerTask
+    use LinkedListModule
+    static HashMap<timer,thistype> map = new HashMap<timer,thistype>
+    timer  self
+    timerdialog dlg
+    real   inter   = 1
+    int    total   = 1
+    int    time
+    bool   isPause = false
+    bool   isDebug = false
+    bool   isRunning = false
+    string title
+    DialogTimerTaskStart onStart
+    DialogTimerTaskInter onInter
+    DialogTimerTaskEnd onEnd
+    construct()
+        self = CreateTimer()
+        time = 0
+        map.put(self, this)
+        dlg = CreateTimerDialog(self)
+    function toString() returns string
+        return this castTo int +"->inter:"+inter + "total:"+total + "time:" + time + "left" + self.getRemaining()
+    function isLast()returns bool
+        return time==total
+    function run()
+        TimerStart(self, inter, true)->
+            if map.has(GetExpiredTimer())
+                let this_ = map.get(GetExpiredTimer())
+                this_.time++
+                this_.doTime()
+                if this_.time >= this_.total
+                    this_.doOver()
+                    this_.destr()
+        if title!=null
+            setTitle(title)
+        doInit()
+    function endIt()
+        this.time = this.total
+    private function doInit()
+        isRunning = true
+        if onStart!=null
+            onStart.run(this)
+    private function doTime()
+        if onInter!=null
+            onInter.run(this)
+    private function doOver()
+        isRunning = false
+        if onEnd!=null
+            onEnd.run(this)
+    function onInit(DialogTimerTaskStart task)
+        task.register(this)
+        this.onStart = task
+    function onTime(DialogTimerTaskInter task)
+        task.register(this)
+        this.onInter = task
+    function onOver(DialogTimerTaskEnd task)
+        task.register(this)
+        this.onEnd = task
+    function debug()
+        isDebug = true
+    function pause()
+        isPause = true
+        self.pause()
+    function restart()
+        isPause = false
+        self.resume()
+    function setTitle(string title)
+        TimerDialogDisplay(dlg, true)
+        this.title = title
+        TimerDialogSetTitle(dlg, title)
+    function destr()
+        map.remove(self)
+        if dlg!=null
+            DestroyTimerDialog(dlg)
+            dlg=null
+        self.destr()
+        self = null
+        title = null
+        if isDebug
+            print("封装计时器被移除!"+this.toString())
+        if onStart != null
+            destroy onStart
+        if onInter != null
+            destroy onInter
+        if onEnd != null
+            destroy onEnd
+        // destroy this
+
+public function atAfter(real delay) returns DialogTimerTask
+    return atAfterCount(delay, 1)
+
+public function atAfterCount(real delay,int count) returns DialogTimerTask
+    let task   = new DialogTimerTask()
+    task.inter = delay
+    task.total =count
+    return task
+public function atAfter(real delay,string str) returns DialogTimerTask
+    return atAfterCount(delay, 1, str)
+
+public function atAfterCount(real delay,int count,string str) returns DialogTimerTask
+    let task = new DialogTimerTask()
+    task.inter = delay
+    task.total = count
+    task.title = str
+    return task
+    

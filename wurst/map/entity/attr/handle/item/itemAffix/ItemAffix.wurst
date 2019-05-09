@@ -1,0 +1,996 @@
+package ItemAffix
+import phLib
+import attrMapper
+import BuffFactory
+import Guard
+import Forces
+import ClosureTimers
+import YDJapiOther
+import SpellCaster
+import Book
+
+// 技能
+//     光环 
+//         加减攻击
+//         加减攻速
+//         加减防御
+//         加生命恢复速度
+//     暴击
+//     分裂
+//     优雅
+//     硬皮
+// 属性
+//     属性
+// 攻击特效
+//     攻击概率冷却重置
+//     攻击概率加buff
+let ht = InitHashtable()
+
+enum ItemAffixType
+    abil
+    attr
+    onAttack
+
+
+public interface ItemAffix
+    function onApply(unit u)
+    function onLose(unit u)
+    function onAttack(unit i,unit j)
+    function onAttacked(unit i,unit j)
+    function onBBAttack(unit i,unit j)
+    function onKill(unit i,unit j)
+    function onCast(unit i,targets t)
+
+
+public class AbilItemAffix implements ItemAffix
+    int abilId
+    construct(int id)
+        this.abilId = id
+    override function onApply(unit u)
+        u.addAbilityPro(abilId)
+    override function onLose(unit u)
+        u.removeAbility(abilId)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public class Abil2ItemAffix implements ItemAffix
+    int abilId1
+    int abilId2
+    construct(int id1,int id2)
+        this.abilId1 = id1
+        this.abilId2 = id2
+    override function onApply(unit u)
+        u.addAbilityPro(abilId1)
+        u.addAbilityPro(abilId2)
+    override function onLose(unit u)
+        u.removeAbility(abilId1)
+        u.removeAbility(abilId2)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_huifu2 = new AbilItemAffix('A01R')
+public let affix_huifu3 = new AbilItemAffix('A01K')
+public let affix_huifu5 = new AbilItemAffix('A02C')
+public let affix_huifu3_f = new AbilItemAffix('A020')
+public let affix_subASP_ring10 = new AbilItemAffix('A01I')
+public let affix_subAMP_ring20 = new AbilItemAffix('A035')
+public let affix_subATK_ring10 = new AbilItemAffix('A01H')
+public let affix_subATK_ring20 = new AbilItemAffix('A01N')
+public let affix_subDEF_ring10 = new AbilItemAffix('A01Z')
+public let affix_wushishanbi = new AbilItemAffix('A02G')
+public let affix_addATK_ring30 = new AbilItemAffix('A01M')
+public let affix_addDEF_ring10_f = new AbilItemAffix('A021')
+public let affix_addDEF_ring20 = new AbilItemAffix('A024')
+public let affix_addATK_ring10_friend = new AbilItemAffix('A01W')
+public let affix_addATK_ring30_friend = new AbilItemAffix('A02O')
+public let affix_addATK_ring50_friend = new AbilItemAffix('A02D')
+public let affix_addATK_ring50_summon = new AbilItemAffix('A02N')
+public let affix_youya1_1 = new AbilItemAffix('A00X')
+public let affix_youya1_3 = new AbilItemAffix('A01O')
+public let affix_youya2_0 = new AbilItemAffix('A01Q')
+public let affix_baoji20_3 = new AbilItemAffix('A00Y')
+public let affix_baoji20_5 = new AbilItemAffix('A004')
+public let affix_baoji10_5 = new AbilItemAffix('A01L')
+public let affix_baoji10_10 = new AbilItemAffix('A01J')
+public let affix_baoji20_10 = new AbilItemAffix('A034')
+public let affix_move1000 = new AbilItemAffix('A01G')
+public let affix_gedang20 = new AbilItemAffix('A01U')
+public let affix_fenlie15 = new AbilItemAffix('A01P')
+public let affix_fenlie20 = new AbilItemAffix('A01Y')
+public let affix_shanbi15 = new AbilItemAffix('A00Z')
+public let affix_xixue5 = new AbilItemAffix('A01V')
+public let affix_30_dikang_2000 = new AbilItemAffix('A025')
+public let affix_duochongjian2 = new AbilItemAffix('A01X')
+public let affix_chongsheng1 = new AbilItemAffix('A02L')
+public let affix_fenlieduochong = new Abil2ItemAffix('A02P','A01X')
+
+public class KillAddAttrItemAffix implements ItemAffix
+    AttrKey key
+    int val
+    construct(AttrKey key,int val)
+        this.key = key
+        this.val = val
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+        if users.containsUnit(i) and enemy.containsUnit(j)
+            Unit.getUnit(i).addAttr(key, val)
+    override function onCast(unit i,targets t)
+
+public let affix_killAddStr5 = new KillAddAttrItemAffix(AttrKey.STR,5)
+public let affix_killAddAgi5 = new KillAddAttrItemAffix(AttrKey.AGI,5)
+public let affix_killAddInt5 = new KillAddAttrItemAffix(AttrKey.INE,5)
+public let affix_killAddStr10 = new KillAddAttrItemAffix(AttrKey.STR,10)
+public let affix_killAddAgi10 = new KillAddAttrItemAffix(AttrKey.AGI,10)
+public let affix_killAddInt10 = new KillAddAttrItemAffix(AttrKey.INE,10)
+public let affix_killAddHp300 = new KillAddAttrItemAffix(AttrKey.HPM,300)
+public let affix_killAddAtk100 = new KillAddAttrItemAffix(AttrKey.ATK,100)
+
+public class AttrsItemAffix implements ItemAffix
+    AttrPstc attr
+    int val
+    construct(AttrPstc attr,int val)
+        this.attr = attr
+        this.val = val
+    override function onApply(unit u)
+        Unit.getUnit(u).addExAttr(attr, 1)
+    override function onLose(unit u)
+        Unit.getUnit(u).addExAttr(attr, -1)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+
+public class AttrItemAffix implements ItemAffix
+    AttrKey key
+    int val
+    construct(AttrKey key,int val)
+        this.key = key
+        this.val = val
+    override function onApply(unit u)
+        Unit.getUnit(u).addAttr(key, val)
+    override function onLose(unit u)
+        Unit.getUnit(u).addAttr(key, -val)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+
+public class BeAttackedRandomClearBuffItemAffix implements ItemAffix
+    real chance
+    construct(real chance)
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+        if chance.random() 
+            UnitRemoveBuffs(i, true, true)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_attackRandomClearBuff3 =  new BeAttackedRandomClearBuffItemAffix(3)
+
+public class AttackRandomCooldownItemAffix implements ItemAffix
+    real chance
+    construct(real chance)
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            UnitResetCooldown(i)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+
+public let affix_attackRandomCooldown1 = new AttackRandomCooldownItemAffix(1)
+public let affix_attackRandomCooldown2 = new AttackRandomCooldownItemAffix(2)
+public let affix_attackRandomCooldown3 = new AttackRandomCooldownItemAffix(3)
+
+public class AttackedRandomCooldownItemAffix implements ItemAffix
+    real chance
+    construct(real chance)
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            UnitResetCooldown(i)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_attackedRandomCooldown1 = new AttackRandomCooldownItemAffix(1)
+
+public class CastRandomCooldownItemAffix implements ItemAffix
+    real chance
+    construct(real chance)
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+        if chance.random() and users.containsUnit(i)
+            eachPlayer() a->
+                UnitResetCooldown(heros[a])
+
+public let affix_castRandomCooldownItemAffix_8 = new CastRandomCooldownItemAffix(8)
+
+public class BBAttackRandomCooldownItemAffix implements ItemAffix
+    real chance
+    construct(real chance)
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            UnitResetCooldown(i)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_bbAttackRandomCooldown1 = new BBAttackRandomCooldownItemAffix(1)
+public let affix_bbAttackRandomCooldown2 = new BBAttackRandomCooldownItemAffix(2)
+public let affix_bbAttackRandomCooldown3 = new BBAttackRandomCooldownItemAffix(3)
+public let affix_bbAttackRandomCooldown5 = new BBAttackRandomCooldownItemAffix(5)
+    
+public class BBPowerAddItemAffix implements ItemAffix
+    real val
+    construct(real val)
+        this.val = val
+    override function onApply(unit u)
+        let a = Guard.masters.get(u)
+        if a != null
+            for g in a
+                let gs = Guard.maps.get(g)
+                gs.power += val
+    override function onLose(unit u)
+        let a = Guard.masters.get(u)
+        if a != null
+            for g in a
+                let gs = Guard.maps.get(g)
+                gs.power -= val
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_BBPowerAddItemAffix1_3 = new BBPowerAddItemAffix(1.3)
+public let affix_BBPowerAddItemAffix2 = new BBPowerAddItemAffix(2)
+public let affix_BBPowerAddItemAffix3 = new BBPowerAddItemAffix(3)
+
+public class AttackAddBuffStunItemAffix implements ItemAffix
+    real  time
+    real chance
+    construct(real chance,real  time)
+        this.time = time
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()and users.containsUnit(i)
+            i.addBuff(j, new Buff_Stun(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_stun2_1 = new AttackAddBuffStunItemAffix(2,1)
+
+public class AttackAddBuff_DisarmItemAffix implements ItemAffix
+    real  time
+    real chance
+    construct(real chance,real  time)
+        this.time = time
+        this.chance = chance
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            i.addBuff(j, new Buff_Disarm(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Disarm2_1 = new AttackAddBuff_DisarmItemAffix(2,1)
+public let affix_Disarm20_3 = new AttackAddBuff_DisarmItemAffix(20,3)
+
+public class AttackAddBuffBlindingItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real  time
+    construct(real chance,int  lv,real  time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(j, new Buff_Blinding()..setLv(lv), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Blinding2_1_3 = new AttackAddBuffBlindingItemAffix(2,1,3)
+public let affix_Blinding1_2_3 = new AttackAddBuffBlindingItemAffix(1,2,3)
+
+public class AttackedAddBuffBlindingItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real  time
+    construct(real chance,int  lv,real  time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(j, new Buff_Blinding()..setLv(lv), time)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_BeAttackBlinding3_3_3 = new AttackedAddBuffBlindingItemAffix(3,3,3)
+
+public class AttackAddBuff_WeakItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real  time
+    construct(real chance,int  lv,real  time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            i.addBuff(j, new Buff_Weak()..setLv(lv), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Buff_Weak2_1_3 = new AttackAddBuff_WeakItemAffix(2,1,3)
+public let affix_Buff_Weak1_2_3 = new AttackAddBuff_WeakItemAffix(1,2,3)
+public let affix_Buff_Weak4_2_5 = new AttackAddBuff_WeakItemAffix(5,2,5)
+
+public class AttackAddBuff_FlawsItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real  time
+    construct(real chance,int  lv,real  time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random() and users.containsUnit(i)
+            i.addBuff(j, new Buff_Flaws()..setLv(lv), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Buff_Flaws2_1_3 = new AttackAddBuff_FlawsItemAffix(2,1,3)
+public let affix_Buff_Flaws1_2_3 = new AttackAddBuff_FlawsItemAffix(1,2,3)
+public let affix_Buff_Flaws3_4_3 = new AttackAddBuff_FlawsItemAffix(3,4,3)
+public let affix_Buff_Flaws10_1_5 = new AttackAddBuff_FlawsItemAffix(10,1,5)
+
+public class AttackAddBuffAInvItemAffix implements ItemAffix
+    real chance
+    real time
+    construct(real chance,real time)
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_AInv(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_AInv2_1 = new AttackAddBuffAInvItemAffix(2,1)
+
+public class AttackAddBuffAccurateItemAffix implements ItemAffix
+    real chance
+    real time
+    construct(real chance,real time)
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Accurate(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Accurate2_2 = new AttackAddBuffAccurateItemAffix(2,2)
+public let affix_Accurate3_5 = new AttackAddBuffAccurateItemAffix(3,5)
+
+public class AttackAddBuffWindWalkItemAffix implements ItemAffix
+    real chance
+    real time
+    construct(real chance,real time)
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_WindWalk(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_WindWalk2_2 = new AttackAddBuffWindWalkItemAffix(2,2)
+public let affix_WindWalk5_30 = new AttackAddBuffWindWalkItemAffix(5,30)
+
+public class AttackAddBuffFuryItemAffix implements ItemAffix
+    real chance
+    real time
+    construct(real chance,real time)
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Fury(), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Fury2_1 = new AttackAddBuffFuryItemAffix(2,1)
+public let affix_Fury5_2 = new AttackAddBuffFuryItemAffix(5,2)
+
+public class AttackAddBuffEnhanceItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real time
+    construct(real chance,int  lv,real time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Enhance()..setLv(lv), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Enhance2_1_3 = new AttackAddBuffEnhanceItemAffix(2,1,3)
+public let affix_Enhance1_2_3 = new AttackAddBuffEnhanceItemAffix(1,2,3)
+public let affix_Enhance3_4_3 = new AttackAddBuffEnhanceItemAffix(3,4,3)
+
+public class BBAttackAddBuffEnhanceItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real time
+    construct(real chance,int  lv,real time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Enhance()..setLv(lv), time)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_BBEnhance3_2_3 = new BBAttackAddBuffEnhanceItemAffix(3,2,3)
+
+public class BBAttackAddBuffFuryItemAffix implements ItemAffix
+    real chance
+    real time
+    construct(real chance,real time)
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Fury(), time)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_BBAddFury3_3 = new BBAttackAddBuffFuryItemAffix(3,3)
+
+public class AttackAddBuffProtectorItemAffix implements ItemAffix
+    int  lv
+    real chance
+    real time
+    construct(real chance,int  lv,real time)
+        this.lv = lv
+        this.chance = chance
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if chance.random()  and users.containsUnit(i)
+            i.addBuff(i, new Buff_Protector()..setLv(lv), time)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_Protector2_1_3 = new AttackAddBuffProtectorItemAffix(2,1,3)
+public let affix_Protector1_2_3 = new AttackAddBuffProtectorItemAffix(1,2,3)
+public let affix_Protector3_3_3 = new AttackAddBuffProtectorItemAffix(3,3,3)
+public let affix_Protector3_4_3 = new AttackAddBuffProtectorItemAffix(3,4,3)
+
+
+public class AttackDamageRangeWithGetEnergyItemAffix implements ItemAffix
+    string name
+    construct(string name)
+        this.name = name
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttacked(unit i,unit j)
+    override function onAttack(unit i,unit j)
+        if 10 .random()
+            if users.containsUnit(i) and i.isHero()
+                let ene = Pages.get(i,Page.get(name)).score
+                if ene > 0
+                    var dmg = ene / 100. * i.getPropSum()
+                    ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+                    eff("war3mapImported\\AZ_CoCoGuanyu_E2.mdl", j.getPos())
+                    for is in ENUM_GROUP
+                        if enemyFilter(i, is)
+                            i.damageSpell(is, dmg)
+                    ENUM_GROUP.clear()
+    override function onKill(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+public let affix_saveartifact_1 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]霜之哀伤")
+public let affix_saveartifact_2 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]逐风之剑")
+public let affix_saveartifact_3 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]炎魔之手")
+public let affix_saveartifact_4 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]灰烬使者")
+public let affix_saveartifact_5 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]埃辛诺斯战刃")
+public let affix_saveartifact_6 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]群星之怒")
+public let affix_saveartifact_7 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]毁灭之锤")
+public let affix_saveartifact_8 = new AttackDamageRangeWithGetEnergyItemAffix("[神器]龙父之牙")
+
+
+public abstract class BBAttackItemAffix implements ItemAffix
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets t)
+
+    static function register(BBAttackItemAffix b) returns BBAttackItemAffix
+        return b
+
+public abstract class AttackedItemAffix implements ItemAffix
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onCast(unit i,targets t)
+    static function register(AttackedItemAffix b) returns AttackedItemAffix
+        return b
+public abstract class AttackItemAffix implements ItemAffix
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttacked(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onCast(unit i,targets t)
+    static function register(AttackItemAffix b) returns AttackItemAffix
+        return b
+public abstract class KillItemAffix implements ItemAffix
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttacked(unit i,unit j)
+    override function onAttack(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onCast(unit i,targets t)
+    static function register(KillItemAffix b) returns KillItemAffix
+        return b
+
+public ItemAffix affix_BBAttackCastRangeDmg5_500_2
+public ItemAffix affix_BBAttackCureHero1
+public ItemAffix affix_BBAttackAddStun
+public ItemAffix affix_AttackedCureHero5_5
+public ItemAffix affix_AttackedAddCtcP_5_5_2
+public ItemAffix affix_AttackedAddAddDmg_5_10_2
+public ItemAffix affix_summon_chance_double_10
+public ItemAffix affix_AttackAddWeakWhenFlaws
+public ItemAffix affix_AttackAddEnhanceWhenFlaws
+public ItemAffix affix_AttackedAddProtectorWhenWeak
+public ItemAffix affix_AttackAddFlawsWhenWeak
+public ItemAffix affix_AttackDamageRange10_1prop
+public ItemAffix affix_AttackDamageRange10_2prop
+public ItemAffix affix_AttackDamageRange10_3prop
+public ItemAffix affix_AttackDamage10_3
+public ItemAffix affix_AttackDamageRange10_3
+public ItemAffix affix_AttackDamageRange30_3
+public ItemAffix affix_AttackAdd_addDmg_WhenWeak
+
+public ItemAffix affix_DamageRangeWhenKill
+
+init
+    affix_BBAttackCastRangeDmg5_500_2 = BBAttackItemAffix.register() (i,j)->
+        if 5 .random()  and users.containsUnit(i)
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 500)
+            for us in ENUM_GROUP
+                if enemyFilter(i, us)
+                    i.damageSpell(us, i.getPropSum()*2.)
+            ENUM_GROUP.clear()
+    affix_BBAttackCureHero1 = BBAttackItemAffix.register() (i,j)->
+        if enemyFilter(i, j) and users.containsUnit(i)
+            i.setHP(i.getHP() + i.getMaxHP() * .01)
+    affix_BBAttackAddStun = BBAttackItemAffix.register() (i,j)->
+        if enemyFilter(i, j) and users.containsUnit(i)
+            i.addBuff(i, new Buff_Stun(), 1)
+    affix_AttackedCureHero5_5 = AttackedItemAffix.register() (i,j)->
+        if 5 .random()
+            j.setHP(j.getHP() + j.getMaxHP() * .05)
+
+    affix_AttackedAddCtcP_5_5_2 = AttackItemAffix.register() (i,j)->
+        if 5 .random()
+            Unit.getUnit(i).addAttr(AttrKey.ctcProb, 5)
+            doAfter(2) ->
+                Unit.getUnit(i).addAttr(AttrKey.ctcProb, -5)
+    affix_AttackedAddAddDmg_5_10_2 = AttackItemAffix.register() (i,j)->
+        if 5 .random()
+            Unit.getUnit(i).addAttr(AttrKey.addDmg, 10)
+            doAfter(2) ->
+                Unit.getUnit(i).addAttr(AttrKey.addDmg, -10)
+    affix_AttackAddWeakWhenFlaws = AttackItemAffix.register() (i,j)->
+        let bf = j.getBuff("破绽")
+        if bf != null
+            let f = (bf castTo Buff_Flaws)
+            i.addBuff(j, new Buff_Weak()..setLv(f.lv), f.getTimeleft())
+    affix_AttackAddEnhanceWhenFlaws = AttackItemAffix.register() (i,j)->
+        let bf = j.getBuff("破绽")
+        if bf != null and bf instanceof Buff_Flaws
+            let f = (bf castTo Buff_Flaws)
+            i.addBuff(i, new Buff_Enhance()..setLv(f.lv), f.getTimeleft())
+    affix_AttackedAddProtectorWhenWeak = AttackedItemAffix.register() (i,j)->
+        let bf = j.getBuff("虚弱")
+        if bf != null and bf instanceof Buff_Weak
+            let f = (bf castTo Buff_Weak)
+            i.addBuff(i, new Buff_Protector()..setLv(f.lv), f.getTimeleft())
+    affix_AttackAddFlawsWhenWeak = AttackItemAffix.register() (i,j)->
+        let bf = j.getBuff("虚弱")
+        if bf != null and bf instanceof Buff_Weak
+            let f = (bf castTo Buff_Weak)
+            i.addBuff(i, new Buff_Flaws()..setLv(f.lv), f.getTimeleft())
+
+    affix_AttackDamage10_3 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let atk = i.getState(EX_UnitState.atkBase) + i.getState(EX_UnitState.atkBonus)
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\baozhasheji.mdx", j.getPos())
+            i.damageSpell(j, atk * 3)
+
+    affix_AttackDamageRange10_3 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let atk = i.getState(EX_UnitState.atkBase) + i.getState(EX_UnitState.atkBonus)
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\baozhasheji.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, atk * 3)
+            ENUM_GROUP.clear()
+
+    affix_AttackDamageRange30_3 = AttackItemAffix.register() (i,j)->
+        if 30 .random()
+            let atk = i.getState(EX_UnitState.atkBase) + i.getState(EX_UnitState.atkBonus)
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\shenlinzhinu.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, atk * 3)
+            ENUM_GROUP.clear()
+
+    affix_AttackDamageRange10_3prop = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let dmg = i.getPropSum() * 3.
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\shenlinzhinu.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+    affix_AttackDamageRange10_2prop = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let dmg = i.getPropSum() * 2.
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\shenlinzhinu.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+    affix_AttackDamageRange10_1prop = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let dmg = i.getPropSum() * 1.
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\shenlinzhinu.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+
+    affix_AttackAdd_addDmg_WhenWeak = AttackItemAffix.register() (i,j)->
+        if 30 .random() and j.getBuff("虚弱") != null
+            Unit.getUnit(i).addTimedExAttr(3, AttrKey.addDmg,10, 1)
+
+    affix_DamageRangeWhenKill = KillItemAffix.register()  (i,j)->
+        if 10 .random()
+            let dmg = i.getPropSum() * 2.
+            ENUM_GROUP.enumUnitsInRange(j.getPos(), 600)
+            eff("model\\nirvana\\shenlinzhinu.mdx", j.getPos())
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+
+
+
+public class AddAttrStrWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getStr(false) * percent).toInt()
+                i.addStr(val)
+                doAfter(time) ->
+                    i.addStr(-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrStrWhenAttackItemAffix_5_5_3 = new AddAttrStrWhenAttackItemAffix(5,0.05,3)
+
+public class AddAttrAgiWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getAgi(false) * percent).toInt()
+                i.addAgi(val)
+                doAfter(time) ->
+                    i.addAgi(-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrAgiWhenAttackItemAffix_5_5_3 = new AddAttrAgiWhenAttackItemAffix(5,0.05,3)
+
+public class AddAttrIntWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getInt(false) * percent).toInt()
+                i.addInt(val)
+                doAfter(time) ->
+                    i.addInt(-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)   
+    override function onCast(unit i,targets t) 
+
+public let affix_AddAttrIntWhenAttackItemAffix_5_5_3 = new AddAttrIntWhenAttackItemAffix(5,0.05,3)
+public let affix_AddAttrIntWhenAttackItemAffix_5_10_2 = new AddAttrIntWhenAttackItemAffix(5,0.1,2)
+
+
+public class AddAttrAtkWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getState(EX_UnitState.atkBase) * percent)
+                i.setState(EX_UnitState.atkBase, val+i.getState(EX_UnitState.atkBase))
+                doAfter(time) ->
+                    i.setState(EX_UnitState.atkBase, i.getState(EX_UnitState.atkBase)-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrAtkWhenAttackItemAffix_5_5_3 = new AddAttrAtkWhenAttackItemAffix(5,0.05,3)
+public let affix_AddAttrAtkWhenAttackItemAffix_5_10_3 = new AddAttrAtkWhenAttackItemAffix(5,0.1,3)
+
+public class AddAttrDefWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getState(EX_UnitState.armor) * percent)
+                i.setState(EX_UnitState.armor, val+i.getState(EX_UnitState.armor))
+                doAfter(time) ->
+                    i.setState(EX_UnitState.armor, i.getState(EX_UnitState.armor)-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrDefWhenAttackItemAffix_5_5_3 = new AddAttrDefWhenAttackItemAffix(5,0.05,3)
+
+
+public class AddAttrAspWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let val = (i.getState(EX_UnitState.atkSpeed) * percent)
+                i.setState(EX_UnitState.atkSpeed, val+i.getState(EX_UnitState.atkSpeed))
+                doAfter(time) ->
+                    i.setState(EX_UnitState.atkSpeed, i.getState(EX_UnitState.atkSpeed)-val)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrAspWhenAttackItemAffix_5_5_3 = new AddAttrAspWhenAttackItemAffix(5,0.05,3)
+
+public class AddAttrsWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    real time
+    construct(real chance,real percent,real time)
+        this.chance = chance
+        this.percent = percent
+        this.time = time
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                let valStr = (i.getStr(false) * percent).toInt()
+                let valAgi = (i.getAgi(false) * percent).toInt()
+                let valInt = (i.getInt(false) * percent).toInt()
+                i.addStr(valStr)
+                i.addAgi(valAgi)
+                i.addInt(valInt)
+                doAfter(time) ->
+                    i.addStr(-valStr)
+                    i.addAgi(-valAgi)
+                    i.addInt(-valInt)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddAttrsWhenAttackItemAffix_5_3_3 = new AddAttrsWhenAttackItemAffix(5,0.03,3)
+
+
+public class AddHpWhenAttackItemAffix implements ItemAffix
+    real chance
+    real percent
+    construct(real chance,real percent)
+        this.chance = chance
+        this.percent = percent
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if users.containsUnit(i) and enemyFilter(i, j)
+            if chance.random()
+                i.setHP(i.getHP() + i.getMaxHP() * percent )
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_AddHpWhenAttackItemAffix_5_3 = new AddHpWhenAttackItemAffix(5,0.03)
+
+public class CastSpellTargetWhenAttackItemAffix implements ItemAffix
+    real chance
+    int id
+    int comId
+    construct(real chance,int id,int comId)
+        this.chance = chance
+        this.id = id
+        this.comId = comId
+    override function onApply(unit u)
+    override function onLose(unit u)
+    override function onAttack(unit i,unit j)
+        if  enemyFilter(i, j) and chance.random()
+            SpellCaster.castTarget(i.getOwner(), id, 1, comId, i, 2)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)  
+    override function onKill(unit i,unit j)    
+    override function onCast(unit i,targets t)
+
+public let affix_CastSpellTargetWhenAttackItemAffix_huanxiang = new CastSpellTargetWhenAttackItemAffix(3,'I02M',852274)

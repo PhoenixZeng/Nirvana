@@ -1,0 +1,717 @@
+package HeroService
+import Hero
+import Mover
+import attrMapper
+import Gem
+import HashList
+import CenterTimer
+import School
+import skin
+import Guard
+import AffixsItem
+import Execute
+import DialogBox
+import YDAbilityState
+import SavedArtifact
+import YDJapiOther
+import DevourHeart
+import NirvanaSpellEntity
+import Game
+import DmgType
+import HeroSpellBox
+import PlayerAuthSaved
+
+public class HeroService
+    Hero hero
+    unit _self
+    player owner
+    RandomSpellBoxs boxs
+
+    static HashMap<unit,thistype> map = new HashMap<unit,thistype>
+
+    construct(unit p)
+        hero = Hero.getHero(p)
+        owner = p.getOwner()
+        _self = p
+        map.put(p, this)
+        onCreate()
+        addNirvanaSpell()
+
+    static function get(Hero h) returns thistype
+        if h != null
+            if map.has(h._self)
+                return map.get(h._self)
+            return new HeroService(h._self)
+        return null
+
+
+    function addNirvanaSpell()
+        let se = NirvanaSpellEntity.heroId2this.get(_self.getTypeId())
+        hero.nirvanaSpells.add(se)
+        hero.nirvanedHeros.add(_self.getTypeId())
+        _self.addAbilityPro(se.bookId)
+        _self.makeAbilityPermanent(se.realId,true)
+        _self.addAbility(se.id)
+        se.onApply(_self)
+        for key in attrKey2Hash
+            hero.addAttr(key,se.getAttr(key))
+
+    function onNirvanaTarget(NirvanaSpellEntity nse)
+        onRealNirvana(nse.heroId)
+        let se = NirvanaSpellEntity.heroId2this.get(_self.getTypeId())
+        _self.addAbility(se.id)
+        se.onApply(_self)
+        hero.nirvanaTargetFlag = true
+
+    function onNirvanaTarget()
+        let l = hero._self.getLevel()
+        let db = new DialogBox("选择[定向转生]对象:")
+        for i in hero.nirvanaSpells
+            db.addButton(i.heroName) ->
+                onNirvanaTarget(i)
+                hero.lastLevel = l
+                hero._self.setLevelPro(l,true)
+                owner.print("[系统]:成功!", 10)
+                destroy db
+        db.display(owner, true)
+
+    function testNirvana(int count) returns bool
+        if hero._self.getLevel() < 100
+            return false
+        let lv = hero.nirvanaCount + 1
+        if count != lv
+            return false
+        if lv.isBetween(1, 5)
+            let id = 'Z140' + lv * 256
+            bool flag = true
+            for i = 1 to 4
+                let idd = id + i
+                let ps = hero.renwu.getPagesById(idd)
+                flag = flag and ps != null and ps.isActivation
+                Log.debug(id.toIdString()+":"+(ps != null )+":"+ (ps.isActivation))
+            return flag
+        return false
+
+    private function onRealNirvana(int id)
+        AttrPlus plus = new AttrPlus()
+        for key in attrKey2Hash
+            plus.addAttr(key, hero.getAttr(key))
+            hero.addAttr(key, -hero.getAttr(key))
+        _self.exTransform(id)
+        hero.addExAttr(plus,1)
+        hero.lastLevel = 1
+        hero._self.setLevelPro(1,true)
+        if hero.nirvanaCount < 5
+            boxs.unlock()
+            owner.print("[技能]:你解锁了一个技能位!",10)
+
+    private function onRealNirvanaAddAttr(int count)
+        switch count
+            case 1
+                hero.addAttr(AttrKey.ATK, 30000)
+                hero.addAttr(AttrKey.STR, 15000)
+                hero.addAttr(AttrKey.AGI, 15000)
+                hero.addAttr(AttrKey.INE, 15000)
+                hero.addAttr(AttrKey.HPM, 150000)
+                owner.print(color(255, 0, 0).toColorString()+"轮回成功,属性增加:|r" , 20)
+                owner.print(" - 攻击:30000" , 20)
+                owner.print(" - 力量:15000" , 20)
+                owner.print(" - 敏捷:15000" , 20)
+                owner.print(" - 智力:15000" , 20)
+                owner.print(" - 生命:150000", 20)
+            case 2
+                hero.addAttr(AttrKey.addDmg , 12)
+                hero.addAttr(AttrKey.ctcDmg , 16)
+                hero.addAttr(AttrKey.dmgPlus, 12)
+                owner.print(color(255, 0, 0).toColorString()+"轮回成功,属性增加:|r" , 20)
+                owner.print(" - 附加伤害:12" , 20)
+                owner.print(" - 暴击伤害:16" , 20)
+                owner.print(" - 伤害增幅:12" , 20)
+            case 3
+                hero.addAttr(AttrKey.ctcProb, 10)
+                hero.addAttr(AttrKey.dmgSub , 4 )
+                hero.addAttr(AttrKey.dmgResi, 3 )
+                owner.print(color(255, 0, 0).toColorString()+"轮回成功,属性增加:|r" , 20)
+                owner.print(" - 暴击概率:10" , 20)
+                owner.print(" - 伤害减免: 4" , 20)
+                owner.print(" - 伤害抵抗: 3" , 20)
+            case 4
+                hero.addAttr(AttrKey.strPlus, 10 )
+                hero.addAttr(AttrKey.agiPlus, 10 )
+                hero.addAttr(AttrKey.intPlus, 10 )
+                owner.print(color(255, 0, 0).toColorString()+"轮回成功,属性增加:|r" , 20)
+                owner.print(" - 力量增幅:10" , 20)
+                owner.print(" - 敏捷增幅:10" , 20)
+                owner.print(" - 智力增幅:10" , 20)
+            case 5
+                hero.addAttr(AttrKey.addDmg , 30)
+                hero.addAttr(AttrKey.ctcDmg , 40)
+                hero.addAttr(AttrKey.dmgPlus, 30)
+                owner.print(color(255, 0, 0).toColorString()+"轮回成功,属性增加:|r" , 20)
+                owner.print(" - 附加伤害:30" , 20)
+                owner.print(" - 暴击伤害:40" , 20)
+                owner.print(" - 伤害增幅:30" , 20)
+                
+
+
+    function onNirvana(int i) returns bool
+        if  hero.nirvanaTargetFlag
+            return false
+        if hero.nirvanaCount >= 5
+            return false
+        if i != hero.nirvanaCount + 1
+            return false
+        hero.nirvanaCount++
+        var id = HeroEntity.random()
+        while hero.nirvanedHeros.has(id.id)
+            id = HeroEntity.random()
+        var id2 = HeroEntity.random()
+        while hero.nirvanedHeros.has(id2.id) or id2 == id
+            id2 = HeroEntity.random()
+        var id3 = HeroEntity.random()
+        while hero.nirvanedHeros.has(id3.id) or id3 == id2 or id3 == id
+            id3 = HeroEntity.random()
+        let db = new DialogBox("选择轮回的对象:")
+        db.addButton(id.name) ->
+            onRealNirvana(id.id)
+            addNirvanaSpell()
+            onRealNirvanaAddAttr(i)
+            destroy db
+        db.addButton(id2.name) ->
+            onRealNirvana(id2.id)
+            addNirvanaSpell()
+            onRealNirvanaAddAttr(i)
+            destroy db
+        db.addButton(id3.name) ->
+            onRealNirvana(id3.id)
+            addNirvanaSpell()
+            onRealNirvanaAddAttr(i)
+            destroy db
+        db.display(owner, true)
+        return true
+
+    function onUpSpell(int i) returns bool
+        let spellBox = boxs.getBox(i)
+        if spellBox.entity.isLevelUpgradable()
+            spellBox.levelUp()
+            return true
+        else
+            return false
+
+
+    function onForgetSpell()
+        boxs.onTryForget()
+
+        
+    function onPlayerLeave()
+        Guard.removeGuards(_self)
+        _self..kill()
+
+    function onDamage(DmgWrapper dw) returns DmgWrapper
+        DmgWrapper dwn = dw
+        dwn = boxs.onDamage(dwn)
+        return dwn
+    function onDamaged(DmgWrapper dw) returns DmgWrapper
+        DmgWrapper dwn = dw
+        dwn = boxs.onDamaged(dwn)
+        return dwn
+
+    function onBBAttack(unit u)
+        boxs.onBBAttack(hero._self, u)
+        _self.damageNulled(u)
+        execute() ->
+            for i in hero.saveArtifacts
+                i.onBBAttack(u)
+        for i in hero.artificeAffixs
+            execute() ->
+                for j in hero.artificeAffixs.get(i).affixList
+                    j.onBBAttack(_self, u)
+    function onAttack(unit u)
+        boxs.onAttack(u)
+        execute() ->
+            for i in hero.nirvanaSpells
+                i.onAttack(_self,u)
+        execute() ->
+            for i in hero.saveArtifacts
+                i.onAttack(u)
+        for i in hero.artificeAffixs
+            execute() ->
+                for j in hero.artificeAffixs.get(i).affixList
+                    j.onAttack(_self, u)
+
+    function onAttacked(unit u)
+        execute() ->
+            for i in hero.nirvanaSpells
+                i.onAttacked(_self,u)
+        execute() ->
+            for i in hero.saveArtifacts
+                i.onAttacked(u)
+        for i in hero.artificeAffixs
+            execute() ->
+                for j in hero.artificeAffixs.get(i).affixList
+                    j.onAttacked(_self , u)
+
+    function onKill(unit u)
+        hero.addAttr(AttrKey.STR, hero.propKilled)
+        hero.addAttr(AttrKey.AGI, hero.propKilled)
+        hero.addAttr(AttrKey.INE, hero.propKilled)
+        // boxs.onKill(_self, u)
+        execute() ->
+            for i in hero.saveArtifacts
+                i.onKill(u)
+        for i in hero.artificeAffixs
+            execute() ->
+                for j in hero.artificeAffixs.get(i).affixList
+                    j.onKill(_self, u)
+        
+    function onCast(int id,targets t)
+        boxs.onCast(id,t)
+        execute() ->
+            for i in hero.nirvanaSpells
+                i.onCast(_self,t)
+        execute() ->
+            for i in hero.saveArtifacts
+                i.onCast(t)
+        for i in hero.artificeAffixs
+            execute() ->
+                for j in hero.artificeAffixs.get(i).affixList
+                    j.onCast(_self , t)
+
+    function onAddArtificeAffixs(AffixItemLinkEntity le) returns bool
+        if hero.artificeAffixs.has(le.lv) or hero.artificeSuits.has(le.lv)
+            Log.debug("融合套装失败")
+            return false
+        hero.artificeAffixs.put(le.lv, le)
+        let se = AffixItemLinkSuitEntity.getByName(le.suitName)
+        for key in attrKey2Hash
+            hero.addAttr(key,le.getAttr(key))
+            hero.addAttr(key,se.getAttr(key))
+        bool flag1 = false
+        bool flag2 = false
+        bool flag3 = false
+        let list = _self.getInventroy()
+        Log.debug("背包中的物品数量"+list.size().toString())
+        for i in list
+            if i.getTypeId() == le.id1 and not flag1
+                Log.debug("当前物品是id1:"+i.getName())
+                flag1 = true
+                _self.removeItem(i)
+                i.remove()
+            else if i.getTypeId() == le.id2 and not flag2
+                Log.debug("当前物品是id2:"+i.getName())
+                flag2 = true
+                _self.removeItem(i)
+                i.remove()
+            else if i.getTypeId() == le.id3 and not flag3
+                Log.debug("当前物品是id3:"+i.getName())
+                flag3 = true
+                _self.removeItem(i)
+                i.remove()
+            else
+                Log.debug("当前物品不匹配:"+i.getName()+" b1:"+flag1+" b2:"+flag2+" b3:"+flag3)
+        destroy list
+        for i in le.affixList
+            i.onApply(_self)
+        _self.addAbilityPro(le.bid)
+        _self.makeAbilityPermanent(le.idShow, true)
+        Log.debug("融合套装成功")
+        return true
+
+    function onAddArtificeAffixsSuit(HashList<int> removedList,AffixItemLinkSuitEntity le) returns bool
+        if hero.artificeAffixs.has(le.lv) or hero.artificeSuits.has(le.lv)
+            Log.debug("融合套装失败")
+            return false
+        hero.artificeSuits.put(le.lv, le)
+        for key in attrKey2Hash
+            hero.addAttr(key,le.getAttr(key))
+        int removedCount = 0
+        let list = _self.getInventroy()
+        for i in list
+            let ie = AffixItemEntity.map.get(i.getTypeId())
+            if ie != null and ie.suitName == le.name
+                if removedList.has(i.getTypeId())
+                    _self.removeItem(i)
+                    i.remove()
+                    removedCount ++
+                if removedCount >= 3
+                    break
+        destroy list    
+        _self.addAbilityPro(le.bid)
+        _self.makeAbilityPermanent(le.idShow, true)
+        Log.debug("融合套装成功")
+        return true
+
+    function onGetAffixsItems(AffixsItem le) returns bool
+        let lv =  le.entity.lv
+        if hero.artificeAffixs.has(lv) or hero.artificeSuits.has(lv)
+            printTimedToPlayer("你已经融合了相同等级的套装了!",10,_self.getOwner())
+            this._self.removeItem(le._self)
+            le.destr(false)
+        onNow()its->
+            if _self.hasItem(le._self)
+                hero.affixsItems.add(le._self)
+                for key in attrKey2Hash
+                    hero.addAttr(key,le.getAttr(key))
+        return true
+    function onLostAffixsItems(AffixsItem le) returns bool
+        if hero.affixsItems.has(le._self)
+            hero.affixsItems.remove(le._self)
+            for key in attrKey2Hash
+                hero.addAttr(key,le.getAttr(key) * -1)
+            le.destr(false)
+            return true
+        else
+            return false
+
+    function onChangePet(PetEntity pe)
+        hero.bb = Guard.addGuard(pe, _self)
+    
+    /**
+     * 现在属性叠加了 注释掉切换加属性
+     */
+    function onChangeWeaponSkin(WeaponSkin skin)
+        if hero.weaponSkin != null
+            _self.removeAbility(hero.weaponSkin.id)
+        hero.weaponSkin = skin
+        _self.addAbilityPro(hero.weaponSkin.id)
+    
+    function onChangeTitleSkin(TitleSkin skin)
+        if hero.titleSkin != null
+            _self.removeAbility(hero.titleSkin.id)
+        hero.titleSkin = skin
+        _self.addAbilityPro(hero.titleSkin.id)
+
+    function onChangeWingSkin(WingSkin skin)
+        if hero.wingSkin != null
+            _self.removeAbility(hero.wingSkin.id)
+        hero.wingSkin = skin
+        _self.addAbilityPro(hero.wingSkin.id)
+
+    function onChangeHaloSkin(HaloSkin skin)
+        if hero.haloSkin != null
+            _self.removeAbility(hero.haloSkin.id)
+        hero.haloSkin = skin
+        _self.addAbilityPro(hero.haloSkin.id)
+
+    function setSchool(Soul school)
+        hero.school = school
+        _self.addAbilityPro(school.schoolBaseSpell)
+
+    function onHeartbeat()
+        hero.addAttr(AttrKey.STR, hero.propTimed)
+        hero.addAttr(AttrKey.AGI, hero.propTimed)
+        hero.addAttr(AttrKey.INE, hero.propTimed)
+
+    function onLevelUp()
+        let lv = _self.getLevel()
+        let sub = lv - hero.lastLevel
+        if sub > 0
+            for i = 1 to sub
+                hero.addAttr(AttrKey.STR, hero.propLevelUp)
+                hero.addAttr(AttrKey.AGI, hero.propLevelUp)
+                hero.addAttr(AttrKey.INE, hero.propLevelUp)
+            hero.lastLevel = lv
+
+    function onPracticeUp(string name)
+        let _p = hero.lianti.onPracticeUp(name)
+
+
+    private function onGemInSet(Gem old,Gem newr,Pages pages)
+        if not pages.isActivation
+            pages.activation(false)
+        if old != null
+            hero.addItemAttr(old, -1)
+        else
+            hero.gemIntoSelfCount++
+        if newr != null
+            pages.score = newr.entity.level
+            hero.gems.put(newr.entity.clazz, newr._self)
+            hero.addItemAttr(newr, 1)
+            if localPlayer == owner
+                _self.exAbilData(EX_ABIL_YD.TIP, pages.page.id, 1, pages.page.name+" - "+exLuaCode("(require 'jass.slk').item['"+newr._self.getTypeId().toIdString()+"'].Name"))
+                _self.exAbilData(EX_ABIL_YD.UBERTIP, pages.page.id, 1, exLuaCode("(require 'jass.slk').item['"+newr._self.getTypeId().toIdString()+"'].Description"))
+                _self.exAbilData(EX_ABIL_YD.ART, pages.page.id, 1, exLuaCode("(require 'jass.slk').item['"+newr._self.getTypeId().toIdString()+"'].Art"))
+        else if old.entity.level == 4
+            pages.score = 5
+            hero.gems.remove(newr.entity.clazz)
+            hero.addExAttr(AttrPlus.loadBookPageAttr(pages.page.id),1)
+            if localPlayer == owner
+                _self.exAbilData(EX_ABIL_YD.TIP, pages.page.id, 1, pages.page.name)
+                _self.exAbilData(EX_ABIL_YD.UBERTIP, pages.page.id, 1, pages.page.desc)
+                _self.exAbilData(EX_ABIL_YD.ART, pages.page.id, 1, exLuaCode("(require 'jass.slk').ability['"+pages.page.id.toIdString()+"'].Art"))
+
+
+    function onSetGem(Gem g,int clazz,int lv) returns bool
+        let p = hero.souji.getSubBook("宝珠").getPageByIndex(clazz)
+        var oldGem = hero.gems.get(clazz)
+        let old = Gem.getGem(oldGem)
+        if p != null and g != null
+            if oldGem == null
+                if p.score != 5
+                    onGemInSet(null,g,p)
+                    owner.print("[宝珠]:成功!")
+                    return true
+                else
+                    owner.print("[宝珠]:宝珠类型不符合或已经熔炼了更高等级的宝珠!")
+                    return false
+            else
+                if old == null
+                    Log.error("原宝珠为空但已保存:"+lv+"_"+g.entity.level)
+                    return false
+                if old.entity.clazz != g.entity.clazz or old.entity.level >= g.entity.level
+                    if old.entity.clazz != g.entity.clazz
+                        Log.error("宝珠类型不符合:"+g.entity.clazz+"_"+g.entity.level)
+                    owner.print("[宝珠]:宝珠类型不符合或已经熔炼了更高等级的宝珠!")
+                    old.destr(false)
+                    return false
+                else
+                    onGemInSet(old,g,p)
+                    owner.print("[宝珠]:成功!")
+                    old.destr()
+                    return true
+        else if old != null and old.entity.level == 4
+            onGemInSet(old,null,p)
+            owner.print("[宝珠]:成功!")
+            Log.debug("宝珠升级至最顶级:"+old.entity.clazz+"_"+old.entity.level)
+            old.destr()
+            return true
+        else
+            Log.error("尝试融合不存在的宝珠:"+g.entity.clazz+"_"+g.entity.level)
+            old.destr(false)
+            return false
+
+    function onSetInGem(Gem g,int clazz,int lv) returns bool
+        var l = lv
+        var clz = clazz
+        if g != null
+            l = g.entity.level
+            clz = g.entity.clazz
+        if hero.nirvanaCount < l
+            owner.print("[宝珠]:轮回次数不足!")
+            return false
+        if hero.gemIntoSelfCount >= getDiff() + 1 and hero.gems.get(g.entity.clazz) == null and lv != 5
+            owner.print("[宝珠]:当前难度可熔炼入体次数达到限制!")
+            return false
+        return onSetGem(g,clz,l)
+
+
+    static string array devourHeart_1s = ["攻击","三围","力量","敏捷","智力","血量","防御"]
+    static int array devourHeart_1 = [20000,8000,16000,16000,16000,50000,3000]
+    static string array devourHeart_2s = ["附加伤害","暴击伤害","伤害增幅"]
+    static int array devourHeart_2 = [20,30,20]
+    static string array devourHeart_3s = ["暴击概率","伤害减免","伤害抵抗"]
+    static int array devourHeart_3 = [10,4,2]
+    static string array devourHeart_4s = ["力量增幅","敏捷增幅","智力增幅","三维增幅"]
+    static int array devourHeart_4 = [5,5,5,3]
+    static string array devourHeart_5s = ["攻击","三围","力量","敏捷","智力","血量"]
+    static int array devourHeart_5 = [370000,150000,300000,300000,300000,1000000]
+
+    static string array devourHeartLv = [
+        color(19 ,180,230).toColorString()+"B|r",
+        color(19 ,230,82 ).toColorString()+"A|r",
+        color(230,114,19 ).toColorString()+"S|r"
+        ]
+
+    function onDevourHeart(int clazz,int lv,int spellId)
+        int index
+        switch clazz
+            case 1
+                let db = new DialogBox("选择获得的属性,当前品级"+devourHeartLv[lv-1])
+                index = 0
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.ATK,val )
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 1
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.STR, val)
+                    hero.addAttr(AttrKey.AGI, val)
+                    hero.addAttr(AttrKey.INE, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 2
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.STR, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 3
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.AGI, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 4
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.INE, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 5
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.HPM, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                index = 6
+                db.addButton(devourHeart_1s[index]+":"+(devourHeart_1[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_1[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.DEF, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_1s[index]+":"+val)
+                    destroy db
+                db.display(owner, true)
+            case 2
+                let db = new DialogBox("选择获得的属性,当前品级"+devourHeartLv[lv-1])
+                index = 0
+                db.addButton(devourHeart_2s[index]+":"+(devourHeart_2[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_2[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.addDmg, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_2s[index]+":"+val)
+                    destroy db
+                index = 1
+                db.addButton(devourHeart_2s[index]+":"+(devourHeart_2[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_2[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.ctcDmg, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_2s[index]+":"+val)
+                    destroy db
+                index = 2
+                db.addButton(devourHeart_2s[index]+":"+(devourHeart_2[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_2[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.dmgPlus, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_2s[index]+":"+val)
+                    destroy db
+                db.display(owner, true)
+            case 3
+                let db = new DialogBox("选择获得的属性,当前品级"+devourHeartLv[lv-1])
+                index = 0
+                db.addButton(devourHeart_3s[index]+":"+(devourHeart_3[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_3[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.ctcProb, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_3s[index]+":"+val)
+                    destroy db
+                index = 1
+                db.addButton(devourHeart_3s[index]+":"+(devourHeart_3[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_3[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.dmgSub, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_3s[index]+":"+val)
+                    destroy db
+                index = 2
+                db.addButton(devourHeart_3s[index]+":"+(devourHeart_3[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_3[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.dmgResi, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_3s[index]+":"+val)
+                    destroy db
+                db.display(owner, true)
+            case 4
+                let db = new DialogBox("选择获得的属性,当前品级"+devourHeartLv[lv-1])
+                index = 0
+                db.addButton(devourHeart_4s[index]+":"+(devourHeart_4[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_4[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.strPlus, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_4s[index]+":"+val)
+                    destroy db
+                index = 1
+                db.addButton(devourHeart_4s[index]+":"+(devourHeart_4[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_4[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.agiPlus, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_4s[index]+":"+val)
+                    destroy db
+                index = 2
+                db.addButton(devourHeart_4s[index]+":"+(devourHeart_4[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_4[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.intPlus, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_4s[index]+":"+val)
+                    destroy db
+                index = 3
+                db.addButton(devourHeart_4s[index]+":"+(devourHeart_4[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_4[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.strPlus, val)
+                    hero.addAttr(AttrKey.agiPlus, val)
+                    hero.addAttr(AttrKey.intPlus, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_4s[index]+":"+val)
+                    destroy db
+                db.display(owner, true)
+            case 5
+                let db = new DialogBox("选择获得的属性,当前品级"+devourHeartLv[lv-1])
+                index = 0
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.ATK,val )
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                index = 1
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.STR, val)
+                    hero.addAttr(AttrKey.AGI, val)
+                    hero.addAttr(AttrKey.INE, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                index = 2
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.STR, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                index = 3
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.AGI, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                index = 4
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.INE, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                index = 5
+                db.addButton(devourHeart_5s[index]+":"+(devourHeart_5[index] * 1.2 .pow(lv - 1.)).toInt().toString()) ->
+                    let val = (devourHeart_5[index]* 1.2 .pow(lv - 1.)).toInt()
+                    hero.addAttr(AttrKey.HPM, val)
+                    _self.exAbilDataA(owner,EX_ABIL_YD.UBERTIP,spellId,1,devourHeart_5s[index]+":"+val)
+                    destroy db
+                db.display(owner, true)
+            default
+
+    let devourHeartMap = new HashMap<int,bool>()
+
+    function devourHeart(DevourHeartEntity e)
+        if not devourHeartMap.has(e.itemId)
+            _self.addItemById(e.itemId)
+            Log.debug(_self.getOwner().getName()+"激活的怪物精髓等级为"+e.clazz+"品级为:"+e.lv)
+            onDevourHeart(e.clazz,e.lv,e.itemId - 'Y000'+'Z000')
+            devourHeartMap.put(e.itemId, true)
+        else
+            owner.print("[系统]:你已经激活了这个精髓!")
+
+    function activationBookPages(int itemId) returns Pages
+        return activationBookPages(itemId,true)
+    function activationBookPages(int itemId,bool flag) returns Pages
+        let pgs = _self.activationBookPages(itemId,flag)
+        Log.debug(_self.getOwner().getName()+"激活魔法书"+pgs.page.name)
+        if pgs != null
+            hero.addExAttr(AttrPlus.loadBookPageAttr(pgs.page.id), 1 )
+        return pgs
+
+    function initSaveArtifact()
+        let at = this.hero.souji.getSubBook("神器")
+        loadBook(_self.getOwner(), at)
+        for pgs in at.pageses
+            if not pgs.page.lock
+                let a = new SavedArtifact(owner,hero._self,pgs)
+                hero.saveArtifacts.add(a)
+
+    function onCreate()
+        execute()->
+            boxs = RandomSpellBoxs.list[owner.getId()]..onHeroCreate(hero)
+            hero.renwu  = _self.addBooks("人物宝典")
+            hero.souji  = _self.addBooks("搜集图鉴")
+            hero.daoju  = _self.addBooks("道具目录")
+            hero.lianti = new Practice(hero, hero.renwu)
+            initSaveArtifact()
+            this._self.addItemById('ZB01')
+            this._self.addItemById('ZB11')
+

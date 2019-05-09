@@ -1,0 +1,20 @@
+package deathSpell
+// import phLib
+// import ClosureForGroups
+import Forces
+
+function initSpell()
+    
+    CreateTrigger()
+    ..registerPlayerUnitEvent(enemyNormal, EVENT_PLAYER_UNIT_DEATH,null)
+    ..addAction()->
+        // let o = GetKillingUnit()
+        // let u = GetTriggerUnit()
+        // let t = GetTriggeringTrigger()
+        // if o.hasAbility(BuilderAbil.shihun1)//噬魂
+        //     o.recover(0.10,true)
+        //     skip
+            
+
+init
+    initSpell()

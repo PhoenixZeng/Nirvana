@@ -1,0 +1,93 @@
+package RangeEffect
+import LinkedListModule
+import CenterTimer
+
+/**
+    圆形范围特效 - 需要实现
+    // unit   caster
+    // string casterEffectPath
+    // effect casterEffect
+    construct(real range,real time)
+        super(range,time)
+    override function onEnd()
+    override function onStart()
+    override function onTick()
+    override function onHit(unit u)
+    override function isHit(unit u) returns bool
+    override function getPos() returns vec2
+    override function isEnd() returns bool
+        return super.isEnd()
+ */
+public abstract class RangeEffect
+    use LinkedListModule
+    static real frame = 0.2
+    static TimerTask task
+    unit   origin
+
+    real   range
+    real   time
+    real   hitDelay = 0
+    real   interval = 1
+
+    real   intervalPost = 0
+    real   timePost = 0
+
+    construct(unit u,real range,real time)
+        this.origin = u
+        this.range = range
+        this.time = time
+        
+    function config(real interval,real hitDelay )
+        this.interval = interval
+        this.hitDelay = hitDelay
+
+    function clear()
+        range            = 500
+        time             = 0
+        hitDelay         = 0
+        interval         = 1
+        intervalPost     = 0
+        timePost         = 0
+    abstract function onEnd()
+    abstract function onStart()
+    abstract function onTick()
+    abstract function isHit(unit u) returns bool
+    abstract function onHit(unit u)
+    abstract function getPos() returns vec2
+    function do()
+        if timePost == 0
+            onStart()
+        timePost += frame
+        intervalPost += frame
+        if intervalPost >= interval
+            intervalPost = 0
+            onTick()
+            if hitDelay > 0
+                onAfter(hitDelay) task->
+                    onHitBefore()
+            else
+                onHitBefore()
+    function isEnd() returns bool
+        return timePost >= time 
+    private function getHit() returns group
+        ENUM_GROUP.enumUnitsInRange(getPos(), range)
+        return ENUM_GROUP
+    private function onHitBefore()
+        let g = getHit()
+        if g.size() > 0
+            for u in g
+                if origin.isAlive() and  isHit(u)
+                    onHit(u)
+            g.clear()
+        if isEnd()
+            onEnd()
+            clear()
+            destroy this
+
+    static function engine()
+        task = onAlways(frame) t->
+            for i in RangeEffect
+                i.do()
+
+init
+    RangeEffect.engine()

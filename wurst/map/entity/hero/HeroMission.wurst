@@ -1,0 +1,260 @@
+package HeroMission
+import Mission
+import HashMap
+import Forces
+
+string array missionName1 = [
+    "击杀|cFF1BE6B8盗贼|r",
+    "击杀|cFF1BE6B8鱼人|r",
+    "击杀|cFF1BE6B8森林狼|r",
+    "击杀|cFF1BE6B8豪猪|r",
+    "击杀|cFF1BE6B8达拉内尔信徒|r",
+    "击杀|cFF1BE6B8食人魔|r",
+    "击杀|cFF1BE6B8狗头人|r",
+    "击杀|cFF1BE6B8矿井蝎子|r",
+    "击杀|cFF1BE6B8熔岩怪物|r",
+    "击杀|cFF1BE6B8火焰蜥蜴|r",
+    "击杀|cFF1BE6B8烈焰龙龟|r",
+    "击杀|cFF1BE6B8幼龙|r",
+    "击杀|cFF1BE6B8冰霜巨魔|r",
+    "击杀|cFF1BE6B8丛林巨魔|r",
+    "击杀|cFF1BE6B8娜迦护卫|r",
+    "击杀|cFF1BE6B8黑暗巨魔|r",
+    "击杀|cFF1BE6B8火元素|r",
+    "击杀|cFF1BE6B8风元素|r",
+    "击杀|cFF1BE6B8水元素|r",
+    "击杀|cFF1BE6B8土元素|r"
+    ]
+
+int array missionTarget1 = [
+    'h50A',
+    'h50B',
+    'h50C',
+    'h50D',
+    'h50E',
+    'h50F',
+    'h50G',
+    'h50H',
+    'h50I',
+    'h50J',
+    'h50K',
+    'h50L',
+    'h50M',
+    'h50N',
+    'h50O',
+    'h50P',
+    'h50Q',
+    'h50R',
+    'h50S',
+    'h50T'
+]
+
+
+int array award1 = [
+    'ZC06',
+    'ZC07',
+    'ZC08',
+    'ZC09',
+    'ZC0A',
+    'ZC0B',
+    'ZC0C',
+    'ZC0D',
+    'ZC0E',
+    'ZC0F',
+    'ZC0G',
+    'ZC0H',
+    'ZC0I',
+    'ZC0J',
+    'ZC0K',
+    'ZC0L',
+    'ZC0M',
+    'ZC0N',
+    'ZC0O',
+    'ZC0P'
+]
+
+
+string array missionName2 = [
+    "击杀|cFF1BE6B8盗贼王|r",
+    "击杀|cFF1BE6B8鱼人首领|r",
+    "击杀|cFF1BE6B8森林狼王|r",
+    "击杀|cFF1BE6B8豪猪王|r",
+    "击杀|cFF1BE6B8达拉内尔主教|r",
+    "击杀|cFF1BE6B8食人魔酋长|r",
+    "击杀|cFF1BE6B8狗头人酋长|r",
+    "击杀|cFF1BE6B8矿井魔蝎|r",
+    "击杀|cFF1BE6B8炎魔|r",
+    "击杀|cFF1BE6B8巨型蜥蜴|r",
+    "击杀|cFF1BE6B8千年龙龟|r",
+    "击杀|cFF1BE6B8成年巨龙|r",
+    "击杀|cFF1BE6B8冰霜巨魔酋长|r",
+    "击杀|cFF1BE6B8丛林巨魔酋长|r",
+    "击杀|cFF1BE6B8娜迦暴君|r",
+    "击杀|cFF1BE6B8黑暗巨魔酋长|r",
+    "击杀|cFF1BE6B8火元素领主|r",
+    "击杀|cFF1BE6B8风元素领主|r",
+    "击杀|cFF1BE6B8水元素领主|r",
+    "击杀|cFF1BE6B8土元素领主|r"
+]
+
+int array missionTarget2 = [
+    'H60A',
+    'H60B',
+    'H60C',
+    'H60D',
+    'H60E',
+    'H60F',
+    'H60G',
+    'H60H',
+    'H60I',
+    'H60J',
+    'H60K',
+    'H60L',
+    'H60M',
+    'H60N',
+    'H60O',
+    'H60P',
+    'H60Q',
+    'H60R',
+    'H60S',
+    'H60T'
+]
+
+
+int array award2 = [
+    'ZC16',
+    'ZC17',
+    'ZC18',
+    'ZC19',
+    'ZC1A',
+    'ZC1B',
+    'ZC1C',
+    'ZC1D',
+    'ZC1E',
+    'ZC1F',
+    'ZC1G',
+    'ZC1H',
+    'ZC1I',
+    'ZC1J',
+    'ZC1K',
+    'ZC1L',
+    'ZC1M',
+    'ZC1N',
+    'ZC1O',
+    'ZC1P'
+]
+
+public class DungeonHuntMission1
+    static let map = new HashMap<int,thistype>()
+    int itemId
+    string  hm
+    construct(int itemId,string  hm)
+        this.itemId = itemId
+        this.hm     = hm
+        map.put(itemId, this)
+    
+    function forUnit(unit u)
+        u.applyMission(hm,false)
+
+    static function initDungeonHuntMission12()
+        for a = 0 to 19
+            if a <= 4
+                new DungeonHuntMission1('ZB05'+a,missionName1[a]) 
+            else
+                new DungeonHuntMission1('ZB0A'+a-5,missionName1[a]) 
+
+
+    static function initDungeonHuntMission11()
+        for i = 1 to 20
+            let a = i - 1
+            new HuntMission(missionName1[a])
+            ..setTarget(missionTarget1[a], 20)
+            ..addAward(AwardType.itemId, award1[a])
+            ..canRepeat()
+            ..build()
+        
+    static function initDungeonHuntMission()
+        initDungeonHuntMission11()
+        initDungeonHuntMission12()
+
+
+
+public class DungeonHuntMission2
+    static let map = new HashMap<int,thistype>()
+    int itemId
+    string  hm
+    construct(int itemId,string  hm)
+        this.itemId = itemId
+        this.hm     = hm
+        map.put(itemId, this)
+    
+    function forUnit(unit u)
+        u.applyMission(hm,false)
+
+    static function initDungeonHuntMission22()
+        for a = 0 to 19
+            if a <= 4
+                new DungeonHuntMission1('ZB15'+a,missionName2[a]) 
+            else
+                new DungeonHuntMission1('ZB1A'+a-5,missionName2[a]) 
+
+    static function initDungeonHuntMission21()
+        for i = 1 to 20
+            let a = i - 1
+            new HuntMission(missionName2[a])
+            ..setTarget(missionTarget2[a], 1)
+            ..addAward(AwardType.itemId, award2[a])
+            ..canRepeat()
+            ..build()
+        
+    static function initDungeonHuntMission()
+        initDungeonHuntMission21()
+        initDungeonHuntMission22()
+
+init
+    new HuntMission("[任务]:清理|cFF1BE6B8天地灵气|r")
+    ..setTarget('h400', 50)
+    ..addAward(AwardType.itemId, 'I52G')
+    ..build()
+    new HuntMission("[任务]:清理|cFF1BE6B8狼|r")
+    ..setTarget('h601', 50)
+    ..addAward(AwardType.itemId, 'ZD00')
+    ..build()
+    new HuntMission("[任务]:清理|cFF1BE6B8蝎子|r")
+    ..setTarget('h602', 50)
+    ..addAward(AwardType.itemId, 'ZD01')
+    ..build()
+    new HuntMission("[任务]:清理|cFF1BE6B8冰晶元素|r")
+    ..setTarget('h603', 50)
+    ..addAward(AwardType.itemId, 'ZD0B')
+    ..build()
+    DungeonHuntMission1.initDungeonHuntMission()
+    DungeonHuntMission2.initDungeonHuntMission()
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction()->
+        let i = GetManipulatedItem()
+        let u = GetManipulatingUnit().getMainHero()
+        let id = i.getTypeId()
+        if u != null and DungeonHuntMission1.map.has(id)
+            let d = DungeonHuntMission1.map.get(id)
+            d.forUnit(u)
+        if u != null and DungeonHuntMission2.map.has(id)
+            let d = DungeonHuntMission2.map.get(id)
+            d.forUnit(u)
+        else if id == 'MS0R'
+            u.applyMission("[任务]:清理|cFF1BE6B8天地灵气|r")
+        else if id == 'MS0S'
+            u.applyMission("[任务]:清理|cFF1BE6B8狼|r")
+        else if id == 'MS0T'
+            u.applyMission("[任务]:清理|cFF1BE6B8蝎子|r")
+        else if id == 'MS0U'
+            u.applyMission("[任务]:清理|cFF1BE6B8冰晶元素|r")
+
+
+
+
+
+
+
+

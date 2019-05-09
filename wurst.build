@@ -1,0 +1,9 @@
+---
+projectName: "GBS"
+dependencies:
+- "https://github.com/wurstscript/wurstStdlib2"
+buildMapData:
+  name: "轮回Nirvana"
+  fileName: "GBS"
+  author: "Phoenix"
+  playerCount: 1

@@ -1,0 +1,117 @@
+library RegisterItem initializer saveItem
+    function saveItem takes nothing returns nothing
+    <?
+        local slk = require('slk')
+        require('utils')
+        for id,obj in pairs(slk.item) do
+            if obj.HP == 233 or obj.HP == 235 or obj.HP == 444 or obj.HP == 334 then
+                if obj.Name and obj.Name ~= "" then
+                ?>
+                    call SaveStr(j_slk_item,'<?=id?>',<?=hash('name')?>,"<?=obj.Name?>")
+                <?
+                end
+                if obj.Description and obj.Description ~= "" then
+                ?>
+                    call SaveStr(j_slk_item,'<?=id?>',<?=hash('desc')?>,"<?=obj.Description?>")
+                <?
+                end
+            end
+            desc = obj.Ubertip
+            list = string.gmatch(desc,'n([^0-9]+):(%d+)')
+            for i,s in list do
+                if i == "攻击"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',0,<?=s?>)
+    <?
+                elseif i == "护甲"     then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',1,<?=s?>)
+    <?
+                elseif i == "攻速"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',2,<?=s?>)
+    <?
+                elseif i == "血量"     then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',3,<?=s?>)
+    <?
+                elseif i == "力量"     then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',4,<?=s?>)
+    <?
+                elseif i == "敏捷"     then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',5,<?=s?>)
+    <?
+                elseif i == "智力"     then 
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',6,<?=s?>)
+    <?
+                elseif i == "伤害增幅"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',7,<?=s?>)
+    <?
+                elseif i == "暴击概率"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',8,<?=s?>)
+    <?
+                elseif i == "暴击伤害"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',9,<?=s?>)
+    <?
+                elseif i == "攻击吸血"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',10,<?=s?>)
+    <?
+                elseif i == "附加伤害"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',11,<?=s?>)
+    <?
+                elseif i == "最终伤害"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',12,<?=s?>)
+    <?
+                elseif i == "伤害抵抗"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',13,<?=s?>)
+    <?
+                elseif i == "伤害减免"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',14,<?=s?>)
+    <?
+                elseif i == "伤害反弹"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',15,<?=s?>)
+    <?
+                elseif i == "升级属性"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',16,<?=s?>)
+    <?
+                elseif i == "杀敌属性"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',17,<?=s?>)
+    <?
+                elseif i == "每秒属性"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',18,<?=s?>)
+    <?
+                elseif i == "力量增幅"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',19,<?=s?>)
+    <?
+                elseif i == "敏捷增幅"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',20,<?=s?>)
+    <?
+                elseif i == "智力增幅"   then
+    ?>
+                    call SaveInteger(j_slk_item,'<?=id?>',21,<?=s?>)
+    <?
+                end
+            end
+        end
+    ?>
+
+    endfunction
+endlibrary
+

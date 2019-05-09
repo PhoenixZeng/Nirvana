@@ -1,0 +1,197 @@
+package PassiveDamageDispatcher
+import DamageDispatcher
+import DmgType
+import CenterTimer
+import baseImport
+import HashList
+// import YDEventDamage
+
+group hurtGroup = CreateGroup()
+
+public int condProbOffSet = 0
+
+public tuple AbilCond(
+    int    abilId,
+    real   prob)//0-100概率
+public tuple TechCond(
+    int    id,
+    real   lv)//0-100概率
+
+public tuple DamageDelay(
+    real   delay,
+    int    times)
+public tuple DamageHurt(
+    real   hurtAdd,
+    real   hurtMul,
+    real   threePropMul,
+    real   lvOffset)
+
+public enum DamageTarget
+    Single
+    Range
+public class PassiveDamageDispatcher extends DamageDispatcher
+    string        name     = ""
+    AbilCond      abilCond = AbilCond(0, 0)
+    TechCond      techCond = TechCond(0, 0)
+    DamageHurt    hurt     = DamageHurt(0,1,0,0)
+    DamageDelay   delay    = DamageDelay(0,1)
+    UnitDamageType   type_ = Null
+    DamageTarget  target_  = DamageTarget.Single
+    Prop          prop      = Prop.ALL
+    real          range    = 300
+    string        effPath
+    string        targetEffPath
+    string        refPoint = "chest"
+    construct()
+    construct(string name)
+        this.name = name
+        
+    static function cleanById(int id)
+        let list = new HashList<PassiveDamageDispatcher>()
+        for i in DamageDispatcher
+            if i instanceof PassiveDamageDispatcher
+                let is =  i castTo PassiveDamageDispatcher
+                if is.abilCond.abilId == id
+                    list.add(is)
+        for i in list
+            destroy i
+        destroy list
+
+
+    function setHurtDelay(real delay,int times)
+        this.delay.delay = delay
+        this.delay.times = times
+    function setHurtDamage(real hurtAdd,real hurtMul,real threePropMul,real lvOffset)
+        this.hurt.hurtAdd = hurtAdd
+        this.hurt.hurtMul = hurtMul
+        this.hurt.lvOffset = lvOffset
+        this.hurt.threePropMul = threePropMul
+    function setHurtDamageThr(real threePropMul,real lvOffset)
+        this.hurt.lvOffset = lvOffset
+        this.hurt.threePropMul = threePropMul
+    function setHurtDamageMul(real hurtMul,real lvOffset)
+        this.hurt.hurtMul = hurtMul
+        this.hurt.lvOffset = lvOffset
+    function setHurtDamageThr(real threePropMul)
+        this.hurt.lvOffset = 0
+        this.hurt.threePropMul = threePropMul
+    function setHurtDamageMul(real hurtMul)
+        this.hurt.hurtMul = hurtMul
+        this.hurt.lvOffset = 0
+    function setHurtRange(real range)
+        this.range = range
+        target_ = DamageTarget.Range
+    function setAbilCond(int abilId,real prob)
+        this.abilCond = AbilCond(abilId, prob)
+    function setAbilCond(int abilId)
+        this.abilCond = AbilCond(abilId, 100)
+    function setTechCond(int abilId,real prob)
+        this.techCond = TechCond(abilId, prob)
+    function setTechCond(int abilId)
+        this.techCond = TechCond(abilId, 1)
+    function setType(UnitDamageType t)
+        this.type_ = t
+    function setEffect(string path)
+        this.effPath = path
+    function setTargetEffect(string path,string refPoint)
+        this.refPoint = refPoint
+        this.targetEffPath = path
+    function setProp(Prop p)
+        this.prop = p
+    override function toString() returns string
+        return "PassiveDamageDispatcher$"+(this castTo int)
+    override function do(DmgWrapper dmg)
+        //只对普攻生效
+        if dmg.t != DmgType.ATTACK
+            return
+        var flag = true
+        var lv = 1
+        if abilCond.abilId != 0
+            lv = GetUnitAbilityLevel(dmg.i, abilCond.abilId)
+            flag = flag and lv > 0 and  GetRandomReal(0, 100) <= abilCond.prob + condProbOffSet
+        if techCond.id != 0
+            flag = flag and GetPlayerTechCountSimple(techCond.id,dmg.i.getOwner()) >= techCond.lv
+        if not flag
+            return
+        var k = dmg.dmg
+        // print("触发分发器:"+dmg+":"+this.toString())
+        switch target_
+            case Single
+                if delay.delay == 0
+                    if effPath != null
+                        addEffect(effPath, dmg.j.getPos()).destr()
+                    if enemyFilter(dmg.i,dmg.j)
+                        if targetEffPath != null
+                            dmg.j.addEffect(targetEffPath, refPoint).destr()
+                        dmg.i.typeAttack(this,k,dmg.j,lv)
+                else
+                    if effPath != null
+                        let eff = dmg.j.addEffect(effPath, refPoint)
+                        let _task = onAfter(delay.delay * delay.times) task->
+                            eff.destr()
+                        // _task.debug()
+                    let _task1 = onAfterCount(delay.delay, delay.times) task->
+                        if enemyFilter(dmg.i,dmg.j)
+                            if targetEffPath != null
+                                dmg.j.addEffect(targetEffPath, refPoint).destr()
+                            dmg.i.typeAttack(this,k,dmg.j,lv)
+                    // _task1.debug()
+            case Range
+                if delay.delay != 0
+                    let pos = dmg.j.getPos()
+                    if effPath != null
+                        let eff2 = addEffect(effPath,pos)
+                        let _task = onAfter(delay.delay * delay.times) task->
+                            eff2.destr()
+                        // _task.debug()
+                    let _task1 = onAfterCount(delay.delay, delay.times) task->
+                        hurtGroup.enumUnitsInRange(pos, range,null)//Filter(()->enemy.containsUnit(GetFilterUnit())))
+                        for u in hurtGroup
+                            if enemyFilter(dmg.i,u)
+                                if targetEffPath != null
+                                    eff(targetEffPath, u.getPos())
+                                dmg.i.typeAttack(this,k ,u,lv)
+                        hurtGroup.clear()
+                    // _task1.debug()
+                else
+                    if effPath != null
+                        eff(effPath, dmg.j.getPos())
+                    hurtGroup.enumUnitsInRange(dmg.j.getPos(), range,null)//Filter(()->enemy.containsUnit(GetFilterUnit())))
+                    for u in hurtGroup
+                        if enemyFilter(dmg.i,u)
+                            if targetEffPath != null
+                                eff(targetEffPath, u.getPos())
+                            dmg.i.typeAttack(this,k ,u,lv)
+                    hurtGroup.clear()
+
+    function getDamageDual(unit origin,int lv,real damage) returns real
+        if this.hurt.threePropMul > 0
+            let u = origin.getMainHero()
+            var val = u.getPropVal(prop) * this.hurt.threePropMul
+            return val * (1+this.hurt.lvOffset).pow(lv.toReal() - 1)
+        return this.hurt.hurtMul * (1+this.hurt.lvOffset).pow(lv.toReal() - 1) * damage
+                + this.hurt.hurtAdd * (1+this.hurt.lvOffset).pow(lv.toReal() - 1)
+
+        
+function unit.typeAttack(PassiveDamageDispatcher dh,real k ,unit target,int lv)
+    flagDispatcherInner = false
+    switch dh.type_
+        case Attack
+            // Log.debug("case attack" + dh.hurt.getDual(lv, k))
+            this.damageAttack(target, dh.getDamageDual(this,lv, k))
+        case AttackNoDef
+            // Log.debug("case attackNoDef"+ dh.hurt.getDual(lv, k))
+            this.damageAttackNoDef(target, dh.getDamageDual(this,lv, k))
+        case Spell
+            // Log.debug("case spell"+ dh.hurt.getDual(lv, k))
+            this.damageSpell(target, dh.getDamageDual(this,lv, k))
+        case Real
+            // Log.debug("case real"+ dh.hurt.getDual(lv, k))
+            this.damageCode(target, dh.getDamageDual(this,lv, k))
+        case Percent
+            // Log.debug("case percent"+ dh.hurt.getDual(lv, k * target.getMaxHP()))
+            this.damageCode(target, dh.getDamageDual(this,lv, k * target.getMaxHP()))
+        case Null
+            // Log.debug("case null")
+            this.damageAttack(target, 0)
+    flagDispatcherInner = true

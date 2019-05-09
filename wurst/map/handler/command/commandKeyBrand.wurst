@@ -1,0 +1,57 @@
+package commandKeyBrand
+import dzHardware
+import ClosureTimers
+import dzSync
+import base
+import dzGameFrame
+
+bool clickTab = false
+bool clickF2 = false
+bool clickF3 = false
+bool clickF4 = false
+
+
+init
+    doPeriodically(1) tk ->
+        clickF2 = false
+        clickF3 = false
+        clickF4 = false
+
+    CreateTrigger().exRegisterKeyEvent(DzGameKey.F2,GameKeyStatus.press,false) ->
+        if not clickF2
+            clickF2 = true
+            exSyncData("cmd","hg")
+    CreateTrigger().exRegisterKeyEvent(DzGameKey.F3,GameKeyStatus.press,false) ->
+        if not clickF3
+            clickF3 = true
+            exSyncData("cmd","hj")
+    CreateTrigger().exRegisterKeyEvent(DzGameKey.F4,GameKeyStatus.press,false) ->
+        if not clickF4
+            clickF4 = true
+            exSyncData("cmd","hs")
+    CreateTrigger().exRegisterKeyEvent(DzGameKey.tab,GameKeyStatus.press,false) ->
+        HeroAttr.map.get(exTriggerKeyPlayer()).switchShow()
+    CreateTrigger()
+    ..registerPlayerEvent(Player(0),EVENT_PLAYER_END_CINEMATIC)
+    ..registerPlayerEvent(Player(1),EVENT_PLAYER_END_CINEMATIC)
+    ..registerPlayerEvent(Player(2),EVENT_PLAYER_END_CINEMATIC)
+    ..registerPlayerEvent(Player(3),EVENT_PLAYER_END_CINEMATIC)
+    ..registerPlayerEvent(Player(4),EVENT_PLAYER_END_CINEMATIC)
+    ..registerPlayerEvent(Player(5),EVENT_PLAYER_END_CINEMATIC)
+    ..addAction() ->
+        if GetTriggerPlayer() == localPlayer
+            frame_help.show(false)
+
+    code a = ()->
+        if exIsKeyDown(DzGameKey.alt)
+            let k = exTriggerKey()
+            let index = k - DzGameKey._0
+            exSyncData("cmd","alt"+index)
+    CreateTrigger()
+    ..exRegisterKeyEvent(DzGameKey._1,GameKeyStatus.press,false,a)
+    ..exRegisterKeyEvent(DzGameKey._2,GameKeyStatus.press,false,a)
+    ..exRegisterKeyEvent(DzGameKey._3,GameKeyStatus.press,false,a)
+    ..exRegisterKeyEvent(DzGameKey._4,GameKeyStatus.press,false,a)
+    ..exRegisterKeyEvent(DzGameKey._5,GameKeyStatus.press,false,a)
+    ..exRegisterKeyEvent(DzGameKey._6,GameKeyStatus.press,false,a)
+

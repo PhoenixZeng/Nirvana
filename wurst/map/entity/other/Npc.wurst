@@ -1,0 +1,33 @@
+package Npc
+import HashMap
+
+public class NPC
+    static let map = new HashMap<string,thistype>()
+    string name
+    int    id
+    unit   u
+    vec2   pos
+    angle  face
+
+    construct(string name,unit u)
+        this.name = name
+        this.u = u
+        this.id = u.getTypeId()
+        this.pos = u.getPos()
+        this.face = u.getFacingAngle()
+        map.put(name, this)
+    construct(string name,int id,real x,real y,real face)
+        this.name = name
+        this.id = id
+        this.pos = vec2(x, y)
+        this.face = face .fromDeg()
+        this.u = createUnit(Player(PLAYER_NEUTRAL_PASSIVE), id, pos, this.face)
+        map.put(name, this)
+
+    static function byName(string name)returns thistype
+        return map.get(name)
+
+
+init
+    new NPC("随机英雄",gg_unit_n005_0005)
+    new NPC("雪山-隐居者",gg_unit_NP0A_0027)

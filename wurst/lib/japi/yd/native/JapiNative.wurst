@@ -1,0 +1,58 @@
+package JapiNative
+import NoWurst
+//ability
+@ifNotDefined public native EXGetUnitAbility        ( unit u, integer abilcode ) returns ability
+@ifNotDefined public native EXGetUnitAbilityByIndex ( unit u, integer index ) returns ability
+
+@ifNotDefined public native EXGetAbilityId          ( ability abil ) returns integer
+@ifNotDefined public native EXGetAbilityState       ( ability abil, integer state_type ) returns real
+@ifNotDefined public native EXSetAbilityState       ( ability abil, integer state_type, real value ) returns boolean
+@ifNotDefined public native EXGetAbilityDataReal    ( ability abil, integer level, integer data_type ) returns real
+@ifNotDefined public native EXSetAbilityDataReal    ( ability abil, integer level, integer data_type, real value ) returns boolean
+@ifNotDefined public native EXGetAbilityDataInteger ( ability abil, integer level, integer data_type ) returns integer
+@ifNotDefined public native EXSetAbilityDataInteger ( ability abil, integer level, integer data_type, integer value ) returns boolean
+@ifNotDefined public native EXGetAbilityDataString  ( ability abil, integer level, integer data_type ) returns string
+@ifNotDefined public native EXSetAbilityDataString  ( ability abil, integer level, integer data_type, string value ) returns boolean
+
+@ifNotDefined public native EXGetItemDataString ( integer itemcode, integer data_type ) returns string
+@ifNotDefined public native EXSetItemDataString ( integer itemcode, integer data_type, string value ) returns boolean
+@ifNotDefined public native EXGetBuffDataString ( integer buffcode, integer data_type ) returns string
+@ifNotDefined public native EXSetBuffDataString ( integer buffcode, integer data_type, string value ) returns boolean
+
+
+@ifNotDefined public native EXSetAbilityAEmeDataA ( ability abil, integer unitid ) returns boolean
+
+//damage
+@ifNotDefined public native EXGetEventDamageData ( integer edd_type ) returns integer
+@ifNotDefined public native EXSetEventDamage ( real amount ) returns boolean
+
+//effect
+@ifNotDefined public native EXGetEffectX ( effect e ) returns real
+@ifNotDefined public native EXGetEffectY ( effect e ) returns real
+@ifNotDefined public native EXGetEffectZ ( effect e ) returns real
+@ifNotDefined public native EXSetEffectXY ( effect e, real x, real y ) 
+@ifNotDefined public native EXSetEffectZ ( effect e, real z ) 
+@ifNotDefined public native EXGetEffectSize ( effect e ) returns real
+@ifNotDefined public native EXSetEffectSize ( effect e, real size ) 
+@ifNotDefined public native EXEffectMatRotateX ( effect e, real angle ) 
+@ifNotDefined public native EXEffectMatRotateY ( effect e, real angle ) 
+@ifNotDefined public native EXEffectMatRotateZ ( effect e, real angle ) 
+@ifNotDefined public native EXEffectMatScale ( effect e, real x, real y, real z ) 
+@ifNotDefined public native EXEffectMatReset ( effect e ) 
+@ifNotDefined public native EXSetEffectSpeed ( effect e, real speed ) 
+
+//unit
+
+@ifNotDefined public native EXSetUnitFacing ( unit u, real angle ) 
+@ifNotDefined public native EXPauseUnit ( unit u, boolean flag ) 
+@ifNotDefined public native EXSetUnitCollisionType ( boolean enable, unit u, integer t ) 
+@ifNotDefined public native EXSetUnitMoveType ( unit u, integer t ) 
+
+
+//other
+
+@ifNotDefined public native EXDisplayChat     ( player p, integer chat_recipient, string message ) 
+
+@ifNotDefined public native EXExecuteScript     ( string script ) returns string
+
+@ifNotDefined public native EXBlendButtonIcon ( string a, string b, string c ) returns boolean

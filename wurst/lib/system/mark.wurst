@@ -1,0 +1,132 @@
+package mark
+import selectAndDamage
+import ClosureTimers
+import unitLib
+import DummyRecycler
+import MoveEffect
+
+constant integer anyToken = DUMMY_UNIT_ID//万能马甲
+constant string markType_Loc = "model\\system\\mark\\WarningLoc.mdx"//模型
+constant string markType_Round = "model\\system\\mark\\WarningRound.mdx"//模型
+constant string markType_Line = "model\\system\\mark\\WarningLine.mdx"//模型
+constant string markType_Lightning = "DRAM"//闪电效果
+constant hashtable ht = InitHashtable()
+
+//===============================================单位
+
+public function markUnit( unit u ,unit target,real time ,UnitDamageType damageType,real _damage )
+    var eff = AddSpecialEffectTarget(markType_Loc, target, "origin")
+    var r = 256.
+    doAfter(time) ->
+        eff.destr()
+        u.damageRound(target.getPos(),r,damageType,_damage )
+
+//===============================================点
+public function markXY( unit u, vec2 p , real r, real time,UnitDamageType damageType ,real _damage )
+    // [自定义值] 读取单位、目标点
+    // 标记点
+    // 圆模型半径40
+    var i = r/40
+    var token = CreateUnit(u.getOwner() , anyToken , p.x , p.y , 270 )
+    var eff = AddSpecialEffectTarget(markType_Round, token, "origin")
+    SetUnitScale( token, i , i , 1 )
+    doAfter(time) ->
+        eff.destr()
+        u.damageRound(p,r,damageType,_damage )
+        token.remove()
+
+
+//===============================================直线
+
+
+public function markLine( unit u , real angle , real long ,real time ,UnitDamageType damageType,real _damage )
+    // [自定义值] 读取单位、角度、直线长度
+    // 标记直线
+    // 直线模型长度200，宽度80
+    var width = 200.
+    let me = new MoveEffect(u.getOwner(), u.getPos().withTerrainZ(10), markType_Line)
+    me.setScale(long /200, width/80,1)
+    me.setZAngle(angle.fromDeg())
+    doAfter(time) ->
+        me.hiddenDestroy()
+        u.damageRectangle(u.getPos(),angle,long,width,damageType,_damage )
+
+
+//===============================================矩形
+
+public function markRect( unit u , real angle , real long , real width ,real time,UnitDamageType damageType ,real _damage )
+    // [自定义值] 读取单位、角度、直线长度、矩形宽度
+    // 标记矩形
+    var o = GetUnitLoc( u )
+    var t1 = PolarProjectionBJ(o,width/2.,angle+90)
+    var t2 = PolarProjectionBJ(o,width/2.,angle-90)
+    var t3 = PolarProjectionBJ(t2,long,angle)
+    var t4 = PolarProjectionBJ(t1,long,angle)
+    //YDTriggerSetEx(lightning, YDTriggerH2I(GetTriggeringTrigger())*ydl_localvar_step, 0x6E599AC2, GetLastCreatedLightningBJ())
+    AddLightningLoc( markType_Lightning, t1,t2 )
+    destroyLightning( time, GetLastCreatedLightningBJ() )
+    AddLightningLoc( markType_Lightning, t2,t3 )
+    destroyLightning( time, GetLastCreatedLightningBJ())
+    AddLightningLoc( markType_Lightning, t3,t4 )
+    destroyLightning( time, GetLastCreatedLightningBJ() )
+    AddLightningLoc( markType_Lightning, t4,t1 )
+    destroyLightning( time, GetLastCreatedLightningBJ() )
+    
+    RemoveLocation( t1 )
+    RemoveLocation( t2 )
+    RemoveLocation( t3 )
+    RemoveLocation( t4 )
+    RemoveLocation( o )
+    doAfter(time) ->
+        u.damageRectangle(u.getPos(),angle,long,width,damageType,_damage )
+
+//===============================================圆
+
+public function markRound( unit u , real r , real time,UnitDamageType damageType ,real _damage )
+    var i = r/40.
+    var token = CreateUnit(u.getOwner() , anyToken , GetUnitX(u) , GetUnitY(u) , 270 )
+    var eff = AddSpecialEffectTarget(markType_Round, token, "origin")
+    SetUnitScale( token, i , i , 1 )
+    doAfter(time) ->
+        eff.destr()
+        u.damageRound(u.getPos(),r,damageType,_damage )
+
+
+public function markSector( unit u , real angle ,real r ,real sectorAngle , real time,UnitDamageType damageType,real _damage )
+    // 单位、目标角、扇形半径、扇形角度
+    // 标记扇形
+    var o = GetUnitLoc(u)
+    var x = 10
+    var i = R2I( sectorAngle / 10 / 2)  
+    var left = PolarProjectionBJ( o , r , angle + sectorAngle/2)
+    AddLightningLoc( markType_Lightning, o , left )
+    destroyLightning( time, GetLastCreatedLightningBJ() )
+    var right = PolarProjectionBJ( o , r , angle - sectorAngle/2)
+    AddLightningLoc( markType_Lightning, o, right )
+    destroyLightning( time, GetLastCreatedLightningBJ() )
+    for index = 1 to  (i + 1)
+        var left1 = PolarProjectionBJ( o , r , angle + sectorAngle/2 - x * index )
+        AddLightningLoc( markType_Lightning, left, left1 )
+        destroyLightning( time,  GetLastCreatedLightningBJ() )
+        MoveLocation( left, GetLocationX(left1), GetLocationY(left1))
+        RemoveLocation( left1)
+        var right1 = PolarProjectionBJ( o , r , angle - sectorAngle/2 + x * index )
+        AddLightningLoc( markType_Lightning, right, right1 )
+        destroyLightning( time, GetLastCreatedLightningBJ() )
+        MoveLocation( right, GetLocationX(right1), GetLocationY(right1))
+        RemoveLocation( right1)
+    AddLightningLoc( markType_Lightning, left, right )
+    destroyLightning( time,  GetLastCreatedLightningBJ() )
+    RemoveLocation( left )
+    RemoveLocation( right )
+    RemoveLocation( o )
+    doAfter(time) ->
+        u.damageSector(u.getPos() , r , angle.fromDeg() , sectorAngle , damageType ,_damage )
+
+
+public function destroyLightning(real time ,lightning lt)
+    doAfter(time) ->
+        if(lt != null)
+            DestroyLightning(lt)
+
+

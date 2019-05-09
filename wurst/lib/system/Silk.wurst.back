@@ -1,0 +1,80 @@
+package Silk
+
+function setline ()
+    timer t = GetExpiredTimer()          
+    unit tru = YDWEGetUnitByString(I2S(YDWEH2I(t)),"tru")
+    integer count = YDWEGetIntegerByString(I2S(YDWEH2I(t)),"count") 
+    integer steps = YDWEGetIntegerByString(I2S(YDWEH2I(t)),"steps") 
+    integer stepscount = YDWEGetIntegerByString(I2S(YDWEH2I(t)),"stepscount") 
+    integer position = YDWEGetIntegerByString(I2S(YDWEH2I(t)),"position")         
+    real ux = GetUnitX(tru)
+    real uy = GetUnitY(tru)
+    real mjx
+    real mjy
+    real distance = YDWEGetRealByString(I2S(YDWEH2I(t)),"distance")
+    real angleadd = YDWEGetRealByString(I2S(YDWEH2I(t)),"angleadd")
+    unit array tempu
+    real array tempx
+    real array tempy
+    real array angle
+    integer _n = 0
+    for i = 0 to count
+        tempu[i] = YDWEGetUnitByString(I2S(YDWEH2I(t)),"unit"+I2S(i))
+        angle[i] = YDWEGetRealByString(I2S(YDWEH2I(t)),"angle"+I2S(i))
+        tempx[i] = YDWEGetRealByString(I2S(YDWEH2I(t)),"unitx"+I2S(i))
+        tempy[i] = YDWEGetRealByString(I2S(YDWEH2I(t)),"unity"+I2S(i))
+    if (steps > stepscount) or GetUnitState(tru,UNIT_STATE_LIFE)<=0 
+        for i = 0 to count - 1
+            KillUnit(YDWEGetUnitByString(I2S(YDWEH2I(t)),"unit"+I2S(i)))
+        YDWEFlushMissionByString(I2S(YDWEH2I(t)))
+        PauseTimer(t)
+        DestroyTimer(t)      
+        YDWESyStemAbilityCastingOverTriggerAction(tru,3)        
+        //SetUnitScalePercent( tru, 100, 100, 100 )
+        return
+    for i = 0 to count - 1
+        _n = ModuloInteger(position + i,count)
+        mjx = GetUnitX(tempu[i])
+        mjy = GetUnitY(tempu[i])
+        mjx = mjx + (tempx[_n] + i*distance*CosBJ(angle[_n]) - mjx) * 0.2
+        mjy = mjy + (tempy[_n] + i*distance*SinBJ(angle[_n]) - mjy) * 0.2
+        SetUnitX(tempu[i],YDWECoordinateX(mjx))
+        SetUnitY(tempu[i],YDWECoordinateY(mjy))
+    steps = steps + 1
+    YDWESaveIntegerByString(I2S(YDWEH2I(t)),"steps",steps)      
+    position = ModuloInteger(position - 1 , count)
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"angle"+I2S(position),GetUnitFacing(tru) + 180 + angleadd) 
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"unitx"+I2S(position),ux)
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"unity"+I2S(position),uy)        
+    YDWESaveIntegerByString(I2S(YDWEH2I(t)),"position",position)  
+
+//红丝带的先决条件            (udg_cinS_actor[11],'h01J',12,50,60,30,0.03,120,10,100,30)
+public function unit.createSlik (integer ut,integer count,real angleadd,real distance,real lasttime,real eachtime,real heightstart,real heightadd,real sizestart,real sizeadd )
+    unit tru = this
+    timer t = CreateTimer()
+    real ux = GetUnitX(tru)
+    real uy = GetUnitY(tru)
+    real angle = GetUnitFacing(tru) + 180 + angleadd
+    player p = GetOwningPlayer(tru)
+    real percentScale
+    unit tempu
+    YDWESaveUnitByString(I2S(YDWEH2I(t)),"tru",tru)  
+    YDWESaveIntegerByString(I2S(YDWEH2I(t)),"count",count)
+    YDWESaveIntegerByString(I2S(YDWEH2I(t)),"steps",0)
+    YDWESaveIntegerByString(I2S(YDWEH2I(t)),"stepscount",R2I(lasttime/eachtime))
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"distance",distance)
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"angleadd",angleadd)    
+    GroupClear(bj_lastCreatedGroup)
+    for i = 0 to count - 1
+        tempu = CreateUnit(p,ut,ux,uy,0)
+        GroupAddUnit(bj_lastCreatedGroup, tempu)
+        bj_lastCreatedUnit=tempu
+        SetUnitFlyHeight(tempu,i*heightadd+heightstart+150, 75 )
+        percentScale = RMaxBJ(i*sizeadd+sizestart,1) * 0.01
+        SetUnitScale(tempu, percentScale, percentScale, percentScale)
+        YDWESaveUnitByString(I2S(YDWEH2I(t)),"unit"+I2S(i),tempu)
+        YDWESaveRealByString(I2S(YDWEH2I(t)),"angle"+I2S(i),angle)
+        YDWESaveRealByString(I2S(YDWEH2I(t)),"unitx"+I2S(i),ux)
+        YDWESaveRealByString(I2S(YDWEH2I(t)),"unity"+I2S(i),uy)
+    YDWESaveRealByString(I2S(YDWEH2I(t)),"position",0)
+    TimerStart(t,eachtime,true,function setline)

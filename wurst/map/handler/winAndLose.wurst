@@ -1,0 +1,126 @@
+package winAndLose
+import ClosureTimers
+import phLib
+import Players
+import Game
+import PlayersSave
+import ServerDate
+import Level
+import DialogBox
+import Book
+import SavedArtifact
+import DialogTimer
+import attackHandler
+
+public trigger _GameDefeatTrigger
+public bool showAttackedTip
+public bool isDefeat = false
+public bool isWin = false
+
+function Players.getAwardScore()
+    let d = GAME.difficult
+    if d > this.maxPassDiff
+        this.maxPassDiff = d
+    if d > this.maxSinglePassDiff and GAME.playerSizeStart == 1
+        this.maxSinglePassDiff = d
+    var s1 = 10+(5*d)
+    if this.role == PlayerRole.Vip
+        s1 += 5
+        printTimedToPlayer("[系统]:VIP获得额外5点通关积分!", 30, this._player)
+    printTimedToPlayer("[系统]:通关奖励积分"+s1, 30, this._player)
+    if GAME.abyss
+        s1 = (s1 * 1.5).toInt()
+        printTimedToPlayer("[系统]:深渊模式获得1.5倍积分!总获得:"+s1, 30, this._player)
+    else
+        printTimedToPlayer("[系统]:总获得:"+s1, 30, this._player)
+    this.enableAddGameScore = true
+    this.addGameScore(s1)
+
+function Players.getEndlessAwardScore()
+    if GAME.endless
+        this.endlessWare = Level.get()
+        let ew = this.endlessWare
+        printTimedToPlayer("[系统]:当前无尽波数"+ew, 30, this._player)
+        int es = 0
+        if ew > 10 and ew < 20
+            es = 5
+        else if ew >= 20 and ew <= 25
+            es = 10
+        else if ew > 25
+            es = (ew - 25) + 10
+        printTimedToPlayer("[系统]:奖励无尽分数"+es, 30, this._player)
+        this.endlessScore += es
+
+public function askPlayerSaveArtifactEnergy(Players ps)
+    let sb = ps.hero.souji.getSubBook("神器")
+    var ene = 2+(2*GAME.difficult)
+    if ps.role == PlayerRole.Vip
+        ene += 2
+        printTimedToPlayer("[系统]:VIP获得额外2点神器能量!", 30, ps._player)
+    let db = new DialogBox("选择需要增加"+ene+"点能量的神器")
+    for pg in sb.pageses
+        if not pg.page.lock
+            db.addButton(pg.page.name) ->
+                let sa = SavedArtifact.maps.get(pg)
+                sa.addEnergy(ene)
+                ps.saveBook()
+                destroy db
+    db.addButton("啥都不想加,任性") ->
+        destroy db
+    db.display(ps._player, true)
+
+public function registerWin()
+    isWin = true
+    if not isDefeat
+        print("[系统]:"+color(255, 0, 0).toColorString()+"游戏胜利,正在保存存档,并开启PK模式,80秒后退出游戏!|r")
+        print("[系统]:"+color(255, 0, 0).toColorString()+"游戏耗时:|r"+getGamePassTime())
+
+        eachPlayer() p->
+            let ps = Players.get(p)
+            ps.getAwardScore()
+            ps.saveInfoAndAuth()
+            askPlayerSaveArtifactEnergy(ps)
+            for i = 0 to 4
+                SetPlayerAllianceStateBJ(Player(p), Player(i), bj_ALLIANCE_UNALLIED_VISION)
+        cantAttackFriend.destr()
+        atAfter(80, "PK时间").run()
+        doAfter(80)->
+            gameVictory()
+
+public function registerDefeat()
+    if not isWin
+        print("[系统]:"+color(255, 0, 0).toColorString()+"游戏失败,正在保存存档,20秒后退出游戏!|r")
+        // stopAttack(true)
+        eachPlayer() p->
+            let ps = Players.get(p)
+            ps.getEndlessAwardScore()
+            ps.save()
+
+            printTimedToPlayer("[系统]:游戏失败,你当前的游戏积分为"+ps.getGameScore(), 30, ps._player)
+            ps.save()
+        doAfter(10)->
+            gameDefeat()
+public function registerDefeat(unit u)
+    _GameDefeatTrigger = CreateTrigger()
+    ..registerDeathEvent(u)
+    ..addAction()->
+        registerDefeat()
+    CreateTrigger()
+    ..registerUnitEvent(u, EVENT_UNIT_ATTACKED)
+    ..addAction()->
+        if showAttackedTip and not isWin
+            showAttackedTip = false
+            print("[系统]:"+color(255, 0, 0).toColorString()+"基地|r"+"正在遭受攻击,当前生命百分比["+color(255, 0, 0).toColorString()+(GetTriggerUnit().getHPPercent()*100).toInt()+"|r]")
+    doPeriodically(0.5) cb->
+        showAttackedTip = true
+    
+public function destroyDefeat()
+    _GameDefeatTrigger.destr()
+        
+public function gameVictory()
+    eachPlayer()p->
+        CustomVictoryBJ( Player(p), true, true)
+public function gameDefeat()
+    eachPlayer()p->
+        CustomDefeatBJ( Player(p), "失败!" )
+

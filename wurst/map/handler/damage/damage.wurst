@@ -1,0 +1,164 @@
+package damage
+import DmgType
+import public unitLib
+import DamageHandler
+import DamageDispatcher
+import fontEffect
+import CenterTimer
+import Table
+import YDJapiOther
+import base
+import Forces
+import effectLib
+
+public bool testAttackDamage = false
+public bool testSpellDamage = false
+let debugDmg = false
+
+var offsetHt = new Table()
+var offsetReset = false
+Table nullTimerData = new Table()
+public bool array showDamage
+public bool array showDamageDelayAttack
+public bool array showDamageDelaySpell
+public bool array showDamageDelayCode
+public bool array isAttackDamage
+
+
+init
+    showDamage[0] = true
+    showDamage[1] = true
+    showDamage[2] = true
+    showDamage[3] = true
+    showDamage[4] = true
+    showDamage[5] = true
+    onDamageFunc() ->
+        if flagNotFinally
+            let dsu = GetEventDamageSource()
+            let dtu = GetTriggerUnit()
+            var _handlerDamage = GetEventDamage()
+            let type_ = getDamageType()
+            switch type_
+                case CODE
+                    _handlerDamage = lastCodeDmg
+                case NULLED
+                    _handlerDamage = 0
+                default
+                    _handlerDamage = GetEventDamage()
+            var dmg = DmgWrapper(dsu,dtu,_handlerDamage,type_)
+            if dmg.dmg > 0.01
+                if flagDispatcher and flagDispatcherInner and users.containsUnit(dsu)
+                    flagDispatcher = false
+                    for i in DamageDispatcher
+                        if dmg.dmg>=0 and i!= null and i.typeId != 0
+                            flagDispatcherInner = false
+                            i.do(dmg)
+                            flagDispatcherInner = true
+                    flagDispatcher = true
+                for i in DamageHandler
+                    if dmg.dmg>=0 and i!= null and i.typeId != 0
+                        dmg = i.do(dmg)
+                // _handlerDamage = dtu.damageShield(_handlerDamage)
+                if dmg.dmg >= 1.
+                    flagNotFinally = false
+                    let index = dsu.getOwner().getId()
+                    if debugDmg
+                        showDmgLog(dmg)
+                    switch type_
+                        case ATTACK
+                            if testAttackDamage
+                                print("[debug]:造成物理伤害"+dmg.dmg)
+                            if showDamage[index] and showDamageDelayAttack[index]
+                                showDamageDelayAttack[index] = false
+                                if dmg.dmg>100000000
+                                    showDamageFont(dmg.i,dmg.j,attackFontBase,dmg.dmg / 100000000,2,vec2(0,60))
+                                else if dmg.dmg>10000
+                                    showDamageFont(dmg.i,dmg.j,attackFontBase,dmg.dmg / 10000,1,vec2(0,60))
+                                else
+                                    showDamageFont(dmg.i,dmg.j,attackFontBase,dmg.dmg,0,vec2(0,60))
+                            dmg.i.damagePro(dmg.j,UnitDamageType.AttackNoDef, dmg.dmg)
+                        case SPELL
+                            if testSpellDamage
+                                print("[debug]:造成魔法伤害"+dmg.dmg)
+                            if showDamage[index] and showDamageDelaySpell[index]
+                                showDamageDelaySpell[index] = false
+                                if dmg.dmg>100000000
+                                    showDamageFont(dmg.i,dmg.j,spellFontBase,dmg.dmg / 100000000,2,vec2(0,0))
+                                else if dmg.dmg>10000
+                                    showDamageFont(dmg.i,dmg.j,spellFontBase,dmg.dmg / 10000,1,vec2(0,0))
+                                else
+                                    showDamageFont(dmg.i,dmg.j,spellFontBase,dmg.dmg,0,vec2(0,0))
+                            dmg.i.damagePro(dmg.j,UnitDamageType.Spell, dmg.dmg)
+                        case CODE
+                            if showDamage[index] and showDamageDelayCode[index]
+                                showDamageDelayCode[index] = false
+                                if dmg.dmg>100000000
+                                    showDamageFont(dmg.i,dmg.j,codeFontBase,dmg.dmg / 100000000,2,vec2(0,-60))
+                                else if dmg.dmg>10000
+                                    showDamageFont(dmg.i,dmg.j,codeFontBase,dmg.dmg / 10000,1,vec2(0,-60))
+                                else
+                                    showDamageFont(dmg.i,dmg.j,codeFontBase,dmg.dmg,0,vec2(0,-60))
+                            dmg.i.damagePro(dmg.j,UnitDamageType.Real, dmg.dmg)
+                        default
+                    flagNotFinally = true
+                else
+                    exSetEventDamage(0.1)
+            else
+                exSetEventDamage(0.1)
+
+function showDmgLog(DmgWrapper dm)
+    Log.trace(dm.i.getOwner().getName()+"#"+dm.i.getTypeId().toIdString()+"->"+dm.j.getName()+":"+dm.dmg+"="+dm.t.toString())
+
+
+function unit.damagePro(unit target,UnitDamageType t ,real damage)
+    let hp	= target.getHP() - .405
+    if hp > damage
+        target.setHP(hp - damage + .405)
+        exSetEventDamage(0.1)
+    else if t == UnitDamageType.Real and damage - lastCodeDmg > 0
+        exSetEventDamage(damage - lastCodeDmg)
+    else
+        exSetEventDamage(damage)
+    
+
+function showDamageFont(unit dsu,unit dtu,string s,real damage ,int wans,vec2 offset)
+    var i = damage.toInt()
+    var p = dtu.getPos() + offset
+    string path
+    var ws = wans
+    var wp = dtu.getPos() + offset + vec2(40., 0)
+    while i >= 1
+        if localPlayer == dsu.getOwner()
+            path = s+(i mod 10)+".mdx"
+        else
+            path = ""
+        eff(path,p)
+        i = i div 10
+        p.x -= 40
+    while ws >= 1
+        if localPlayer == dsu.getOwner()
+            path = s+"W.mdx"
+        else
+            path = ""
+        eff(path,wp)
+        wp.x += 40
+        ws--
+
+init
+    onAlways(0.2)task-> 
+        for i = 0 to 4
+            showDamageDelayAttack[i] = true
+            showDamageDelaySpell[i] = true
+            showDamageDelayCode[i] = true
+
+function showDamageFontTest(real damage)
+    var i = damage.toInt()
+    while i >= 1
+        print(i mod 10)
+        i = (i / 10).toInt()
+
+@test function aa()
+    showDamageFontTest(11050.5)
+        
+
+    

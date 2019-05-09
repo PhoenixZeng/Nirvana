@@ -1,0 +1,17 @@
+package itemLib
+
+// public function item.setCharges(int charges)
+//     SetItemCharges(this, charges)
+// public function item.getCharges() returns int
+//     return GetItemCharges(this)
+public function item.addChargesPro(int charges)
+    let i =GetItemCharges(this)
+    if(i+charges>0)
+        SetItemCharges(this, i+charges)
+    else
+        this.remove()
+public function item.setChargesPro(int charges)
+    if(charges>0)
+        SetItemCharges(this, charges)
+    else
+        this.remove()

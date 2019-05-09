@@ -1,0 +1,20 @@
+package ItemManager
+
+public class ItemManager
+    static function r2i(int i) returns int
+        int itemId
+        let x256 = i div 36
+        let x1   = i mod 36
+        if x1 < 10
+            itemId = 'IR00' + x256 * 256 + x1
+        else
+            itemId = 'IR00' + x256 * 256 + x1 + 7
+        return itemId
+    static function i2r(int itemId) returns int
+        let offset = itemId - 'IR00'
+        int x1 = offset mod 256
+        int x256 = (offset div 256 ) mod 256
+        if x1 > 10
+            x1 -= 7
+        int id = x256 * 36 + x1
+        return id

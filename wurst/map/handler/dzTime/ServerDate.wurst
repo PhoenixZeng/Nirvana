@@ -1,0 +1,177 @@
+package ServerDate
+import base
+import DzSave
+
+public int DAY  = 0
+public int HOUR = 0
+public int MIN  = 0
+public int MON  = 0
+public int SEC  = 0
+public int WEEK = 0
+public int YEAR = 0
+
+
+
+int NS = 31536000
+int LS = 31622400	
+
+int BJTIME = 28800
+int BASE2015_SEC = 1451606400
+int BASE2015_WEEKDAY = 4
+
+int array NORMALMON = [0,31,28,31,30,31,30,31,31,30,31,30,31]
+
+int serverTime = 0
+int serverStartTime = 0
+
+public string array WEEKSTR = ["日","一","二","三","四","五","六"]
+public int array attendance = [0,0,0,0,0,0]
+
+public function dateToString() returns  string
+    return YEAR+"/"+MON+"/"+DAY+" "+HOUR+":"+MIN+":"+SEC
+
+public function getGamePassTime() returns string
+    int dTime = serverTime - serverStartTime
+    int dHOUR  = dTime div 3600
+    int dMIN   = dTime div 60 mod 60
+    int dSEC   = dTime mod 3600 mod 60
+    return "游戏时间为" + I2S(dHOUR)+"时"+ I2S(dMIN)+"分"+ I2S(dSEC)+"秒  "
+
+function mathMod ( int dividend, int divisor ) returns int
+    int modulus = dividend - (dividend div divisor) * divisor
+    if (modulus < 0) 
+        modulus = modulus + divisor
+    return modulus
+function mathMod ( real dividends, real divisors )returns int
+    int dividend = dividends.toInt()
+    int divisor = divisors.toInt()
+    int modulus = dividend - (dividend div divisor) * divisor
+    if (modulus < 0) 
+        modulus = modulus + divisor
+    return modulus
+
+
+function isLeapYear ( int y ) returns bool
+    if mathMod(y,4) == 0 
+        if mathMod(y,100) == 0 
+            return mathMod(y,400) == 0 
+        return true
+    return false
+
+function time_UpdateDate ( int y, int remainSec, int dayBy2015s )
+    int dayBy2015 = dayBy2015s
+    bool bIsLeap = isLeapYear(y)
+    real dayNum = remainSec / (24*60*60.)
+    int totalDay = dayNum.toInt() + 1
+    int curMonDay
+    int m = 1
+
+    // if (dayNum - I2R(totalDay)) > 0 
+    //     totalDay = totalDay + 1
+    // if totalDay == 0
+    //     totalDay++
+
+    dayBy2015 = dayBy2015 + totalDay
+    
+    while m <= 12
+        if bIsLeap and m == 2  
+            curMonDay = NORMALMON[m] + 1
+        else
+            curMonDay = NORMALMON[m]
+        if totalDay <= curMonDay 
+            YEAR = y
+            MON = m
+            DAY = totalDay
+            HOUR = remainSec div (60*60) mod 24
+            MIN = remainSec div 60 mod 60 
+            SEC = remainSec mod 60
+            break
+        m = m + 1
+        totalDay = totalDay - curMonDay
+    WEEK = ( dayBy2015 mod 7 + BASE2015_WEEKDAY) mod 7 
+
+function getDate ( int now )
+    int remain = now - BASE2015_SEC + BJTIME// 默认东八区
+    int y = 2016
+    int baseRemain
+    int dayBy2015 = 0
+    int baseDayBy2015
+    
+    while  y <= 3000
+        baseRemain = remain
+        baseDayBy2015 = dayBy2015
+        if isLeapYear(y) 
+            remain = remain - LS
+            dayBy2015 = dayBy2015 + 366
+        else
+            remain = remain - NS
+            dayBy2015 = dayBy2015 + 365
+        if remain < 0 
+            time_UpdateDate(y, baseRemain, baseDayBy2015)
+            break
+        y = y + 1
+
+function updateTimeAllTimer () 
+    serverTime = serverTime + 1
+    getDate(serverTime)
+
+public function initServerDate( int time )
+    serverTime = time
+    if serverTime == 0 
+        serverTime = DzAPI_Map_GetGameStartTime()
+    serverStartTime = serverTime
+    getDate(serverTime)
+    BJDebugMsg( "现在时间为" + I2S(YEAR) + "年" + I2S(MON)+"月"+ I2S(DAY)+"日"+ I2S(HOUR)+"时"+ I2S(MIN)+"分"+ I2S(SEC)+"秒  "+"星期" + WEEKSTR[WEEK]  )
+    timer t = CreateTimer()
+    TimerStart( t, 1, true, function updateTimeAllTimer )
+
+public function initServerDate()
+    initServerDate(DzAPI_Map_GetGameStartTime())
+
+//是否在活动时间内-每天的特定时间范围
+public function dateRangeInDay (int startDate, int lastDate ) returns bool
+    int curDateHHMM = HOUR*100 + MIN 
+    //每日的指定时间
+    return ( startDate <= curDateHHMM and lastDate >= curDateHHMM ) 
+
+//是否在活动时间内-每周特定日期的特定时间范围
+public function dateRangeInWeek ( int week, int startDate, int lastDate ) returns bool
+    int curDateHHMM = HOUR*100 + MIN 
+    //星期x的指定时间，例如星期日的早上8点到中午12点
+    return ( week == WEEK and startDate <= curDateHHMM and lastDate >= curDateHHMM )
+
+//有效期，指超长时间活动，以天数结尾
+public function expireDate ( int startDate, int lastDate ) returns bool
+    int curDate = YEAR*10000 + MON*100 + DAY //20181231
+    //特定星期的指定时间，例如星期日
+    return  ( startDate <= curDate and lastDate >= curDate )
+
+function setAttendanceData ( int value, player curPlayer )
+    attendance[curPlayer.getId()] = value
+
+function getAttendanceData ( player curPlayer ) returns int
+    return attendance[curPlayer.getId()]
+
+//每日签到 每月清零
+//返回非0为成功
+public function dailyAttendance ( player curPlayer ) returns int
+    int oldCode = getAttendanceData(curPlayer)
+    int attendanceDay = mathMod(oldCode / 1000, 100) //已签到日期
+    int attendanceMon = (oldCode / 100000).toInt() //已签到月份
+    int attendanceCount = mathMod(oldCode , 100) //已签到次数
+    int curDay = DAY //当前日期
+    int curMon = MON //当前月份
+    
+    // 如果月份不一致，重置签到记录
+    if (attendanceMon != curMon) 
+        attendanceCount = 0
+
+    //如果签到天、月一致，跳过
+    if (attendanceMon == curMon and attendanceDay == curDay) 
+        return 0
+
+    //计算签到次数，一个月最多签到30/31次，避免作弊或者错误
+    attendanceCount = IMinBJ(attendanceCount + 1, NORMALMON[MON])
+    //生成新的签到记录
+    setAttendanceData(curMon*100000 + curDay*1000 + attendanceCount, curPlayer)
+    return attendanceCount

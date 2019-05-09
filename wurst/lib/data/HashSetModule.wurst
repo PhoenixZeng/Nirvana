@@ -1,0 +1,20 @@
+package HashSetModule
+import HashSet
+
+public module HashSetModule<T>
+    HashSet<T> sets
+    construct()
+        sets = new HashSet<T>()
+
+    function addToSet(T t)
+        sets.add(t)
+    
+    function hasInSet(T t)
+        sets.has(t)
+
+    function removeFromSet(T t)
+        sets.remove(t)
+
+    ondestroy
+        sets.clear()
+        destroy sets

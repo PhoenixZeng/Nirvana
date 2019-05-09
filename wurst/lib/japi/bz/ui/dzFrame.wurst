@@ -1,0 +1,425 @@
+package dzFrame
+import BlizzardAPI
+import LinkedListModule
+import base
+import HashMap
+
+public class SimpleFrame
+    use LinkedListModule
+    static SimpleFrame gameBaseUI = new SimpleFrame(DzGetGameUI())
+    SimpleFrame parent
+    string name
+    int frame
+    construct(int i)
+        this.name= "noknown"
+        this.parent=gameBaseUI
+        this.frame=i
+    construct(string name)
+        this.name=name
+        this.parent=gameBaseUI
+        this.frame=DzCreateFrame(name,gameBaseUI.frame,0)
+    construct(int i,string name)
+        this.frame = i
+        this.name = name
+    construct(string name)
+        this.name=name
+        this.parent=gameBaseUI
+        this.frame=DzCreateSimpleFrame(name,parent.frame,0)
+    construct(string name,SimpleFrame parent)
+        this.name=name
+        this.parent=parent
+        this.frame=DzCreateSimpleFrame(name,parent.frame,0)
+    //查找String
+    static function fontStringFindByName(string name) returns thistype
+        for i in SimpleFrame
+            if (i.name == name)
+                return i  
+        var i0 = DzSimpleFontStringFindByName(  name,  0)
+        Log.debug("fontString-findByName:->"+name)
+        return new SimpleFrame(i0)
+    //查找Texture
+    static function textureFindByName(string name) returns thistype
+        for i in SimpleFrame
+            if (i.name == name)
+                return i
+        var i0 = DzSimpleTextureFindByName(  name,  0)
+        Log.debug("texture-findByName:->"+name)
+        return new SimpleFrame(i0)
+    //查找frame
+    static function findByName( string name) returns thistype
+        for i in SimpleFrame
+            if (i.name == name)
+                return i
+        var i0 = DzSimpleFrameFindByName(  name,  0)
+        Log.debug("findByName:->"+name)
+        return new SimpleFrame(i0)
+
+interface FrameCallBack
+    function do(Frame f)
+
+public class Frame
+    use LinkedListModule
+    static let map = new HashMap<int,thistype>
+    static Frame gameBaseUI = new Frame(DzGetGameUI(),"gameBaseUI")
+    static hashtable dataTable = InitHashtable()
+    string name
+    int frame
+    construct(int i)
+        this.name= ""
+        this.frame=i
+        map.put(frame, this)
+    construct(string name)
+        this.name=name
+        this.frame=DzCreateFrame(name,gameBaseUI.frame,0)
+        map.put(frame, this)
+    construct(int i,string name)
+        this.frame = i
+        this.name = name
+        map.put(frame, this)
+    construct(string name,Frame parent)
+        this.name=name
+        this.frame=DzCreateFrame(name,parent.frame,0)
+        map.put(frame, this)
+    //根据tag创建frame
+    construct(string frameType, string name)
+        this.name=name
+        this.frame=DzCreateFrameByTagName(frameType, name, gameBaseUI.frame,"template",0)
+        map.put(frame, this)
+    construct(string frameType, string name, string template)
+        this.name=name
+        this.frame=DzCreateFrameByTagName(frameType, name, gameBaseUI.frame,template,0)
+        map.put(frame, this)
+    construct(string frameType, string name, Frame parent, string template)
+        this.name=name
+        this.frame=DzCreateFrameByTagName(frameType, name, parent.frame,template,0)
+        map.put(frame, this)
+
+    function setData(string key,int value)
+        dataTable.saveInt(this.frame, key.getHash(), value)
+    function setData(string key,real value)
+        dataTable.saveReal(this.frame, key.getHash(), value)
+    function setData(string key,string value)
+        dataTable.saveString(this.frame, key.getHash(), value)
+    function setData(string key,bool value)
+        dataTable.saveBoolean(this.frame, key.getHash(), value)
+    function setHandleId(string key,handle value)
+        dataTable.saveInt(this.frame, key.getHash(), GetHandleId(value))
+
+    function getData(string key)returns int
+        return dataTable.loadInt(this.frame, key.getHash())
+    function getDataReal(string key)returns real
+        return dataTable.loadReal(this.frame, key.getHash())
+    function getDataBool(string key)returns bool
+        return dataTable.loadBoolean(this.frame, key.getHash())
+    function getDataString(string key)returns string
+        return dataTable.loadString(this.frame, key.getHash())
+    function getHandleId(string key)returns int
+        return dataTable.loadInt(this.frame, key.getHash())
+
+
+    function toString()returns string
+        return name + " "+ frame
+    //设置frame隐藏/显示
+    function show(bool enable)
+        DzFrameShow( frame, enable)
+    function showA(bool enable)
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzFrameShow( frame, enable)
+    //设置frame相对位置
+    function setPoint(int point, Frame relativeFrame, int relativePoint, real x, real y)
+        DzFrameSetPoint(frame, point, relativeFrame.frame, relativePoint, x, y)
+    function setPointA(int point, Frame relativeFrame, int relativePoint, real x, real y)
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzFrameSetPoint(frame, point, relativeFrame.frame, relativePoint, x, y)
+    //设置frame绝对位置
+    function setAbsolutePoint(int point, real x, real y)
+        DzFrameSetAbsolutePoint( frame,  point,  x,  y)
+    function setAbsolutePointA(int point, real x, real y)
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzFrameSetAbsolutePoint( frame,  point,  x,  y)
+    //清空frame锚点
+    function clearAllPoints()
+        DzFrameClearAllPoints(frame)
+    //设置frame禁用/启用
+    function setEnable( bool enable)
+        DzFrameSetEnable(frame,enable)
+    //注册UI事件回调
+    function addEvent(int eventId, string func, bool sync)
+        DzFrameSetScript( frame,  eventId,  func,  sync)
+    function addEvent(int eventId, bool sync, code func)
+        DzFrameSetScriptByCode( frame,  eventId,  func,  sync)
+    //注册UI事件回调-异步
+    function addEvent(int eventId, string func)
+        DzFrameSetScript( frame,  eventId,  func,  false)
+    function addEvent(int eventId, code func)
+        DzFrameSetScriptByCode( frame,  eventId,  func,  false)
+    //点击frame
+    function click()
+        DzClickFrame( frame)
+    function clickA()
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzClickFrame( frame)
+    //设置文字（支持EditBox, TextFrame, TextArea, SimpleFontString、GlueEditBoxWar3、SlashChatBox、TimerTextFrame、TextButtonFrame、GlueTextButton）
+    function setText(string text)
+        DzFrameSetText(  frame,  text)
+    function setTextA(string text)
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzFrameSetText(  frame,  text)
+    //获取文字（支持EditBox, TextFrame, TextArea, SimpleFontString）
+    function getText()
+        DzFrameGetText( frame)
+    //设置字数限制（支持EditBox）
+    function setTextSizeLimit(int size)
+        DzFrameSetTextSizeLimit( frame,size)
+    function setTextSizeLimitA(int size)
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            DzFrameSetTextSizeLimit( frame,size)
+    //设置字数限制（支持EditBox）
+    function getTextSizeLimit()returns integer
+        return DzFrameGetTextSizeLimit( frame)
+    //设置文字颜色（支持TextFrame, EditBox）
+    function setTextColor(int color)
+        DzFrameSetTextColor( frame,color)
+    //设置所有锚点到目标frame上
+    function setAllPoints( Frame relativeFrame)returns bool
+        return DzFrameSetAllPoints( frame,relativeFrame.frame)
+    //设置焦点
+    function setFocus(bool enable)returns bool
+        return DzFrameSetFocus(  frame,  enable)
+    function setFocusA(bool enable)returns bool
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            return DzFrameSetFocus(  frame,  enable)
+        return false
+    //设置模型（支持Sprite、Model、StatusBar）
+    function setModel( string modelFile, int modelType, int flag)
+        DzFrameSetModel( frame,modelFile,modelType,flag)
+    
+    //获取控件是否启用
+    function getEnable()  returns bool
+        return DzFrameGetEnable( frame)
+
+    //设置透明度（0-255）
+    function setAlpha( int alpha)
+        DzFrameSetAlpha(  frame,  alpha)
+
+    //获取透明度
+    function getAlpha() returns int
+        return DzFrameGetAlpha(  frame)
+
+    //设置动画
+    function setAnimate( int animId, bool autocast) 
+        DzFrameSetAnimate(  frame,  animId,  autocast)
+
+    //设置动画进度（autocast为false是可用）
+    function setAnimateOffset( real offset) 
+        DzFrameSetAnimateOffset(  frame,  offset)
+
+    //设置texture（支持Backdrop、SimpleStatusBar） 是否平铺
+    function setTexture( string texture, int flag) 
+        DzFrameSetTexture(  frame,  texture,  flag)
+
+    //设置缩放
+    function setScale( real scale) 
+        DzFrameSetScale(  frame,  scale)
+
+    //设置tooltip
+    function setTooltip( int tooltip) 
+        DzFrameSetTooltip(  frame,  tooltip)
+
+    //鼠标限制在ui内
+    function cageMouse( bool enable) 
+        DzFrameCageMouse(  frame,  enable)
+
+    //获取当前值（支持Slider、SimpleStatusBar、StatusBar）
+    function getValue() returns real
+        return DzFrameGetValue( frame)
+
+    //设置最大最小值（支持Slider、SimpleStatusBar、StatusBar）
+    function setMinMaxValue( real minValue, real maxValue) 
+        DzFrameSetMinMaxValue( frame,  minValue, maxValue)
+
+    //设置Step值（支持Slider）
+    function setStepValue( real step1) 
+        DzFrameSetStepValue( frame, step1)
+
+    //设置当前值（支持Slider、SimpleStatusBar、StatusBar）
+    function setValue( real value) 
+        DzFrameSetValue( frame, value)
+
+    //设置frame大小
+    function setSize( real w, real h) 
+        DzFrameSetSize( frame, w, h)
+
+    //设置颜色（支持SimpleStatusBar）
+    function setVertexColor( int color) 
+        DzFrameSetVertexColor( frame, color)
+    /**
+    * find child By name
+    */
+    function findChild(string name)returns thistype
+        var i0 = DzFrameFindByName(  name,  0)
+        let finded = new Frame(i0)
+        return finded
+    //设置界面更新回调-异步
+    static function setUpdateCallback(string func)
+        DzFrameSetUpdateCallback(func)
+    /**
+    * return DzGetTriggerUIEventPlayer()
+    */
+    static function getEventPlayer()returns player
+        return DzGetTriggerUIEventPlayer()
+    /**
+    * find trigger frame
+    */
+    static function find()returns thistype
+        return find(DzGetTriggerUIEventFrame())
+    /**
+    * find By Mouse Focus
+    */
+    static function findByFocus()returns thistype
+        return find(DzGetMouseFocus())
+    static function findByFocusA()returns thistype
+        if (Frame.getEventPlayer() == GetLocalPlayer()) 
+            return find(DzGetMouseFocus())
+        return null
+    /**
+    * find By name
+    */
+    static function find( string name)returns thistype
+        for segment in Frame
+            if (segment.name == name)
+                Log.debug("findByName:->"+name+segment.toString())
+                return segment
+        var i0 = DzFrameFindByName(  name,  0)
+        Log.debug("findByName:->"+name+i0.toString())
+        return new Frame(i0)
+    /**
+    * find By Handle
+    */
+    static function find(int frame)returns thistype
+        let f = map.get(frame)
+        return f
+    static function onUpdate(code func)
+        DzFrameSetUpdateCallbackByCode(func)
+    function destr()
+        destroy this
+    ondestroy
+        DzDestroyFrame(frame)
+
+//DzFrameSetPoint achor定义，从0开始
+public class  AnchorPoint
+    static int TOPLEFT     = 0
+    static int TOP         = 1
+    static int TOPRIGHT    = 2
+    static int LEFT        = 3
+    static int CENTER      = 4
+    static int RIGHT       = 5
+    static int BOTTOMLEFT  = 6
+    static int BOTTOM      = 7
+    static int BOTTOMRIGHT = 8
+
+// //DzFrameSetScript  注册ui事件的事件ID
+public class  FrameEvents
+    static int NONE                        = 0
+    static int PRESSED                     = 1
+    static int MOUSE_ENTER                 = 2
+    static int MOUSE_LEAVE                 = 3
+    static int MOUSE_UP                    = 4
+    /**
+    * 目前无效
+    */
+    static int MOUSE_DOWN                  = 5
+    static int MOUSE_WHEEL                 = 6
+    static int FOCUS_ENTER                 = MOUSE_ENTER
+    static int FOCUS_LEAVE                 = MOUSE_LEAVE
+    static int CHECKBOX_CHECKED            = 7
+    static int CHECKBOX_UNCHECKED          = 8
+    static int EDITBOX_TEXT_CHANGED        = 9
+    static int POPUPMENU_ITEM_CHANGE_START = 10
+    static int POPUPMENU_ITEM_CHANGED      = 11
+    static int MOUSE_DOUBLECLICK           = 12
+    static int SPRITE_ANIM_UPDATE          = 13
+
+public class EX_DefaultFrame_DZ
+    
+    //头像
+    static function portrait ( )returns integer
+        return DzFrameGetPortrait()
+
+    //小地图
+    static function minimap ( )returns integer
+        return DzFrameGetMinimap()
+
+    //技能按钮
+    static function commandBarButton (integer row, integer column )returns integer
+        return DzFrameGetCommandBarButton(row,column)
+
+    //英雄按钮
+    static function heroBarButton (integer buttonId )returns integer
+        return DzFrameGetHeroBarButton(buttonId)
+
+    //英雄血条
+    static function heroHPBar (integer buttonId )returns integer
+        return DzFrameGetHeroHPBar(buttonId)
+
+    //英雄蓝条
+    static function heroManaBar (integer buttonId )returns integer
+        return DzFrameGetHeroManaBar(buttonId)
+
+    //道具按钮
+    static function itemBarButton (integer buttonId )returns integer
+        return DzFrameGetItemBarButton(buttonId)
+
+    //小地图按钮
+    static function minimapButton (integer buttonId )returns integer
+        return DzFrameGetMinimapButton(buttonId)
+
+    //左上菜单按钮
+    static function upperButtonBarButton (integer buttonId )returns integer
+        return DzFrameGetUpperButtonBarButton(buttonId)
+
+    //鼠标提示
+    static function tooltip ( )returns integer 
+        return DzFrameGetTooltip()
+
+    //聊天信息
+    static function chatMessage ( )returns integer 
+        return DzFrameGetChatMessage()
+
+    //unit message /必须以xx为目标 那个提示
+    static function unitMessage ( )returns integer 
+        return DzFrameGetUnitMessage()
+
+    //top message /高维修费用 那个提示
+    static function topMessage ( )returns integer 
+        return DzFrameGetTopMessage()
+
+public class BzFrameType
+    static let BACKDROP       = "BACKDROP"       //背景
+    static let HIGHLIGHT      = "HIGHLIGHT"      //突出
+    static let MODEL          = "MODEL"          //模型
+    static let CONTROL        = "CONTROL"        //控制
+    static let CHATDISPLAY    = "CHATDISPLAY"    //聊天显示
+    static let SPRITE         = "SPRITE"         //模型
+    static let DIALOG         = "DIALOG"         //对话
+    static let SLIDER         = "SLIDER"         //滑块
+    static let SCROLLBAR      = "SCROLLBAR"      //滚动条
+    static let TEXT           = "TEXT"           //文本
+    static let TEXTAREA       = "TEXTAREA"       //文本域
+    static let BUTTON         = "BUTTON"         //按钮
+    static let TEXTBUTTON     = "TEXTBUTTON"     //文本按钮(TEXT  + BUTTON )
+    static let GLUEBUTTON     = "GLUEBUTTON"     //固定按钮
+    static let GLUETEXTBUTTON = "GLUETEXTBUTTON" //固定文本按钮(继承TEXTBUTTON,内嵌TEXT)
+    static let FRAME          = "FRAME"          //框架
+    static let MENU           = "MENU"           //菜单
+    static let POPUPMENU      = "POPUPMENU"      //弹出菜单
+    static let GLUEPOPUPMENU  = "GLUEPOPUPMENU"  //固定弹出菜单
+    static let CHECKBOX       = "CHECKBOX"       //复选框
+    static let GLUECHECKBOX   = "GLUECHECKBOX"   //固定复选框
+    static let EDITBOX        = "EDITBOX"        //编辑框
+    static let GLUEEDITBOX    = "GLUEEDITBOX"    //固定编辑框
+    static let LISTBOX        = "LISTBOX"        //列表框
+    static let SIMPLEFRAME    = "SIMPLEFRAME"    //简单框架
+    static let SIMPLESTATUSBAR= "SIMPLESTATUSBAR"//简易工具栏
+    static let SIMPLECHECKBOX = "SIMPLECHECKBOX" //简单复选框
+    static let SIMPLEBUTTON   = "SIMPLEBUTTON"   //简单按钮

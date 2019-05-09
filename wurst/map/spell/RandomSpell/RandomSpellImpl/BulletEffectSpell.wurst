@@ -1,0 +1,188 @@
+package BulletEffectSpell
+import RandomSpell
+import HashMap
+import RandomSpellBasicManager
+import Missile
+import YDJapiOther
+import YDAbilityState
+
+public class NameBulletEffectPair
+    static let map = new HashMap<int,thistype>()
+    static int printer = 0
+    string name
+    string art
+    string path
+
+    construct(string name, string art, string path)
+        this.name = name
+        this.art = art
+        this.path = path
+        map.put(printer, this)
+        printer ++
+
+    static function get() returns thistype
+        return map.get(map.size().toReal().nextInt())
+    static function inite()
+        new NameBulletEffectPair("丛林之箭[主动](W)","blp\\BulletEffectSpell\\conglinzhijian.blp","war3mapImported\\AZ_Aiushtha_T.MDX")
+        new NameBulletEffectPair("森林法球[主动](W)","blp\\BulletEffectSpell\\senlinfaqiu.blp","war3mapImported\\AZ_Alleria_E1.mdx")
+        new NameBulletEffectPair("大火球术[主动](W)","blp\\BulletEffectSpell\\dahuoqiushu.blp","war3mapImported\\AZ_Kaer_D2.mdx")
+        new NameBulletEffectPair("闪电法球[主动](W)","blp\\BulletEffectSpell\\shandianfaqiu.blp","war3mapImported\\AZ_Storm_V1.mdx")
+        new NameBulletEffectPair("血腥之剑[主动](W)","blp\\BulletEffectSpell\\xuexingzhijian.blp","war3mapImported\\YYTC.MDX")
+        new NameBulletEffectPair("死神飞镖[主动](W)","blp\\BulletEffectSpell\\sishenfeibiao.blp","war3mapImported\\YYTC.mdx")
+        new NameBulletEffectPair("霜寒法球[主动](W)","blp\\BulletEffectSpell\\shuanghanfaqiu.blp","war3mapImported\\AZ_PotM(1)_R1_Misslie.mdx")
+        new NameBulletEffectPair("烈焰之矢[主动](W)","blp\\BulletEffectSpell\\lieyanzhishi.blp","war3mapImported\\AZ_Lina_F.MDX")
+        new NameBulletEffectPair("集束火箭[主动](W)","blp\\BulletEffectSpell\\jishuhuojian.blp","war3mapImported\\AZ_AurelVlaicu_E1.MDX")
+        new NameBulletEffectPair("紫电神箭[主动](W)","blp\\BulletEffectSpell\\zidianshenjian.blp","war3mapImported\\AZ_Lanaya_D_Ballistic.MDX")
+
+public class BulletEffectSpell extends RandomSpell
+    static let map = new HashMap<int,thistype>()
+    static bool isInit = false
+    static trigger t
+    string path
+    Prop prop
+    real power
+
+    real cd
+    int  count
+    real angle
+    real dist
+    real speed
+
+    construct()
+        super()
+
+    override function toString() returns string
+        return "NameBulletEffectPair&"+"art:"+art+"name:"+name+"tip:"+tip + " id:"+id.toIdString()
+
+    override function levelUp() returns bool
+        if lv < 10
+            lv ++
+            power *= 1.2
+            makeTip()
+            flushSpell()
+            return true
+        return false
+
+    static function getAngle(int count) returns real
+        if count <= 5
+            return 30 / count
+        else
+            return 6
+    function makeTip()
+        tip = "向前发射多发弹幕攻击|n品级:"+getLevelName(level)+"|n弹幕数:"+count+"|n弹幕角度:"+angle.toString(2)+"|n威力系数:"+power.toString(2)+"|n关联属性:"+prop.toString()+"|n弹幕距离:"+dist.toString(2)
+
+    override function initSpell()
+        if not isInit
+            isInit = true
+            t = CreateTrigger()
+            ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+            ..addAction() ->
+                let id = GetSpellAbilityId()
+                if BulletEffectSpell.map.has(id) and GetSpellAbilityUnit().isHero()
+                    let s = BulletEffectSpell.map.get(id)
+                    let h = Hero.getHero(GetSpellAbilityUnit())
+                    if h != null
+                        unit u = GetSpellAbilityUnit()
+                        var v = getSpellTargetPos()
+                        var t = GetSpellTargetUnit()
+                        if t != null //如果为单位目标技能 点->单位点
+                            v = t.getPos()
+                        else //如果为点技能 单位-> 施法单位
+                            t = u
+                        if v == vec2(0,0) //如果单位为空 点又没值 那么施法者为自身
+                            t = u
+                            v = u.getPos()
+                        s.onCast(h, targets(v, t))
+        this.level = getLevel()
+        randomData()
+        makeTip()
+            
+    ondestroy
+        map.remove(id)
+
+    override function randomData()
+        let pair = NameBulletEffectPair.get()
+        this.name = pair.name
+        this.art  = pair.art
+        this.path = pair.path
+
+        this.dist  = 1500
+        this.speed = 900
+
+        this.prop = (10 .nextInt()) castTo Prop
+        switch prop
+            case Prop.ALL
+                this.power = 0.3 * 1.3 .pow(level - 1.)
+            case Prop.STR
+                this.power = 0.6 * 1.3 .pow(level - 1.)
+            case Prop.AGI
+                this.power = 0.6 * 1.3 .pow(level - 1.)
+            case Prop.INT
+                this.power = 0.6 * 1.3 .pow(level - 1.)
+            default
+                this.power = 0.5 * 1.3 .pow(level - 1.)
+        this.power.float(0.2)
+        this.cd = 10 .float(0.2)
+        let s = ((6 .next() + 1) * 1.2 .pow(level - 1.)).toInt() + 1
+        this.count = s / 2 == (s div 2).toReal() ? s + 1 : s
+        this.angle = getAngle(count)
+
+    override function onReRandom()
+        lv = 1
+        this.level = getLevel()
+        randomData()
+        makeTip()
+        flushSpell()
+
+    override function onApply(Hero u)
+        if id == 0
+            id = RandomActivePositionSpellBasicManager.get()
+        this.u = u
+        u._self.addAbilityPro(id)
+        u._self.exAbilData(EX_ABIL_YD.COOL, id, 1,cd)
+        flushSpell()
+        map.put(id, this)
+    override function onRemove()
+        u._self.removeAbility(id)
+        map.remove(id)
+
+    function onCast(Hero u,targets tg)
+        var ang = u._self.getPos().angleTo(tg.p).degrees()
+        let mid = count div 2
+        for i = 0 to count - 1
+            let ang1 = ang + (i - mid) * this.angle
+            let me = new Fx(u._self.getPos().withZ(100),ang1 .fromDeg(),path)
+            me.getDummy().exFacing(ang1)
+            new BulletEffectSpellCast(u,me,this,speed,ang1.fromDeg())
+
+
+class BulletEffectSpellCast extends Missile
+    Hero h
+    BulletEffectSpell spell
+    construct(Hero h,Fx me,BulletEffectSpell spell,real speed,angle face)
+        super(me, h._self.getPos().polarOffset(face, spell.dist).withTerrainZ(100) , spell.dist / speed)
+        this.h = h
+        this.spell = spell
+        range = 100
+        mover_setDist(spell.dist)
+        mover_start()
+    override function onStart()
+    override function onTick()
+    override function isHit(unit u) returns bool
+        return enemyFilter(h._self, u)
+    override function onHit(unit us)
+        let u = h._self
+        var val = u.getPropVal(spell.prop) * spell.power
+        h._self.damageSpell(us, val)
+
+@test function aa()
+    NameBulletEffectPair.inite()
+    for i = 1 to 10
+        let a = new BulletEffectSpell()
+        a.initSpell()
+        if a != null
+            print("id:"+a.id.toIdString())
+            print("name:"+a.name)
+            print("art:"+a.art)
+            print("path:"+a.path)
+            print("tip:"+a.tip)

@@ -1,0 +1,105 @@
+package YDJapiOther
+import YDWEJapiOther
+import JapiNative
+import base
+import YDWEAbilityState
+
+public function exLuaCode(string cod) returns string
+    return EXExecuteScript(cod)
+
+public function unit.exTransform ( int targetid ) 
+    YDWEUnitTransform(this,'AEme',targetid)
+
+public function unit.exCollisionType(bool flag,int collisionType)
+    EXSetUnitCollisionType(flag,this, collisionType)
+public function unit.exMoveType(int moveType)
+    EXSetUnitMoveType(this, moveType)
+public function unit.exFacing(real angle)
+    EXSetUnitFacing(this, angle)
+public function unit.exPause(bool flag)
+    EXPauseUnit(this, flag)
+public function unit.exMainProp() returns string
+    if this.isType(UNIT_TYPE_HERO)
+        return EXExecuteScript("(require 'jass.slk').unit['"+this.getTypeId().toIdString()+"'].Primary")
+    return null
+
+public function exIsEventPhysicalDamage ()  returns boolean
+    return YDWEIsEventPhysicalDamage()
+
+public function exIsEventAttackDamage ()  returns boolean
+    return YDWEIsEventAttackDamage()
+
+public function exIsEventRangedDamage ()   returns boolean
+    return YDWEIsEventRangedDamage()
+
+public function exIsEventDamageType (damagetype damageType ) returns boolean
+    return YDWEIsEventDamageType(damageType)
+
+public function exIsEventWeaponType (weapontype weaponType ) returns boolean
+    return YDWEIsEventWeaponType(weaponType)
+
+public function exIsEventAttackType (attacktype attackType ) returns boolean
+    return YDWEIsEventAttackType(attackType)
+
+public function exSetEventDamage (real amount ) returns boolean
+    return EXSetEventDamage(amount)
+
+public function exBlendButtonIcon(string origin,string plus,string blend) returns bool
+    return EXBlendButtonIcon(origin,plus,blend)
+
+
+public class EX_UnitState
+    static unitstate hp       = ConvertUnitState(0)    //"生命值"
+    static unitstate maxHp    = ConvertUnitState(1)    //"最大生命值"
+    static unitstate mp       = ConvertUnitState(2)    //"魔法值"
+    static unitstate maxMp    = ConvertUnitState(3)    //"最大魔法值"
+    static unitstate atkDice  = ConvertUnitState(0x10) //"骰子数量 [JAPI]"
+    static unitstate atkSide  = ConvertUnitState(0x11) //"骰子面数 [JAPI]"
+    static unitstate atkBase  = ConvertUnitState(0x12) //"基础伤害 [JAPI]"
+    static unitstate atkBonus = ConvertUnitState(0x13) //"附加伤害 [JAPI]"
+    static unitstate atkMin   = ConvertUnitState(0x14) //"攻击最小值 [JAPI]"
+    static unitstate atkMax   = ConvertUnitState(0x15) //"攻击最大值 [JAPI]"
+    static unitstate atkRange = ConvertUnitState(0x16) //"攻击范围 [JAPI]"
+    static unitstate atkCool  = ConvertUnitState(0x25) //"攻击间隔 [JAPI]"
+    static unitstate atkSpeed = ConvertUnitState(0x51) //"攻击速度 [JAPI]"
+    static unitstate armor    = ConvertUnitState(0x20) //"护甲 [JAPI]"
+
+public class  EX_MoveType
+    static int NONE     =0x00 //"没有"
+    static int NO       =0x01 //"无法移动"
+    static int FOOT     =0x02 //"步行"WESTRING_UE_MOVETYPE_FOOT
+    static int FLY      =0x04 //"飞行"WESTRING_UE_MOVETYPE_FLY
+    static int MINE     =0x08 //"地雷"
+    static int WINDWALK =0x10 //"疾风步"
+    static int UNKNOWN  =0x20 //"未知"
+    static int FLOAT    =0x40 //"漂浮"WESTRING_UE_MOVETYPE_FLOAT
+    static int AMPH     =0x80 //"两栖"WESTRING_UE_MOVETYPE_AMPH
+
+public class EX_CollisionType
+    static int UNIT  = 1 //"单位"
+    static int BUILD = 3 //"建筑"
+    
+public class EX_DAMAGE
+    static constant integer VAILD       = 0
+    static constant integer IS_PHYSICAL = 1
+    static constant integer IS_ATTACK   = 2
+    static constant integer IS_RANGED   = 3
+    static constant integer DAMAGE_TYPE = 4
+    static constant integer WEAPON_TYPE = 5
+    static constant integer ATTACK_TYPE = 6
+
+public class EX_CHAT_RECIPIENT
+    static constant int ALL       = 0 // [所有人]
+    static constant int ALLIES    = 1 // [盟友]
+    static constant int OBSERVERS = 2 // [观看者]
+    static constant int REFEREES  = 2 // [裁判]
+    static constant int PRIVATE   = 3 // [私人的]
+
+public class EX_OBJECT_TYPE
+    static constant int YDWE_OBJECT_TYPE_ABILITY      = 0
+    static constant int YDWE_OBJECT_TYPE_BUFF         = 1
+    static constant int YDWE_OBJECT_TYPE_UNIT         = 2
+    static constant int YDWE_OBJECT_TYPE_ITEM         = 3
+    static constant int YDWE_OBJECT_TYPE_UPGRADE      = 4
+    static constant int YDWE_OBJECT_TYPE_DOODAD       = 5
+    static constant int YDWE_OBJECT_TYPE_DESTRUCTABLE = 6

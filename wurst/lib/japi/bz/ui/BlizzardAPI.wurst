@@ -1,0 +1,349 @@
+package BlizzardAPI
+//hardware
+
+//获取鼠标在游戏内的坐标X
+@ifNotDefined public native DzGetMouseTerrainX ( ) returns real
+
+//获取鼠标在游戏内的坐标Y
+@ifNotDefined public native DzGetMouseTerrainY ( ) returns real
+
+//获取鼠标在游戏内的坐标Z
+@ifNotDefined public native DzGetMouseTerrainZ ( ) returns real
+
+//鼠标是否在游戏内
+@ifNotDefined public native DzIsMouseOverUI ( ) returns boolean
+
+//获取鼠标屏幕坐标X
+@ifNotDefined public native DzGetMouseX ( ) returns integer
+
+//获取鼠标屏幕坐标Y
+@ifNotDefined public native DzGetMouseY ( ) returns integer
+
+//获取鼠标游戏窗口坐标X
+@ifNotDefined public native DzGetMouseXRelative ( ) returns integer
+
+//获取鼠标游戏窗口坐标Y
+@ifNotDefined public native DzGetMouseYRelative ( ) returns integer
+
+//设置鼠标位置
+@ifNotDefined public native DzSetMousePos ( integer x, integer y ) 
+
+//注册鼠标点击触发（sync为true时，调用TriggerExecute。为false时，直接运行action函数，可以异步不掉线，action里不要有同步操作）
+@ifNotDefined public native DzTriggerRegisterMouseEvent ( trigger trig, integer btn, integer status, boolean sync, string func ) 
+@ifNotDefined public native DzTriggerRegisterMouseEventByCode ( trigger trig, integer btn, integer status, boolean sync, code funcHandle ) 
+
+//注册键盘点击触发
+@ifNotDefined public native DzTriggerRegisterKeyEvent ( trigger trig, integer key, integer status, boolean sync, string func ) 
+@ifNotDefined public native DzTriggerRegisterKeyEventByCode ( trigger trig, integer key, integer status, boolean sync, code funcHandle ) 
+
+//注册鼠标滚轮触发
+@ifNotDefined public native DzTriggerRegisterMouseWheelEvent ( trigger trig, boolean sync, string func ) 
+@ifNotDefined public native DzTriggerRegisterMouseWheelEventByCode ( trigger trig, boolean sync, code funcHandle ) 
+
+//注册鼠标移动触发
+@ifNotDefined public native DzTriggerRegisterMouseMoveEvent ( trigger trig, boolean sync, string func ) 
+@ifNotDefined public native DzTriggerRegisterMouseMoveEventByCode ( trigger trig, boolean sync, code funcHandle ) 
+
+//获取触发器的按键码
+@ifNotDefined public native DzGetTriggerKey ( ) returns integer
+
+//获取滚轮delta
+@ifNotDefined public native DzGetWheelDelta ( ) returns integer
+
+//判断按键是否按下
+@ifNotDefined public native DzIsKeyDown ( integer iKey ) returns boolean
+
+//获取触发key的玩家
+@ifNotDefined public native DzGetTriggerKeyPlayer ( ) returns player
+
+//获取war3窗口宽度
+@ifNotDefined public native DzGetWindowWidth ( ) returns integer
+
+//获取war3窗口高度
+@ifNotDefined public native DzGetWindowHeight ( ) returns integer
+
+//获取war3窗口X坐标
+@ifNotDefined public native DzGetWindowX ( ) returns integer
+
+//获取war3窗口Y坐标
+@ifNotDefined public native DzGetWindowY ( ) returns integer
+
+//注册war3窗口大小变化事件
+@ifNotDefined public native DzTriggerRegisterWindowResizeEvent ( trigger trig, boolean sync, string func ) 
+@ifNotDefined public native DzTriggerRegisterWindowResizeEventByCode ( trigger trig, boolean sync, code funcHandle ) 
+
+//判断窗口是否激活
+@ifNotDefined public native DzIsWindowActive ( ) returns boolean
+
+//plus
+
+//设置可摧毁物位置
+@ifNotDefined public native DzDestructablePosition ( destructable d, real x, real y ) 
+
+//设置单位位置-本地调用
+@ifNotDefined public native DzSetUnitPosition ( unit whichUnit, real x, real y ) 
+
+//异步执行函数
+@ifNotDefined public native DzExecuteFunc ( string funcName ) 
+
+//取鼠标指向的unit
+@ifNotDefined public native DzGetUnitUnderMouse ( ) returns unit
+
+//设置unit的贴图
+@ifNotDefined public native DzSetUnitTexture ( unit whichUnit, string path, integer texId ) 
+
+//设置内存数值
+@ifNotDefined public native DzSetMemory ( integer address, real value ) 
+
+//设置单位ID
+@ifNotDefined public native DzSetUnitID ( unit whichUnit, integer id ) 
+
+//设置单位模型
+@ifNotDefined public native DzSetUnitModel ( unit whichUnit, string path ) 
+
+//设置小地图背景图片
+@ifNotDefined public native DzSetWar3MapMap ( string map ) 
+
+//sync
+
+//注册数据同步trigger
+@ifNotDefined public native DzTriggerRegisterSyncData ( trigger trig, string prefix, boolean server ) 
+
+//同步游戏数据
+@ifNotDefined public native DzSyncData ( string prefix, string data ) 
+
+//获取同步的数据
+@ifNotDefined public native DzGetTriggerSyncData ( ) returns string
+
+//获取同步数据的玩家
+@ifNotDefined public native DzGetTriggerSyncPlayer ( ) returns player
+
+//gui
+
+/////////////////////////////// 原生UI修改
+//隐藏界面元素
+@ifNotDefined public native DzFrameHideInterface ( ) 
+
+//修改游戏世界窗口位置
+@ifNotDefined public native DzFrameEditBlackBorders ( real upperHeight, real bottomHeight ) 
+
+//头像
+@ifNotDefined public native DzFrameGetPortrait ( ) returns integer
+
+//小地图
+@ifNotDefined public native DzFrameGetMinimap ( ) returns integer
+
+//技能按钮
+@ifNotDefined public native DzFrameGetCommandBarButton ( integer row, integer column ) returns integer
+
+//英雄按钮
+@ifNotDefined public native DzFrameGetHeroBarButton ( integer buttonId ) returns integer
+
+//英雄血条
+@ifNotDefined public native DzFrameGetHeroHPBar ( integer buttonId ) returns integer
+
+//英雄蓝条
+@ifNotDefined public native DzFrameGetHeroManaBar ( integer buttonId ) returns integer
+
+//道具按钮
+@ifNotDefined public native DzFrameGetItemBarButton ( integer buttonId ) returns integer
+
+//小地图按钮
+@ifNotDefined public native DzFrameGetMinimapButton ( integer buttonId ) returns integer
+
+//左上菜单按钮
+@ifNotDefined public native DzFrameGetUpperButtonBarButton ( integer buttonId ) returns integer
+
+//鼠标提示
+@ifNotDefined public native DzFrameGetTooltip ( ) returns integer 
+
+//聊天信息
+@ifNotDefined public native DzFrameGetChatMessage ( ) returns integer 
+
+//unit message
+@ifNotDefined public native DzFrameGetUnitMessage ( ) returns integer 
+
+//top message
+@ifNotDefined public native DzFrameGetTopMessage ( ) returns integer 
+
+///////////////////////////////
+//取rgba色值
+@ifNotDefined public native DzGetColor ( integer r, integer g, integer b, integer a ) returns integer
+
+//设置界面更新回调（非同步）
+@ifNotDefined public native DzFrameSetUpdateCallback ( string func ) 
+@ifNotDefined public native DzFrameSetUpdateCallbackByCode ( code funcHandle ) 
+
+//显示/隐藏Frame
+@ifNotDefined public native DzFrameShow ( integer frame, boolean enable ) 
+
+//创建frame
+@ifNotDefined public native DzCreateFrame ( string frame, integer parent, integer id ) returns integer
+
+//创建SimpleFrame
+@ifNotDefined public native DzCreateSimpleFrame ( string frame, integer parent, integer id ) returns integer
+
+//销毁frame
+@ifNotDefined public native DzDestroyFrame ( integer frame ) 
+
+//加载toc
+@ifNotDefined public native DzLoadToc ( string fileName ) 
+
+//设置frame相对位置
+@ifNotDefined public native DzFrameSetPoint ( integer frame, integer point, integer relativeFrame, integer relativePoint, real x, real y ) 
+
+//设置frame绝对位置
+@ifNotDefined public native DzFrameSetAbsolutePoint ( integer frame, integer point, real x, real y ) 
+
+//清空frame锚点
+@ifNotDefined public native DzFrameClearAllPoints ( integer frame ) 
+
+//设置frame禁用/启用
+@ifNotDefined public native DzFrameSetEnable ( integer name, boolean enable ) 
+
+//注册UI事件回调
+@ifNotDefined public native DzFrameSetScript ( integer frame, integer eventId, string func, boolean sync ) 
+@ifNotDefined public native DzFrameSetScriptByCode ( integer frame, integer eventId, code funcHandle, boolean sync ) 
+
+//获取触发ui的玩家
+@ifNotDefined public native DzGetTriggerUIEventPlayer ( ) returns player
+
+//获取触发的Frame
+@ifNotDefined public native DzGetTriggerUIEventFrame ( ) returns integer
+
+//查找frame
+@ifNotDefined public native DzFrameFindByName ( string name, integer id ) returns integer
+
+//查找SimpleFrame
+@ifNotDefined public native DzSimpleFrameFindByName ( string name, integer id ) returns integer
+
+//查找String
+@ifNotDefined public native DzSimpleFontStringFindByName ( string name, integer id ) returns integer
+
+//查找Texture
+@ifNotDefined public native DzSimpleTextureFindByName ( string name, integer id ) returns integer
+
+//获取game ui
+@ifNotDefined public native DzGetGameUI ( ) returns integer
+
+//点击frame
+@ifNotDefined public native DzClickFrame ( integer frame ) 
+
+//自定义屏幕比例
+@ifNotDefined public native DzSetCustomFovFix ( real value ) 
+
+//使用宽屏模式
+@ifNotDefined public native DzEnableWideScreen ( boolean enable ) 
+
+//设置文字（支持EditBox, TextFrame, TextArea, SimpleFontString、GlueEditBoxWar3、SlashChatBox、TimerTextFrame、TextButtonFrame、GlueTextButton）
+@ifNotDefined public native DzFrameSetText ( integer frame, string text ) 
+
+//获取文字（支持EditBox, TextFrame, TextArea, SimpleFontString）
+@ifNotDefined public native DzFrameGetText ( integer frame ) returns string
+
+//设置字数限制（支持EditBox）
+@ifNotDefined public native DzFrameSetTextSizeLimit ( integer frame, integer size ) 
+
+//获取字数限制（支持EditBox）
+@ifNotDefined public native DzFrameGetTextSizeLimit ( integer frame ) returns integer
+
+//设置文字颜色（支持TextFrame, EditBox）
+@ifNotDefined public native DzFrameSetTextColor ( integer frame, integer color ) 
+
+//获取鼠标所在位置的ui控件指针
+@ifNotDefined public native DzGetMouseFocus ( ) returns integer
+
+//设置所有锚点到目标frame上
+@ifNotDefined public native DzFrameSetAllPoints ( integer frame, integer relativeFrame ) returns boolean
+
+//设置焦点
+@ifNotDefined public native DzFrameSetFocus ( integer frame, boolean enable ) returns boolean
+
+//设置模型（支持Sprite、Model、StatusBar）
+@ifNotDefined public native DzFrameSetModel ( integer frame, string modelFile, integer modelType, integer flag ) 
+
+//获取控件是否启用
+@ifNotDefined public native DzFrameGetEnable ( integer frame ) returns boolean
+
+//设置透明度（0-255）
+@ifNotDefined public native DzFrameSetAlpha ( integer frame, integer alpha ) 
+
+//获取透明度
+@ifNotDefined public native DzFrameGetAlpha ( integer frame ) returns integer
+
+//设置动画
+@ifNotDefined public native DzFrameSetAnimate ( integer frame, integer animId, boolean autocast ) 
+
+//设置动画进度（autocast为false是可用）
+@ifNotDefined public native DzFrameSetAnimateOffset ( integer frame, real offset ) 
+
+//设置texture（支持Backdrop、SimpleStatusBar）
+@ifNotDefined public native DzFrameSetTexture ( integer frame, string texture, integer flag ) 
+
+//设置缩放
+@ifNotDefined public native DzFrameSetScale ( integer frame, real scale ) 
+
+//设置tooltip
+@ifNotDefined public native DzFrameSetTooltip ( integer frame, integer tooltip ) 
+
+//鼠标限制在ui内
+@ifNotDefined public native DzFrameCageMouse ( integer frame, boolean enable ) 
+
+//获取当前值（支持Slider、SimpleStatusBar、StatusBar）
+@ifNotDefined public native DzFrameGetValue ( integer frame ) returns real
+
+//设置最大最小值（支持Slider、SimpleStatusBar、StatusBar）
+@ifNotDefined public native DzFrameSetMinMaxValue ( integer frame, real minValue, real maxValue ) 
+
+//设置Step值（支持Slider）
+@ifNotDefined public native DzFrameSetStepValue ( integer frame, real stepValue ) 
+
+//设置当前值（支持Slider、SimpleStatusBar、StatusBar）
+@ifNotDefined public native DzFrameSetValue ( integer frame, real value ) 
+
+//设置frame大小
+@ifNotDefined public native DzFrameSetSize ( integer frame, real w, real h ) 
+
+//根据tag创建frame
+@ifNotDefined public native DzCreateFrameByTagName ( string frameType, string name, integer parent, string template, integer id ) returns integer
+
+//设置颜色（支持SimpleStatusBar）
+@ifNotDefined public native DzFrameSetVertexColor ( integer frame, integer color ) 
+
+
+/*
+DzFrameSetPoint achor定义，从0开始
+enum class AnchorPoint
+{
+    TOPLEFT = 0,
+    TOP = 1,
+    TOPRIGHT = 2,
+    LEFT = 3,
+    CENTER = 4,
+    RIGHT = 5,
+    BOTTOMLEFT = 6,
+    BOTTOM = 7,
+    BOTTOMRIGHT = 8,
+};
+
+DzFrameSetScript  注册ui事件的事件ID
+enum class CFrameEvents
+{
+    NONE = 0,
+    FRAME_EVENT_PRESSED = 1,
+    FRAME_MOUSE_ENTER = 2,
+    FRAME_MOUSE_LEAVE = 3,
+    FRAME_MOUSE_UP = 4,
+    FRAME_MOUSE_DOWN = 5,
+    FRAME_MOUSE_WHEEL = 6,
+    FRAME_FOCUS_ENTER = FRAME_MOUSE_ENTER,
+    FRAME_FOCUS_LEAVE = FRAME_MOUSE_LEAVE,
+    FRAME_CHECKBOX_CHECKED = 7,
+    FRAME_CHECKBOX_UNCHECKED = 8,
+    FRAME_EDITBOX_TEXT_CHANGED = 9,
+    FRAME_POPUPMENU_ITEM_CHANGE_START = 10,
+    FRAME_POPUPMENU_ITEM_CHANGED = 11,
+    FRAME_MOUSE_DOUBLECLICK = 12,
+    FRAME_SPRITE_ANIM_UPDATE = 13,
+};
+ */

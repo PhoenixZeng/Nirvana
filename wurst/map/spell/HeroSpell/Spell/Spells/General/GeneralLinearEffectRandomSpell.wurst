@@ -1,0 +1,379 @@
+package GeneralLinearEffectRandomSpell
+
+import HeroRandomSpellEntity
+import Hero
+import ContinueCastTimer
+import CenterTimer
+import PathMoverRandomSpell
+import RangeEffectCaster
+
+
+/**
+*   延迟性线性路径技能 - 主动
+*/
+public class GeneralDelayedLinearEffectActiveRandomSpellEntity extends CastRandomSpellEntity implements DelayedLinearEffectEmitterInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    string linearEffectPath
+    real linearEffectScale
+    real linearEffectRange
+
+    int  emissionDelay
+    int  emissionCount
+
+    bool oneDamage
+
+    int  linearEffectStripCount
+    real linearEffectStripRight
+    real linearEffectStripInterval
+
+    real linearEffectDelay
+    real linearEffectPointCount
+    real linearEffectPointInterval
+    real dmgFactor
+    Prop prop
+
+    vec2 castOriginPos
+
+    function copyData()
+        let _meta = meta castTo GeneralDelayedLinearEffectActiveRandomSpellEntity
+        this.cool                       = _meta.cool
+        this.linearEffectPath           = _meta.linearEffectPath
+        this.linearEffectScale          = _meta.linearEffectScale
+        this.linearEffectRange          = _meta.linearEffectRange
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.oneDamage                  = _meta.oneDamage
+        this.linearEffectStripCount     = _meta.linearEffectStripCount
+        this.linearEffectStripRight     = _meta.linearEffectStripRight
+        this.linearEffectStripInterval  = _meta.linearEffectStripInterval
+        this.linearEffectDelay          = _meta.linearEffectDelay
+        this.linearEffectPointCount     = _meta.linearEffectPointCount
+        this.linearEffectPointInterval  = _meta.linearEffectPointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(string linearEffectPath,real linearEffectScale,real linearEffectRange,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,bool oneDamage,int linearEffectStripCount,real linearEffectStripRight,real linearEffectStripInterval,real linearEffectDelay,real linearEffectPointCount,real linearEffectPointInterval)
+        this.cool                       = cool
+        this.linearEffectPath           = linearEffectPath
+        this.linearEffectScale          = linearEffectScale
+        this.linearEffectRange          = linearEffectRange
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.oneDamage                  = oneDamage
+        this.linearEffectStripCount     = linearEffectStripCount
+        this.linearEffectStripRight     = linearEffectStripRight
+        this.linearEffectStripInterval  = linearEffectStripInterval
+        this.linearEffectDelay          = linearEffectDelay
+        this.linearEffectPointCount     = linearEffectPointCount
+        this.linearEffectPointInterval  = linearEffectPointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    override function onLinearEffectHit(DelayedLinearEffectWithInterface missile, unit u)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor
+        hero._self.damageSpell(u, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos,targets tar)
+        var face = (tar.p - pos).getAngle()
+        if tar.u == hero._self
+            face = hero._self.getFacingAngle()
+        let linearEffect = onLinearEffectEmission(hero._self,linearEffectPath,pos,face,hero.owner)
+        ..mover_setDelay(linearEffectDelay)
+        ..mover_setTime(linearEffectDelay*linearEffectPointCount)
+        ..mover_setSpeed(linearEffectPointInterval/linearEffectDelay, 0.)
+        ..setHitRange(linearEffectRange)
+        if linearEffectStripCount > 1
+            if oneDamage
+                setMoreLinearEffectOneDamage(linearEffect, linearEffectStripCount, linearEffectStripRight, linearEffectStripInterval)
+            else
+                setMoreLinearEffect(linearEffect, linearEffectStripCount, linearEffectStripRight, linearEffectStripInterval)
+        else
+            linearEffect.mover_start()
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(castOriginPos,t.tar)
+
+    override function onCast(targets tar)
+        castOriginPos = hero._self.getPos()
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            emission(castOriginPos,tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralDelayedLinearEffectActiveRandomSpellEntity()
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(3, 600, cool)
+
+/**
+*   延迟性线性路径技能 - 普攻被动
+*/
+public class GeneralDelayedLinearEffectPassiveRandomSpellEntity extends AttackRandomSpellEntity implements DelayedLinearEffectEmitterInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    int cool
+    string linearEffectPath
+    real linearEffectScale
+    real linearEffectRange
+
+    real castProb
+
+    int  emissionDelay
+    int  emissionCount
+
+    bool oneDamage
+
+    int  linearEffectStripCount
+    real linearEffectStripRight
+    real linearEffectStripInterval
+
+    real linearEffectDelay
+    real linearEffectPointCount
+    real linearEffectPointInterval
+    real dmgFactor
+    Prop prop
+
+    int castTime
+
+    vec2 castOriginPos
+
+    function copyData()
+        let _meta = meta castTo GeneralDelayedLinearEffectPassiveRandomSpellEntity
+        this.cool                       = _meta.cool
+        this.linearEffectPath           = _meta.linearEffectPath
+        this.linearEffectScale          = _meta.linearEffectScale
+        this.linearEffectRange          = _meta.linearEffectRange
+        this.castProb                   = _meta.castProb
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.oneDamage                  = _meta.oneDamage
+        this.linearEffectStripCount     = _meta.linearEffectStripCount
+        this.linearEffectStripRight     = _meta.linearEffectStripRight
+        this.linearEffectStripInterval  = _meta.linearEffectStripInterval
+        this.linearEffectDelay          = _meta.linearEffectDelay
+        this.linearEffectPointCount     = _meta.linearEffectPointCount
+        this.linearEffectPointInterval  = _meta.linearEffectPointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(string linearEffectPath,real linearEffectScale,real linearEffectRange,Prop prop,real dmgFactor,real castProb,real cool,real emissionDelay,int emissionCount,bool oneDamage,int linearEffectStripCount,real linearEffectStripRight,real linearEffectStripInterval,real linearEffectDelay,real linearEffectPointCount,real linearEffectPointInterval)
+        this.cool                       = (cool*100).toInt()
+        this.linearEffectPath           = linearEffectPath
+        this.linearEffectScale          = linearEffectScale
+        this.linearEffectRange          = linearEffectRange
+        this.castProb                   = castProb
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.oneDamage                  = oneDamage
+        this.linearEffectStripCount     = linearEffectStripCount
+        this.linearEffectStripRight     = linearEffectStripRight
+        this.linearEffectStripInterval  = linearEffectStripInterval
+        this.linearEffectDelay          = linearEffectDelay
+        this.linearEffectPointCount     = linearEffectPointCount
+        this.linearEffectPointInterval  = linearEffectPointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    override function onLinearEffectHit(DelayedLinearEffectWithInterface missile, unit u)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor
+        hero._self.damageSpell(u, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos,targets tar)
+        var face = (tar.p - pos).getAngle()
+        if tar.u == hero._self
+            face = hero._self.getFacingAngle()
+        let linearEffect = onLinearEffectEmission(hero._self,linearEffectPath,pos,face,hero.owner)
+        ..mover_setDelay(linearEffectDelay)
+        ..mover_setTime(linearEffectDelay*linearEffectPointCount)
+        ..mover_setSpeed(linearEffectPointInterval/linearEffectDelay, 0.)
+        ..setHitRange(linearEffectRange)
+        if linearEffectStripCount > 1
+            if oneDamage
+                setMoreLinearEffectOneDamage(linearEffect, linearEffectStripCount, linearEffectStripRight, linearEffectStripInterval)
+            else
+                setMoreLinearEffect(linearEffect, linearEffectStripCount, linearEffectStripRight, linearEffectStripInterval)
+        else
+            linearEffect.mover_start()
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(castOriginPos,t.tar)
+
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb.random()
+                castOriginPos = hero._self.getPos()
+                castTime = CenterTimer.current
+                let tar = targets(u.getPos(), u)
+                if emissionCount > 1
+                    setContinueCast(tar,emissionDelay,emissionCount)
+                else
+                    emission(castOriginPos,tar)
+    
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralDelayedLinearEffectPassiveRandomSpellEntity()
+
+/**
+*   线性范围性技能 - 主动
+*/
+public class GeneralLinearEffectActiveRandomSpellEntity extends CastRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    string linearEffectPath
+    real linearEffectScale
+
+    int  emissionDelay
+    int  emissionCount
+
+    real linearEffectRange
+    int  linearEffectPointCount
+    real linearEffectPointInterval
+    real dmgFactor
+    Prop prop
+
+    function copyData()
+        let _meta = meta castTo GeneralLinearEffectActiveRandomSpellEntity
+        this.cool                       = _meta.cool
+        this.linearEffectPath           = _meta.linearEffectPath
+        this.linearEffectScale          = _meta.linearEffectScale
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.linearEffectRange          = _meta.linearEffectRange
+        this.linearEffectPointCount     = _meta.linearEffectPointCount
+        this.linearEffectPointInterval  = _meta.linearEffectPointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(string linearEffectPath,real linearEffectScale,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,real linearEffectRange,int linearEffectPointCount,real linearEffectPointInterval)
+        this.cool                       = cool
+        this.linearEffectPath           = linearEffectPath
+        this.linearEffectScale          = linearEffectScale
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.linearEffectRange          = linearEffectRange
+        this.linearEffectPointCount     = linearEffectPointCount
+        this.linearEffectPointInterval  = linearEffectPointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    function onLinearEffectHit(unit tar)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        hero._self.damageSpell(tar, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos,targets tar)
+        let offset = (tar.p - pos).setLength(linearEffectPointInterval)
+        RangeEffectCaster.castLinear(linearEffectPath,linearEffectScale,hero._self,
+        linearEffectRange,pos,offset,linearEffectPointCount,hero.owner) tar ->
+            onLinearEffectHit(tar)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(hero._self.getPos(),t.tar)
+
+    override function onCast(targets tar)
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            emission(hero._self.getPos(),tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralLinearEffectActiveRandomSpellEntity()
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(3, 600, cool)
+
+
+/**
+*   线性范围性技能 - 普攻
+*/
+public class GeneralLinearEffectPassiveRandomSpellEntity extends AttackRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    int cool
+    string linearEffectPath
+    real linearEffectScale
+    real castProb
+
+    int  emissionDelay
+    int  emissionCount
+
+    real linearEffectRange
+    int  linearEffectPointCount
+    real linearEffectPointInterval
+    real dmgFactor
+    Prop prop
+
+    int castTime
+
+    function copyData()
+        let _meta = meta castTo GeneralLinearEffectPassiveRandomSpellEntity
+        this.cool                       = _meta.cool
+        this.linearEffectPath           = _meta.linearEffectPath
+        this.linearEffectScale          = _meta.linearEffectScale
+        this.castProb                   = _meta.castProb
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.linearEffectRange          = _meta.linearEffectRange
+        this.linearEffectPointCount     = _meta.linearEffectPointCount
+        this.linearEffectPointInterval  = _meta.linearEffectPointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(string linearEffectPath,real linearEffectScale,real castProb,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,real linearEffectRange,int linearEffectPointCount,real linearEffectPointInterval)
+        this.cool                       = (cool*100).toInt()
+        this.linearEffectPath           = linearEffectPath
+        this.linearEffectScale          = linearEffectScale
+        this.castProb                   = castProb
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.linearEffectRange          = linearEffectRange
+        this.linearEffectPointCount     = linearEffectPointCount
+        this.linearEffectPointInterval  = linearEffectPointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    function onLinearEffectHit(unit tar)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor * (1.15).pow(lv+.0)
+        hero._self.damageSpell(tar, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos,targets tar)
+        let offset = (tar.p - pos).setLength(linearEffectPointInterval)
+        RangeEffectCaster.castLinear(linearEffectPath,linearEffectScale,hero._self,
+        linearEffectRange,pos,offset,linearEffectPointCount,hero.owner) tar ->
+            onLinearEffectHit(tar)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(hero._self.getPos(),t.tar)
+
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb.random()
+                castTime = CenterTimer.current
+                let tar = targets(u.getPos(), u)
+                if emissionCount > 1
+                    setContinueCast(tar,emissionDelay,emissionCount)
+                else
+                    emission(hero._self.getPos(),tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralLinearEffectPassiveRandomSpellEntity()

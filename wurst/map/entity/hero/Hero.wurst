@@ -1,0 +1,154 @@
+package Hero
+import public HeroEntity
+import public BookInit
+import public phLib
+import public SpellsId
+import public BuffFactory
+import public LinkedList
+import public AbilTipEnhance
+import public Practice
+import public HashSetModule
+import Mover
+import LinkedListModule
+import attrMapper
+import HashList
+import School
+import skin
+import Guard
+import AffixsItem
+import initlater RandomSpell
+import SavedArtifact
+import NirvanaSpellEntity
+import YDJapiOther
+
+public interface EachHeroDo
+    function do(Hero h)
+
+public function Hero.eachAllyies(EachHeroDo do)
+    for i in Hero
+        if allyFilter(this._self, i._self)
+            do.do(i)
+    destroy do
+
+public class Hero extends Unit
+    use LinkedListModule
+    static let heros = new HashMap<unit,Hero>()
+    Practice   lianti            
+    Books      renwu             
+    Books      souji
+    Books      daoju
+    Books      jinsui
+    Soul       school
+    unit       target
+    player     owner
+    HeroEntity he
+    int        lastLevel =     1
+    Guard      bb
+    WeaponSkin weaponSkin
+    TitleSkin  titleSkin
+    WingSkin   wingSkin
+    HaloSkin   haloSkin
+    real       power             = 1
+    int        nirvanaCount      = 0
+    bool       nirvanaTargetFlag = false
+    int        gemIntoSelfCount  = 0
+
+    bool       hasXingGuangShanYao = false
+    bool       hasShengYuChiBang   = false
+
+    let   saveArtifacts  = new HashList<SavedArtifact>()
+    let   nirvanaSpells  = new HashList<NirvanaSpellEntity>()
+    let   nirvanedHeros  = new HashList<int>()
+    let   heroItems      = new HashList<item>()
+    let   affixsItems    = new HashList<item>()
+    let   artificeAffixs = new IterableMap<int,AffixItemLinkEntity>()
+    let   artificeSuits  = new IterableMap<int,AffixItemLinkSuitEntity>()
+    let   abils          = new HashList<TagAbil>()
+    // let   randomSpells   = new IterableMap<int,RandomSpell>()
+    let   gems           = new IterableMap<int,item>()
+    construct(unit i)
+        super(i)
+        addSpell()
+        he = HeroEntity.get(i.getTypeId())
+        heros.put(_self, this)
+        owner = i.getOwner()
+        
+    static function getHero(unit u) returns Hero
+        return heros.get(u)
+
+    override function toString() returns string
+        return he.name + "#" + Attr.toString()
+
+    override function printAttr()
+        let p = _self.getOwner()
+        printTimedToPlayer("附加伤害:"+addDmg,      20,p)
+        printTimedToPlayer("暴击概率:"+ctcProb,     20,p)
+        printTimedToPlayer("暴击伤害:"+ctcDmg,      20,p)
+        printTimedToPlayer("伤害吸血:"+absorb,      20,p)
+        printTimedToPlayer("伤害增幅:"+dmgPlus,     20,p)
+        printTimedToPlayer("最终伤害:"+finDmg,      20,p)
+        printTimedToPlayer("伤害抵抗:"+dmgResi,     20,p)
+        printTimedToPlayer("伤害减免:"+dmgSub,      20,p)
+        printTimedToPlayer("伤害反弹:"+dmgBack,     20,p)
+        printTimedToPlayer("升级属性:"+propLevelUp, 20,p)
+        printTimedToPlayer("杀敌属性:"+propKilled,  20,p)
+        printTimedToPlayer("每秒属性:"+propTimed,   20,p)
+
+    function addSpell()
+        
+
+    function getNirvanaArg() returns real
+        return 1 + nirvanaCount / 3
+
+    function setChecked()
+        power = 0.5
+
+    function addSpell(string tag,int id)
+        _self.addAbilityPro(id)
+        let ta = new TagAbil(tag,id)
+        abils.add(ta)
+    function getPower() returns real
+        return power
+    function getSpell(string tag) returns int
+        int id = 0
+        for i in abils
+            if i.tag == tag
+                id = i.id
+                break
+        return id
+    function getSpell() returns LinkedList<int>
+        let l = new LinkedList<int>
+        for i in abils
+            l.add(i.id)
+        return l
+
+    function getPracticeSpellArgs() returns real
+        return  lianti.getIndex() / 4 + 1
+
+    function onSpellCast(int _id,targets _t)
+    //     switch id
+
+
+
+    function getMainAttr() returns AttrKey
+        int ma = _self.loadInt(primaryPropKey)
+        if ma == 0
+            let as = _self.exMainProp()
+            switch as
+                case "STR"
+                    return AttrKey.STR
+                case "AGI"
+                    return AttrKey.AGI
+                case "INT"
+                    return AttrKey.INE
+                default
+                    return AttrKey.AGI
+        switch ma
+            case 1
+                return AttrKey.STR
+            case 2
+                return AttrKey.AGI
+            case 3
+                return AttrKey.INE
+            default
+                return AttrKey.AGI

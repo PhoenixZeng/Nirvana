@@ -1,0 +1,293 @@
+package Book
+import attr
+import phLib
+import HashSet
+import YDAbilityState
+
+hashtable hx = InitHashtable()
+
+//魔法书实体类
+public class Book
+    private static HashMap<string,thistype> books = new HashMap<string,thistype>
+    string name
+    int    id
+    string desc
+    int index
+    HashSet<SubBook> subbooks = new HashSet<SubBook>
+    int subBookIdPrinter = 0
+    static int idPrinter = 'Z000'
+    construct(int index,string _name)
+        idPrinter += 256 * 256
+        if idPrinter == 10 * 256 * 256
+            idPrinter+=7* 256 * 256
+        this.index = index
+        this.id = idPrinter
+        this.name = slk_abil.loadString(id, nameKey)
+        this.desc = slk_abil.loadString(id, descKey)
+        books.put(name , this)
+    construct(string _name,int id)
+        this.id = id
+        this.name = slk_abil.loadString(id, nameKey)
+        this.desc = slk_abil.loadString(id, descKey)
+        books.put(name , this)
+    function addSubBook(int id)
+        subbooks.add(new SubBook(this, id))
+    function addSubBook(SubBook sb)
+        subbooks.add(sb)
+    static function get(string name) returns thistype
+        return books.get(name)
+
+public class SubBook
+    private static HashMap<string,thistype> subbooks = new HashMap<string,thistype>
+    string name
+    int    id
+    int index
+    HashSet<Page> pages = new HashSet<Page>
+    Book partOf
+    string desc
+    // string prefix
+    bool showScore = false
+    string suffix = "|n当前"
+    string scoreName = "门派内功点数:"
+    int bookIdPrinter = 0
+    static int idPrinter = 0
+    static Book bookPrinter = null
+    construct(int index,Book bk)
+        if bookPrinter != bk
+            bookPrinter = bk
+            idPrinter = bk.subBookIdPrinter
+        idPrinter++
+        if idPrinter == 10
+            idPrinter+=7
+        bk.subBookIdPrinter = idPrinter
+        this.index = index
+        this.id = bk.id + 256 * idPrinter
+        this.name = slk_abil.loadString(id, nameKey)
+        this.desc = slk_abil.loadString(id, descKey)
+        partOf = bk
+        bk.addSubBook(this)
+        subbooks.put(name  , this)
+    construct(Book bk,int id)
+        this.id = id
+        this.name = slk_abil.loadString(id, nameKey)
+        this.desc = slk_abil.loadString(id, descKey)
+        partOf = bk
+        bk.addSubBook(this)
+        subbooks.put(name  , this)
+    function showScore()
+        showScore = true
+    function setScoreName(string tip)
+        scoreName = tip
+    function addPage(int id)
+        pages.add(new Page(this, id))
+    function addPage(Page pg)
+        pages.add(pg)
+    function getPage(string name) returns Page
+        for i in pages
+            if i.name == name
+                return i
+        return null
+    static function get(string name) returns thistype
+        return subbooks.get(name)
+
+public class Page
+    use Attr<int>
+    private static HashMap<string,thistype> pages = new HashMap<string,thistype>
+    private static HashMap<int,thistype> it2pg = new HashMap<int,thistype>
+    string name
+    int    score
+    int    id
+    int    itemId
+    int    techId
+    int index
+    SubBook partOf
+    string  desc
+    bool lock = false
+    bool showScore = false
+    bool initActivation = false
+    string suffix = "|n当前"
+    string scoreName = "碎片数:"
+    static int idPrinter = 0
+    static SubBook subbookPrinter = null
+    construct(int index,SubBook sb)
+        if subbookPrinter != sb
+            subbookPrinter = sb
+            idPrinter = sb.bookIdPrinter
+        idPrinter++
+        if idPrinter == 10
+            idPrinter+=7
+        sb.bookIdPrinter = idPrinter
+        this.index = index
+        this.id = sb.id + idPrinter
+        this.name = slk_abil.loadString(id, nameKey)
+        this.score = slk_abil.loadInt(id, "score".getHash())
+        this.itemId = id - 'Z000' + 'Y000'
+        this.techId = id - 'Z000' + 'X000'
+        this.partOf = sb
+        this.desc = slk_abil.loadString(id, descKey)
+        sb.addPage(this)
+        pages.put(name , this)
+        it2pg.put(itemId, this)
+    construct(SubBook sb,int id)
+        this.name = slk_abil.loadString(id, nameKey)
+        this.score = slk_abil.loadInt(id, "score".getHash())
+        this.id = id
+        this.itemId = id - 'Z000' + 'Y000'
+        this.techId = id - 'Z000' + 'X000'
+        this.partOf = sb
+        this.desc = slk_abil.loadString(id, descKey)
+        sb.addPage(this)
+        pages.put(name , this)
+        it2pg.put(itemId, this)
+    override function isAttrSaveHt()returns bool
+        return false
+    function setScoreName(string tip)
+        scoreName = tip
+    function showScore()
+        showScore = true
+    function lock()
+        lock = true
+    function initActivation()
+        initActivation = true
+    static function get(string name) returns thistype
+        return pages.get(name)
+    static function getByItemId(int id) returns thistype
+        return it2pg.get(id)
+
+// 魔法书实际类
+public class Books
+    unit u
+    Book book
+    HashSet<SubBooks> subbookes = new HashSet<SubBooks>
+    construct(unit u,string name)
+        let bk = Book.get(name)
+        if bk != null
+            this.u = u
+            this.book = bk
+            u.addAbilityPro(book.id)
+            hx.saveInt(u.getHandleId(),"book".getHash()+ bk castTo int, this castTo int)
+            for sb in book.subbooks
+                let s = new SubBooks(u, sb.name)..flushUbertip()
+                subbookes.add(s)
+                u.makeAbilityPermanent(sb.id, true)
+                for pg in sb.pages
+                    let p = new Pages(u, pg.name)
+                    s.pageses.add(p)
+                    u.makeAbilityPermanent(pg.id, true)
+
+    static function get(unit u,Book book) returns thistype
+        return hx.loadInt(u.getHandleId(),"book".getHash()+ book castTo int) castTo thistype
+    function getSubBook(string name) returns SubBooks
+        for i in subbookes
+            if i.subbook.name == name
+                return i 
+        return null
+    
+    function getPagesById(int id) returns Pages
+        Pages ps = null
+        for i in subbookes
+            for j in i.pageses
+                if j.page.id == id
+                    ps = j
+                    break
+            if ps != null
+                break
+        return ps
+                
+
+
+public class SubBooks
+    unit u
+    int score = 0
+    SubBook subbook
+    HashSet<Pages> pageses = new HashSet<Pages>
+    construct(unit u,string name)
+        let bk = SubBook.get(name)
+        if bk != null
+            this.u = u
+            this.subbook = bk
+            hx.saveInt(u.getHandleId(),"subbook".getHash()+ bk castTo int, this castTo int)
+    static function get(unit u,SubBook subbook) returns thistype
+        return hx.loadInt(u.getHandleId(),"subbook".getHash()+ subbook castTo int) castTo thistype
+    function addScore(int score)
+        this.score += score
+        flushUbertip()
+    function flushUbertip()
+        if subbook.showScore and localPlayer == u.getOwner()
+            let s = subbook.desc + subbook.suffix + subbook.scoreName + score
+            u.exAbilData(EX_ABIL_YD.UBERTIP, subbook.id, 1 , s)
+    function getPage(string name) returns Pages
+        for i in pageses
+            if i.page.name == name
+                return i 
+        return null
+    function getPageByIndex(int index) returns Pages
+        return getPageById(subbook.id+index)
+    function getPageById(int id) returns Pages
+        for i in pageses
+            if i.page.id == id
+                return i 
+        return null
+
+public class Pages
+    unit u
+    bool isActivation = false
+    int score = 0
+    Page page
+    construct(unit u,string name)
+        let bk = Page.get(name)
+        if bk != null
+            this.u = u
+            this.page = bk
+            hx.saveInt(u.getHandleId(),"page".getHash()+ bk castTo int, this castTo int)
+            if bk.initActivation
+                activation(false)
+                flushUbertip()
+    static function get(unit u,Page page) returns thistype
+        return hx.loadInt(u.getHandleId(),"page".getHash()+ page castTo int) castTo thistype
+    function flushUbertip()
+        flushUbertip("")
+    function flushUbertip(string adds)
+        let s = page.desc + adds + page.suffix + page.scoreName + score
+        if page.showScore and localPlayer == u.getOwner()
+            u.exAbilData(EX_ABIL_YD.UBERTIP, page.id, 1, s)
+    function subScore(int s) returns bool
+        if score >= s
+            score-=s
+            flushUbertip()
+            return true
+        return false
+
+    function activation(bool showTip)
+        if showTip
+            printTimedToPlayer("[系统]:激活"+page.name+"成功!", 30, u.getOwner())
+        isActivation = true
+        let sbs = SubBooks.get(u,page.partOf)
+        sbs.addScore(page.score)
+        SetPlayerTechResearched(u.getOwner(), page.techId, 1)
+    function activation()
+        activation(true)
+
+public function unit.activationBookPages(int itemId) returns Pages
+    return this.activationBookPages(itemId,true)
+
+public function unit.activationBookPages(int itemId,bool flag) returns Pages
+    let pg = Page.getByItemId(itemId)
+    if pg != null
+        let pgs = Pages.get(this, pg)
+        if pgs != null
+            if pgs.isActivation and not pgs.page.showScore
+                printTimedToPlayer("[系统]:激活"+pgs.page.name+"失败!你已经激活过了!", 30, this.getOwner())
+            else if pgs.page.showScore
+                pgs.score +=pgs.page.score
+                printTimedToPlayer("[系统]:"+pgs.page.name+"已增加!", 30, this.getOwner())
+                pgs.flushUbertip()
+                pgs.activation(flag)
+                return pgs
+            else
+                pgs.activation(flag)
+                return pgs
+    return null
+
+public function unit.addBooks(string name) returns Books
+    return new Books(this, name)

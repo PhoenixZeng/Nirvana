@@ -1,0 +1,82 @@
+package dzServerSave
+import DzSave
+//完成平台活动
+public function player.dzMissionComplete(string key,string value)
+    DzAPI_Map_MissionComplete(this,key,value)
+
+//保存服务器存档
+public function player.dzSave(string name,string value)
+    DzAPI_Map_SaveServerValue(this,name,value)
+
+//读取服务器存档
+public function player.dzLoad(string name) returns string
+    return DzAPI_Map_GetServerValue(this,name)
+
+//保存服务器存档int
+public function player.dzSave(string name,int value)
+    DzAPI_Map_StoreInteger(this,name,value)
+
+//读取服务器存档int
+public function player.dzLoadInt(string name) returns int
+    return DzAPI_Map_GetStoredInteger(this,name)
+
+//房间显示数据
+public function player.dzRoomStat(string key,string value)
+    DzAPI_Map_Stat_SetStat(this,key,value)
+
+// //获取用户id
+// public function player.dzUid() returns int
+//     return DzAPI_MAP_GetUserID(this)
+//判断是否是红V
+public function player.dzIsVIPRed() returns bool
+    return DzAPI_Map_IsRedVIP(this)
+
+//判断是否是蓝V
+public function player.dzIsVIPBlue() returns bool
+    return DzAPI_Map_IsBlueVIP(this)
+//获取玩家地图等级
+public function player.dzLevel() returns int
+    return DzAPI_Map_GetMapLevel(this)
+//获取玩家地图排名
+public function player.dzRank() returns int
+    return DzAPI_Map_GetMapLevelRank(this)
+//读取玩家服务器存档成功
+public function player.dzLoadSuccess() returns bool
+    return GetPlayerServerValueSuccess(this)
+//读取玩家公会名称
+public function player.dzGuildName() returns string
+    return DzAPI_Map_GetGuildName(this)
+//读取玩家公会职责
+public function player.dzGuildRole() returns DZ_GuildRole
+    switch DzAPI_Map_GetGuildRole(this)
+        case 10
+            return DZ_GuildRole.Member
+        case 20
+            return DZ_GuildRole.Admin
+        case 30
+            return DZ_GuildRole.Leader
+        default
+            return DZ_GuildRole.None
+
+public enum DZ_GuildRole
+    None
+    Member
+    Admin
+    Leader
+
+//判断当前地图是否rpg大厅来的
+public function dzIsRPGLobby() returns bool
+    return DzAPI_Map_IsRPGLobby()
+//判断地图是否在RPG天梯
+public function dzIsRPGLadder() returns bool
+    return DzAPI_Map_IsRPGLadder()
+//创建地图的游戏时间戳
+public function dzGameStartTime() returns int
+    return DzAPI_Map_GetGameStartTime()
+
+//获取全局服务器存档值
+public function dzGetMapConfig(string key) returns string
+    return DzAPI_Map_GetMapConfig(key)
+//判断玩家是否拥有商城道具
+public function player.dzHasMallItem(string key) returns bool
+    return DzAPI_Map_HasMallItem(this,key)

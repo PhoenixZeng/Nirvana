@@ -1,0 +1,314 @@
+package GeneralRangeEffectRandomSpell
+import HeroRandomSpellEntity
+import Hero
+import ContinueCastTimer
+import SpellLib
+import CenterTimer
+
+/**
+*   圆形伤害 - 主动点释放
+*/
+public class GeneralRangeEffectActiveRandomSpellEntity extends CastRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    real targetsType
+
+    string rangeEffectPath
+    string pointEffectPath
+
+    int  emissionDelay
+    int  emissionCount
+
+    real dmgRange
+    real dmgFactor
+    Prop prop
+
+    function copyData()
+        let _meta = meta castTo GeneralRangeEffectActiveRandomSpellEntity
+        this.cool              = _meta.cool    
+        this.targetsType       = _meta.targetsType          
+        this.rangeEffectPath   = _meta.rangeEffectPath   
+        this.pointEffectPath   = _meta.pointEffectPath   
+        this.emissionDelay     = _meta.emissionDelay     
+        this.emissionCount     = _meta.emissionCount     
+        this.dmgRange          = _meta.dmgRange          
+        this.dmgFactor         = _meta.dmgFactor         
+        this.prop              = _meta.prop              
+
+    function setData(real targetsType,Prop prop,real dmgFactor,real dmgRange,real cool,real emissionDelay,int emissionCount,string rangeEffectPath,string pointEffectPath)
+        this.cool              = cool              
+        this.targetsType       = targetsType       
+        this.rangeEffectPath   = rangeEffectPath   
+        this.pointEffectPath   = pointEffectPath   
+        this.emissionDelay     = (emissionDelay*100).toInt()
+        this.emissionCount     = emissionCount     
+        this.dmgRange          = dmgRange          
+        this.dmgFactor         = dmgFactor         
+        this.prop              = prop              
+
+    function castRange(targets tar)
+        let caster = hero._self
+        let dmg = caster.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        caster.damageRangePoint(dmg,tar.p,dmgRange,rangeEffectPath,pointEffectPath,hero.owner)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        castRange(t.tar)
+
+    override function onCast(targets tar)
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            castRange(tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralRangeEffectActiveRandomSpellEntity()
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(targetsType, 600, cool)
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+/**
+*   圆形伤害 - 被动普攻
+*/
+public class GeneralRangeEffectPassiveRandomSpellEntity extends AttackRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    int cool
+
+    real castProb
+
+    bool isSelfPoint
+    string rangeEffectPath
+    string pointEffectPath
+
+    int  emissionDelay
+    int  emissionCount
+
+    real dmgRange
+    real dmgFactor
+    Prop prop
+    
+    int castTime 
+
+    function copyData()
+        let _meta = meta castTo GeneralRangeEffectPassiveRandomSpellEntity
+        this.cool              = _meta.cool    
+        this.castProb          = _meta.castProb
+        this.isSelfPoint       = _meta.isSelfPoint
+        this.rangeEffectPath   = _meta.rangeEffectPath   
+        this.pointEffectPath   = _meta.pointEffectPath   
+        this.emissionDelay     = _meta.emissionDelay     
+        this.emissionCount     = _meta.emissionCount     
+        this.dmgRange          = _meta.dmgRange          
+        this.dmgFactor         = _meta.dmgFactor         
+        this.prop              = _meta.prop              
+
+    function setData(bool isSelfPoint,real castProb,Prop prop,real dmgFactor,real dmgRange,real cool,real emissionDelay,int emissionCount,string rangeEffectPath,string pointEffectPath)
+        this.cool              = (cool*100).toInt()              
+        this.castProb          = castProb
+        this.isSelfPoint       = isSelfPoint
+        this.rangeEffectPath   = rangeEffectPath   
+        this.pointEffectPath   = pointEffectPath   
+        this.emissionDelay     = (emissionDelay*100).toInt()
+        this.emissionCount     = emissionCount     
+        this.dmgRange          = dmgRange          
+        this.dmgFactor         = dmgFactor         
+        this.prop              = prop              
+
+    function castRange(targets tar)
+        let caster = hero._self
+        let dmg = caster.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        caster.damageRangePoint(dmg,tar.p,dmgRange,rangeEffectPath,pointEffectPath,hero.owner)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        castRange(t.tar)
+
+    function onBingo(unit u)
+        let caster = hero._self
+        targets tar
+
+        if isSelfPoint
+            tar = targets(caster.getPos(), caster)
+        else
+            tar = targets(u.getPos(), u)
+
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            castRange(tar)
+
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb .random()
+                castTime = CenterTimer.current
+                onBingo(u)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralRangeEffectPassiveRandomSpellEntity()
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+
+/**
+*   圆形伤害 - 随机点触发   主动自己
+*/
+public class GeneralRangeEffectRandomPointActiveRandomSpellEntity extends CastRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    real targetsType
+
+    real randomVal
+    int castCount
+
+    string rangeEffectPath
+    string pointEffectPath
+
+    int  emissionDelay
+    int  emissionCount
+
+    real dmgRange
+    real dmgFactor
+    Prop prop
+    
+    //
+    int castTime 
+
+    function copyData()
+        let _meta = meta castTo GeneralRangeEffectRandomPointActiveRandomSpellEntity
+        this.cool              = _meta.cool    
+        this.targetsType       = _meta.targetsType
+        this.randomVal         = _meta.randomVal
+        this.castCount         = _meta.castCount
+        this.rangeEffectPath   = _meta.rangeEffectPath   
+        this.pointEffectPath   = _meta.pointEffectPath   
+        this.emissionDelay     = _meta.emissionDelay     
+        this.emissionCount     = _meta.emissionCount     
+        this.dmgRange          = _meta.dmgRange          
+        this.dmgFactor         = _meta.dmgFactor         
+        this.prop              = _meta.prop              
+
+    function setData(real targetsType,Prop prop,real dmgFactor,real dmgRange,real cool,real randomVal,int castCount,real emissionDelay,int emissionCount,string rangeEffectPath,string pointEffectPath)
+        this.cool              = cool          
+        this.targetsType       = targetsType
+        this.randomVal         = randomVal
+        this.castCount         = castCount
+        this.rangeEffectPath   = rangeEffectPath   
+        this.pointEffectPath   = pointEffectPath   
+        this.emissionDelay     = (emissionDelay*100).toInt()
+        this.emissionCount     = emissionCount     
+        this.dmgRange          = dmgRange          
+        this.dmgFactor         = dmgFactor         
+        this.prop              = prop              
+
+    function castRange(targets tar)
+        let caster = hero._self
+        let dmg = caster.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        for i = 1 to castCount
+            vec2 ranVec2 = vec2(GetRandomReal(0,1)*randomVal,GetRandomReal(0,1)*randomVal)
+            caster.damageRangePoint(dmg,tar.p+ranVec2,dmgRange,rangeEffectPath,pointEffectPath,hero.owner)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        castRange(t.tar)
+
+    override function onCast(targets tar)
+        if emissionCount > 1
+            setContinueCast(tar,emissionDelay,emissionCount)
+        else
+            castRange(tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralRangeEffectRandomPointActiveRandomSpellEntity()
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(targetsType, 600, cool)
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+/**
+*   圆形伤害 - 随机点触发  被动
+*/
+public class GeneralRangeEffectRandomPointPassiveRandomSpellEntity extends AttackRandomSpellEntity implements ContinueCastTimerInterface
+    use RandomSpellModule
+    int cool
+
+    real castProb
+
+    real randomVal
+    int castCount
+
+    string rangeEffectPath
+    string pointEffectPath
+
+    int  emissionDelay
+    int  emissionCount
+
+    real dmgRange
+    real dmgFactor
+    Prop prop
+    
+    //
+    int castTime 
+
+    function copyData()
+        let _meta = meta castTo GeneralRangeEffectRandomPointPassiveRandomSpellEntity
+        this.cool              = _meta.cool    
+        this.castProb          = _meta.castProb
+        this.randomVal         = _meta.randomVal
+        this.castCount         = _meta.castCount
+        this.rangeEffectPath   = _meta.rangeEffectPath   
+        this.pointEffectPath   = _meta.pointEffectPath   
+        this.emissionDelay     = _meta.emissionDelay     
+        this.emissionCount     = _meta.emissionCount     
+        this.dmgRange          = _meta.dmgRange          
+        this.dmgFactor         = _meta.dmgFactor         
+        this.prop              = _meta.prop              
+
+    function setData(real castProb,Prop prop,real dmgFactor,real dmgRange,real cool,real randomVal,int castCount,real emissionDelay,int emissionCount,string rangeEffectPath,string pointEffectPath)
+        this.cool              = (cool*100).toInt()              
+        this.castProb          = castProb
+        this.randomVal         = randomVal
+        this.castCount         = castCount
+        this.rangeEffectPath   = rangeEffectPath   
+        this.pointEffectPath   = pointEffectPath   
+        this.emissionDelay     = (emissionDelay*100).toInt()
+        this.emissionCount     = emissionCount     
+        this.dmgRange          = dmgRange          
+        this.dmgFactor         = dmgFactor         
+        this.prop              = prop              
+
+    function castRange(targets tar)
+        let caster = hero._self
+        let dmg = caster.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        for i = 1 to castCount
+            vec2 ranVec2 = vec2(GetRandomReal(0,1)*randomVal,GetRandomReal(0,1)*randomVal)
+            caster.damageRangePoint(dmg,tar.p+ranVec2,dmgRange,rangeEffectPath,pointEffectPath,hero.owner)
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        castRange(t.tar)
+
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb .random()
+                castTime = CenterTimer.current
+
+                let caster = hero._self
+                let tar = targets(caster.getPos(), caster) 
+                if emissionCount > 1
+                    setContinueCast(tar,emissionDelay,emissionCount)
+                else
+                    castRange(tar)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralRangeEffectRandomPointPassiveRandomSpellEntity()
+    override function onApply(boolean inite)
+        if inite
+            copyData()

@@ -1,0 +1,133 @@
+package NirvanaSpellEntity
+import ItemAffix
+import attr
+
+public class NirvanaSpellEntity
+    use Attr<int>
+    static let id2this = new HashMap<int,thistype>()
+    static let heroId2this = new HashMap<int,thistype>()
+    int id
+    int realId
+    int bookId
+    int heroId
+    string name
+    string heroName
+    ItemAffix array[3] affixs
+    construct(int id,int realId,int bookId,string name,int heroId,string heroName)
+        this.id = id
+        this.realId = realId
+        this.bookId = bookId
+        this.name = name
+        this.heroId = heroId
+        this.heroName = heroName
+        id2this.put(id, this)
+        heroId2this.put(heroId, this)
+    function setAffix(ItemAffix affix)
+        setAffix(0,affix)
+    function setAffix(int i,ItemAffix affix)
+        this.affixs[i] = affix
+
+    function onApply(unit u)
+        for k = 0 to 2
+            if affixs[k] != null
+                affixs[k].onApply(u)
+    function onLose(unit u)
+        for k = 0 to 2
+            if affixs[k] != null
+                affixs[k].onLose(u)
+    function onAttack(unit i,unit j)
+        for k = 0 to 2
+            if affixs[k] != null
+                affixs[k].onAttack(i, j)
+    function onAttacked(unit i,unit j)
+        for k = 0 to 2
+            if affixs[k] != null
+                affixs[k].onAttacked(i, j)
+    function onCast(unit i,targets t)
+        for k = 0 to 2
+            if affixs[k] != null
+                affixs[k].onCast(i, t)
+        
+    override function isAttrSaveHt() returns bool
+        return false
+
+    static function initi()
+        new NirvanaSpellEntity('AP01','AR01','AB01',"寒冰之息",'QD00',"大魔法师")
+        ..setAffix(affix_Buff_Weak4_2_5)
+        ..setAffix(1,affix_AttackAdd_addDmg_WhenWeak)
+        // new NirvanaSpellEntity('AP02','AR02','AB02',"召唤大师",'QD01',"暗影猎手")
+        // ..setAffix(affix_summon_chance_double_10)
+        new NirvanaSpellEntity('AP03','AR03','AB03',"大地护佑",'QD02',"牛头人酋长")
+        ..setAffix(affix_gedang20)
+        ..addAttr(AttrKey.strPlus, 20)
+        ..addAttr(AttrKey.agiPlus, 20)
+        ..addAttr(AttrKey.intPlus, 20)
+        new NirvanaSpellEntity('AP04','AR04','AB04',"邪恶契约",'QD03',"死亡骑士")
+        ..setAffix(affix_Accurate3_5)
+        ..addAttr(AttrKey.addDmg, 30)
+        new NirvanaSpellEntity('AP05','AR05','AB05',"魔蛛迷雾",'QD04',"地穴领主")
+        ..setAffix(affix_BeAttackBlinding3_3_3)
+        ..setAffix(1,affix_attackedRandomCooldown1)
+        new NirvanaSpellEntity('AP06','AR06','AB06',"丛林之心",'QD05',"丛林守护者")
+        ..addAttr(AttrKey.ctcProb, 30)
+        ..addAttr(AttrKey.addDmg, 10)
+        new NirvanaSpellEntity('AP07','AR07','AB07',"元素掌控",'QD06',"火焰巨魔")
+        ..addAttr(AttrKey.ctcDmg, 50)
+        new NirvanaSpellEntity('AP08','AR08','AB08',"防御药剂",'QD07',"炼金术士")
+        ..addAttr(AttrKey.dmgSub, 30)
+        new NirvanaSpellEntity('AP09','AR09','AB09',"破甲火焰",'QC01',"血魔法师")
+        ..setAffix(affix_Buff_Flaws10_1_5)
+        new NirvanaSpellEntity('AP0A','AR0A','AB0A',"神圣武装",'QC02',"圣骑士")
+        ..setAffix(affix_subATK_ring20)
+        // new NirvanaSpellEntity('AP0B','AR0B','AB0B',"残影刀法",'QC03',"剑圣")
+        // ..setAffix(affix_CastSpellTargetWhenAttackItemAffix_huanxiang)
+        new NirvanaSpellEntity('AP0C','AR0C','AB0C',"嗜血战意",'QC04',"斧王")
+        ..setAffix(affix_Fury5_2)
+        ..addAttr(AttrKey.ctcProb, 10)
+        // new NirvanaSpellEntity('AP0D','AR0D','AB0D',"野兽王者",'QC05',"兽王")
+        // ..setAffix(affix_addATK_ring50_summon)
+        new NirvanaSpellEntity('AP0E','AR0E','AB0E',"先祖之力",'QC06',"先知")
+        ..setAffix(affix_castRandomCooldownItemAffix_8)
+        new NirvanaSpellEntity('AP0F','AR0F','AB0F',"巫妖领域",'QC07',"巫妖")
+        ..setAffix(affix_addATK_ring30_friend)
+        new NirvanaSpellEntity('AP0G','AR0G','AB0G',"海洋之心",'QC08',"海军上将")
+        ..setAffix(affix_Buff_Weak4_2_5)
+        ..addAttr(AttrKey.addDmg, 30)
+        new NirvanaSpellEntity('AP0H','AR0H','AB0H',"恶魔意志",'QB00',"恐惧魔王")
+        ..setAffix(affix_AttackAddWeakWhenFlaws)
+        ..addAttr(AttrKey.strPlus, 15)
+        ..addAttr(AttrKey.agiPlus, 15)
+        ..addAttr(AttrKey.intPlus, 15)
+        new NirvanaSpellEntity('AP0I','AR0I','AB0I',"腐蚀之箭",'QB01',"黑暗游侠")
+        ..setAffix(affix_AttackAddEnhanceWhenFlaws)
+        ..addAttr(AttrKey.strPlus, 15)
+        ..addAttr(AttrKey.agiPlus, 15)
+        ..addAttr(AttrKey.intPlus, 15)
+        new NirvanaSpellEntity('AP0J','AR0J','AB0J',"铜皮铁骨",'QB02',"山丘之王")
+        ..setAffix(affix_AttackedAddProtectorWhenWeak)
+        ..addAttr(AttrKey.strPlus, 15)
+        ..addAttr(AttrKey.agiPlus, 15)
+        ..addAttr(AttrKey.intPlus, 15)
+        new NirvanaSpellEntity('AP0K','AR0K','AB0K',"月神祝福",'QB03',"月之女祭司")
+        ..setAffix(affix_AttackAddFlawsWhenWeak)
+        ..addAttr(AttrKey.strPlus, 15)
+        ..addAttr(AttrKey.agiPlus, 15)
+        ..addAttr(AttrKey.intPlus, 15)
+        new NirvanaSpellEntity('AP0L','AR0L','AB0L',"复仇之刃",'QB04',"守望者")
+        ..addAttr(AttrKey.ASP, 50)
+        new NirvanaSpellEntity('AP0M','AR0M','AB0M',"隔山打牛",'QB05',"熊猫酒仙")
+        ..setAffix(affix_AttackDamageRange10_2prop)
+        new NirvanaSpellEntity('AP0N','AR0N','AB0N',"猎杀之影",'QB06',"恶魔猎手")
+        ..setAffix(affix_WindWalk5_30)
+        ..addAttr(AttrKey.dmgSub, 10)
+        new NirvanaSpellEntity('AP0O','AR0O','AB0O',"爆炸射击",'QB07',"光明游侠")
+        ..setAffix(affix_AttackDamageRange10_3)
+        new NirvanaSpellEntity('AP0P','AR0P','AB0P',"凤凰血脉",'QS00',"火凌之凤")
+        ..addAttr(AttrKey.ctcDmg, 100)
+        ..addAttr(AttrKey.ctcProb, -10)
+        // new NirvanaSpellEntity('AP0Q','AR0Q','AB0Q',"幽影分身",'QS01',"幽光之影")
+        // ..setAffix(affix_bbAttackRandomCooldown5)
+        // new NirvanaSpellEntity('AP0R','AR0R','AB0R',"森林之怒",'QS02',"SMINAD")
+        // ..setAffix(affix_AttackDamageRange30_3)
+
+

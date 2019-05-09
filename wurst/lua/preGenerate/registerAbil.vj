@@ -1,0 +1,119 @@
+library RegisterAbil initializer saveAbil
+    function saveAbil takes nothing returns nothing
+    <?
+        local slk = require('slk')
+        require('utils')
+        for id,obj in pairs(slk.ability) do
+            if string.find(id,"Z%w%w%w") or string.find(id,"W%w%w%w") then
+            ?>
+                call SaveStr(j_slk_abil,'<?=id?>',<?=hash('name')?>,"<?=obj.Name?>")
+            <?
+            ?>
+                call SaveStr(j_slk_abil,'<?=id?>',<?=hash('desc')?>,"<?=obj.Ubertip?>")
+            <?
+                if obj.Area and obj.Area~=0 then 
+            ?>
+                    call SaveInteger(j_slk_abil,'<?=id?>',<?=hash('score')?>,<?=math.ceil(obj.Area)?>)
+            <?
+                end
+                desc = obj.Ubertip
+                list = string.gmatch(desc,'n([^0-9]+):(%d+)')
+                for i,s in list do
+                    if i == "攻击"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',0,<?=s?>)
+        <?
+                    elseif i == "护甲"     then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',1,<?=s?>)
+        <?
+                    elseif i == "攻速"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',2,<?=s?>)
+        <?
+                    elseif i == "血量"     then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',3,<?=s?>)
+        <?
+                    elseif i == "力量"     then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',4,<?=s?>)
+        <?
+                    elseif i == "敏捷"     then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',5,<?=s?>)
+        <?
+                    elseif i == "智力"     then 
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',6,<?=s?>)
+        <?
+                    elseif i == "伤害增幅"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',7,<?=s?>)
+        <?
+                    elseif i == "暴击概率"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',8,<?=s?>)
+        <?
+                    elseif i == "暴击伤害"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',9,<?=s?>)
+        <?
+                    elseif i == "攻击吸血"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',10,<?=s?>)
+        <?
+                    elseif i == "附加伤害"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',11,<?=s?>)
+        <?
+                    elseif i == "最终伤害"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',12,<?=s?>)
+        <?
+                    elseif i == "伤害抵抗"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',13,<?=s?>)
+        <?
+                    elseif i == "伤害减免"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',14,<?=s?>)
+        <?
+                    elseif i == "伤害反弹"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',15,<?=s?>)
+        <?
+                    elseif i == "升级属性"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',16,<?=s?>)
+        <?
+                    elseif i == "杀敌属性"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',17,<?=s?>)
+        <?
+                    elseif i == "每秒属性"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',18,<?=s?>)
+        <?
+                    elseif i == "力量增幅"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',19,<?=s?>)
+        <?
+                    elseif i == "敏捷增幅"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',20,<?=s?>)
+        <?
+                    elseif i == "智力增幅"   then
+        ?>
+                        call SaveInteger(j_slk_abil,'<?=id?>',21,<?=s?>)
+        <?
+                    end
+                end
+            end
+
+        end
+    ?>
+
+    endfunction
+endlibrary
+

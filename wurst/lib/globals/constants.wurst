@@ -1,0 +1,3 @@
+package constants
+
+public item pj_lastMovedItemInItemSlot

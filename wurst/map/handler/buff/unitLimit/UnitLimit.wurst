@@ -1,0 +1,46 @@
+package UnitLimit
+import public LinkedListModule
+import public CenterTimer
+import public phLib
+
+public module UnitLimit
+    use LinkedListModule
+    static real frame = 0.1
+    static TimerTask task
+    unit   target
+    real   time
+    real   timePost
+
+    function toString() returns string
+        return "[限制]:"+getName()+"@"+timePost+" / " +time +"->"+ target.getName()
+
+    abstract static function get(unit u) returns thistype
+
+    abstract static function getThis() returns thistype
+
+    abstract function onApply(unit u,real time)
+
+    protected function onCover(unit _u,real time)
+        this.time = max(this.time - this.timePost, time)
+        this.timePost = 0
+        
+    abstract function onRemoval(unit u)
+
+    abstract function getName() returns string
+
+    abstract static function removal(unit u)
+
+    abstract function destr()
+    
+    function onTick(thistype _i)
+
+    protected function do()
+        this.timePost += frame
+        onTick(this)
+        if target == null
+            destr()
+        else if (timePost >= time and time > 0)
+            onRemoval(target)
+
+
+    abstract static function engine()

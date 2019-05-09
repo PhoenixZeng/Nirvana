@@ -1,0 +1,37 @@
+package Missile
+import phLib
+import public Fx
+import CenterTimer
+import MoverEffectModule
+
+public class Missile
+    use MoverEffect
+    static TimerTask task
+    Fx      me
+    vec3    target
+    real    range = 100
+    construct(Fx me,vec3 target,real time)
+        this.me = me
+        this.target = target
+        moverEffect(target, time)
+    override function getPos() returns vec3
+        return me.getDummy().getPos3Real()
+    override function onStart()
+    override function onTick()
+    override function getHitRange() returns real
+        return 100
+    override function onEnd()
+        me.hiddenDestroy()
+        destroy this
+    override function setPos(vec3 pos)
+        me.setXYZ(pos)
+    override function onHit(unit u)
+    override function isHit(unit u) returns bool
+        return true
+    
+    override static function engine()
+        task = onAlways(Mover.__frame) t->
+            for i in Missile
+                i.do()
+init
+    Missile.engine()

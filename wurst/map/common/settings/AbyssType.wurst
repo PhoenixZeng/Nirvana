@@ -1,0 +1,104 @@
+package AbyssType
+import Game
+import HashList
+import phLib
+import Attacker
+import attrMapper
+import Forces
+import YDJapiOther
+import Level
+
+
+public class AbyssSpellManager
+    static HashList<AbyssInfo> infos = new HashList<AbyssInfo>()
+    static function getAddAbyssInfo(unit u)
+        if not GAME.endless and GAME.abyss
+            let d = getDiff()
+            if d <= 3
+                let s = GetRandomInt(0, infos.size()-1)
+                infos.get(s).onApply(u)
+            else
+                for i = 1 to 2
+                    let s = GetRandomInt(0, infos.size()-1)
+                    infos.get(s).onApply(u)
+        else if GAME.endless 
+            var l = Level.get() div 20 + 1
+            if l > 5
+                l = 5
+            for i = 1 to l
+                let s = GetRandomInt(0, infos.size()-1)
+                infos.get(s).onApply(u)
+
+public abstract class AbyssInfo
+    construct()
+        AbyssSpellManager.infos.add(this)
+    abstract function onApply(unit u)
+
+
+public class AbyssSpellInfo extends AbyssInfo
+    int id
+    bool isCast
+    construct(int id , bool isCast)
+        this.id = id
+        this.isCast = isCast
+    override function onApply(unit u)
+        if not isCast
+            u.addAbilityPro(id)
+        else if (u.isHero() or 20 .random() ) and u.getOwner() == enemyNormal
+            u.addAbilityPro(id)
+
+public class AbyssSpellLvInfo extends AbyssSpellInfo
+    construct(int id , bool isCast)
+        super(id,isCast)
+    override function onApply(unit u)
+        super.onApply(u)
+        u.setAbilityLevel(id, getDiff())
+
+init
+    new AbyssSpellLvInfo('A02W',true)//风暴之锤
+    new AbyssSpellLvInfo('A02Y',true)//沉默
+    new AbyssSpellLvInfo('A02Z',true)//禁止普攻
+    new AbyssSpellLvInfo('A02V',true)//雷霆一击
+    new AbyssSpellLvInfo('A030',true)//诱捕
+    new AbyssSpellLvInfo('A02U',true)//战争践踏
+    new AbyssSpellLvInfo('A031',false)//闪避
+    new AbyssSpellLvInfo('A02R',false)//邪恶光环
+    new AbyssSpellLvInfo('A02T',false)//硬化皮肤
+    new AbyssSpellLvInfo('A02Q',false)//专注光环
+
+public class AbyssAttrInfo extends AbyssInfo
+    AttrKey k
+    int val
+    int diffOffset
+    construct(AttrKey attr ,int val,int diffOffset)
+        this.val = val
+        this.k = attr
+        this.diffOffset = diffOffset
+    override function onApply(unit u)
+        if u.getOwner() == enemyNormal
+            let a = Attacker.getAttacker(u)
+            if a != null
+                a.addAttr(k, val)
+init
+    new AbyssAttrInfo(AttrKey.absorb,1,0)
+    new AbyssAttrInfo(AttrKey.dmgResi,50,0)
+    new AbyssAttrInfo(AttrKey.dmgBack,1,1)
+    new AbyssAttrInfo(AttrKey.dmgSub,30,5)
+    new AbyssAttrInfo(AttrKey.dmgPlus,20,5)
+
+public class AbyssStateInfo extends AbyssInfo
+    unitstate state
+    real val
+    real diffOffset
+    construct(unitstate state ,real val,real diffOffset)
+        this.state = state
+        this.val = val
+        this.diffOffset = diffOffset
+    override function onApply(unit u)
+        u.setState(state, val + (getDiff()-1)*diffOffset)
+
+init
+    new AbyssStateInfo(EX_UnitState.atkRange,80,80)
+
+
+

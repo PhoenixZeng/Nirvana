@@ -1,0 +1,10 @@
+package DamageHandler
+import LinkedListModule
+import DmgType
+
+public abstract class DamageHandler
+    use LinkedListModule
+
+    abstract function do(DmgWrapper dmg) returns DmgWrapper
+    static function on(DamageHandler _dh) returns DamageHandler
+        return _dh

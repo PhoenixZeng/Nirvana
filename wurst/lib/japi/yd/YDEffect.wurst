@@ -1,0 +1,34 @@
+package YDEffect
+import JapiNative
+
+public function effect.exX ()returns real
+    return EXGetEffectX(this)
+public function effect.exY ()returns real
+    return EXGetEffectY(this)
+public function effect.exZ ()returns real
+    return EXGetEffectZ(this)
+public function effect.exZ (real z )
+    EXSetEffectZ(this,z)
+public function effect.exSize ()returns real
+    return EXGetEffectSize(this)
+public function effect.exSize (real size )
+    EXSetEffectSize(this,size)
+public function effect.exMatRotateX (real angle )
+    EXEffectMatRotateX(this,angle)
+public function effect.exMatRotateY (real angle )
+    EXEffectMatRotateY (this,angle)
+public function effect.exMatRotateZ (real angle )
+    EXEffectMatRotateZ(this,angle)
+public function effect.exMatScale (real x, real y, real z )
+    EXEffectMatScale(this,x,y,z)
+public function effect.exMatReset ()
+    EXEffectMatReset(this)
+public function effect.exSpeed (real speed )
+    EXSetEffectSpeed(this,speed)
+public function effect.exPos (vec2 pos )
+    EXSetEffectXY(this, pos.x, pos.y)
+public function effect.exPos (vec3 pos )
+    EXSetEffectXY(this, pos.x, pos.y)
+    EXSetEffectZ(this, pos.z)
+public function effect.exPos () returns vec3
+    return vec3(this.exX(), this.exY(), this.exZ())

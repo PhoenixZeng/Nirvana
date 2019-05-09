@@ -1,0 +1,135 @@
+package selectAndDamage
+import unitLib
+import filterLib
+
+function getIncludedAngle (real a, real b )returns real
+    return AcosBJ(CosBJ(a)*CosBJ(b)+SinBJ(a)*SinBJ(b))
+
+function getRadianOfCoordinate (real x,real y,real x1,real y1) returns real
+    return Atan2(y1-y,x1-x)
+//命令u对u1造成类型为damageType,值为d的伤害。
+function doDamageUnit(unit u,unit u1,UnitDamageType damageType,real d)
+    u.damage(u1, damageType, d)
+//命令u对Gr单位组内所有单位，造成类型为damageType,值为d的伤害。
+function doDamageGroup(unit u0,group gr,UnitDamageType damageType,real d)
+    for unit eu in gr
+        if enemyFilter(u0,eu)
+            doDamageUnit(u0,eu,damageType,d)
+    gr.destr()
+//处理单位 为了降低耦合 不作处理
+function damageBlurringUnit(unit u) returns unit
+    return u
+//模糊处理-当 x=0.00(y=0.00)时,使得 x->u.x(y->u.y)
+function damageBlurringX(unit u,real x) returns real
+    if x==0.
+        return GetUnitX(u)
+    else
+        return x
+function damageBlurringY(unit u,real y) returns real
+    if y==0. 
+        return GetUnitY(u)
+    else
+        return y
+function angleBetweenXY(real x,real y ,real x1,real y1) returns real
+    return bj_RADTODEG * Atan2(y1 - y,x1 - x)
+
+function distanceBetweenXY(real x ,real y,real x1,real y1) returns real
+    var dx = x1-x
+    var dy = y1-y
+    return SquareRoot(dx * dx + dy * dy)
+//得到单位组 -矩形
+function inRectangle(real ux,real uy,real x,real y,real ang,real L,real W) returns boolean
+    var d = distanceBetweenXY(x,y,ux,uy)
+    var x2 = x + d*Cos(ang*bj_DEGTORAD)
+    var y2 = y + d*Sin(ang*bj_DEGTORAD)
+    var s = distanceBetweenXY(x2,y2,ux,uy)
+    return(s <= W and d <= L)
+function getRectangleGroup ( group returnGr,real x,real y,real ang,real L,real W,player p ) 
+    var gr =CreateGroup()
+    GroupEnumUnitsInRange(gr,x,y,SquareRoot(L*L+W*W),null)
+    for unit eu in gr
+        if IsUnitEnemy(eu,p)and GetUnitState(eu,UNIT_STATE_LIFE)>=0.405 
+            if inRectangle(GetUnitX(eu),GetUnitY(eu),x,y,ang,L,W)
+                GroupAddUnit(returnGr,eu)
+    gr.destr()
+
+//得到单位组，扇形
+function getSectorGroup ( group returnGr,real x,real y,real r,real facing,real ia,player p ) 
+    var gr =CreateGroup()
+    GroupEnumUnitsInRange(gr,x,y,r,null)
+    for unit eu in gr
+        if IsUnitEnemy(eu,p)and GetUnitState(eu,UNIT_STATE_LIFE)>=0.405 
+            if getIncludedAngle(Rad2Deg(getRadianOfCoordinate(x,y,GetUnitX(eu),GetUnitY(eu))),facing)<ia 
+                GroupAddUnit(returnGr,eu)
+    gr.destr()
+
+//得到单位组，圆形
+function getRoundGroup ( group returnGr,real x,real y,real r,player p ) 
+    var gr =CreateGroup()
+    GroupEnumUnitsInRange(gr,x,y,r,null)
+    for unit eu in gr
+        if IsUnitEnemy(eu,p)and GetUnitState(eu,UNIT_STATE_LIFE)>=0.405 
+            GroupAddUnit(returnGr,eu)
+    gr.destr()
+
+//API - 矩形部分
+public function unit.damageRectangle (vec2 pos,real ang,real L,real W,UnitDamageType damageType,real d ) 
+    var gr =CreateGroup()
+    var u0=damageBlurringUnit(this)
+    var x0=damageBlurringX(u0,pos.x)
+    var y0=damageBlurringX(u0,pos.y)
+    getRectangleGroup(gr,x0,y0,ang,L,W,GetOwningPlayer(u0))
+    doDamageGroup(u0,gr,damageType,d)
+    gr.destr()
+
+public function unit.damageRectangle (real L,real W,UnitDamageType damageType,real d ) 
+    var gr =CreateGroup()
+    var u0=damageBlurringUnit(this)
+    getRectangleGroup(gr,u0.getX(),u0.getY(),GetUnitFacing(u0),L,W,GetOwningPlayer(u0))
+    doDamageGroup(u0,gr,damageType,d)
+    gr.destr()
+
+//API - 圆形部分
+public function unit.damageRound (vec2 pos,real r,UnitDamageType damageType,real d) 
+    var gr =CreateGroup()
+    var u0=damageBlurringUnit(this)
+    var x0=damageBlurringX(u0,pos.x)
+    var y0=damageBlurringX(u0,pos.y)
+    getRoundGroup(gr,x0,y0,r,GetOwningPlayer(u0))
+    doDamageGroup(u0,gr,damageType,d)
+    gr.destr()
+
+public function unit.damageRound (real r,UnitDamageType damageType,real d) 
+    var gr =CreateGroup()
+    var u0=damageBlurringUnit(this)
+    var x0=u0.getX()
+    var y0=u0.getY()
+    getRoundGroup(gr,x0,y0,r,GetOwningPlayer(u0))
+    doDamageGroup(u0,gr,damageType,d)
+    gr.destr()
+
+
+//API - 扇形部分
+public function unit.damageSector(vec2 pos,real r,angle facing,real ia,UnitDamageType damageType,real damage) 
+    var gr =CreateGroup()
+    var u0=damageBlurringUnit(this)
+    var x0=damageBlurringX(u0,pos.x)
+    var y0=damageBlurringX(u0,pos.y)
+    var facing0 = facing
+    if ia!=0. and ia<=180. 
+        if facing.degrees() < -180. 
+            //小于-180时时，以u0的面向角度作为方向。
+            //可用DefaultFacing表示使u0的面向角度作为方向。
+            facing0=u0.getFacingAngle()
+        getSectorGroup(gr,x0,y0,r,facing0.degrees(),ia,GetOwningPlayer(u0))
+    else
+        getRoundGroup(gr,x0,y0,r,GetOwningPlayer(u0))
+    doDamageGroup(u0,gr,damageType,damage)
+    gr.destr() 
+
+public function unit.damageSector(real r,real ia,UnitDamageType damageType,real damage ) 
+    this.damageSector(this.getPos(), r, this.getFacingAngle(), ia, damageType, damage)
+
+public function unit.damageSector(vec2 p,vec2 p1,real r,real ia,UnitDamageType damageType,real damage ) 
+    this.damageSector(p,r,p.angleTo(p1),ia,damageType,damage)
+

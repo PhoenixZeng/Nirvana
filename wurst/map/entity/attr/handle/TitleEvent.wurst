@@ -1,0 +1,81 @@
+package TitleEvent
+// import Title
+// import phLib
+// import dzServerSave
+
+let bmKey = "TITLEBMJSA"
+let hzKey = "TITLEHZJLA"
+let jlKey = "TITLEJLTXA"
+let txKey = "TITLETXWSA"
+
+init
+    // let bm = new AbilTitleEntity("不灭金身")
+    // let hz = new AbilTitleEntity("皇者降临")
+    // let jl = new AbilTitleEntity("君临天下")
+    // let tx = new AbilTitleEntity("天下无双")
+
+    // bm.addAbil(TitleAbil.bumiejinshen,TitleAbil.bumiejinshenE)
+    // hz.addAbil(TitleAbil.huangzhejianglin,TitleAbil.huangzhejianglinE)
+    // jl.addAbil(TitleAbil.junlintianxia,TitleAbil.junlintianxiaE)
+    // tx.addAbil(TitleAbil.tianxiawushuang,TitleAbil.tianxiawushuangE)
+    // //天下无双额外掉率
+    // tx.onGet() u->
+    //     Players.get(u).exDrop += 25
+    // tx.onLost() u->
+    //     Players.get(u).exDrop += 25
+
+    // bm.addCallBack() u->
+    //     u.getOwner().addLumber(1)
+    // hz.addCallBack() u->
+    //     if 20 .random()
+    //         u.getOwner().addGold(Level.get())
+    // jl.addCallBack() u->
+    //     if 20 .random()
+    //         let b = Builder.getBuilder(u)
+    //         b.addAttr(AttrKey.ATK, Level.get())
+    // tx.addCallBack() u->
+    //     if (Level.get() * 2).toReal().random()
+    //         let b = Builder.getBuilder(u)
+    //         b.addAttr(AttrKey.STR, 3)
+    //         b.addAttr(AttrKey.AGI, 3)
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+    // ..addAction() ->
+    //     let u = GetDyingUnit()
+    //     let d = GetKillingUnit()
+    //     if d.getBuilder() == d and u.getOwner() == Player(10)
+    //         let t = Title.map.get(d)
+    //         if t != null and t.typeId != 0 and t.t.cb != null
+    //             t.t.cb.callback(d)
+    // //获取称号
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)
+    // ..addAction()->
+    //     let u = GetBuyingUnit()
+    //     let t = GetSoldItem()
+    //     let id = t.getTypeId()
+    //     let p = u.getOwner()
+    //     if id == 'I200'
+    //         if p.dzHasMallItem(bmKey)
+    //             Title.addTitle("不灭金身", u)
+    //         else
+    //             printTimedToPlayer("未购买,请关注商城哦!", 30, p)
+    //         t.remove()
+    //     else if id == 'I201'
+    //         if p.dzHasMallItem(hzKey)
+    //             Title.addTitle("皇者降临", u)
+    //         else
+    //             printTimedToPlayer("未购买,请关注商城哦!", 30, p)
+    //         t.remove()
+    //     else if id == 'I202'
+    //         if p.dzHasMallItem(jlKey)
+    //             Title.addTitle("君临天下", u)
+    //         else
+    //             printTimedToPlayer("未购买,请关注商城哦!", 30, p)
+    //         t.remove()
+    //     else if id == 'I203'
+    //         if p.dzHasMallItem(txKey)
+    //             Title.addTitle("天下无双", u)
+    //         else
+    //             printTimedToPlayer("未购买,请关注商城哦!", 30, p)
+    //         t.remove()

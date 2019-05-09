@@ -1,0 +1,144 @@
+package MoveEffect
+import YDEffect
+import HashMap
+import effectLib
+
+public class MoveEffect
+	static IterableMap<effect,MoveEffect> maps = new IterableMap<effect,MoveEffect>()
+	private player  ownr    = null
+	private effect 	fx 		= null
+	private angle 	zAngle  = angle(0)
+	private angle 	xAngle  = angle(0)
+	private angle 	yAngle  = angle(0)
+	private real 	speed   = 1
+	private string 	sfxPath = ""
+	
+	construct(player ownr,vec3 pos, string fxpath)
+		this.ownr = ownr
+		fx = addEffect(fxpath, pos.toVec2())..exPos(pos)
+		fx.exZ(pos.z)
+		sfxPath = fxpath
+		maps.put(fx, this)
+
+	static function size() returns int
+		return maps.size()
+
+	
+	/** Get the owner of this Fx Object */
+	function getOwner() returns player
+		return ownr
+		
+	/** Set the owner of this Fx Object */
+	function setOwner(player p)
+		ownr = p
+	
+	/** Set the scale of this Fx Object */
+	function setScale(real value)
+		fx.exSize(value)
+	function setScale(real x, real y, real z)
+		fx.exMatScale(x,y,z)
+	/** Get the scale of this Fx Object */
+	function getScale() returns real
+		return fx.exSize()
+	/** Set the speed of this Fx Object */
+	function setSpeed(real value)
+		fx.exSpeed(value)
+		speed = value
+	/** Get the speed of this Fx Object */
+	function getSpeed() returns real
+		return speed
+
+	function reset()
+		fx.exMatReset()
+
+	/** "flashes" the given effect.
+		Flashing plays the death animation of the effect at the fx's position. */
+	function flash(string path)
+		eff(path,fx.exPos().toVec2())
+		destroy this
+		
+	/** Get the xy angle */
+	function getXAngle() returns angle
+		return xAngle
+ 
+	/** Set the xy angle */
+	function setXAngle(angle value)
+		xAngle = value
+		fx.exMatRotateX(xAngle.degrees())
+
+	/** Get the xy angle */
+	function getYAngle() returns angle
+		return yAngle
+ 
+	/** Set the xy angle */
+	function setYAngle(angle value)
+		yAngle = value
+		fx.exMatRotateZ(yAngle.degrees())
+		
+	/** Get the z angle */
+	function getZAngle() returns angle
+		return zAngle
+		
+	/** Set the z angle in radians */
+	function setZAngle(angle zangle)
+		fx.exMatRotateZ(zangle.degrees())
+		
+	/** Get the z coordinate (fly height) */
+	function getZ() returns real
+		return fx.exZ()
+		
+	/** Get the 2d position */			
+	function getPos() returns vec2
+		return vec2(fx.exX(), fx.exY())
+	
+	/** Get the 3d position */			
+	function getPos3() returns vec3
+		return vec3(fx.exX(), fx.exY(), fx.exZ())
+		
+	/** Set the position to the given xy vector tuple */
+	function setPos(vec2 pos)
+		fx.exPos(pos)
+	
+	/** Set the position to the given xyz vector tuple */
+	function setPos(vec3 pos)
+		fx.exPos(pos)
+		
+	/** Set the position to the given xyz vector tuple. 
+	 * It is possible to ignore the terrain height when desired.
+	 * Use setXYheight when you never need terrain height. 
+	 * */
+ 	function setPos(vec3 pos, boolean ignoreTerrainHeight)
+		if ignoreTerrainHeight
+			fx.exPos(pos)
+		else
+			fx.exPos(pos)
+			fx.exZ(pos.z - pos.getTerrainZ())
+	
+	/** Set the z coordinate (flyHeight) */
+	function setZ(real z)
+		fx.exZ(z)
+			
+	ondestroy 
+		maps.remove(fx) 			
+		if fx != null
+			fx.destr()
+		ownr    = null
+		fx 		= null
+		
+
+	/** Destroys the Fx object without showing the effect's death animation 
+		Sort of a workaround by setting the position to the top right corner, hopefully not visible.*/
+	function hiddenDestroy()
+		fx.exPos(vec2(2147483647, 2147483647))
+		destroy this
+
+	function destr()
+		destroy this
+
+// init
+// 	var i = 0
+// 	doPeriodically(0.1) is ->
+// 		i++
+// 		let a = new MoveEffect(Player(0),vec2(0, 0),"Abilities\\Spells\\Orc\\StasisTrap\\StasisTotemTarget.mdl",0 .asAngleDegrees())
+// 		doPeriodicallyTimed(0.03, 5) cb->
+// 			a.setPos(vec3(0,i*20. , 0))

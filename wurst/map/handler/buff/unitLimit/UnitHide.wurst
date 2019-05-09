@@ -1,0 +1,53 @@
+package UnitHide
+import UnitLimit
+
+public class UnitHide
+    use UnitLimit
+    static let name = "隐藏"
+    static function apply(unit u,real time) returns thistype
+        let c = get(u)
+        if c == null
+            let a = getThis()
+            a.target = u
+            a.time = time
+            a.onApply(u, time)
+            return a
+        else
+            c.onCover(u,time)
+            return c
+
+    override static function get(unit u) returns thistype
+        thistype pre = null
+        for i in UnitHide
+            if i.target == u
+                pre = i
+        return pre
+    override function getName() returns string
+        return name
+
+    override static function getThis() returns thistype
+        return new UnitHide()
+            
+    override function onApply(unit u,real time)
+        u.hide()
+        u.pause()
+            
+    override static function removal(unit u)
+        for i in UnitHide
+            if i.target == u
+                i.onRemoval(u)
+    override function onRemoval(unit u)
+        u.show()
+        u.unpause()
+        destr()
+        
+    override function destr()
+        this.time = 0
+        this.timePost = 0
+        destroy this
+    override static function engine()
+        task = onAlways(frame) tk->
+            for i in UnitHide
+                i.do()
+init
+    UnitHide.engine()

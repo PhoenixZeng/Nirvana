@@ -1,0 +1,171 @@
+package Auth
+import LinkedListModule
+import dzServerSave
+import HashList
+import PlayerAuthSaved
+
+public var testShopView = false
+
+public function Auth.testAuths(HashList<Auth> list) returns bool
+    if testShopView
+        return true
+    return list.has(this)
+
+public abstract class AuthTest
+    abstract function test(Auth a,player p ) returns bool
+    static function make(AuthTest t) returns thistype
+        return t
+
+public class Auth
+    use LinkedListModule
+    string name
+    AuthTest test
+    construct(string name)
+        this.name = name
+
+    function setTest(AuthTest t)
+        test = t
+
+public class AuthMall extends Auth
+    string authVal
+    construct(string name,string auth)
+        super(name)
+        this.authVal = auth
+        test = (a,p)->
+            return p.dzHasMallItem(authVal)
+
+public class AuthDouble extends Auth
+    construct(string name,Auth auth1,Auth auth2)
+        super(name)
+        test = (a,p)->
+            return auth1.test.test(a, p) and auth2.test.test(a, p)
+
+public class AuthMapLevel extends Auth
+    int lv
+    construct(string name,int lv)
+        super(name)
+        this.lv = lv
+        test = (a,p)->
+            return p.dzLevel() >= lv
+
+public class AuthSave extends Auth
+    int    saved_index
+    construct(string name,int index)
+        super(name)
+        this.saved_index = index
+        test = (a,p)->
+            return KEY_AUTH_VAL[p.getId() * 1000 + (a castTo AuthSave).saved_index]
+
+    function setAuth(player p)
+        KEY_AUTH_VAL[p.getId() * 1000 + saved_index] = true
+
+public class AuthSinglePass extends Auth
+    int    lv
+    construct(string name,int lv)
+        super(name)
+        this.lv = lv
+        test = (a,p)->
+            return KEY_INFO_VAL[p.getId()*1000+2] >= lv
+public class AuthPass extends Auth
+    int    lv
+    construct(string name,int lv)
+        super(name)
+        this.lv = lv
+        test = (a,p)->
+            return KEY_INFO_VAL[p.getId()*1000+1] >= lv
+public class AuthCheckd extends Auth
+    construct(string name)
+        super(name)
+        test = (a,p)->
+            return KEY_CHEK_VAL[p.getId()]
+
+public class AuthEndless extends Auth
+    int ware
+    construct(string name,int ware)
+        super(name)
+        this.ware = ware
+public class AuthGuild extends Auth
+    string guildName
+    construct(string name,string guildName)
+        super(name)
+        this.guildName = guildName
+        test = (a,p)->
+            return p.dzGuildName() == guildName
+
+public let authChecked = new AuthCheckd("jc")
+
+public let starGuild = new AuthGuild("星悦","星悦会员俱乐部")
+public let anchorGuild = new AuthGuild("魔域","魔域主播工会")
+
+public let defAuth = new Auth("是")..setTest((a,p)-> true)    
+public let defNotAuth = new Auth("否")..setTest((a,p)-> false)    
+public let rank100Auth = new Auth("rank>100")..setTest((a,p)-> 100 >= p.dzRank() and p.dzRank() > 0 and p.dzLevel() >= 30)    
+
+public let _gift_gold   = new AuthMall("金币礼包","SGIFTGOLDK")
+public let _gift_lumber   = new AuthMall("木头礼包","SGIFTLUMBK")
+
+public let _halo_leidian   = new AuthMall("雷电护体","SHALOLDHTK")
+public let _halo_xinguang  = new AuthMall("星光闪耀","SHALOXGSYK")
+
+public let _weapon_huangjin = new AuthMall("黄金圣剑","SWEAPONHJJ")
+public let _weapon_xuanbing = new AuthMall("玄冰神剑","SWEAPONXBJ")
+public let _weapon_xieshen  = new AuthMall("邪神魔剑","SWEAPONXSJ")
+
+public let _wing_huangjin = new AuthMall("黄金翅膀","SWINGHJKKK")
+public let _wing_zhenshen = new AuthMall("真神翅膀","SWINGZSKKK")
+public let _wing_shengyu  = new AuthMall("圣羽翅膀","SWINGSYKKK")
+
+public let _vip   = new AuthMall("VIP","SVIPKKKKKK")
+
+public let _map_p1 = new AuthPass("1",1)
+public let _map_p2 = new AuthPass("2",2)
+public let _map_p3 = new AuthPass("3",3)
+public let _map_p4 = new AuthPass("4",4)
+public let _map_p5 = new AuthPass("5",5)
+public let _map_p6 = new AuthPass("6",6)
+public let _map_sp1 = new AuthSinglePass("单1",1)
+public let _map_sp2 = new AuthSinglePass("单2",2)
+public let _map_sp3 = new AuthSinglePass("单3",3)
+public let _map_sp4 = new AuthSinglePass("单4",4)
+public let _map_sp5 = new AuthSinglePass("单5",5)
+public let _map_sp6 = new AuthSinglePass("单6",6)
+
+
+public let _map_lv2  = new AuthMapLevel("maplv2" ,2 )
+public let _map_lv3  = new AuthMapLevel("maplv3" ,3 )
+public let _map_lv4  = new AuthMapLevel("maplv4" ,4 )
+public let _map_lv5  = new AuthMapLevel("maplv5" ,5 )
+public let _map_lv6  = new AuthMapLevel("maplv6" ,6 )
+public let _map_lv7  = new AuthMapLevel("maplv7" ,7 )
+public let _map_lv8  = new AuthMapLevel("maplv8" ,8 )
+public let _map_lv9  = new AuthMapLevel("maplv9" ,9 )
+public let _map_lv10 = new AuthMapLevel("maplv10",10)
+public let _map_lv11 = new AuthMapLevel("maplv11",11)
+public let _map_lv12 = new AuthMapLevel("maplv12",12)
+public let _map_lv13 = new AuthMapLevel("maplv13",13)
+public let _map_lv14 = new AuthMapLevel("maplv14",14)
+public let _map_lv15 = new AuthMapLevel("maplv15",15)
+public let _map_lv16 = new AuthMapLevel("maplv16",16)
+public let _map_lv17 = new AuthMapLevel("maplv17",17)
+public let _map_lv18 = new AuthMapLevel("maplv18",18)
+public let _map_lv19 = new AuthMapLevel("maplv19",19)
+public let _map_lv20 = new AuthMapLevel("maplv20",20)
+public let _map_lv21 = new AuthMapLevel("maplv21",21)
+public let _map_lv22 = new AuthMapLevel("maplv22",22)
+public let _map_lv23 = new AuthMapLevel("maplv23",23)
+public let _map_lv24 = new AuthMapLevel("maplv24",24)
+public let _map_lv25 = new AuthMapLevel("maplv25",25)
+public let _map_lv26 = new AuthMapLevel("maplv26",26)
+public let _map_lv27 = new AuthMapLevel("maplv27",27)
+public let _map_lv28 = new AuthMapLevel("maplv28",28)
+public let _map_lv29 = new AuthMapLevel("maplv29",29)
+public let _map_lv30 = new AuthMapLevel("maplv30",30)
+
+public let _map_p_lv2 = new AuthDouble("lvp2", _map_p2, _map_lv2)
+public let _map_p_lv3 = new AuthDouble("lvp3", _map_p3, _map_lv3)
+public let _map_p_lv4 = new AuthDouble("lvp4", _map_p4, _map_lv4)
+public let _map_p_lv5 = new AuthDouble("lvp5", _map_p5, _map_lv5)
+public let _map_sp_lv2 = new AuthDouble("lvsp2", _map_sp2, _map_lv2)
+public let _map_sp_lv3 = new AuthDouble("lvsp3", _map_sp3, _map_lv3)
+public let _map_sp_lv4 = new AuthDouble("lvsp4", _map_sp4, _map_lv4)
+public let _map_sp_lv5 = new AuthDouble("lvsp5", _map_sp5, _map_lv5)

@@ -1,0 +1,192 @@
+package WorkRoom
+import LinkedListModule
+import ClosureTimers
+import Rects
+import baseImport
+import Challenge
+import PersonalArea
+import School
+import Hero
+
+public class WorkRoom
+    use LinkedListModule
+    Rects  area
+    Rects  challArea
+    Rects  returnArea
+    group units = CreateGroup()
+    Challenge cha
+    Challenge defCha
+    real currentTime = 0
+    int  clickTime = 2
+    static int clickTimeLimit = 3
+    static int    buNum = 1//刷怪限制
+    static player owner = enemySpecial
+    construct(Rects  area,Rects  challArea,Rects  returnArea)
+        this.area = area
+        this.challArea = challArea
+        this.returnArea = returnArea
+    function testEnemy() returns bool 
+        return units..clear()
+        ..enumUnitsInRect(area.origin,Filter(()->aliveFilter(GetFilterUnit()) and enemy.containsUnit(GetFilterUnit())))
+        .size()<=cha.refreshNum
+    function testUsers() returns bool
+        return units..clear()
+        ..enumUnitsInRect(area.origin,Filter(()->aliveHeroFilter(GetFilterUnit()) and users.containsUnit(GetFilterUnit())))
+        .size()>=buNum
+    function selectUserUnitSize() returns int
+        return units..clear()
+        ..enumUnitsInRect(area.origin,Filter(()->aliveHeroFilter(GetFilterUnit()) and users.containsUnit(GetFilterUnit())))
+        .size()
+    function clear()
+        units..clear()
+        ..enumUnitsInRect(area.origin,Filter(()->aliveFilter(GetFilterUnit()) and enemy.containsUnit(GetFilterUnit())))
+        for i from units
+            i.remove()
+        units..clear()
+        cha = defCha
+        currentTime = 9999
+
+    function onCreate()
+        cha.create(owner, challArea.pos)
+        
+    function onFresh()
+        currentTime++
+        if currentTime >= cha.refreshTime
+            currentTime = 0
+            onCreate()
+            if cha.isDef
+                defCha = cha
+
+    static function initi()
+        doPeriodically(1) t->
+            for i in WorkRoom
+                i.clickTime++
+                if  i.testEnemy() and i.testUsers() and i.cha.isAutoRefesh
+                    i.onFresh()
+
+public class DivineSoulRoom extends WorkRoom
+    static HashMap<Soul,thistype> map = new HashMap<Soul,thistype>
+    static HashMap<Challenge,thistype> cha2this = new HashMap<Challenge,thistype>
+    static HashMap<trigger,thistype> tri2this = new HashMap<trigger,thistype>
+    Soul s
+    Challenge c
+    unit challenger = null
+    trigger onLeave
+    static let chaLimit = new HashMap<Challenge,int>
+
+    construct(Soul s,Challenge c,Rects  area,Rects  challArea,Rects  returnArea)
+        super(area,challArea,returnArea)
+        this.s = s
+        this.c = c
+        map.put(s, this)
+        cha2this.put(c, this)
+        onLeave = CreateTrigger()
+        tri2this.put(onLeave, this)
+        onLeave
+        ..registerLeaveRegion(area.i, Filter(()->users.containsUnit(GetFilterUnit())))
+        ..addAction() ->
+            let t  = GetTriggeringTrigger()
+            let ss = DivineSoulRoom.tri2this.get(t)
+            if ss != null
+                let size = ss.selectUserUnitSize()
+                if size <= 0
+                    ss.challenger = null
+
+    override function onCreate()
+        cha.create(owner, challArea.pos,challenger)
+
+    function onCover(Challenge cha,unit buyer)
+        if cha != this.cha or not cha.isAutoRefesh
+            if clickTime >= clickTimeLimit or not cha.isAutoRefesh
+                clear()
+                clickTime = 0
+                let times = chaLimit.get(cha)
+                if times > cha.limit and cha.limit > 0
+                    printTimedToPlayer("[挑战]:挑战当前boss已经达到限制次数!", 30, buyer.getOwner())
+                else
+                    this.cha = cha
+                    chaLimit.put(cha,times + 1)
+                    challenger = buyer
+                    onFresh()
+                    if not buyer.isInRegion(area.i)
+                        buyer.setPosPro(returnArea.pos)
+            else
+                printTimedToPlayer("[挑战]:你点的太快了,每3秒只能点一次!", 10, buyer.getOwner())
+
+    static function inite()
+        for p = 1 to 5
+            new DivineSoulRoom(p castTo Soul,soulChalls[p],soulAll[p],soulChall[p],soulCome[p])
+        CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+        ..addAction() ->
+            let i = GetManipulatedItem()
+            let b = GetManipulatingUnit()
+            let u = b.getMainHero()
+            let h = Hero.getHero(u)
+            if Challenge.map.has(i.getTypeId())
+                let c = Challenge.map.get(i.getTypeId())
+                let w = DivineSoulRoom.cha2this.get(c)
+                if w != null and c.challengeFlag == 3
+                    if h.school == w.s
+                        if w.challenger == null
+                            w.onCover(c, u)
+                            i.remove()
+                        else
+                            printTimedToPlayer("[系统]:已经有人在里面了!", 10, b.getOwner())
+                    else
+                        printTimedToPlayer("[系统]:无法挑战非信仰的圣魂!", 10, b.getOwner())
+                        Log.error("[错误]:尝试挑战非信仰的圣魂")
+
+
+public class PersonalWorkRoom extends WorkRoom
+    static HashMap<Players,thistype> map = new HashMap<Players,thistype>
+    Players p
+    PersonalArea pa
+    static let chaLimit = new HashMap<Challenge,int>
+
+    construct(Players p,Rects  area,Rects  challArea,Rects  returnArea)
+        super(area,challArea,returnArea)
+        this.p = p
+        this.pa = new PersonalArea("玩家练功房"+(p._player.getId()+1),area,p._player)
+        p.personalPos = returnArea.pos
+        map.put(p, this)
+
+    override function onCreate()
+        cha.create(owner, challArea.pos,p.hero._self)
+
+    function onCover(Challenge cha,unit buyer)
+        if cha != this.cha or not cha.isAutoRefesh
+            if clickTime >= clickTimeLimit or not cha.isAutoRefesh
+                clear()
+                clickTime = 0
+                let times = chaLimit.get(cha)
+                if times > cha.limit and cha.limit > 0
+                    printTimedToPlayer("[挑战]:挑战当前boss已经达到限制次数!", 30, p._player)
+                else
+                    chaLimit.put(cha,times + 1)
+                    this.cha = cha
+                    onFresh()
+                    if not buyer.isInRegion(area.i)
+                        buyer.setPosPro(returnArea.pos)
+            else
+                printTimedToPlayer("[挑战]:你点的太快了,每2秒只能点一次!", 10, p._player)
+
+    static function heroGoToHere(Players ps)
+        let pw = map.get(ps)
+        ps.hero._self.setPosPro(ps.personalPos,0.1)
+        pw.clear()
+
+    static function initi()
+        for p = 0 to 5
+            new PersonalWorkRoom(Players.get(p),persion[p+1],workRoomRects[p+1],persionReturn[p+1])
+        CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+        ..addAction() ->
+            let i = GetManipulatedItem()
+            if Challenge.map.has(i.getTypeId())
+                let u = GetManipulatingUnit().getMainHero()
+                let c = Challenge.map.get(i.getTypeId())
+                let w = PersonalWorkRoom.map.get(Players.get(u))
+                if w != null and c.challengeFlag == 1
+                    w.onCover(c, u)
+                    i.remove()

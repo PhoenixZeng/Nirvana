@@ -1,0 +1,17 @@
+package luckDraw
+import public luckDrawEnum
+import HashMap
+
+
+public class LuckDraw
+    int itemId
+    int chance
+    static HashMap<int,thistype> map = new HashMap<int,thistype>
+
+    construct(int itemId,int chance)
+        this.itemId     = itemId
+        this.chance     = chance
+        map.put(itemId, this)
+
+    function giveUnit(unit u)
+        u.addItemById(itemId)

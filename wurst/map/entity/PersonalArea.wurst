@@ -1,0 +1,31 @@
+package PersonalArea
+import Rects
+import baseImport
+
+/*
+* 禁止串用私人区域
+*/
+public class PersonalArea
+    string name
+    Rects area
+    Players ps
+    static trigger limitTrig = CreateTrigger()
+    static HashMap<Rects,thistype> personalAreas = new HashMap<Rects,thistype>()
+
+    construct(string name,Rects area,player p)
+        this.name = name
+        this.area = area
+        this.ps = Players.get(p)
+        personalAreas.put(area, this)
+        limitTrig..registerEnterRegion(area.i,null)
+
+init
+    PersonalArea.limitTrig
+    ..addAction()->
+        let u = GetEnteringUnit()
+        let r = GetTriggeringRegion().getRects()
+        let rs = PersonalArea.personalAreas.get(r)
+        if rs != null and users.containsUnit(u) and (not u.hasAbility('Aloc')) and (not IsUnitType(u, UNIT_TYPE_STRUCTURE))
+            if rs.ps._player != u.getOwner()
+                let p = Players.get(u.getOwner())
+                u.setPosPro(p.personalPos)

@@ -1,0 +1,120 @@
+package attrGenerateAbility
+import public attr
+import AbilityObjEditing
+import base
+
+public function getAttrObjectId(player p,AttrKey key) returns int
+    if AttrLib.getAttrIdHead(key) != 0
+        return AttrLib.getAttrIdHead(key) + AttrLib.idPosiBody + p.getId()
+    return 0
+
+public class AttrLib
+    static constant idPosiBody = 'A' - '0'
+    static constant idNageBody = 'a' - '0'
+    static constant hpmIdHead = 'WW10'
+    static constant atkIdHead = 'WW20'
+    static constant defIdHead = 'WW30'
+    static constant aspIdHead = 'WW40'
+    static constant strIdHead = 'WW60'
+    static constant agiIdHead = 'WW70'
+    static constant ineIdHead = 'WW80'
+    static function getAttrIdHead(AttrKey k) returns int
+        switch k
+            case AttrKey.HPM
+                return hpmIdHead
+            case AttrKey.ATK
+                return atkIdHead
+            case AttrKey.DEF
+                return defIdHead
+            case AttrKey.ASP
+                return aspIdHead
+            case AttrKey.STR
+                return strIdHead
+            case AttrKey.AGI
+                return agiIdHead
+            case AttrKey.INE
+                return ineIdHead
+            default
+                return 0
+
+// Wurst 做物编是真的垃圾
+@compiletime function generateAbility()
+    IterableMap<AttrKey,string> list = new IterableMap<AttrKey,string>()
+    list.put(AttrKey.HPM,"生命上限")
+    list.put(AttrKey.ATK,"攻击")
+    list.put(AttrKey.DEF,"物理防御")
+    list.put(AttrKey.ASP,"攻速")
+    list.put(AttrKey.STR,"力量")
+    list.put(AttrKey.AGI,"敏捷")
+    list.put(AttrKey.INE,"智力")
+    var _j = AttrKey.HPM
+    for i=0 to 11
+        _j = AttrKey.HPM
+        new AbilityDefinitionMaxLifeBonusGreater(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setMaxLifeGained(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setItemAbility(false)
+            ..setHeroAbility(false)
+            ..setEditorSuffix("")
+        _j = AttrKey.ATK
+        new AbilityDefinitionAttackBonus(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setAttackBonus(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setItemAbility(false)
+            ..setHeroAbility(false)
+            ..setEditorSuffix("")
+        _j = AttrKey.DEF
+        new AbilityDefinitionDefenseBonusPlus1(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setDefenseBonus(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setItemAbility(false)
+            ..setHeroAbility(false)
+            ..setEditorSuffix("")
+        _j = AttrKey.ASP
+        new AbilityDefinitionAttackSpeedIncreaseGreater(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setAttackSpeedIncrease(1,0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setItemAbility(false)
+            ..setHeroAbility(false)
+            ..setEditorSuffix("")
+        _j = AttrKey.STR
+        new AbilityDefinitionAttributeModifierSkill(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setLevels(2)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setStrengthBonus(1, 0)
+            ..setAgilityBonus(1, 0)
+            ..setIntelligenceBonus(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setHideButton(1, true)
+            ..setEditorSuffix("")
+        _j = AttrKey.AGI
+        new AbilityDefinitionAttributeModifierSkill(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setLevels(2)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setStrengthBonus(1, 0)
+            ..setAgilityBonus(1, 0)
+            ..setIntelligenceBonus(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setHideButton(1, true)
+            ..setEditorSuffix("")
+        _j = AttrKey.INE
+        new AbilityDefinitionAttributeModifierSkill(AttrLib.getAttrIdHead(_j)+AttrLib.idPosiBody+i)
+            ..setLevels(2)
+            ..setName(list.get(_j)+"玩家"+(i+1))
+            ..setStrengthBonus(1, 0)
+            ..setAgilityBonus(1, 0)
+            ..setIntelligenceBonus(1, 0)
+            ..setButtonPositionNormalX(0)
+            ..setButtonPositionNormalY(-11)
+            ..setHideButton(1, true)
+            ..setEditorSuffix("")

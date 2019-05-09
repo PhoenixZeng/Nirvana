@@ -1,0 +1,177 @@
+package commandPlayers
+import LinkedListModule
+import damage
+import baseImport
+import WorkRoom
+import skin
+import Rects
+import Auth
+import public PlayersSkin
+import PlayerService
+import dzSync
+import HeroService
+import PlayerAuthSaved
+import PlayersSave
+
+enum CommandScope
+    Main
+    All
+enum ContainScope
+    Contain
+    All
+
+abstract class Command
+    use LinkedListModule
+    string       command
+    CommandScope scop = CommandScope.All
+    ContainScope conp = ContainScope.Contain
+    PlayerRole   auth = PlayerRole.Normal
+    abstract function todo(Players p,string chat,thistype this_)
+    static function when(string s,CommandScope scop,ContainScope conp,PlayerRole auth,Command com)
+        com.command = s
+        com.scop = scop
+        com.auth = auth
+        com.conp = conp
+init
+    Command.when("hg",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        p.hero._self.setPosPro(HOME.BASE_POS,0.1)
+    Command.when("hj",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        PersonalWorkRoom.heroGoToHere(p)
+    Command.when("hs",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        p.hero._self.setPosPro(springReturn.pos,0.1)
+    Command.when("sx",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        p.hero.printAttr()
+    Command.when("alt",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let arg = s.replace(c.command,"").toInt() - 1
+        let a = p.hero._self.addItemHandle(p.bb.itemInSlot(arg))
+        if not a
+            printTimedToPlayer("[系统]:失败!", 30, p._player)
+    Command.when("-gd",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let arg = s.replace(c.command,"")
+        let high = arg.toReal()
+        if high>=1000 and high<=5000
+            SetCameraFieldForPlayer( p._player, CAMERA_FIELD_TARGET_DISTANCE, high, 0.5 )
+    Command.when("-xs",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        let o = p._player.getId()
+        showDamage[o] = not showDamage[o]
+    Command.when("-jnxs",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        let o = p._player.getId()
+        showOthersEffect[o] = not showOthersEffect[o]
+    Command.when("-id",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        let hx = p._player.getName().getHash()
+        printTimedToPlayer(hx.toString(), 30, p._player)
+    Command.when("-at",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let index = s.replace(c.command, "").toInt()
+        KEY_AUTH_VAL[p._player.getId() *1000 + index] = true
+    Command.when("save",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        p.save()
+    Command.when("火鸟玩",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        let ps = PlayerService.get(p._player)
+        ps.onActNewbieGift()
+    Command.when("天天RPG",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
+        let ps = PlayerService.get(p._player)
+        ps.onActNewbieGift()
+    Command.when("-wq",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let hs = HeroService.get(p.hero)
+        for i in WeaponSkin
+            if s == i.cmd
+                if i.auth.testAuths(p.auths)
+                    hs.onChangeWeaponSkin(i)
+                    break
+    Command.when("-ch",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let hs = HeroService.get(p.hero)
+        for i in TitleSkin
+            if s == i.cmd
+                if i.auth.testAuths(p.auths)
+                    hs.onChangeTitleSkin(i)
+                    break
+    Command.when("-gh",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let hs = HeroService.get(p.hero)
+        for i in HaloSkin
+            if s == i.cmd
+                if i.auth.testAuths(p.auths)
+                    hs.onChangeHaloSkin(i)
+                    break
+    Command.when("-cb",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let hs = HeroService.get(p.hero)
+        for i in WingSkin
+            if s == i.cmd
+                if i.auth.testAuths(p.auths)
+                    hs.onChangeWingSkin(i)
+                    break
+    // Command.when("-cw",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+    //     let hs = HeroService.get(p.hero)
+    //     for i in PetEntity
+    //         if s == i.cmd
+    //             if i.auth.testAuths(p.auths)
+    //                 hs.onChangePet(i)
+    //                 break
+    // Command.when("-a-",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+    //     let o = s.substring(3)
+    //     let hx = p._player.getName().getHash()
+    //     let a = CommandAward.map.get(o.toInt() - hx)
+    //     if a != null
+    //         if not playerIsHaveAward.loadBoolean(p._player.getId(), a.keyIndex)
+    //             p.hero._self.addItemById(a.itemId)
+    //             playerIsHaveAward.saveBoolean(p._player.getId(), a.keyIndex, true)
+    //             savePlayerAwardSave(p)
+
+
+    CreateTrigger()
+    ..registerExSync("cmd")
+    ..addAction()->
+        let p = exSyncPlayer()
+        let chat = exSyncData()
+        let ps   = Players.get(p)
+        for i in Command
+            if i.conp == ContainScope.Contain
+                if chat.contains(i.command)
+                    if i.scop == CommandScope.Main
+                        if getMainPlayer() == p
+                            if (i.auth castTo int) <= (ps.role castTo int)
+                                i.todo(ps, chat , i)
+                    else
+                        if (i.auth castTo int) <= (ps.role castTo int)
+                            i.todo(ps, chat , i)
+            else
+                if chat == i.command
+                    if i.scop == CommandScope.Main
+                        if getMainPlayer() == p
+                            if (i.auth castTo int) <= (ps.role castTo int)
+                                i.todo(ps, chat , i)
+                    else
+                        if (i.auth castTo int) <= (ps.role castTo int)
+                            i.todo(ps, chat , i)
+
+    CreateTrigger()
+    ..registerPlayerChatEvent(Player(0), "", false)
+    ..registerPlayerChatEvent(Player(1), "", false)
+    ..registerPlayerChatEvent(Player(2), "", false)
+    ..registerPlayerChatEvent(Player(3), "", false)
+    ..registerPlayerChatEvent(Player(4), "", false)
+    ..registerPlayerChatEvent(Player(5), "", false)
+    ..addAction()->
+        let chat = GetEventPlayerChatString()
+        let p    = GetTriggerPlayer()
+        let ps   = Players.get(p)
+        for i in Command
+            if i.conp == ContainScope.Contain
+                if chat.contains(i.command)
+                    if i.scop == CommandScope.Main
+                        if getMainPlayer() == p
+                            if (i.auth castTo int) <= (ps.role castTo int)
+                                i.todo(ps, chat , i)
+                    else
+                        if (i.auth castTo int) <= (ps.role castTo int)
+                            i.todo(ps, chat , i)
+            else
+                if chat == i.command
+                    if i.scop == CommandScope.Main
+                        if getMainPlayer() == p
+                            if (i.auth castTo int) <= (ps.role castTo int)
+                                i.todo(ps, chat , i)
+                    else
+                        if (i.auth castTo int) <= (ps.role castTo int)
+                            i.todo(ps, chat , i)
+
+                    

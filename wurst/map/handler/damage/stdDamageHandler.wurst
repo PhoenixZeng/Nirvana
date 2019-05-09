@@ -1,0 +1,271 @@
+package stdDamageHandler
+import DamageHandler
+import baseImport
+import attrMapper
+import DmgType
+import dzGameFrame
+import Guard
+import Hero
+import winAndLose
+
+
+init
+    //法术伤害处理
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if users.containsUnit(dmg.i) and dmg.t == DmgType.SPELL and d <= 200 and dmg.i.isHero()
+            d = d / 10 * dmg.i.getPropSumAndMain()
+            let h = Hero.getHero(dmg.i)
+            d *= 1 + h.nirvanaCount / 3
+            // print("受到法术伤害!伤害调整为"+d+":目标名字"+dmg.j.getName())
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+
+    //灵宠伤害处理
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        var newdmg = DmgWrapper(dmg.i, dmg.j, dmg.dmg, dmg.t)
+        let g = Guard.getGuard(dmg.i.getMainHero())
+        // if g != null and g.contains(dmg.i)
+            // d = Guard.maps.get(dmg.i).getDamage()
+            // print("受到战宠伤害!伤害调整为"+d+":目标名字"+dmg.j.getName())
+            // newdmg.i = dmg.i.getMainHero()
+        if users.containsUnit(dmg.i) and not dmg.i.isHero()
+            d = d / 10 * dmg.i.getMainHero().getPropSumAndMain()
+            let h = Hero.getHero(dmg.i.getMainHero())
+            d *= 1 + h.nirvanaCount / 3
+            // print("受到宠物伤害!伤害调整为"+d+":目标名字"+dmg.j.getName())
+            newdmg.i = dmg.i.getMainHero()
+        newdmg.dmg = d
+        return newdmg
+
+    //buff 处理器
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if UnitAInv.get(dmg.j) != null
+            d = 0
+        else if dmg.t == DmgType.ATTACK and UnitPhysicalAInv.get(dmg.j) != null
+            d = 0
+        else if dmg.t == DmgType.SPELL and UnitMagicAInv.get(dmg.j) != null
+            d = 0
+        if d > 0
+            var list = Buff.getAllWhereIsTarget(dmg.i)
+            if list != null and list.typeId != 0 and not list.isEmpty()
+                for bf in list
+                    if bf.typeId != 0 and bf.getName() == "致盲"
+                        let a = bf castTo Buff_Blinding
+                        if a.chance .random()
+                            d = 0
+                    if bf.typeId != 0 and bf.getName() == "虚弱"
+                        let a = bf castTo Buff_Weak
+                        d *= a.damageMul
+                    if bf.typeId != 0 and bf.getName() == "强化"
+                        let a = bf castTo Buff_Enhance
+                        d *= a.damageMul
+                    if d == 0
+                        break
+        if d > 0
+            var list = Buff.getAllWhereIsTarget(dmg.j)
+            if list != null and list.typeId != 0 and not list.isEmpty()
+                for bf in list
+                    if bf.typeId != 0 and bf.getName() == "破绽"
+                        let a = bf castTo Buff_Flaws
+                        d *= a.damageMul
+                    if bf.typeId != 0 and bf.getName() == "护体"
+                        let a = bf castTo Buff_Protector
+                        d *= a.damageMul
+                    if d == 0
+                        break
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+    
+
+    //英雄目标处理器
+    DamageHandler.on() dmg ->
+        var d = dmg
+        if  users.containsUnit(dmg.i) and dmg.i.isHero()
+            let h = Hero.getHero(dmg.i)
+            if dmg.j.isHero()
+                let hp = HpBar.map.get(dmg.i.getOwner())
+                hp.u = dmg.j
+                hp.time = 20
+                h.target = dmg.j
+            else
+                h.target = null
+                let hp = HpBar.map.get(dmg.i.getOwner())
+                hp.u = null
+                hp.time = 0
+            d.dmg *= h.power
+            if isWin
+                d.dmg *= 0.004
+        return DmgWrapper(dmg.i, dmg.j, d.dmg, dmg.t)
+
+    //难度全局伤害处理
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if not GAME.endless
+            if GAME.difficult >= 2 and GAME.difficult <= 3
+                if  users.containsUnit(dmg.i) 
+                    if enemyNormal == dmg.j.getOwner()
+                        d *= 1 - (GAME.difficult) * 0.18
+                    else if enemySpecial == dmg.j.getOwner()
+                        d *= 1 - (GAME.difficult) * 0.1
+                else if users.containsUnit(dmg.j)
+                    if enemyNormal == dmg.i.getOwner()
+                        d *= 1 + (GAME.difficult) * 0.18
+                    else if enemySpecial == dmg.i.getOwner()
+                        d *= 1 + (GAME.difficult) * 0.1
+            else if GAME.difficult >= 4 and GAME.difficult <= 5
+                if  users.containsUnit(dmg.i) 
+                    if enemyNormal == dmg.j.getOwner()
+                        d *= 1 - (GAME.difficult) * 0.183
+                    else if enemySpecial == dmg.j.getOwner()
+                        d *= 1 - (GAME.difficult) * 0.15
+                else if users.containsUnit(dmg.j)
+                    if enemyNormal == dmg.i.getOwner()
+                        d *= 1 + (GAME.difficult) * 0.183
+                    else if enemySpecial == dmg.i.getOwner()
+                        d *= 1 + (GAME.difficult) * 0.15
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+
+    //无尽全局伤害处理
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if GAME.endless
+            let lv = Level.get()
+            if  not dmg.i.getTypeId().inIdRange('H10C', 'H10H') and not dmg.j.getTypeId().inIdRange('H10C', 'H10H')
+                if lv <= 15
+                    if  users.containsUnit(dmg.i) 
+                        if enemyNormal == dmg.j.getOwner()
+                            d *= 1 - lv * 0.03
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= 1 - lv * 0.01
+                    else if users.containsUnit(dmg.j)
+                        if enemyNormal == dmg.i.getOwner()
+                            d *= 1 + lv * 0.02
+                        else if enemySpecial == dmg.i.getOwner()
+                            d *= 1 + lv * 0.01
+                else if lv <= 30
+                    if  users.containsUnit(dmg.i) 
+                        if enemyNormal == dmg.j.getOwner()
+                            d *= 1 - (lv - 3)/lv
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= 1 - (lv - 3)/lv / 2
+                    else if users.containsUnit(dmg.j)
+                        if enemyNormal == dmg.i.getOwner()
+                            d *= 1 + lv * 0.03
+                        else if enemySpecial == dmg.i.getOwner()
+                            d *= 1 + lv * 0.02
+                else if lv <= 50
+                    if  users.containsUnit(dmg.i) 
+                        if enemyNormal == dmg.j.getOwner()
+                            d *= 1 - (lv - 1)/lv
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= 1 - (lv - 1)/lv / 1.5
+                    else if users.containsUnit(dmg.j)
+                        if enemyNormal == dmg.i.getOwner()
+                            d *= 1 + lv * 0.04
+                        else if enemySpecial == dmg.i.getOwner()
+                            d *= 1 + lv * 0.03
+                else
+                    if  users.containsUnit(dmg.i) 
+                        if enemyNormal == dmg.j.getOwner()
+                            d *= (1 - (lv - 1)/lv)/2
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= (1 - (lv - 3)/lv)/2
+                    else if users.containsUnit(dmg.j)
+                        if enemyNormal == dmg.i.getOwner()
+                            d *= 1 + lv * 0.05
+                        else if enemySpecial == dmg.i.getOwner()
+                            d *= 1 + lv * 0.04
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+
+    //深渊伤害处理
+    // DamageHandler.on() dmg ->
+    //     var d = dmg.dmg
+    //     if GAME.abyss and not GAME.endless
+    //         let diff = getDiff()
+    //         if  users.containsUnit(dmg.i) 
+    //             if enemyNormal == dmg.j.getOwner()
+    //                 d *= 1 - 0.1 - 0.15 * diff
+    //             else if enemySpecial == dmg.j.getOwner()
+    //                 d *= 1 - 0.15 - 0.15 * diff
+    //         else if users.containsUnit(dmg.j)
+    //             if enemyNormal == dmg.i.getOwner()  
+    //                 d *= 1 + 0.15+ 0.1 * diff
+    //             else if enemySpecial == dmg.i.getOwner()
+    //                 d *= 1 + 0.07+ 0.05 * diff
+    //     return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+
+
+
+    // 标准伤害处理器
+    //
+    // 总伤害 = 伤害 * (1+伤害增幅) * (Random<暴击概率)?(1+暴击伤害):1 * (1+附加伤害) * (1+最终伤害)
+    // 总吸血 = 总伤害 * 攻击吸血 
+    // 敌扣血 = 总伤害 * (1-伤害减免/(50+伤害减免)) * (1-伤害抵抗)
+    // 我扣血 = 总伤害 * 伤害反弹
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if enemyFilter(dmg.i, dmg.j)
+            //处理魔法伤害护甲
+            if dmg.t == DmgType.SPELL
+                let def = dmg.j.getDef()
+                d *= 1 - (def*0.0001)/(1+0.0001*def)
+            if dmg.i.isHero() and dmg.j.isHero()
+                let is = Unit.getUnit(dmg.i)
+                let js = Unit.getUnit(dmg.j)
+                if is != null and is.typeId != 0 and d > 0
+                    d *= 1+is.getAttr(AttrKey.dmgPlus)/100.
+                    if is.getAttr(AttrKey.ctcProb).toReal().random() or dmg.i.getBuff("暴怒") != null
+                        d *= 1.3+is.getAttr(AttrKey.ctcDmg)/100.
+                    d *= 1+is.getAttr(AttrKey.addDmg)/100.
+                    d *= 1+is.getAttr(AttrKey.finDmg)/100.
+                    //攻击吸血
+                    var xixue = d * is.getAttr(AttrKey.absorb)/100.
+                    //非普攻吸血为1/4
+                    if dmg.t != DmgType.ATTACK
+                        xixue = xixue / 4
+                    dmg.i.addHP(xixue)
+                    //伤害反弹 伤害减免 伤害抵抗
+                if js != null and js.typeId != 0 and d > 0
+                    // let back = d * js.getAttr(AttrKey.dmgBack)/100.
+                    // if dmg.i.getHP() > back + 1 and dmg.i.getHPPercent() > .2
+                    //     dmg.i.subHP(back)
+                    d *= 1 - js.getAttr(AttrKey.dmgSub)/(50. + js.getAttr(AttrKey.dmgSub))
+                    d *= 1 - js.getAttr(AttrKey.dmgResi)/100.
+                if is instanceof Hero
+                    d *= (is castTo Hero).getPower()
+            else if dmg.i.isHero() and not dmg.j.isHero()
+                let is = Unit.getUnit(dmg.i)
+                if is != null and is.typeId != 0 and d > 0
+                    d *= 1+is.getAttr(AttrKey.dmgPlus)/100.
+                    if is.getAttr(AttrKey.ctcProb).toReal().random() or dmg.i.getBuff("暴怒") != null
+                        d *= 1.3+is.getAttr(AttrKey.ctcDmg)/100.
+                    d *= 1+is.getAttr(AttrKey.addDmg)/100.
+                    d *= 1+is.getAttr(AttrKey.finDmg)/100.
+                    //攻击吸血
+                    var xixue = d * is.getAttr(AttrKey.absorb)/100.
+                    //非普攻吸血为1/3
+                    if dmg.t != DmgType.ATTACK
+                        xixue = xixue / 3
+                    dmg.i.addHP(xixue)
+                if is instanceof Hero
+                    d *= (is castTo Hero).getPower()
+            else if dmg.j.isHero() and not dmg.i.isHero()
+                // let js = Unit.getUnit(dmg.j)
+                // if js != null and js.typeId != 0 and d > 0
+                    // dmg.i.subHP(d * js.getAttr(AttrKey.dmgBack)/100.)
+                    // d *= 1 - js.getAttr(AttrKey.dmgSub)/(50. + js.getAttr(AttrKey.dmgSub))
+                    // d *= 1 - js.getAttr(AttrKey.dmgResi)/100.
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
+
+    //基地一次无敌机会
+    DamageHandler.on() dmg ->
+        var d = dmg.dmg
+        if dmg.j == HOME.basic
+            if dmg.j.getHP() - d <= dmg.j.getMaxHP() * 0.1
+                Log.trace("基地处于危险状态")
+                if HOME.canProtect()
+                    Log.trace("基地可以保护")
+                    d = 1
+                    HOME.protect()
+        return DmgWrapper(dmg.i, dmg.j, d, dmg.t)

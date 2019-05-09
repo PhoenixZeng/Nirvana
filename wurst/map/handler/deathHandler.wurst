@@ -1,0 +1,83 @@
+package deathHandler
+import ClosureTimers
+import Attacker
+import DialogTimer
+import baseImport
+import Hero
+import Rects
+import Guard
+import unitAttr
+import PlayerService
+import HeroService
+import WorkRoomOrnament
+
+public trigger deathHandler
+
+init          
+    deathHandler = CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+    ..addAction()->
+        let u = GetTriggerUnit()
+        let x = GetKillingUnit()
+        let _lv = Level.get()
+        if  enemy.containsUnit(u)
+            if x != null  and users.containsUnit(x)
+                let p = Players.get(x)
+                let ps = PlayerService.get(p._player)
+                ps.onKill(u)
+                let h = x.getMainHeros()
+                if h != null
+                    let hs = HeroService.get(p.hero)
+                    hs.onKill(u)
+                if u.getOwner() == enemyNormal
+                    let us = Attacker.getAttacker(u)
+                    if us != null
+                        doAfter(1)->
+                            us.destr()
+                else if u.getOwner() == enemySpecial
+                    if not u.isHero()
+                        doAfter(3)->
+                            u.remove()
+            else if x == null
+                let us = Attacker.getAttacker(u)
+                if us != null
+                    doAfter(1)->
+                        print("[系统]:有一只进攻怪自爆了,对基地造成2%伤害!(请不要卡怪)")
+                        us._self.damageSpell(HOME.basic, HOME.basic.getMaxHP() * 0.02)
+                        us.destr()
+        else if  users.containsUnit(u) 
+            if u.getMainHero() == u and u.getOwner().isIngame()
+                let g = Guard.masters.get(u)
+                if g != null
+                    for gg in g
+                        let gs  = Guard.maps.get(gg)
+                        gs.pause(true)
+                let h = Hero.getHero(u)
+                let p = Players.get(u)
+                if h  != null
+                    h.target = null
+                if u.getOwner().isIngame()
+                    var time = 5.+GAME.difficult*3
+                    if p.role == PlayerRole.Vip
+                        time -= 4
+                    atAfter(time,u.getOwner().getName()+"复活:")
+                    ..onOver(itk->begin 
+                        u.revive(springReturn.pos, true)
+                        u.getOwner().panCameraToTimed(u.getPos(),0.5)
+                        if g != null
+                            for gg in g
+                                let gs  = Guard.maps.get(gg)
+                                gs.pause(false)
+                    end)
+                    ..run()
+            else if u.isBuilding()
+                let pid = u.getOwner().getId()
+                if  u.isInRegion(persion[pid+1].i)
+                    let id = u.getTypeId()
+                    let oe = WorkRoomOrnamentEntity.get(id)
+                    if oe != null
+                        let ps =  Players.get(pid)
+                        let pss = PlayerService.get(ps._player)
+                        pss.onDestoryWorkRoomOrnament(u)
+                        doAfter(1)->
+                            u.remove()

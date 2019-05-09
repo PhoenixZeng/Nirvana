@@ -1,0 +1,16 @@
+package Hello
+
+/* Hello and welcome to Wurst!
+This is just a demo package. 
+You can modify it to tests things out 
+and then later delete it and create your own, new packages.
+Enjoy WurstScript? Consider starring our repo https://github.com/wurstscript/WurstScript */ 
+init
+	print("--------------------------------------")
+	print("欢迎您进入[轮回]!")
+	print(" - 程序策划:火凌之凤 SUPEMEKO 咸鱼王 红玉")
+	print(" - 美术地形:秦心")
+	print(" - 联合发行:火鸟玩 魔影作坊 天天RPG")
+	print("感谢所有参与开发和积极建议的人")
+	print(" - 包括正在玩游戏的你!")
+	print("--------------------------------------")

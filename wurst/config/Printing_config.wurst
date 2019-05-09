@@ -1,0 +1,38 @@
+package Printing_config
+import JapiNative
+
+@config public var DEBUG_LEVEL = Loglevel.WARNING
+@config public var DEBUG_MSG_DURATION = 20.
+
+public var DEBUG_LOCAL_LEVEL = Loglevel.WARNING
+public var PRINT_IN_GAME  = true
+public var PRINT_TO_LOCAL = true
+
+// EXExecuteScript("(require('log'))('"+msg+"')")
+public function Loglevel.getName() returns string
+	switch this
+		case TRACE
+			return "trace"
+		case DEBUG
+			return "debug"
+		case INFO
+			return "info"
+		case WARNING
+			return "warn"
+		case ERROR
+			return "error"
+	return "fatal"
+
+@config public function printLog(player showTo, Loglevel loglvl, string msg)
+	if PRINT_IN_GAME and (DEBUG_LEVEL castTo int) <= (loglvl castTo int)
+		let compositeMsg = loglvl.getTag() + " - " + msg
+		DisplayTimedTextToPlayer(showTo, 0., 0., DEBUG_MSG_DURATION, compositeMsg)
+	if PRINT_TO_LOCAL and (DEBUG_LOCAL_LEVEL castTo int) <= (loglvl castTo int)
+		string exec = "(require ('lua.log'))"
+		if localPlayer == showTo
+			exec = "(require ('lua.log'))."+loglvl.getName()+"('"+msg+"')"
+		EXExecuteScript(exec)
+
+@config public function printTimedToPlayer(string msg, real duration, player p)
+	DisplayTimedTextToPlayer(p, 0., 0., duration, msg)
+	Log.trace(p.getName()+":"+msg)

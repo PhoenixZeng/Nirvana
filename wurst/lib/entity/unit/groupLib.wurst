@@ -1,0 +1,57 @@
+package groupLib
+
+
+public interface EachGroupCallback
+	function callback(unit u)
+
+/** This is used as dummy in the GroupEnum calls and should not be used */
+constant DUMMY_GROUP = CreateGroup()
+
+// ====Callback stack for nested usage====
+EachGroupCallback array tempCallbacks
+var tempCallbacksCount = 0
+constant filter = Filter(() -> currentCallback().callback(GetFilterUnit()))
+
+function pushCallback(EachGroupCallback c)
+	tempCallbacks[tempCallbacksCount] = c
+	tempCallbacksCount++
+
+function popCallback()
+	DUMMY_GROUP.clear()
+	tempCallbacksCount--
+	destroy tempCallbacks[tempCallbacksCount]
+
+function currentCallback() returns EachGroupCallback
+	return tempCallbacks[tempCallbacksCount - 1]
+// ====Stack end====
+
+/** Executes the given closure for every unit in this group,
+	removing the units from the group as processed */
+public function group.each(EachGroupCallback cb)
+	pushCallback(cb)
+	ForGroup(this) ->
+		currentCallback().callback(GetEnumUnit())
+	popCallback()
+
+
+/** Executes the given closure for every unit in range of the given position */
+public function unit.eachAround(real radius, EachGroupCallback c)
+	pushCallback(c)
+	GroupEnumUnitsInRange(DUMMY_GROUP, this.getX(), this.getY(), radius, filter)
+	popCallback()
+
+
+/** Executes the given closure for the closest unit inside the given range of the given position,
+	matching the provided filter. If there is no unit in range, the closure will be run with "null" */
+public function unit.getNearestUnit(real range, filterfunc filter, EachGroupCallback c)
+	pushCallback(c)
+	GroupEnumUnitsInRange(ENUM_GROUP, this.getX(), this.getY(), range, filter)
+	unit nearest = null
+	var bestDist = REAL_MAX
+	for u from ENUM_GROUP
+		let distSq = this.getPos().distanceToSq(u.getPos())
+		if distSq < bestDist
+			nearest = u
+			bestDist = distSq
+	c.callback(nearest)
+	popCallback()

@@ -1,0 +1,274 @@
+package heroEvent
+import HeroManager
+import baseImport
+import Gem
+import attrMapper
+import CenterTimer
+import AffixsItem
+import HashList
+import dropItem
+import Execute
+import DummyRecycler
+import HeroService
+import PracticeEntity
+import DevourHeart
+import itemMutex
+
+item lastUseForGemSetItem
+unit lastUseForGemSetUnit
+
+init
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+    ..addAction() ->
+        let u = GetSpellAbilityUnit()
+        if u.isHero()
+            let a = GetSpellAbilityId()
+            var v = getSpellTargetPos()
+            var t = GetSpellTargetUnit()
+            if t != null //如果为单位目标技能 点->单位点
+                v = t.getPos()
+            else //如果为点技能 单位-> 施法单位
+                t = u
+            if v == vec2(0,0) //如果单位为空 点又没值 那么施法者为自身
+                t = u
+                v = u.getPos()
+            if Hero.heros.has(u)
+                let tg = targets(v,t)
+                let h = Hero.heros.get(u)..onSpellCast(a, tg)
+                if  a != HeroActiveSpell.jump
+                    HeroService.get(h).onCast(a,tg)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_ATTACKED)
+    ..addAction() ->
+        let a = GetAttacker()
+        let m = a.getMainHero()
+        let u = GetTriggerUnit()
+        let h = Hero.getHero(m)
+        if h != null
+            let hs = HeroService.get(h)
+            if m == GetAttacker()
+                hs.onAttack(u)
+            else if a.getTypeId() != DUMMY_UNIT_ID
+                hs.onBBAttack(u)
+        else
+            let hu = HeroService.get(Hero.getHero(u))
+            if hu != null
+                hu.onAttacked(a)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction() ->
+        let t = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        let id = t.getTypeId()
+        if t.getLife() == 338 and id.inIdRange('I66A', 'I66F')
+            let clv = id - 'I66A' + 1
+            bool flag = false
+            let h = Hero.getHero(u.getMainHero())
+            let hs = HeroService.get(h)
+            let idList = new HashList<int>
+            let suitCounts = new IterableMap<string,int>
+            Log.debug("开始融合套装.Lv"+clv)
+            for i in h.affixsItems
+                let suit = AffixItemEntity.map.get(i.getTypeId())
+                if suit != null and suit.lv == clv
+                    idList.add(i.getTypeId())
+                    if suit.suitName != null and suit.suitName != ""
+                        let count = suitCounts.get(suit.suitName)
+                        suitCounts.put(suit.suitName, count+1)
+                    Log.debug("添加拥有的套装部件"+i.getName())
+            int affixIndex = 0
+            for i in AffixItemLinkEntity
+                if idList.has(i.id1) and idList.has(i.id2) and idList.has(i.id3)
+                    Log.debug("可合成的套装:"+i.suitName)
+                    Log.debug("套装部件: 1:"+i.id1.toIdString()+" 2:"+i.id2.toIdString()+" 3:"+i.id3.toIdString())
+                    if hs.onAddArtificeAffixs(i)
+                        affixIndex = i.lv
+                        printTimedToPlayer("[套装]:恭喜你触发隐藏配方!融合"+i.name+"成功!", 20, u.getOwner())
+                        flag = true
+                        break
+            if not flag 
+                for i in suitCounts
+                    let suit = AffixItemLinkSuitEntity.map.get(i)
+                    if suitCounts.get(i) >= 3 and AffixItemLinkSuitEntity.map.get(i) != null
+                        if hs.onAddArtificeAffixsSuit(idList,suit)
+                            printTimedToPlayer("[套装]:恭喜你融合"+suit.name+"套装成功!", 20, u.getOwner())
+                            affixIndex = suit.lv
+                            flag = true
+                            break
+            destroy idList
+            destroy suitCounts
+            if flag and affixIndex != 0
+                let needRemoveList = new HashList<item>()
+                for i in h.affixsItems
+                    let itm = AffixItemEntity.map.get(i.getTypeId())
+                    if itm.lv == affixIndex
+                        needRemoveList.add(i)
+                if needRemoveList.size() > 0
+                    for needRemove in needRemoveList
+                        h._self.removeItem(needRemove)
+                    printTimedToPlayer("[套装]:融合之后不再可以携带对应等级的套装,已经自动脱下!", 20, u.getOwner())
+                destroy needRemoveList
+            else if not flag
+                printTimedToPlayer("[套装]:融合失败!当前无法凑成套装!", 20, u.getOwner())
+
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_USE_ITEM)
+    ..addAction() ->
+        let o = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        if o.getLife() == 337
+            let pos = u.getMainHero().getPos()
+            item a
+            switch o.getTypeId()
+                case 'I561'
+                    a = dungeonAffixItemPool[0].tryGet(1,pos,true)
+                case 'I562'
+                    a = dungeonAffixItemPool[1].tryGet(1,pos,true)
+                case 'I563'
+                    a = dungeonAffixItemPool[2].tryGet(1,pos,true)
+                case 'I565'
+                    a = dungeonAffixItemPool[3].tryGet(1,pos,true)
+                default
+                    a = null
+            if a != null
+                onNow()s->
+                    u.addItemHandle(a)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_USE_ITEM)
+    ..addAction() ->
+        let o = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        if lastUseForGemSetUnit == u and GemEntity.map.has(o.getTypeId())
+            if u.hasItem(o)
+                let g = Gem.getGem(o)
+                let h = u.getMainHeros()
+                let hs = HeroService.get(h)
+                // print(g.toString())
+                if hs.onSetInGem(g,g.entity.clazz,g.entity.level)
+                    u.removeItem(o)
+                    o.setVisible(false)
+                    o.setLife(1)
+                    printTimedToPlayer("[宝珠]:已经将宝珠 "+o.getName()+" 熔炼到自身!提示:宝珠可熔炼次数受难度限制!", 10, u.getOwner())
+                else
+                    printTimedToPlayer("[宝珠]:熔炼失败!", 10, u.getOwner())
+            lastUseForGemSetUnit = null
+            lastUseForGemSetItem = null
+        else if DevourHeartEntity.map.has(o.getTypeId())
+            let h = u.getMainHeros()
+            let hs = HeroService.get(h)
+            let de = DevourHeartEntity.map.get(o.getTypeId())
+            hs.devourHeart(de)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+    ..addAction() ->
+        let a = GetSpellAbilityId()
+        if a == 'ZZZY'//宝珠入体
+            lastUseForGemSetUnit = GetSpellAbilityUnit()
+            lastUseForGemSetItem = GetSpellTargetItem()
+
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction()->
+        let u = GetManipulatingUnit()
+        let i = GetManipulatedItem()
+        if enemy.containsUnit(u)
+            u.addItemAttr(i)
+        else
+            if i.getLife() == 1
+                u.removeItem(i)
+                i.setVisible(false)
+                u.issueImmediateOrder("stop")
+            if i.getCharges() > 0
+                for int j = 0 to 5
+                    item tempItem = u.itemInSlot(j)
+                    if tempItem != i and i.getTypeId() == tempItem.getTypeId()
+                        tempItem.addChargesPro(i.getCharges())
+                        i.remove()
+                        break
+            else if  i.getItemType() == ItemType.Equipment
+                if AffixItemEntity.map.has(i.getTypeId())
+                    if u.getMainHero() == u  
+                        let h = u.getMainHeros()
+                        let hs = HeroService.get(h)
+                        let hi = AffixsItem.getAffixsItem(i)
+                        hs.onGetAffixsItems(hi)
+                else
+                    if u.isHero()
+                        let list = u.getInventroy()
+                        bool flag = false
+                        for itm in list
+                            if itm.getTypeId() == i.getTypeId() and itm != i
+                                flag = true
+                                break
+                            let mtx = ItemMutex.get(itm.getTypeId())
+                            if mtx != null and mtx.testId(i.getTypeId())
+                                flag = true
+                                break
+                            let mtxs = ItemMutex.get(i.getTypeId())
+                            if mtxs != null and mtxs.testId(itm.getTypeId())
+                                flag = true
+                                break
+                        destroy list
+                        if flag
+                            u.removeItem(i)
+                            printTimedToPlayer("[装备]:已经携带了同系列的装备了!", 10, u.getOwner())
+                    onNow()its->
+                        if u.hasItem(i)
+                            u.addItemAttr(i)
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DROP_ITEM)
+    ..addAction()->
+        let u = GetManipulatingUnit()
+        let i = GetManipulatedItem()
+        if  i.getItemType() == ItemType.Equipment
+            if AffixItemEntity.map.has(i.getTypeId())
+                if u.getMainHero() == u  
+                    let h = u.getMainHeros()
+                    let hs = HeroService.get(h)
+                    let hi = AffixsItem.getAffixsItem(i)
+                    hs.onLostAffixsItems(hi)
+            else
+                u.dropItemAttr(i)
+        else if i.getItemType() == ItemType.Gem and GemEntity.map.has(i.getTypeId())
+            try() ->
+                Gem.getGem(i).destr(false)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_HERO_LEVEL)
+    ..addAction() ->
+        let u = GetTriggerUnit()
+        if u.isHero()
+            let h = Hero.getHero(u)
+            if h != null
+                let hs = HeroService.get(h)
+                hs.onLevelUp()
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction()->
+        let t = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        let id = t.getTypeId()
+        if u != null and users.containsUnit(u)
+            if id > 'Y000' and id < 'Z000'
+                let h = Players.get(u).hero
+                let hs = HeroService.get(h)
+                hs.activationBookPages(id)
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+    ..addAction() ->
+        let u = GetTriggerUnit()
+        let k = GetKillingUnit()
+        let h = k.getMainHeros()
+        if h != null and PracticeEntity.challForPractice.has(u.getTypeId())
+            let name = PracticeEntity.challForPractice.get(u.getTypeId())
+            Log.debug("境界怪死亡,尝试提升:"+name)
+            let hs = HeroService.get(h)
+            hs.onPracticeUp(name)

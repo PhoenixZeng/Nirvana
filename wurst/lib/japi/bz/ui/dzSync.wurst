@@ -1,0 +1,17 @@
+package dzSync
+import BlizzardAPI
+//注册数据同步trigger
+public function trigger.registerExSync(string prefix)
+    DzTriggerRegisterSyncData ( this,  prefix,  false ) //是否来自平台
+
+//同步游戏数据
+public function exSyncData(string prefix, string data)
+    DzSyncData (  prefix,  data )
+
+//获取同步的数据
+public function exSyncData()returns string
+    return DzGetTriggerSyncData()
+
+//获取同步数据的玩家
+public function exSyncPlayer()returns player
+    return DzGetTriggerSyncPlayer()

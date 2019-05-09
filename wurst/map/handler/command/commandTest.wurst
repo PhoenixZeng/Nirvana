@@ -1,0 +1,169 @@
+package commandTest
+import PassiveDamageDispatcher
+import dropItem
+import baseImport
+import wareAttackCommon
+import attrMapper
+import damage
+import dzServerSave
+import playerEvent
+import ItemManager
+import wareAttack
+import Auth
+// import Guard
+// import guardEvent
+
+    
+bool isTest = false
+
+interface TestCallback
+    function run(unit u)
+
+function done(TestCallback cb)
+    let c = CreateGroup()..enumUnitsSelected(GetLocalPlayer(), null)
+    for i in c
+        cb.run(i)
+
+
+init
+    CreateTrigger()
+    ..registerPlayerChatEvent(Player(0), "", false)
+    ..addAction()->
+        let chat = GetEventPlayerChatString()
+        let _p = GetTriggerPlayer()
+        let _ps = Players.get(_p)
+        var _cmd = chat.substring(0, 4).toLowerCase()
+        if not isTest
+            switch chat
+                case "-test"
+                    if _ps.name=="火凌之凤" or  _ps.name=="WorldEdit"
+                        isTest = true
+        if isTest and not dzGetMapConfig("NOTTEST") == "1"
+            switch _cmd
+                case "shop"
+                    testShopView = true
+                case "finl"
+                    attackFinal()
+                case "nict"
+                    let c = chat.substring(4, 8).toInt()
+                    _ps.hero.nirvanaCount = c
+                case "xzyx"
+                    heroNum = chat.substring(4, 8).toInt()
+                    print("当前英雄序号:"+heroNum, 10)
+                case "stat"
+                    let which = chat.substring(4, 8).toLowerCase()
+                    switch which
+                        case "gold"
+                            _p.addGold(chat.substring(8, 15).toInt())
+                        case "lumb"
+                            _p.addLumber(chat.substring(8, 15).toInt())
+                        case ""
+                            _p.addGold(1000000)
+                            _p.addLumber(1000000)
+                        case null
+                            _p.addGold(1000000)
+                            _p.addLumber(1000000)
+                case "dead"
+                    done() u-> 
+                        u.kill()
+                case "ensd"
+                    testSpellDamage = not testSpellDamage
+                // case "gurd"
+                //     done() u-> 
+                //         Guard.addGuard(guard1, u)
+                case "ordr"
+                    done() u-> 
+                        print(u.getCurrentOrder())
+                case "posi"
+                    done() u-> 
+                        u.setPos(GetCameraEyePositionX(),GetCameraEyePositionY())
+                case "adks"
+                    _ps.killScore += 10000
+                case "adgs"
+                    _ps.enableAddGameScore = true
+                    _ps.addGameScore(10000)
+                case "ades"
+                    _ps.endlessScore += 10000
+                case "stop"
+                    stopAttack(true)
+                case "rest"
+                    stopAttack(false)
+                case "comd"
+                    done() u->
+                        print(u.getCurrentOrder())
+                case "attr"
+                    done() u->
+                        print(u.getName()+":")
+                        Unit.getUnit(u).printAttr()
+                        let list = u.getInventroy()
+                        if list != null and not list.isEmpty()
+                        for i in list
+                            let is = Item.getItem(i)
+                            if is != null and is.typeId != 0
+                                print(is._self.getName()+":")
+                                is.printAttr()
+                        destroy list
+                case "swap"
+                    _cmd = chat.substring(4, 8)
+                    done() u-> 
+                        u.replace(_cmd.toIdCode())
+                case "stlv"
+                    _cmd = chat.substring(4, 7)
+                    done() u->
+                        if u.isHero()
+                            u.setLevelPro(_cmd.toInt())
+                case "ownr"
+                    _cmd = chat.substring(4, 6)
+                    done() u->
+                        u.setOwner(Player(_cmd.toInt()-1), true)
+                case "item"
+                    _cmd = chat.substring(4, 8)
+                    done() u->
+                        u.addItemById(_cmd.toIdCode())
+                case "unit"
+                    _cmd = chat.substring(4, 8)
+                    done() u->
+                        createUnit(Player(11), _cmd.toIdCode(), vec2(GetCameraEyePositionX(),GetCameraEyePositionY()), 0 .fromDeg())
+                case "rsbk"
+                    let index = chat.substring(4, 8).toInt()
+                    done() u->
+                        u.addItemById(ItemManager.r2i(index))
+                case "abil"
+                    _cmd = chat.substring(4, 8)
+                    done() u->
+                        u.addAbilityPro(_cmd.toIdCode())
+                case "rmab"
+                    _cmd = chat.substring(4, 8)
+                    done() u->
+                        u.removeAbility(_cmd.toIdCode())
+                case "abiv"
+                    _cmd = chat.substring(4, 8)
+                    let lv = chat.substring(8,10)
+                    if lv != null and lv != ""
+                        done() u->
+                            u.setAbilityLevelPro(_cmd.toIdCode(), lv.toInt())
+                    else
+                        done() u->
+                            print(u.getAbilityLevel(_cmd.toIdCode()))
+                case "hsab"
+                    _cmd = chat.substring(4, 8)
+                    let lv = chat.substring(8,10)
+                    done() u->
+                        print(u.getAbilityLevel(lv.toAbilityId()))
+                case "cond"
+                    _cmd = chat.substring(4, 6)
+                    condProbOffSet = _cmd.toInt()
+                case "diff"
+                    _cmd = chat.substring(4, 5)
+                    setDiff(_cmd.toInt())
+                case "levl"
+                    _cmd = chat.substring(4, 7)
+                    Level.set(_cmd.toInt())
+                case "itps"
+                    _cmd = chat.substring(4, 6)
+                    GAME.PLUS_ITEM_DIFFICULT = _cmd.toInt()/100
+                case "dpps"
+                    let clz = chat.substring(4, 7)
+                    dropOffset = clz.toInt()
+
+        // print(_cmd)

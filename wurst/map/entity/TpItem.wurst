@@ -1,0 +1,57 @@
+package TpItem
+import HashMap
+import Forces
+import phLib
+
+public class TpItem
+    static let map = new HashMap<int,thistype>()
+    static let nameMap = new HashMap<string,thistype>()
+    string name
+    int id
+    vec2 pos
+    string tip
+
+    construct(int id,vec2 pos)
+        this.id = id
+        this.pos = pos
+        map.put(id, this)
+    construct(string name,vec2 pos)
+        this.name = name
+        this.pos = pos
+        nameMap.put(name, this)
+    function addTip(string tip)
+        this.tip = tip
+    
+    function come(unit u)
+        u.setPosPro(pos)
+        if tip != null
+            u.getOwner().print(color(7, 207, 207).toColorString()+"[传送]:"+tip+"|r")
+
+    static function byName(string name) returns thistype
+        return nameMap.get(name)
+    static function byId(int  id) returns thistype
+        return map.get(id)
+    static function inite()
+        initTpItemEntity()
+        CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+        ..addAction() ->
+            let t = GetManipulatedItem()
+            let u = GetManipulatingUnit()
+            let tpItem = byId(t.getTypeId())
+            if tpItem != null
+                tpItem.come(u.getMainHero())
+    static function initTpItemEntity()
+        new TpItem('I61F' , vec2( 300    , -13800 ) )//..addTip("已经进入后山")
+        new TpItem('I61G' , vec2( -13700 , -2600  ) )//..addTip("已经进入扭曲神殿")
+        new TpItem('I61H' , vec2( 2700   , -12600 ) )//..addTip("已经进入雪山")
+        new TpItem('I62M' , vec2( 3800   , -10000 ) )
+        new TpItem('I62N' , vec2( 5200   , -6600  ) )
+        new TpItem('I62O' , vec2( 3000   , -2500  ) )
+        new TpItem('I62P' , vec2( -13600 ,  1800  ) )
+        new TpItem('I62Q' , vec2( -13800 ,  9000  ) )
+        new TpItem('I62R' , vec2( -14000 ,  13000 ) )
+        new TpItem('I62S' , vec2( 9000   , -10000 ) )
+        new TpItem('I62T' , vec2( 5500   , -15500 ) )
+        new TpItem('I62U' , vec2( 7000   , -16600 ) )
+        new TpItem('I62V' , vec2( 9000   , -15500 ) )

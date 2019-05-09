@@ -1,0 +1,160 @@
+package PlayerAuthSaved
+import dzServerSave
+import phLib
+import Book
+import YDJapiOther
+
+public bool array LOADSUCCESS
+
+public let KEY_AUTH = "I"
+public let KEY_AUTH_SIGN = "Ii"
+public bool array KEY_AUTH_VAL
+
+public let KEY_BOOK = "l"
+public let KEY_BOOK_SIGN = "li"
+public int array KEY_BOOK_VAL
+
+public let KEY_INFO = "j"
+public let KEY_INFO_SIGN = "ji"
+public int array KEY_INFO_VAL
+
+public bool array KEY_CHEK_VAL
+
+// public let KEY_QIYU = "USERSQIYUK"
+// public let KEY_QIYU_SIGN = "USERSQIYUS"
+// public bool array KEY_QIYU_VAL
+
+// public bool array SAVE_ERROR
+
+function string.getExSign() returns string
+    return "i"+exLuaCode("(i 'j.i').i '"+this+"'")
+
+public function testAndLoad(player p,string key,string sign) returns string
+    let a = p.dzLoad(key)
+    let s = p.dzLoad(sign)
+    if ((a.getHash()).toString()+a.getExSign()+key+p.getName()).getHash().toString() == s and a.charAt(0)== "0"
+        return a
+    else if (a == "" and s == "") or (a == null and s == null)
+        return ""
+    return "o"+a.substring(1, a.length())
+
+public function signAndSave(player p,string key,string sign,string val)
+    p.dzSave(key, val)
+    p.dzSave(sign, (val.getHash().toString()+val.getExSign()+key+p.getName()).getHash().toString())
+
+
+public function loadAuth(player p)
+    let index = p.getId()
+    if p.dzLoadSuccess()
+        LOADSUCCESS[index] = true
+        let a = testAndLoad(p,KEY_AUTH,KEY_AUTH_SIGN)
+        if a == ""
+            // printTimedToPlayer("[系统]:欢迎新玩家!",100,p)
+            signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
+        else if  a != "" and a.charAt(0) == "0"
+            for i = 1 to a.length() - 1 step 2
+                let sa = a.substring(i, i+2)
+                let bs = c94to10(sa)
+                let k = index * 1000 + 4 * (i div 2)
+                KEY_AUTH_VAL[k + 1] = (bs div 1000).toBool()
+                KEY_AUTH_VAL[k + 2] = (bs div 100 mod 10).toBool()
+                KEY_AUTH_VAL[k + 3] = (bs div 10  mod 10).toBool()
+                KEY_AUTH_VAL[k + 4] = (bs mod 10).toBool()
+        else if a.charAt(0) != "0" and a.charAt(0) != ""
+            if dzGetMapConfig("FIX") == "1"
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
+            if dzGetMapConfig("CHECK") == "1"
+                KEY_CHEK_VAL[index] = true
+            if dzGetMapConfig("CLEAR") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误1,存档被重置!",100,p)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
+            if dzGetMapConfig("BAN") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "1")
+                LOADSUCCESS[index] = false
+            if dzGetMapConfig("CRASH") == "1"
+                if localPlayer == p
+                    Player(-1)
+    else
+        LOADSUCCESS[index] = false
+        // colorsPrint("[错误]:读取存档失败!此盘游戏将不会存档!")
+
+
+public function saveAuth(player p)
+    let index = p.getId()
+    if LOADSUCCESS[index] 
+        var s = "0"
+        if KEY_CHEK_VAL[index] 
+            s = "o"
+        for i = 1 to 124 step 4
+            let k = index * 1000 + i - 1
+            let a1 = KEY_AUTH_VAL[k + 1].toInt()
+            let a2 = KEY_AUTH_VAL[k + 2].toInt()
+            let a3 = KEY_AUTH_VAL[k + 3].toInt()
+            let a4 = KEY_AUTH_VAL[k + 4].toInt()
+            let a5 = a1 * 1000 + a2 * 100 + a3 * 10 + a4
+            s += c10to94(a5, 2)
+        signAndSave(p,KEY_AUTH,KEY_AUTH_SIGN,s)
+
+
+public function loadBook(player p,SubBooks sb)
+    let index = p.getId()
+    if LOADSUCCESS[index]
+        let a = testAndLoad(p,KEY_BOOK,KEY_BOOK_SIGN)
+        if a == ""
+            signAndSave(p,KEY_BOOK,KEY_BOOK_SIGN, "0")
+        else if  a != "" and a.charAt(0) == "0"
+            var i = -1
+            for ps in sb.pageses
+                i+=2
+                let sa = a.substring(i, i+2)
+                let bs = c94to10(sa)
+                let k = index * 1000 + i div 2 + 1
+                KEY_BOOK_VAL[k] = bs
+                ps.score = bs
+                ps.flushUbertip()
+        else if a.charAt(0) != "0" and a.charAt(0) != ""
+            if dzGetMapConfig("FIX") == "1"
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "0")
+            if dzGetMapConfig("CHECK") == "1"
+                KEY_CHEK_VAL[index] = true
+            if dzGetMapConfig("CLEAR") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误1,存档被重置!",100,p)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "0")
+            if dzGetMapConfig("BAN") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "1")
+                LOADSUCCESS[index] = false
+            if dzGetMapConfig("CRASH") == "1"
+                if localPlayer == p
+                    Player(-1)
+
+
+public function saveBook(player p,SubBooks sb)
+    let index = p.getId()
+    if LOADSUCCESS[index]
+        var s = "0"
+        if KEY_CHEK_VAL[index] 
+            s = "o"
+        var i = -1
+        for pg in sb.pageses
+            i+=2
+            let k = index * 1000 + i div 2 + 1
+            var a5 = pg.score
+            if KEY_BOOK_VAL[k] + 20 < pg.score
+                a5 = KEY_BOOK_VAL[k]
+                s = "o"+s.substring(1, s.length())
+            if a5 >= 1000
+                a5 = 1000
+            s += c10to94(a5, 2)
+        signAndSave(p,KEY_BOOK,KEY_BOOK_SIGN,s)
+
+
+
+
+@test function aa()
+    print("12345678".substring(0, 1))
+@test function aa2()
+    print(c10to94(c94to10(".2 xu"),5))
+@test function aa3()
+    print("0".getHash())

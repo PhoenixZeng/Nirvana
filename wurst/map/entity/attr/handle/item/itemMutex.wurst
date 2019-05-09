@@ -1,0 +1,49 @@
+package itemMutex
+import ItemMutexList
+import HashMap
+
+public class ItemMutex
+    static let map = new HashMap<int,thistype>()
+    int id
+    ItemMutexList<int> itemMutexs = new  ItemMutexList<int>()
+
+    construct(int id)
+        this.id = id
+        map.put(id, this)
+
+    function addMutex(int id)
+        itemMutexs.add(id)
+    
+    function addMutexs(int id)
+        itemMutexs.add(id)
+        let m = map.get(id)
+        if m != null
+            itemMutexs.addAll(m.itemMutexs)
+
+    function testId(int id) returns bool
+        return itemMutexs.has(id)
+    
+    static function get(int id) returns thistype
+        return map.get(id)
+
+    static function initi()
+        //雪山
+        new ItemMutex('ZD0F')
+        ..addMutex('ZD0E')
+        ..addMutex('ZD0D')
+        ..addMutex('ZD0C')
+        ..addMutex('ZD06')
+        new ItemMutex('ZD0J')
+        ..addMutexs('ZD0F')
+        new ItemMutex('ZD0K')
+        ..addMutexs('ZD0J')
+        //神殿
+        new ItemMutex('ZD11')
+        ..addMutex('ZD10')
+        ..addMutex('ZD0Z')
+        new ItemMutex('ZD12')
+        ..addMutex('ZD0T')
+        ..addMutex('ZD0Y')
+        ..addMutexs('ZD11')
+        new ItemMutex('ZD14')
+        ..addMutexs('ZD12')

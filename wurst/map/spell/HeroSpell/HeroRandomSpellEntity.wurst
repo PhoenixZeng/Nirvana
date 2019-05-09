@@ -1,0 +1,420 @@
+package HeroRandomSpellEntity
+import Hero
+import YDAbilityState
+import PassiveDamageDispatcher
+import DmgType
+import attrMapper
+import ItemManager
+import YDJapiOther
+import JapiNative
+
+public constant int abilityNum = 4
+public constant int playerNum = 5
+
+/**
+    RandomSpellEntityFormula 在 RandomSpellEntityModule 中实现功能
+*/
+public class RandomSpellEntityFormula
+    RandomSpellEntity materials
+    RandomSpellEntity upgrade
+    thistype next
+
+    // materials 组合升级所需原料
+    // upgrade   升级后技能
+    construct(RandomSpellEntity materials,RandomSpellEntity upgrade)
+        this.materials = materials.meta
+        this.upgrade   = upgrade.meta
+
+/**
+    class RandomSpellEntity 的部分内容写在这里
+    非 (class)PrivateRandomSpellEntity 原则上 ablv = 0.
+*/
+public module RandomSpellDataModule
+    int lv = 1
+    int maxLv = 10
+    bool canForget = true
+    bool canUpgradeByBook = true
+    int abilId
+    AnclAbilityData ancldata = AnclAbilityData(0, 0., 0.)
+    function setLv(int i)
+        this.lv = i
+    function getLv() returns int
+        return this.lv
+    function getMaxLv() returns int
+        return this.lv
+    function setMaxLv(int lv)
+        maxLv = lv
+    function setCanForget(bool can)
+        canForget = can
+    function setCanUpgradeByBook(bool can)
+        canUpgradeByBook = can
+    function isCanUpgradeByBook() returns bool
+        return canUpgradeByBook and isLevelUpgradable()
+    function isLevelUpgradable() returns bool
+        if maxLv != 1 and lv < maxLv
+            return true
+        return false
+    function refreshAnclUseNulldata()
+        refreshAncl(AnclAbilityData(0,0.,1000000.))
+    /**
+    * Ancl由技能行为控制或包HeroRanSpell控制
+    */
+    function refreshAncl(AnclAbilityData spelldata)
+        ancldata = spelldata
+        ((this castTo int) castTo RandomSpellEntity).hero._self
+        ..exAbilData(EX_ABIL_YD.DATA_B,abilId,1,spelldata.targets)
+        ..exAbilData(EX_ABIL_YD.RNG,abilId,1,spelldata.range)
+        ..exAbilData(EX_ABIL_YD.COOL,abilId,1,spelldata.cool)
+        ..setAbilityLevel(abilId, 2)
+        ..setAbilityLevel(abilId, 1)
+
+/**
+    class RandomSpellEntity 的部分内容写在这里
+    该部分变量存放在 meta 中,一般作判断覆盖使用,如
+
+    zeroList 存放各种随机技能的 meta ,randomSpellTypeCount 为随机技能种类数
+    为每一种随机技能设置一个非抽象类 ,_type记录该非抽象类编号
+
+    setUp canUp 用于 组合升级功能 ,RandomSpellEntityFormula 存放公式
+    使用 setUp(原料技能,生成技能) 在 RandomSpellEntity 保存公式
+    使用 canUp(原料) 返回 公式
+*/
+public module RandomSpellEntityModule
+    use RandomSpellDataModule
+    thistype meta
+    static thistype array metas
+    static int metaCount = -1
+    int metaType = -1
+    bool   isLoadedmetaInfo = false
+    string tip
+    string art
+    string uberTip
+
+    string name
+    RandomSpellEntityFormula first
+
+    function setUpgradeFormula(RandomSpellEntity materials,RandomSpellEntity upgrade)
+        if not isMeta()
+            if meta == null
+                Log.info("randomSpell.zero is not exist!")
+            else
+                meta.setUpgradeFormula(materials.meta,upgrade.meta)
+        else
+            if first == null
+                first = new RandomSpellEntityFormula(materials.meta,upgrade.meta)
+            else
+                var entity = first
+                while entity.next != null
+                    entity = entity.next
+                entity.next = new RandomSpellEntityFormula(materials.meta,upgrade.meta)
+
+    function tryGetUpgardeFormulaFrom(RandomSpellEntity material) returns RandomSpellEntityFormula
+        if not isMeta()
+            return meta.tryGetUpgardeFormulaFrom(material)
+        else
+            var entity = first
+            while entity != null
+                if material == entity.materials
+                    return entity
+                entity = entity.next
+            return null
+
+    function isMeta() returns bool
+        return this == meta
+
+    function toString() returns string
+        return "RandomSpell."+metaType+":"+(this castTo int)
+    function getName() returns string
+        if name != "" and name != null
+            return name
+        return meta.name
+    function getTip() returns string 
+        if tip != null and tip != ""
+            return tip
+        return meta.tip
+    function getArt() returns string
+        if art != null and art != ""
+            return art
+        return meta.art
+    function getUbertip() returns string
+        if uberTip != null and uberTip != ""
+            return uberTip
+        return meta.uberTip
+    function getAbilId() returns int
+        if abilId > 0
+            return abilId
+        Log.info("不正常的随机技能ID!")
+        return 0
+
+    function getNameLvStr() returns string
+        string tip = getTip()
+        if lv >= maxLv
+            if maxLv == 1
+                tip += ""
+            else
+                tip += " - LvMax"
+        else
+            tip += " - Lv" + lv
+        return tip
+
+    function getNameLvStr(int lv) returns string
+        string tip = getTip()
+        if lv >= maxLv
+            if maxLv == 1
+                tip += ""
+            else
+                tip += " - LvMax"
+        else
+            tip += " - Lv" + lv
+        return tip
+    private static function blendIcon(int metaType,string art) returns string
+        string path = "blp\\ranSpellPasArt\\ranSpellPasArt"+metaType+".blp"
+        EXBlendButtonIcon("blp\\PasICO.blp",art,path)
+        EXBlendButtonIcon("blp\\DisICO.blp",path,"ReplaceableTextures\\CommandButtonsDisabled\\DisranSpellPasArt"+metaType+".blp")
+        return path
+    function metaLoadInfo()
+        if not meta.isLoadedmetaInfo
+            let itemId = ItemManager.r2i(meta.metaType)
+            meta.tip = itemId.exItemTypeData(EX_ITEM_YD.TIP)
+            meta.uberTip = itemId.exItemTypeData(EX_ITEM_YD.UBERTIP)
+            let active = exLuaCode("(require 'jass.slk').item['"+itemId.toIdString()+"'].Description")
+            let metaArt = itemId.exItemTypeData(EX_ITEM_YD.ART)
+            meta.art = active == "被动" ? blendIcon(meta.metaType,metaArt) : metaArt
+            meta.isLoadedmetaInfo = true
+
+    function flushTip(Hero hero,int abilId)
+        metaLoadInfo()
+        string tip = getNameLvStr()
+        string art = getArt()
+        string ubertip = getUbertip()
+
+        hero._self
+        ..exAbilData(EX_ABIL_YD.TIP,abilId,1,tip)
+        ..exAbilData(EX_ABIL_YD.ART,abilId,1,art)
+        ..exAbilData(EX_ABIL_YD.UBERTIP,abilId,1,ubertip)
+
+    static function isRepetition(RandomSpellEntity a,RandomSpellEntity b) returns bool
+        if a == null or b == null
+            return false
+        return a.meta == b.meta
+
+    static function setMixture(RandomSpellEntity a,RandomSpellEntity b,RandomSpellEntity c)
+        a.setUpgradeFormula(b, c)
+        b.setUpgradeFormula(a, c)
+
+public abstract class RandomSpellEntity
+    use RandomSpellEntityModule
+    Hero hero
+    AttrSpell attr
+    abstract function onAttack(unit u)
+    abstract function onDamage(DmgWrapper dw) returns DmgWrapper
+    abstract function onDamaged(DmgWrapper dw) returns DmgWrapper
+    abstract function onBBAttack(unit i,unit j)
+    abstract function onKill(unit i,unit j)
+    abstract function createEntity() returns RandomSpellEntity
+
+    abstract function onApply(bool inite)
+    abstract function onLose()
+    function loadMetaAttr()
+        if meta.attr == null
+            meta.attr = AttrSpell.loadByItem(ItemManager.r2i(meta.metaType))
+    function initApply()
+        refreshAnclUseNulldata()
+        apply(true)
+    function apply(bool apply)
+        if apply
+            onApply(true)
+            flushTip(hero, getAbilId())
+            loadMetaAttr()
+            hero.addExAttr(meta.attr,1)
+        else
+            if not isMeta()
+                loadMetaAttr()
+                hero.addExAttr(meta.attr,-1)
+                lv = 0
+                onLose()
+                destroy this
+    function levelUp()
+        levelUp(1)
+    function levelUp(int i)
+        if isLevelUpgradable()
+            onLose()
+            lv+= i
+            onApply(false)
+            flushTip(hero, abilId)
+    function initApply(Hero h,int id)
+        if hero == null
+            hero = h
+            abilId = id
+            initApply()
+            hero = null
+            abilId = 0
+        else 
+            initApply()
+            
+    function newEntity(int i) returns RandomSpellEntity
+        let t = createEntity()
+        let meta = metas[i]
+        t.meta = meta
+        t.metaType = i
+        t.maxLv = meta.maxLv
+        t.canForget = meta.canForget
+        t.canUpgradeByBook = meta.canUpgradeByBook
+        return t
+
+    function setMeta() returns int
+        metaCount++
+        metas[metaCount] = this
+        metas[metaCount].meta = this
+        metas[metaCount].metaType = metaCount
+        return metaCount
+
+/**
+    targets
+    0 无目标
+    1 单位目标
+    2 点目标
+    3 单位或点目标
+*/
+public tuple AnclAbilityData(real targets,real range,real cool)
+
+public abstract class ActiveRandomSpellEntity extends RandomSpellEntity
+    int boxId
+    int boxIndex = -1
+    static let hotKeys = ["Q","W","E","R"]
+    ondestroy
+        boxId = 0
+        boxIndex = -1
+    private function getHotkey() returns string
+        return hotKeys[boxIndex]
+    
+    override function getNameLvStr()  returns string
+        return super.getNameLvStr() + " ("+getHotkey()+")"
+    protected abstract function onCast(targets tar)
+    abstract function getActiveSpellData() returns AnclAbilityData
+    function onTestCast(int id,targets tar)
+        if id == boxId
+            onCast(tar)
+    function setBoxInfo(int id,int index)
+        boxId = id
+        boxIndex = index
+    override function initApply()
+        super.initApply()
+        refreshAncl(getActiveSpellData())
+
+/**
+    兼容 PassiveDamageDispatcher
+*/
+public abstract class UseDispatcherRandomSpellEntity extends RandomSpellEntity
+    PassiveDamageDispatcher dispatcher
+    abstract function setDispatcher()
+        // dispatcher.setHurt(ablv * 500)
+    override function onApply(bool inite)
+        if dispatcher == null
+            dispatcher = new PassiveDamageDispatcher()
+        setDispatcher()
+    override function onLose()
+        destroy dispatcher
+        dispatcher = null
+
+    override function onAttack(unit u)
+    override function onDamage(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onDamaged(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+
+/**
+    技能需要随机属性时,按例子写
+*/
+public abstract class RollDataRandomSpellEntity extends RandomSpellEntity
+    int seed
+    abstract function randomData()
+        // dataDmg = seed * 5
+    function setRandomFactor(int gemLevel)
+        seed = gemLevel
+    function random() returns int
+        if 10 .random()
+            return 4
+        else if 20 .random()
+            return 3
+        else if 40 .random()
+            return 2
+        else if 80 .random()
+            return 1
+        return 5
+
+
+/**
+    随机技能重复使用的代码 ,声明非抽象类随机技能时必须 use RandomSpellModule
+*/
+public module RandomSpellModule
+    static int typeMetaCount = -1
+    static int array typeMetaList
+    function setTypeMeta()
+        typeMetaCount ++
+        typeMetaList[typeMetaCount] = ((this castTo int) castTo RandomSpellEntity) .metaType
+
+
+/**
+    以下部分为 随即技能的非抽象实例 ,注意必须 use RandomSpellModule ,
+    若使用实例必须附带 inite()
+    包括 typezero的赋值
+    typezero保存到表zeroList
+    声明技能的 Tip Art Tip2
+*/
+public class CloseRandomSpellEntity extends RandomSpellEntity
+    use RandomSpellModule
+    override function initApply()
+    override function createEntity() returns RandomSpellEntity
+        return this //typezero[typezeroList[0]]
+    override function apply(bool apply)
+    override function onAttack(unit u)
+    override function onDamage(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onDamaged(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function levelUp()
+    override function onApply(bool inite)
+    override function onLose()
+
+public class NullRandomSpellEntity extends RandomSpellEntity
+    use RandomSpellModule
+    override function initApply()
+        refreshAnclUseNulldata()
+        hero._self.exAbilCooldown(abilId, 0)
+    override function createEntity() returns RandomSpellEntity
+        return this //typezero[typezeroList[0]]
+    override function apply(bool apply)
+    override function onAttack(unit u)
+    override function onDamage(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onDamaged(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function levelUp()
+    override function onApply(bool inite)
+    override function onLose()
+
+public abstract class CastRandomSpellEntity extends ActiveRandomSpellEntity
+    override function onLose()
+    override function onDamage(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onDamaged(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onBBAttack(unit i, unit j)
+    override function onKill(unit i, unit j)
+    override function onAttack(unit u)
+    
+public abstract class AttackRandomSpellEntity extends RandomSpellEntity
+    override function onLose()
+    override function onDamage(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onDamaged(DmgWrapper dw) returns DmgWrapper
+        return dw
+    override function onBBAttack(unit i, unit j)
+    override function onKill(unit i, unit j)

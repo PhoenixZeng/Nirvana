@@ -1,0 +1,39 @@
+package Gem
+import public GemEntity
+import itemAttr
+import base
+import HashMap
+
+
+
+public class Gem extends Item
+    static let entitykey = "gemEntity".getHash()
+    GemEntity entity
+    private static let map = new HashMap<item,thistype>
+    construct(item i)
+        super(i)
+        this.entity = GemEntity.map.get(i.getTypeId())
+        map.put(i, this)
+        // print("创建宝石"+this castTo int)
+
+    static function getGem(item i) returns Gem
+        if i!=null
+            if map.has(i)
+                return map.get(i)
+            else if i.getItemType() == ItemType.Gem and GemEntity.map.has(i.getTypeId())
+                return new Gem(i)
+        return null
+    
+    override function toString() returns string
+        return _hid + "$" + entity.name + "%" + this castTo int
+
+    override function loadFromHt()
+        super.loadFromHt()
+        this.entity = GemEntity.map.get(_self.getTypeId())
+
+    override function saveToHt()
+        super.saveToHt()
+
+    ondestroy
+        // print("销毁宝石"+this castTo int)
+        map.remove(_self)

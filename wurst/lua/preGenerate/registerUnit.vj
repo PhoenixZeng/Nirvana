@@ -1,0 +1,28 @@
+library RegisterUnit initializer saveUnit
+    function saveUnit takes nothing returns nothing
+    <?
+        local slk = require('slk')
+        require('utils')
+        for id,obj in pairs(slk.unit) do
+            if obj.nsight == 1800 or obj.nsight == "1800" then
+                if obj.Name and obj.Name ~= "" then
+                ?>
+                    call SaveStr(j_slk_unit,'<?=id?>',<?=hash('name')?>,"<?=obj.Name?>")
+                <?
+                end
+                if obj.goldcost and obj.goldcost ~= 0 then
+                ?>
+                    call SaveInteger(j_slk_unit,'<?=id?>',<?=hash('goldcost')?>,<?=obj.goldcost?>)
+                <?
+                end
+                if obj.lumbercost and obj.lumbercost ~= 0 then
+                ?>
+                    call SaveInteger(j_slk_unit,'<?=id?>',<?=hash('lumbercost')?>,<?=obj.lumbercost?>)
+                <?
+                end
+            end
+        end
+    ?>
+    endfunction
+endlibrary
+

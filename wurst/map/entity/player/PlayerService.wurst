@@ -1,0 +1,840 @@
+package PlayerService
+import dzServerSave
+import Execute
+import attrMapper
+import Auth
+import skin
+import baseImport
+import HeroService
+import WorkRoomOrnament
+import LevelHandler
+import dropItem
+import DialogBox
+import School
+import YDAbilityState
+import Dungeon
+import Hero
+import Gem
+import HeroRandomSpellManager
+import HashList
+import PlayerAuthSaved
+
+public class PlayerService
+    Hero    hero
+    Players p
+    player  _player
+
+    static HashMap<player,thistype> map = new HashMap<player,thistype>
+
+    construct(player p)
+        this.p = Players.get(p)
+        this._player = p
+        map.put(p, this)
+        for i = 1 to 4
+            flushExItemUberTip(i)
+
+    static function get(player p) returns thistype
+        if map.has(p)
+            return map.get(p)
+        return new PlayerService(p)
+        
+    function onAskEpic(int index)
+        switch index
+            case 1
+                if hero._self.hasItemById('ZD0L') and hero._self.hasItemById('ZD0M') and hero._self.hasItemById('ZD0N')
+                    hero._self.addItemById('I630')
+                    _player.print("隐居者:不错,这就是公主的之前的礼服!")
+                else
+                    _player.print("隐居者看了看你,没有声张!(可能还缺少什么东西)")
+            case 2
+                if hero._self.hasItemById('ZD0O') and (hero._self.hasItemById('ZD0G') or hero._self.hasItemById('ZD0I')) and hero._self.hasItemById('ZD0F')
+                    hero._self.addItemById('I632')
+                    _player.print("隐居者:这把剑可能可以发挥它的威力了!")
+                else
+                    _player.print("隐居者:神剑认主,非主人认可的人,自然无法发挥全部实力!(可能还缺少什么东西)")
+            case 3
+                if hero._self.hasItemById('ZD12') and hero._self.hasItemById('ZD13')
+                    hero._self.addItemById('I637')
+                    _player.print("守卫:这下就完美了!")
+                else
+                    _player.print("守卫:如果不能用高温融合扭曲虚空的能力,可能这股力量发挥不出全部的实力!(可能还缺少什么东西)")
+    
+    static string array snowMountainTip = [
+        "隐居者:我曾经也是一位光荣的骑士,直到我膝盖中了一剑!",
+        "隐居者:咕噜咕噜!这酒不错!",
+        "隐居者:公主殿下,你到底在哪里!",
+        "隐居者:茫茫的雪山之中隐藏着很多秘密!",
+        "隐居者:雪山之上有一把神剑,是公主曾经遗失的!",
+        "隐居者:神剑有两个形态,不过我之见识过其中一个!",
+        "隐居者:我还能见她一面吗!"
+    ]
+    static string array distortTempleTip = [
+        "守卫:你真的要见他吗?",
+        "守卫:神殿已经因为扭曲虚空的力量变异了!",
+        "守卫:有时候不止可以向前,还可以向后!",
+        "守卫:如果不能用高温融合扭曲虚空的能力,可能这股力量发挥不出全部的实力!"
+    ]
+    function onInteractive(int index)
+        var r = 100 .nextInt() + 1
+        switch index
+            case 1
+                hero._self.setPos(vec2(3300,-11400))
+                if getDiff() <= 2 and getDiff() != 0
+                    _player.print("隐居者感觉难度太低了,不想理你!(难度3以上才开放)")
+                    return
+                //雪山 交互
+                if r <= 5
+                    _player.print("隐居者抬抬手,把你传送到一个神秘的地方!")
+                    hero._self.addItemById('I62T')
+                else if r <= 10
+                    _player.print("隐居者转转身,把你传送到一个神秘的地方!")
+                    hero._self.addItemById('I62U')
+                else if r <= 15
+                    _player.print("隐居者拱拱手,把你传送到一个神秘的地方!")
+                    hero._self.addItemById('I62V')
+                else
+                    var w = 7 .nextInt()
+                    _player.print(snowMountainTip[w])
+            case 2
+                hero._self.setPos(vec2(-13700,-939))
+                //扭曲神殿 交互
+                var w = 4 .nextInt()
+                _player.print(distortTempleTip[w])
+
+    function onUpgradeGem(int i) returns bool
+        let c = i + 1
+        let m = hero.gems
+        let itemNeedId = 'I530' + i - 1
+        if not (hero._self.hasItemById(itemNeedId) or p.bb.hasItemById(itemNeedId))
+            _player.print("[宝珠]:没有对应的升级宝石!")
+            return false
+        if hero.gemIntoSelfCount == 0
+            _player.print("[宝珠]:需要先熔炼至少一个宝珠再升级!")
+            return false
+        let d = new DialogBox("选择需要升级的宝珠")
+        var count = 0
+        for k in m
+            let v = m.get(k)
+            let g = Gem.getGem(v)
+            if g.entity.level == i
+                count ++
+                d.addButton(g._self.getName()) ->
+                    Gem ng = null
+                    if i < 4
+                        let n = createItem(g.entity.id-256, p.hero._self.getPos())..setVisible(false)
+                        ng =Gem.getGem(n)
+                    let flag = HeroService.get(hero).onSetInGem(ng,g.entity.clazz,c)
+                    var chargeFlag = false
+                    if flag
+                        if hero._self.hasItemById(itemNeedId)
+                            hero._self.getItemById(itemNeedId).remove()
+                            chargeFlag = true
+                        if not chargeFlag and p.bb.hasItemById(itemNeedId)
+                            p.bb.getItemById(itemNeedId).remove()
+                    else
+                        p._player.addGold(slk_item.loadInt('I654'+i - 1, goldcostKey))
+                        p._player.addLumber(slk_item.loadInt('I654'+i - 1, lumbercostKey))
+                    destroy d
+        if count > 0
+            d.display(_player, true)
+            return true
+        else
+            _player.print("[宝珠]:没有宝珠可以被当前材料升级!")
+            destroy d
+            return false
+
+    static int array hotKey = ['Q','W','E','R']
+    static string array hotKeyS = ["Q","W","E","R"]
+    function onGoToDungeon(int i,int itemId)
+        if i <= 5
+            let b = new DialogBox("选择你要去的层数")
+            for j = 1 to 4
+                let c = "第"+j+"层 (" + hotKeyS[j-1]+")"
+                let n = "第"+j+"层"
+                b.addButton(c,hotKey[j-1])->
+                    let d = Dungeon.byName(dungeonNames[i-1]+" - "+n)
+                    if d != null
+                        d.comeIn(p.hero._self)
+                    destroy b
+            b.addButton("取消")->
+                _player.addGold(slk_item.loadInt(itemId, goldcostKey))
+                _player.addLumber(slk_item.loadInt(itemId, lumbercostKey))
+                destroy b
+            b.display(_player, true)
+        else
+            _player.print("[错误]:不存在的副本")
+            _player.addGold(slk_item.loadInt(itemId, goldcostKey))
+            _player.addLumber(slk_item.loadInt(itemId, lumbercostKey))
+
+
+    function onConvertGem(int i)
+        bool flag = false
+        if p.defenseScore >= Players.convertGemCostDef
+            p.defenseScore -= Players.convertGemCostDef
+            flag = true
+        else if p.killScore >= Players.convertGemCostKill
+            p.killScore -= Players.convertGemCostKill
+            flag = true
+        if flag
+            let t = p.hero._self.addItemById('ZB60'+i-1)
+            _player.print("[兑换宝珠]:成功兑换"+t.getName())
+        else
+            _player.print("[兑换宝珠]:兑换失败!守家积分和杀敌积分不足!")
+
+
+    function onChioceDivineSoul()
+        if p.hero.nirvanaCount < 5
+            _player.print("[系统]:需要5次轮回后才可以选择信仰!")
+            return
+        if p.hero.school != null
+            _player.print("[系统]:已经选择了圣魂信仰!")
+            return
+        let b = new DialogBox("选择信仰")
+        b.addButton("淡蓝之索拉")->
+            p.hero.school = BLUE
+            destroy b
+        b.addButton("赤炎之菲尼克斯")->
+            p.hero.school = RED
+            destroy b
+        b.addButton("圣光之米歇尔")->
+            p.hero.school = YELLOW
+            destroy b
+        b.addButton("暗黑之撒旦")->
+            p.hero.school = BLACK
+            destroy b
+        b.addButton("纯白之雪")->
+            p.hero.school = WHITE
+            destroy b
+        b.display(_player, true)
+
+    function onChallDivineSoul()
+        if p.hero.school == null
+            _player.print("[系统]:还未选择圣魂信仰!")
+        else
+            p.hero._self.addItemById(p.hero.school.challItemId)
+
+
+    static string array exCountName = ["初级寻宝次数","中级寻宝次数","高级寻宝次数","超级寻宝次数"]
+
+    function flushExItemUberTip(int lv)
+        if localPlayer == _player
+            ('I64O'+lv -  1) .exItemTypeData(EX_ITEM_YD.UBERTIP,slk_item.loadString(('I64O'+lv -  1), descKey)+"|n当前抽奖次数:"+p.exCount[lv -  1])
+            ('I64S'+lv -  1) .exItemTypeData(EX_ITEM_YD.UBERTIP,slk_item.loadString(('I64S'+lv -  1), descKey)+"|n当前抽奖次数:"+p.exCount[lv -  1])
+
+    function onExAddCount(int lv,int count)
+        p.exCount[lv -  1] += count
+        _player.print("[系统]:"+exCountName[lv - 1]+"+"+count)
+        flushExItemUberTip(lv)
+
+
+    static string array ex_attr_1s = ["攻击","力量","敏捷","智力","血量"]
+    static int array ex_attr_1 = [12000,4500,4500,4500,3000]
+    static string array ex_attr_2s = ["附加伤害","暴击伤害","伤害增幅"]
+    static int array ex_attr_2 = [3,5,3]
+    static string array ex_attr_3s = ["力量增幅","敏捷增幅","智力增幅"]
+    static int array ex_attr_3 = [1,1,1]
+
+    function onExReal(int lv)
+        switch lv
+            case 1
+                if 70 .random()
+                    _player.print("[系统]:没寻到!", 10)
+                else if 70 .random()
+                    let index = 5 .nextInt()
+                    switch index
+                        case 0
+                            p.hero.addAttr(AttrKey.ATK, ex_attr_1[index])
+                        case 1
+                            p.hero.addAttr(AttrKey.STR, ex_attr_1[index])
+                        case 2
+                            p.hero.addAttr(AttrKey.AGI, ex_attr_1[index])
+                        case 3
+                            p.hero.addAttr(AttrKey.INE, ex_attr_1[index])
+                        case 4
+                            p.hero.addAttr(AttrKey.HPM, ex_attr_1[index])
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+ex_attr_1s[index]+ex_attr_1[index])
+                else if 20 .random()
+                    item i = baozhuUpPools[1].tryGet(p.hero._self.getPos())
+                    p.hero._self.addItemHandle(i)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+i.getName())
+                else if 20 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolGeneral.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else if 2 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolRare.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else
+                    let itm = dungeonAffixItemPool[70 .random()?1:2].tryGet(0,p.hero._self.getPos(),true)
+                    p.hero._self.addItemHandle(itm)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+            case 2
+                if 70 .random()
+                    _player.print("[系统]:没寻到!", 10)
+                else if 70 .random()
+                    let index = 3 .nextInt()
+                    switch index
+                        case 0
+                            p.hero.addAttr(AttrKey.addDmg, ex_attr_2[index])
+                        case 1
+                            p.hero.addAttr(AttrKey.ctcDmg, ex_attr_2[index])
+                        case 2
+                            p.hero.addAttr(AttrKey.dmgPlus, ex_attr_2[index])
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+ex_attr_2s[index]+ex_attr_2[index])
+                else if 20 .random()
+                    item i = baozhuUpPools[2].tryGet(p.hero._self.getPos())
+                    p.hero._self.addItemHandle(i)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+i.getName())
+                else if 10 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolGeneral.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else if 5 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolRare.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else
+                    let itm = dungeonAffixItemPool[70 .random()?3:4].tryGet(0,p.hero._self.getPos(),true)
+                    p.hero._self.addItemHandle(itm)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+            case 3
+                if 70 .random()
+                    _player.print("[系统]:没寻到!", 10)
+                else if 70 .random()
+                    let index = 3 .nextInt()
+                    switch index
+                        case 0
+                            p.hero.addAttr(AttrKey.strPlus, ex_attr_3[index])
+                        case 1
+                            p.hero.addAttr(AttrKey.agiPlus, ex_attr_3[index])
+                        case 2
+                            p.hero.addAttr(AttrKey.intPlus, ex_attr_3[index])
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+ex_attr_3s[index]+ex_attr_3[index])
+                else if 20 .random()
+                    item i = baozhuUpPools[3].tryGet(p.hero._self.getPos())
+                    p.hero._self.addItemHandle(i)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+i.getName())
+                else if 5 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolGeneral.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else if 10 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolRare.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else if 0.2 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolEpic.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else
+                    let itm = dungeonAffixItemPool[5].tryGet(0,p.hero._self.getPos(),true)
+                    p.hero._self.addItemHandle(itm)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+            case 4
+                if 70 .random()
+                    _player.print("[系统]:没寻到!", 10)
+                else if 70 .random()
+                    let index = 3 .nextInt()
+                    switch index
+                        case 0
+                            p.hero.addAttr(AttrKey.strPlus, ex_attr_3[index])
+                        case 1
+                            p.hero.addAttr(AttrKey.agiPlus, ex_attr_3[index])
+                        case 2
+                            p.hero.addAttr(AttrKey.intPlus, ex_attr_3[index])
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+ex_attr_3s[index]+ex_attr_3[index])
+                else if 20 .random()
+                    item i = baozhuUpPools[4].tryGet(p.hero._self.getPos())
+                    p.hero._self.addItemHandle(i)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+i.getName())
+                else if 10 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolRare.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else if 1 .random()
+                    item itm = p.hero._self.addItemById(RandomSpellEntityManager.poolEpic.getRandomBook())
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+                else
+                    let itm = dungeonAffixItemPool[5].tryGet(0,p.hero._self.getPos(),true)
+                    p.hero._self.addItemHandle(itm)
+                    print("[系统]:恭喜玩家"+_player.getName()+"寻宝获得:"+itm.getName())
+
+
+    function onExUse(int lv,int count)
+        if p.exCount[lv -  1] >= count
+            p.exCount[lv -  1] -= count
+            for i = 1 to count
+                onExReal(lv)
+            flushExItemUberTip(lv)
+        else
+            _player.print("[系统]:没有足够的寻宝次数,快去副本里面吧!", 10)
+
+    function onNirvana(int i) returns bool
+        let hs = HeroService.get(p.hero)
+        if not hs.testNirvana(i)
+            _player.print("[系统]:不满足条件!", 10)
+            return false
+        if not p.hero._self.isAlive()
+            _player.print("[系统]:死亡的情况下不可轮回!", 10)
+            return false
+        if hs.onNirvana(i)
+            _player.print("[系统]:成功!", 10)
+            return true
+        else
+            _player.print("[系统]:失败!", 10)
+            return false
+
+    function onNirvanaTarget() returns bool
+        if  hero.nirvanaTargetFlag
+            _player.print("[系统]:已经定向转生过了!", 10)
+            return false
+        if p.hero.nirvanaCount >= 5
+            let hs = HeroService.get(p.hero)
+            hs.onNirvanaTarget()
+            return true
+        else
+            _player.print("[系统]:轮回次数不足5次!", 10)
+            return false
+
+    function onDestoryWorkRoomOrnament(unit u)
+        let wo = p.workRoomOrnaments.get(u)
+        if wo != null
+            let newAttr = wo.getAttr()
+            hero.addExAttr(newAttr, -1)
+            p.workRoomOrnaments.remove(u)
+
+    function onBuildWorkRoomOrnament(WorkRoomOrnamentEntity oe,unit u)
+        let wo = new WorkRoomOrnament(oe,u)
+        let newAttr = wo.getAttr()
+        p.workRoomOrnaments.put(u,wo)
+        hero.addExAttr(newAttr, 1)
+        _player.print("[系统]:建造"+oe.name+"成功!", 10)
+
+    function onShowWorkRoomOrnament(unit u)
+        let wo = p.workRoomOrnaments.get(u)
+        if wo != null
+            _player.print("[系统]:当前"+wo.entity.name+"等级:"+wo.lv, 10)
+            if wo.canUpgrade()
+                _player.print("[系统]:升级木材消耗"+(7.   * 1.9 .pow(wo.lv+0.)).toInt(), 10)
+                _player.print("[系统]:杀敌积分消耗"+(200. * 1.9 .pow(wo.lv+0.)).toInt(), 10)
+
+    function onUpgradeWorkRoomOrnament(unit u)
+        let wo = p.workRoomOrnaments.get(u)
+        if wo != null and wo.canUpgrade()
+            let ksCost  = (200 * 1.9 .pow(wo.lv+0.)).toInt()
+            let lumCost = (7.  * 1.9 .pow(wo.lv+0.)).toInt()
+            bool flag = true
+            if _player.getLumber() < lumCost
+                flag = false
+            if p.killScore < ksCost
+                flag = false
+            if flag
+                _player.addLumber(-lumCost)
+                p.killScore -= ksCost
+                let oldAttr = wo.getAttr()
+                hero.addExAttr(oldAttr, -1)
+                wo.lv ++ 
+                let newAttr = wo.getAttr()
+                hero.addExAttr(newAttr, 1)
+                _player.print("[系统]:升级成功!", 10)
+            else
+                _player.print("[系统]:杀敌积分或木材不足,当前消耗:木材"+lumCost+",杀敌积分"+ksCost, 10)
+        else
+            _player.print("[系统]:已经不能继续升级了!(以后可能会开放更高)", 10)
+
+    function onExWorkRoomOrnament()
+        if p.killScore >= 100
+            p.killScore -= 100
+            let e = WorkRoomOrnamentEntity.exGet()
+            if e== null
+                _player.print("[系统]:没抽到!", 10)
+            else
+                _player.print("[系统]:抽到了 "+e.name, 10)
+                p.hero._self.addItemById(e.itemId)
+        else
+            _player.print("[系统]:杀敌积分不足!")
+
+    function onStudyExSpell() returns bool
+        Log.debug(_player.getName()+"尝试额外学习技能")
+        bool needSubGameScore = false
+        if p.studySpellExCount >= 1
+            needSubGameScore = true
+        if needSubGameScore
+            if p.testGameScore(10)
+                p.subGameScore(10)
+            else
+                _player.print("[系统]:游戏积分不足!", 10)
+                return false
+        let id = RandomSpellEntityManager.poolGeneral.getRandomBook()
+        if id != 0
+            p.studySpellExCount++
+            p.hero._self.addItemById(id)
+            return true
+        else
+            _player.print("[错误]:随机技能书失败:无效的技能id,请联系作者!", 10)
+            return false
+
+    function onForcedSynthesisSpell(int lv) returns bool
+        if lv == 1
+            let pool = RandomSpellEntityManager.poolGeneral
+            let items = p.hero._self.getInventroy()
+            let wantSynthesis = new HashList<item>
+            for i in items
+                if pool.hasByItemId(i.getTypeId())
+                    wantSynthesis.add(i)
+            destroy items
+            if wantSynthesis.size() >= 3
+                for i = 0 to 2
+                    wantSynthesis.get(i).remove()
+                let n = RandomSpellEntityManager.poolRare.getRandomBook()
+                let nit = p.hero._self.addItemById(n)
+                _player.print("[技能]:强制融合成功!已合成稀有技能:"+nit.getName(), 10)
+                destroy wantSynthesis
+                return true
+            else
+                _player.print("[技能]:失败,请将三本普通技能书全部放置到英雄背包!", 10)
+                destroy wantSynthesis
+                return false
+        else if lv == 2
+            let pool = RandomSpellEntityManager.poolRare
+            let items = p.hero._self.getInventroy()
+            let wantSynthesis = new HashList<item>
+            for i in items
+                if pool.hasByItemId(i.getTypeId())
+                    wantSynthesis.add(i)
+            destroy items
+            if wantSynthesis.size() >= 3
+                for i = 0 to 2
+                    wantSynthesis.get(i).remove()
+                let n = RandomSpellEntityManager.poolEpic.getRandomBook()
+                let nit = p.hero._self.addItemById(n)
+                _player.print("[技能]:强制融合成功!已合成史诗技能:"+nit.getName(), 10)
+                destroy wantSynthesis
+                return true
+            else
+                _player.print("[技能]:失败,请将三本稀有技能书全部放置到英雄背包!", 10)
+                destroy wantSynthesis
+                return false
+        return false
+
+
+    function onStudySpell(int i) returns bool
+        Log.debug(_player.getName()+"尝试学习技能"+i)
+        if p.hero.nirvanaCount < i
+            _player.print("[系统]:失败!轮回次数不足!", 10)
+            return false
+        if p.studySpellCount[i-1] >= Players.studySpellLimit
+            _player.print("[系统]:失败!", 10)
+            return false
+        else
+            let id = RandomSpellEntityManager.poolGeneral.getRandomBook()
+            if id != 0
+                p.studySpellCount[i-1]++
+                p.hero._self.addItemById(id)
+                return true
+            else
+                _player.print("[系统]:随机技能书失败:无效的技能id!", 10)
+                return false
+
+    function onUpSpell(int i) returns bool
+        let hs = HeroService.get(p.hero)
+        let box = hs.boxs.getBox(i - 1)
+        if box.entity.isLevelUpgradable()
+            let cost = Players.upSpellBasicCost * (1.9) .pow(box.entity.lv - 1.)
+            if cost <= p.killScore
+                if not hs.onUpSpell(i - 1)
+                    _player.print("[系统]:升级失败!未学习技能或已经满级!", 10)
+                    return false
+                else
+                    p.killScore -= cost
+                    _player.print("[技能]:升级成功!",10)
+                    return true
+            else
+                _player.print("[系统]:杀敌积分不足!当前消耗:"+cost)
+                return false
+        else
+            _player.print("[系统]:当前技能无法升级或未学习技能!")
+            return false
+
+    function onForgetSpell()
+        if p.randomSpellCount < Players.randomSpellLimit
+            HeroService.get(p.hero).onForgetSpell()
+            p.randomSpellCount ++
+            _player.print("[技能]:忘记技能成功,已返还技能书!",10)
+        else
+            _player.print("[技能]:忘记技能次数已经达到上限!",10)
+
+    function onConvertDmgPlus()
+        if p.subSchoolScore(20)
+            p.hero.addAttr(AttrKey.dmgPlus, 5)
+            printTimedToPlayer("[系统]:兑换成功!", 10, p._player)
+        else
+            printTimedToPlayer("[系统]:门派积分不足!", 10, p._player)
+
+
+    function addSchoolScore(int i)
+        printTimedToPlayer("[系统]:增加门派积分"+i, 10, p._player)
+        p.schoolScore += i
+
+    function init4VIP()
+        p.role = PlayerRole.Vip
+        p._player.addGold(10000)
+        p.killScore += 600
+        p.exKillScoreMul += 60
+        printTimedToPlayer("[系统]:欢迎你,尊贵的VIP玩家"+p.name, 10, p._player) 
+
+    function init4VIPHero()
+        hero.addAttr(AttrKey.propKilled,3)
+
+    function testXiaohuangjiGuildName() returns bool
+        let s = p._player.dzGuildName()
+        return s == "青云同盟"  or
+        s == "小黄鸡1号" or
+        s == "小黄鸡2号" or
+        s == "小黄鸡3号" or
+        s == "小黄鸡4号" or
+        s == "小黄鸡5号" or
+        s == "小黄鸡6号" or
+        s == "小黄鸡7号" or
+        s == "小黄鸡8号" or
+        s == "小黄鸡9号" or
+        s == "小黄鸡10号" or
+        s == "小黄鸡军团1号" or
+        s == "小黄鸡军团2号" or
+        s == "小黄鸡军团3号" or
+        s == "小黄鸡军团4号" or
+        s == "小黄鸡军团5号" or
+        s == "小黄鸡军团6号" or
+        s == "小黄鸡军团7号" or
+        s == "小黄鸡军团8号" or
+        s == "小黄鸡军团9号" or
+        s == "小黄鸡军团10号" or
+        s == "战斗鸡军团"
+
+    function onChannelGift()
+        if not p.channelFlag
+            if p._player.dzIsVIPBlue() or testXiaohuangjiGuildName()
+                printTimedToPlayer("[系统]:欢迎你,渠道玩家"+p.name, 10, p._player) 
+                p.hero.addAttr(AttrKey.HPM, 10000)
+                p.hero.addAttr(AttrKey.STR, 200)
+                p.hero.addAttr(AttrKey.AGI, 200)
+                p.hero.addAttr(AttrKey.INE, 200)
+                p.hero.addAttr(AttrKey.finDmg, 10)
+                p.channelFlag = true
+            else
+                printTimedToPlayer("[系统]:没有领取权限!", 10, p._player) 
+        else
+            printTimedToPlayer("[系统]:已经领取过了!", 10, p._player) 
+
+
+    function initVIP()
+        if _vip.testAuths(p.auths) or p._player.dzIsVIPBlue()
+            init4VIP()
+
+    function onConvertMainAttr()
+        if p.hero != null
+            if p.subKillScore(p.convertMainAttrCost)
+                let key = p.hero.getMainAttr()
+                p.hero.addAttr(key, p.convertMainAttrVal)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertMainAttrVal, 10, p._player) 
+            else
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertMainAttrCost, 10, p._player) 
+    function onConvertAttr()
+        if p.hero != null and p.convertAttrCount < Players.convertCountLimit
+            if p.subKillScore(p.convertAttrCost)
+                p.hero.addAttr(AttrKey.STR, p.convertAttrVal)
+                p.hero.addAttr(AttrKey.AGI, p.convertAttrVal)
+                p.hero.addAttr(AttrKey.INE, p.convertAttrVal)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAttrVal, 10, p._player) 
+            else
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAttrCost, 10, p._player) 
+    function onConvertAtk()
+        if p.hero != null 
+            if p.subKillScore(p.convertAtkCost)
+                p.hero.addAttr(AttrKey.ATK, p.convertAtkVal)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAtkVal, 10, p._player) 
+            else
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAtkCost, 10, p._player) 
+    function onConvertHp()
+        if p.hero != null 
+            if p.subKillScore(p.convertHpCost)
+                p.hero.addAttr(AttrKey.HPM, p.convertHpVal)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertHpVal, 10, p._player) 
+            else
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertHpCost, 10, p._player) 
+
+    function onPl_GoldGift()
+        if not p.plGoldFlag and _gift_gold.testAuths(p.auths)
+            p.plGoldFlag = true
+            p._player.addGold(10000)
+            p.killScore += 500
+            p.hero.addAttr(AttrKey.ctcDmg, 10)
+            print("[系统]:"+p._player.getName()+"领取金币礼包成功!")
+        else
+            printTimedToPlayer("[系统]:已经领取过了或者没有权限!", 10, p._player)
+    function onPl_LumberGift()
+        if not p.plLumberFlag and _gift_lumber.testAuths(p.auths)
+            p.plLumberFlag = true
+            p.hero.addAttr(AttrKey.HPM, 20000)
+            p.hero.addAttr(AttrKey.STR, 1000)
+            p.hero.addAttr(AttrKey.AGI, 1000)
+            p.hero.addAttr(AttrKey.INE, 1000)
+            p.hero.addAttr(AttrKey.ctcDmg, 10)
+            print("[系统]:"+p._player.getName()+"领取木头礼包成功!")
+        else
+            printTimedToPlayer("[系统]:已经领取过了或者没有权限!", 10, p._player)
+
+    function onActNewbieGift()
+        if not p.newbieGiftFlag
+            p.newbieGiftFlag = true
+            p._player.addGold(4000)
+            p.killScore += 300
+            print("[系统]:"+p._player.getName()+"领取新手礼包成功!")
+        else
+            printTimedToPlayer("[系统]:已经领取过了!", 10, p._player)
+
+    function testStarGuildName() returns bool
+        return p._player.dzGuildName() == "星悦会员俱乐部"
+
+    function testAnchorGuildName() returns bool
+        return p._player.dzGuildName() == "魔域主播工会"
+
+    function onLeave()
+        if p.hero != null
+            let hs = HeroService.get(p.hero)
+            hs.onPlayerLeave()
+        if p.bb!=null
+            p.bb..pause()..setInvulnerable(true)..hide()
+
+    /**
+     * 初始化激活book
+     */
+    function onChioceHero()
+        hero = p.hero
+        HeroService.get(p.hero)
+        //todo 关闭VIP
+        if false
+            return
+        for i in WeaponSkin
+            if i.auth.testAuths(p.auths)
+                execute() ->
+                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                    let pg = p.hero.daoju.getSubBook("武器皮肤").getPage(i.name)
+                    if pg !=null and not pg.isActivation
+                        pg.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                    else
+                        print(i.name +":"+pg.page.name)
+        for i in TitleSkin
+            if i.auth.testAuths(p.auths)
+                execute() ->
+                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                    let pg = p.hero.daoju.getSubBook("称号").getPage(i.name)
+                    if pg !=null and not pg.isActivation
+                        pg.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+        for i in WingSkin
+            if i.auth.testAuths(p.auths)
+                execute() ->
+                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                    let pg = p.hero.daoju.getSubBook("翅膀皮肤").getPage(i.name)
+                    if pg !=null and not pg.isActivation
+                        pg.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                    else
+                        print(i.name +":"+pg.page.name)
+        for i in HaloSkin
+            if i.auth.testAuths(p.auths)
+                execute() ->
+                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                    let pg = p.hero.daoju.getSubBook("光环").getPage(i.name)
+                    if pg !=null and not pg.isActivation
+                        pg.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                    else
+                        print(i.name +":"+pg.page.name)
+        // 设置检测到的降低伤害
+        if authChecked.testAuths(p.auths)
+            p.hero.setChecked()
+        if p.role == PlayerRole.Vip
+            init4VIPHero()
+            p.hero._self.addAbilityPro('SK00') //vip光环
+            print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎VIP玩家"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+        if testAnchorGuildName()
+            print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎魔域主播"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+            printTimedToPlayer("[系统]:已经自动获取魔域主播礼包,属性自动生效,外观效果请使用指令-chzb激活!", 10, _player)
+        if testStarGuildName()
+            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+            printTimedToPlayer("[系统]:已经自动获取星悦礼包,属性自动生效,外观效果请使用指令-chxy激活!", 10, _player)
+        if _weapon_xieshen.testAuths(p.auths)
+            p.exKillScoreMul+=20
+        if _halo_xinguang.testAuths(p.auths)
+            p.hero.hasXingGuangShanYao = true
+        if _wing_shengyu.testAuths(p.auths)
+            p.hero.hasShengYuChiBang = true
+
+    function jumpLevel() returns bool
+        let lv = Level.get()
+        if lv < 29
+            let cost = HOME.getCurrentJumpCost()
+            if p.killScore >= cost
+                p.killScore -= cost
+                nextLevel()
+                HOME.jumpLvCount ++
+                print("[系统]:玩家"+_player.getName()+"申请跳关成功!从下一波开始生效!")
+                return true
+            else
+                print("[系统]:杀敌积分不足!")
+                return false 
+        else
+            print("[系统]:地图已进入后期,跳关失败!")
+            return false
+
+    function onUpgradeHome() returns bool
+        if HOME.onUpgradeHome()
+            print("[系统]:玩家"+_player.getName()+"强化了基地,奖励波次*500全属性!")
+            p.hero.addAttr(AttrKey.STR, Level.get()*500)
+            p.hero.addAttr(AttrKey.AGI, Level.get()*500)
+            p.hero.addAttr(AttrKey.INE, Level.get()*500)
+            return true
+        else
+            printTimedToPlayer("[系统]:强化基地失败!可能已经升级满了!",10,_player)
+            return false
+    function onSuperUpgradeHome() returns bool
+        if p.defenseScore >= 300
+            if HOME.onSuperUpgradeHome()
+                print("[系统]:玩家"+_player.getName()+"强化了基地,奖励3点附加伤害!")
+                p.hero.addAttr(AttrKey.addDmg, 3)
+                p.defenseScore -= 300
+                return true
+            else
+                printTimedToPlayer("[系统]:强化基地失败!可能已经升级满了!",10,_player)
+                return false
+        else
+            printTimedToPlayer("[系统]:你的守城积分不够!",10,_player)
+            return false
+
+    function onStopAttack() returns bool
+        if HOME.onStopAttack()
+            print("[系统]:玩家"+_player.getName()+"停怪了,持续180秒!")
+            return true
+        else
+            printTimedToPlayer("[系统]:停怪失败!等开启进攻后再停怪(右上角有每波计时的时候)!",10,_player)
+            return false
+    function onVulHome() returns bool
+        if HOME.onVulHome()
+            print("[系统]:玩家"+_player.getName()+"开启了基地无敌,持续60秒!")
+            return true
+        else
+            printTimedToPlayer("[系统]:开启失败!",10,_player)
+            return false
+
+    /**
+     * 击杀加杀怪分和防守分 额外经验
+     */
+    function onKill(unit killUnit)
+        if p.hero.hasXingGuangShanYao
+            _player.addGold(500)
+        var g = slk_unit.loadInt(killUnit.getTypeId(), goldcostKey) + 0.
+        p.killScore += g * (100.+p.exKillScoreMul) / 100.
+        let l = slk_unit.loadInt(killUnit.getTypeId(), lumbercostKey)
+        p.defenseScore += l
+        
+
+    function onEndEndless()
+        HOME.basic.kill()

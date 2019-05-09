@@ -1,0 +1,24 @@
+package MoverEffectModule
+import phLib
+import public Mover
+
+
+public module MoverEffect
+    use Mover
+    real   range = 100
+    override function onStart()
+    override function onTick()
+    override function getHit() returns group
+        ENUM_GROUP.enumUnitsInRange(getPos().toVec2(), range)
+        return ENUM_GROUP//me.getPos3().inRange(target, range)
+    override function onHit(unit u)
+
+    function moverEffect(real speed,real speed_plus,angle face,angle face_plus,angle angle,angle angle_plus)
+        mover_setSpeed(speed, speed_plus)
+        mover_setFace(face, face_plus)
+        mover_setAngle(angle, angle_plus)
+        
+    function moverEffect(vec3 target,real time)
+        mover_setSpeed(target.distanceTo(getPos())/time, 0)
+        mover_setFace(getPos().toVec2().angleTo(target.toVec2()), 0 .asAngleDegrees())
+        mover_setAngle(getPos().airAngleTo(target), 0 .asAngleDegrees())

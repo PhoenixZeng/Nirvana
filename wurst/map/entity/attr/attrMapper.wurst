@@ -1,0 +1,96 @@
+package attrMapper
+import public attrLib
+import public unitAttr
+import public itemAttr
+import public attrPlus
+import ClosureTimers
+import phLib
+import Forces
+import WorkRoomOrnament
+
+constant debug = false
+
+public function Unit.addItemAttr(Item i,int a)
+    for key in attrKey2Hash
+        let val = i.getAttr(key)
+        if val != 0
+            this.addAttr(key,val * a)
+            if debug 
+                print(this._self.getName()+key.getName()+(a>0?"+":"-")+i.getAttr(key))
+
+public function Unit.addItemAttr(item i,int a)
+    for key in attrKey2Hash
+        this.addAttr(key,(slk_item.loadInt(i.getTypeId(), key castTo int)) * a)
+    
+public function unit.addItemAttr(item i)
+    let u = Unit.getUnit(this)
+    if this.isHero() and u!=null and u.typeId != 0
+        if not users.containsUnit(this)
+            Unit.getUnit(this).addItemAttr(i,1)
+        else
+            Item t = Item.getItem(i)
+            if t != null and t.typeId != 0
+                t.owner = this
+                Unit.getUnit(this).addItemAttr(t,1)
+
+public function unit.subItemAttr(item i)
+    if this.isHero() and Unit.getUnit(this)!=null
+        let t = Item.getItem(i)
+        if t != null and t.typeId != 0 and t.owner == this
+            t.owner = null
+            Unit.getUnit(this).addItemAttr(t,-1)
+
+public function unit.dropItemAttr(item i)
+    if this.isHero() and Unit.getUnit(this)!=null
+        let t = Item.getItem(i)
+        if t != null and t.typeId != 0 and t.owner == this
+            t.owner = null
+            Unit.getUnit(this).addItemAttr(t,-1)
+            t.destr(false)
+
+
+public function Unit.addExAttr(AttrPstc i,int a)
+    for key in attrKey2Hash
+        this.addAttr(key,i.getAttr(key) * a)
+public function Unit.addExAttr(WorkRoomOrnamentLevelAttrs i,int a)
+    for key in attrKey2Hash
+        this.addAttr(key,i.getAttr(key) * a)
+public function Unit.addExAttr(AttrSpell i,int a)
+    if i != null
+        for key in attrKey2Hash
+            this.addAttr(key,i.getAttr(key) * a)
+public function Unit.addExAttr(AttrPlus i,int a)
+    for key in attrKey2Hash
+        this.addAttr(key,i.getAttr(key) * a)
+    destroy i
+
+public function Unit.addTimedExAttr(real time,AttrKey key,int val,int a)
+    this.addAttr(key,val * a)
+    doAfter(time)->
+        this.addAttr(key,val * -a) 
+public function Unit.addTimedExAttr(real time,AttrPlus i,int a)
+    for key in attrKey2Hash
+        this.addAttr(key,i.getAttr(key) * a)
+    doAfter(time)->
+        for key in attrKey2Hash
+            this.addAttr(key,i.getAttr(key) * -a)
+        destroy i
+
+function unit.testUnit(AttrPlus i) returns bool
+    return this.isHero() and Unit.getUnit(this)!=null and i != null and i.typeId != 0
+
+public function unit.addAttrPlus(AttrPlus i)
+    if this.testUnit(i)
+        Unit.getUnit(this).addExAttr(i, 1)
+
+public function unit.subAttrPlus(AttrPlus i)
+    if this.testUnit(i)
+        Unit.getUnit(this).addExAttr(i, -1)
+
+public function unit.addAttrPlus(AttrPlus i,real time)
+    if this.testUnit(i)
+        Unit.getUnit(this).addTimedExAttr(time, i, 1)
+
+public function unit.subAttrPlus(AttrPlus i,real time)
+    if this.testUnit(i)
+        Unit.getUnit(this).addTimedExAttr(time, i, -1)

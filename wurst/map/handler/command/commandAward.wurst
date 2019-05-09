@@ -1,0 +1,27 @@
+package commandAward
+import HashMap
+
+public int awardIndex = 2
+
+public int array key//_award_lumber_200 = 897
+
+public class CommandAward
+    string name
+    int itemId
+    int keyIndex
+    static HashMap<int,thistype> map = new HashMap<int,thistype>
+    static function register(string name,int keyIndex,int value)
+        let c = new CommandAward()
+        c.name = name
+        c.keyIndex = keyIndex
+        c.itemId = value
+        map.put((key[keyIndex]+awardIndex).toString().getHash(), c)
+
+
+public function initAward(int awardIndex_)
+    awardIndex = awardIndex_
+    key[1] = 897
+    key[2] = 34235
+    key[3] = 123
+    key[4] = 534
+    CommandAward.register("200木",1, 'ssil')

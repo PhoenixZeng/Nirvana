@@ -1,0 +1,18 @@
+
+#ifndef YDWEBaseIncluded
+#define YDWEBaseIncluded
+
+library YDWEBase initializer InitializeYD
+
+    #include "./YDWE/YDWEBase_common.vj"
+    #include "./YDWE/YDWEBase_hashtable.vj"
+
+endlibrary
+
+#endif // YDWEBaseIncluded
+
+#include "./luaMain.vj"
+#include "./preGenerate/registerItem.vj"
+#include "./preGenerate/registerAbil.vj"
+#include "./preGenerate/registerUnit.vj"
+#include "./preGenerate/registerItemRecipeAgent.vj" 

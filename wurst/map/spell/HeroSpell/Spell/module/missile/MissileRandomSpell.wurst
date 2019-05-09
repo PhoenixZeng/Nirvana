@@ -1,0 +1,219 @@
+package MissileRandomSpell
+import Hero
+import YDJapiOther
+import Missile
+import Mover
+import CenterTimer
+import LinkedListModule
+
+public interface MissileMoverTickInterface
+    function onMissileSpellTick(MissileMoverTickFxWitnInterface missile)
+    function onMissileSpellEmission(string path,vec2 pos,angle face,player owner) returns MissileMoverTickFxWitnInterface
+        var p = path
+        // if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        //     p = ""
+        return new MissileMoverTickFxWitnInterface(this,pos,face,p)
+    function setMoreMissile(MissileMoverTickFxWitnInterface missile,int count,real right,real interval)
+        let pos = missile.origin
+        let face = missile.__face
+        let path = missile.dummy.getSfxPath()
+        MissileMoverTickFxWitnInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = missile
+            else
+                more = new MissileMoverTickFxWitnInterface(this,pos.toVec2(),face,path)..copy(missile)
+            more.__face = (right - interval * i).fromDeg()
+            more.dummy.getDummy().exFacing(more.__face.degrees())
+
+    function setMoreMissileOneDamage(MissileMoverTickFxWitnInterface missile,int count,real right,real interval)
+        let pos = missile.origin
+        let face = missile.__face
+        let path = missile.dummy.getSfxPath()
+        MissileMoverTickFxWitnInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = missile
+            else
+                more = new MissileMoverTickFxWitnInterface(this,pos.toVec2(),face,path)..copy(missile)
+                more.__beenHit.destr()
+                more.__beenHit = missile.__beenHit
+            more.__face = face + (right - interval * i).fromDeg()
+            more.dummy.getDummy().exFacing(more.__face.degrees())
+
+public class MissileMoverTickFxWitnInterface extends MissileMoverTickFx
+    MissileMoverTickInterface cb
+    ondestroy
+        cb = null
+    construct(MissileMoverTickInterface cb,vec2 pos,angle face,string path)
+        super(pos,face,path)
+        origin = pos.toVec3()
+        this.cb = cb
+    override function onTick()
+        if cb != null or cb.typeId != 0
+            cb.onMissileSpellTick(this)
+        else
+            mover_end()
+
+public interface MissileMoverHitInterface
+    function onMissileSpellHit(MissileMoverHitFxWithInterface missile,unit u)
+    function onMissileSpellEmission(string path,unit caster,vec2 emissionPos,angle face,player owner) returns MissileMoverHitFxWithInterface
+        var p = path
+        // if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        //     p = ""
+        return new MissileMoverHitFxWithInterface(this,caster,emissionPos,face,p)
+    function setMoreMissile(MissileMoverHitFxWithInterface missile,unit caster,int count,real right,real interval)
+        let pos = missile.origin
+        let face = missile.__face
+        let path = missile.dummy.getSfxPath()
+        MissileMoverHitFxWithInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = missile
+            else
+                more = new MissileMoverHitFxWithInterface(this,caster,pos.toVec2(),face,path)..copy(missile)
+            more.__face = face + (right - interval * i).fromDeg()
+            more.dummy.getDummy().exFacing(more.__face.degrees())
+            more.mover_start()
+    function setMoreMissileOneDamage(MissileMoverHitFxWithInterface missile,unit caster,int count,real right,real interval)
+        let pos = missile.origin
+        let face = missile.__face
+        let path = missile.dummy.getSfxPath()
+        MissileMoverHitFxWithInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = missile
+            else
+                more = new MissileMoverHitFxWithInterface(this,caster,pos.toVec2(),face,path)..copy(missile)
+                more.__beenHit.destr()
+                more.__beenHit = missile.__beenHit
+            more.__face = face + (right - interval * i).fromDeg()
+            more.dummy.getDummy().exFacing(more.__face.degrees())
+            more.mover_start()
+    function returnMoreMissile(MissileMoverHitFxWithInterface missile,unit caster,int count,real right,real interval) returns LinkedList<MissileMoverHitFxWithInterface>
+        let pos = missile.origin
+        let face = missile.__face
+        let path = missile.dummy.getSfxPath()
+        MissileMoverHitFxWithInterface more
+        let _return = new LinkedList<MissileMoverHitFxWithInterface>()
+        for i = 0 to count - 1
+            if i == 0
+                more = missile
+            else
+                more = new MissileMoverHitFxWithInterface(this,caster,pos.toVec2(),face,path)..copy(missile)
+            _return.add(more)
+            more.__face = (right - interval * i).fromDeg()
+            more.dummy.getDummy().exFacing(more.__face.degrees())
+            more.mover_start()
+        return _return
+    function setPinballMissile(MissileMoverHitFxWithInterface missile,real delay,angle start)
+        missile.__delay = delay
+        missile.__angle = start
+        missile.__anglePlus = angle(-start.radians() /delay *2 *Mover.__frame)
+
+public class MissileMoverHitFxWithInterface extends MissileMoverHitFx
+    MissileMoverHitInterface cb
+    ondestroy
+        cb = null
+    construct(MissileMoverHitInterface cb,unit caster,vec2 pos,angle face,string path)
+        super(pos,face,path)
+        this.origin = pos.toVec3()
+        this.cb = cb
+        this.caster = caster
+    override function onTick()
+        if __anglePlus.radians() != 0.
+            __angle = angle(__anglePlus.radians() *-1/2*__delay/Mover.__frame)
+    override function onHit(unit u)
+        if cb != null or cb.typeId != 0
+            cb.onMissileSpellHit(this,u)
+        else
+            mover_end()
+
+public abstract class MissileMoverHitFx extends MissileMoverHit
+    Fx dummy
+    ondestroy
+        dummy.hiddenDestroy()
+        dummy = null
+    construct(vec2 pos,angle face,string path)
+        dummy = new Fx(pos,face ,path)..setZ(50)
+        dummy.getDummy().exFacing(face.degrees())
+        __face = face
+    override function setPos(vec3 vec3)
+        origin = vec3
+        dummy.setXY(origin.toVec2())
+        if origin.z != 0
+            dummy.getDummy().setFlyHeight(origin.z, 0)
+
+public abstract class MissileMoverTickFx extends MissileMoverTick
+    Fx dummy
+    ondestroy
+        dummy.hiddenDestroy()
+    construct(vec2 pos,angle face,string path)
+        dummy = new Fx(pos,face ,path)
+        dummy.getDummy().exFacing(face.degrees())
+    override function setPos(vec3 vec3)
+        origin = vec3
+        dummy.setXY(origin.toVec2())
+        if origin.z != 0
+            dummy.getDummy().setFlyHeight(origin.z, 0)
+
+public abstract class MissileMoverHit extends MissileMover
+    static group g = CreateGroup()
+    unit caster
+    real hit_range = 100
+    override function getHit() returns group
+        g.enumUnitsInRange(getPos().toVec2(), hit_range)
+        return g
+    override function isHit(unit u) returns boolean
+        return enemyFilter(caster, u)
+    function setHitRange(real hit_range)
+        this.hit_range = hit_range
+
+public abstract class MissileMoverTick extends MissileMover
+    override function getHit() returns group
+        return ENUM_GROUP
+    override function isHit(unit u) returns boolean
+        return false
+    override function onHit(unit u)
+
+/**
+* 非实体,无碰撞停止,路径发射确定
+* 追踪目标的请移步 package TargetMissileRandomSpell
+*/
+public abstract class MissileMover
+    use LinkedListModule
+    use Mover
+    vec3 origin
+    override function onStart()
+    override function getPos() returns vec3
+        return origin
+    override function onEnd()
+        destroy this
+    override function getHitRange() returns real
+        return 100
+    override static function engine()
+        onAlways(Mover.__frame ) task->
+            for i in MissileMover
+                i.do()
+
+init
+    MissileMover.engine()
+
+public function MissileMover.copy(MissileMover m)
+    this.__delay           = m.__delay           
+    this.__speed           = m.__speed           
+    this.__face            = m.__face            
+    this.__angle           = m.__angle           
+    this.__speedPlus       = m.__speedPlus       
+    this.__facePlus        = m.__facePlus        
+    this.__anglePlus       = m.__anglePlus       
+    this.__continueTime    = m.__continueTime    
+    this.__continueDist    = m.__continueDist    
+    this.__continueCount   = m.__continueCount   
+    this.__timePost        = m.__timePost        
+    this.__tickTimePost    = m.__tickTimePost    
+    this.__distPost        = m.__distPost        
+    this.__hitPost         = m.__hitPost         
+    this.__countPost       = m.__countPost       
+    this.__pause           = m.__pause           
+    this.__isBeDestory     = m.__isBeDestory     

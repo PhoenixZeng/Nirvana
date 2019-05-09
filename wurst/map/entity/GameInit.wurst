@@ -1,0 +1,243 @@
+package GameInit
+import DialogBox
+import Quest
+import SpellSystemAI
+import baseImport
+import ClosureTimers
+import wareAttack
+import WorkRoom
+import dropItem
+import Dungeon
+import Tip
+import dzGameFrame
+import BookInit
+import GemEntity
+import HeroItemEntity
+import PracticeEntity
+import Execute
+import winAndLose
+import PlayerMultiboards
+import difficultHandler
+import ServerDate
+import PlayersSave
+import AffixItemEntity
+import playerEvent
+import Rects
+import BeastGod
+import PlayerService
+import SavedArtifact
+import BlizzardAPI
+import NirvanaSpellEntity
+import Challenge
+import timerHandler
+import TpItem
+import HeroRandomSpellManager
+import itemMutex
+
+function initializeYD()
+    yd_MapMinX = GetCameraBoundMinX() - GetCameraMargin(CAMERA_MARGIN_LEFT)
+    yd_MapMinY = GetCameraBoundMinY() - GetCameraMargin(CAMERA_MARGIN_BOTTOM)
+    yd_MapMaxX = GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
+    yd_MapMaxY = GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
+    yd_PlayerColor [0] = "|cFFFF0303"
+    yd_PlayerColor [1] = "|cFF0042FF"
+    yd_PlayerColor [2] = "|cFF1CE6B9"
+    yd_PlayerColor [3] = "|cFF540081"
+    yd_PlayerColor [4] = "|cFFFFFC01"
+    yd_PlayerColor [5] = "|cFFFE8A0E"
+    yd_PlayerColor [6] = "|cFF20C000"
+    yd_PlayerColor [7] = "|cFFE55BB0"
+    yd_PlayerColor [8] = "|cFF959697"
+    yd_PlayerColor [9] = "|cFF7EBFF1"
+    yd_PlayerColor[10] = "|cFF106246"
+    yd_PlayerColor[11] = "|cFF4E2A04"
+    yd_PlayerColor[12] = "|cFF282828"
+    yd_PlayerColor[13] = "|cFF282828"
+    yd_PlayerColor[14] = "|cFF282828"
+    yd_PlayerColor[15] = "|cFF282828"
+
+function enableFog(player p)
+    CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, choiceHero.origin)
+    CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, attack.origin)
+    CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, final.origin)
+    for i = 1 to 5
+        CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, dungeon[i].origin)
+        CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, persion[i].origin)
+    for i = 1 to 2
+        CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, seniorDungeon[i].origin)
+
+function initGame(int i,int us)
+    initializeYD()
+    setDiff(i)
+    handleDiffcult()
+    dzFrameInit()
+    initTimeHandler()
+    CreateFogModifierRectBJ(true, Player(10), FOG_OF_WAR_VISIBLE, attack.origin)
+    BeastGod.inite()
+    if i == 0
+        print("[系统]:玩家"+getMainPlayer().getName()+"选择了新手试玩模式")
+        print("[系统]:试玩模式较多功能不开放!")
+        colorsPrint("[系统]:试玩模式需要选择英雄!否则可能引起存档异常!")
+        initPlayersEvent()
+        eachPlayer() i->
+            enableFog(Player(i))
+            let ps = Players.get(i)
+            ps.initSave()
+            let pss = PlayerService.get(ps._player)
+            pss.initVIP()
+    else if i > 0
+        print("[系统]:玩家"+getMainPlayer().getName()+"选择了难度"+i)
+        
+        eachPlayer() i->
+            // SetPlayerHandicapXP(Player(i),1+0.8*(us-1))
+            TpItem.inite()
+        execute()  ->
+            initAI()
+            HOME.initi()
+            registerDefeat(HOME.basic)
+            attackStart()
+        execute()  ->
+            initBook()
+            SavedArtifactEntity.inite()
+        execute()  ->
+            PracticeEntity.initPracticeEntity()
+            initPlayersEvent()
+        execute()  ->
+            eachPlayer() i->
+                enableFog(Player(i))
+                Players.get(i)
+        execute()  ->
+            eachPlayer() i->
+                Players.get(i).initSave()
+        execute()  ->
+            eachPlayer() i->
+                let ps = Players.get(i)
+                let pss = PlayerService.get(ps._player)
+                pss.initVIP()
+        execute()  ->
+            HeroAttr.initi()
+            HpBar.inite()
+            initChallenge()
+            WorkRoom.initi()
+            PersonalWorkRoom.initi()
+            DivineSoulRoom.inite()
+        execute()  ->
+            Dungeon.initi()
+            Tip.initi()
+            GemEntity.initi()
+            HeroItemEntity.initi()
+        execute() ->
+            AffixItemEntity.initi()
+        execute() ->
+            NirvanaSpellEntity.initi()
+        // execute() ->
+        //     NameRangeEffectPair.inite()
+        //     NameLineRangeEffectPair.inite()
+        //     NameBulletEffectPair.inite()
+        execute() ->
+            RandomSpellEntityManager.initRandomSpell()
+        execute()  ->
+            initDrop()
+            ItemMutex.initi()
+    initServerDate()
+    createPlayerMultiboard()
+    initAI()
+    // testBuffInit()
+    // initMouseItem()
+
+function initF9Tip()
+    
+
+    new Quest(true)
+    ..setTitle("装备提升")
+    ..setDescription("初始装备通过挑战升级|n升级到神使装备后,可以进行融合圣魂珠(需要满轮回)[相关NPC]:装备商人 装备升级")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(true)
+    ..setTitle("轮回")
+    ..setDescription("每吞噬指定等级的怪物精髓(副本BOSS掉落)就可以进行轮回|n轮回后英雄主属性与主动技能会变,每个英雄的轮回技能会一直保留|n[提示]:轮回达到满级后可以进行定向轮回一次,还可以进行圣魂信仰选择来合成圣魂(后山)|n[相关NPC]:核心玩法")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(true)
+    ..setTitle("熔炼套装")
+    ..setDescription("套装装备从对应副本中掉落!|n每个套装装备分8件,指定的3件套装即可凑成套装,凑成套装的情况下可以进行熔炼来获取套装效果.|n每个品级的套装只能熔炼一次.|n[提示]:熔炼过后装备消失,在[人物宝典]技能中可以看到|n[相关NPC]:核心玩法|n")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(true)
+    ..setTitle("副本")
+    ..setDescription("副本掉落对应品次的怪物精髓,套装装备,宝珠,藏宝图。|n[相关NPC]:进入副本 副本指引|n")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(true)
+    ..setTitle("防守")
+    ..setDescription("一共30波,击杀怪物可以获得守家积分,|n[提示]:守家积分可以用于超级强化基地,会赠送属性|n[相关NPC]:基地")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(true)
+    ..setTitle("无尽模式")
+    ..setDescription("无尽模式会根据波数获取无尽积分|n无尽积分可兑换特殊道具|n未开放")
+    ..setIcon("blp\\info\\BTN_str.blp")
+
+    new Quest(false)
+    ..setTitle("游戏命令")
+    ..setDescription("-gd3000设置镜头高度(3000可以换成你要的数字)|n-jnxs开关部分队友特效显示(为了防卡顿,有些特效没显示)|n-xs开关伤害文字显示|nhg可以回家,按F2也可以|nhj可以去练功房,按F3也可以|nhs可以去练泉水,按F4也可以|n指令sx可以查看英雄属性|n按住alt+数字1-6可以把宝宝身上的物品快速给英雄")
+    ..setIcon("blp\\info\\BTN_str.blp")
+    new Quest(false)
+    ..setTitle("BUFF说明")
+    ..setDescription("负面:|n    眩晕|n        眩晕|n    缴械|n        不能攻击|n    致盲 可叠加buff|n        10%打出MISS|n    虚弱 可叠加buff|n        伤害降低 10%|n    破绽 可叠加buff|n        受到伤害增加 10%|n|n正面:|n    无敌|n        不会受伤|n    神行|n        无视碰撞|n    精准|n        无视闪避|n    暴怒|n        必定暴击|n    强化 可叠加buff|n        伤害 +10%|n    护体 可叠加buff|n        受到伤害降低 10%")
+    ..setIcon("blp\\info\\BTN_agi.blp")
+    new Quest(false)
+    ..setTitle("光环武器翅膀装扮命令")
+    ..setDescription("在人物身上的道具目录可以查询召唤命令.|n一般的规则为-拼音缩写加数字|n如'-gh1' (使用第一个光环)")
+    ..setIcon("blp\\info\\BTN_int.blp")
+    new Quest(false)
+    ..setTitle("地图作者")
+    ..setDescription("- 程序策划:火凌之凤 SUPEMEKO 咸鱼王 红玉 |n - 美术地形:秦心|n - 联合发行:魔影作坊 火鸟玩 天天RPG")
+    ..setIcon("blp\\info\\BTN_int.blp")
+    flashQuestDialogButton()
+
+function choiceDiff(int us)
+    let box = new DialogBox("难度选择")
+    for i = 1 to 5
+        box.addButton("难度"+i)->
+            initGame(i,us)
+            destroy box
+    // box.addButton("试玩模式(仅单人)")->
+    //     if us <= 1
+    //         initGame(0,us)
+    //     else
+    //         print("[系统]:选择了试玩模式,当前并非单人模式,默认作为选择了难度一!")
+    //         initGame(1,us)
+    //     destroy box
+    box.display(getMainPlayer(), true)
+
+
+init
+    DzFrameEditBlackBorders( 0.022, 0.126 )
+    // FogEnableOff()
+    // FogMaskEnableOff()
+    //边界染色
+    EnableWorldFogBoundary(false)
+    SetTimeOfDay( 12 )
+    UseTimeOfDayBJ( false )
+    initF9Tip()
+    RemoveAllGuardPositions(Player(10))
+    RemoveAllGuardPositions(Player(11))
+    SetCameraField(CAMERA_FIELD_FARZ, 6000.00, 0)
+    let us =  getOnlinePlayerSize()
+    GAME.playerSizeStart = us
+    doAfter(0.5)->
+        print("[系统]:玩家"+getMainPlayer().getName()+"正在选择难度和模式")
+        // let box1 = new DialogBox("模式选择")
+        // box1.addButton("正常模式")->
+        //     GAME.abyss = false
+            // choiceDiff(us)
+        choiceDiff(us)
+            // destroy box1
+        // box1.addButton("深渊模式(较难)")->
+        //     print("[系统]:选择了深渊模式!深渊模式下怪物拥有随机的技能,BOSS还会具有主动技能!")
+        //     GAME.abyss = true
+        //     choiceDiff(us)
+        //     destroy box1
+        // box1.addButton("无尽模式(较难)")->
+        //     print("[系统]:选择了无尽模式!深渊模式下怪物会从较低的难度逐步加大!")
+        //     GAME.endless = true
+        //     GAME.abyss = true
+        //     initGame(5,us)
+        //     destroy box1
+        // box1.display(getMainPlayer(), true)

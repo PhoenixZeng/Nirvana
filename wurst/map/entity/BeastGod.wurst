@@ -1,0 +1,97 @@
+package BeastGod
+import public attrLib
+import unitAttr
+import Rects
+import Forces
+import AIBoss
+import mark
+import phLib
+import ClosureTimers
+
+public BeastGod BG
+
+public class BeastGod
+    static let id = 'H10G'
+    Unit beastGod
+    unit _self
+    construct()
+        _self = createUnit(enemySpecial, 'H10G', beastGodRect.pos, 270 .fromDeg())
+        beastGod = new Unit(_self)
+        beastGod.addAttr(AttrKey.addDmg ,100)
+        beastGod.addAttr(AttrKey.ctcProb,3)
+        beastGod.addAttr(AttrKey.ctcDmg ,800)
+        beastGod.addAttr(AttrKey.dmgSub ,40)
+        beastGod.addAttr(AttrKey.dmgResi,20)
+        _self.setInvulnerable(true)
+        new AIBossM(_self)
+
+    static function inite()
+        BG = new BeastGod()
+
+class Spell1 extends AIBossSpellType
+    string name
+    construct(string name,real cooldown)
+        this.name = name
+        set(cooldown, 10)
+
+    function toString(targets tar) returns string 
+        return "释放"+name+",目标点"+tar.p.toString()+",目标单位"+tar.u.getName()
+
+    override function do(targets tar)
+        let u = tar.u
+        if u .isAlive() and u .isAliveTrick()
+            tar.u.pause()
+            markSector(tar.u,tar.u.getFacingAngle().degrees(),1500,60,2,UnitDamageType.Spell,100000000.)
+            doAfter(5) ->
+                if u .isAlive() and u .isAliveTrick()
+                    tar.u.unpause()
+
+class Spell2 extends AIBossSpellType
+    string name
+    construct(string name,real cooldown)
+        this.name = name
+        set(cooldown, 10)
+
+    function toString(targets tar) returns string 
+        return "释放"+name+",目标点"+tar.p.toString()+",目标单位"+tar.u.getName()
+
+    override function do(targets tar)
+        let u = tar.u
+        if u .isAlive() and u .isAliveTrick()
+            tar.u.pause()
+            markRound(tar.u,500,2,UnitDamageType.Spell,1000000000.)
+            doAfter(5) ->
+                if u .isAlive() and u .isAliveTrick()
+                    tar.u.unpause()
+
+class Spell3 extends AIBossSpellType
+    string name
+    construct(string name,real cooldown)
+        this.name = name
+        set(cooldown, 10)
+
+    function toString(targets tar) returns string 
+        return "释放"+name+",目标点"+tar.p.toString()+",目标单位"+tar.u.getName()
+
+    override function do(targets tar)
+        let u = tar.u
+        if u .isAlive() and u .isAliveTrick()
+            tar.u.pause()
+            for i = 0 to 11
+                markLine(tar.u,tar.u.getFacingAngle().degrees() + i*30,2000,2,UnitDamageType.Spell,1000000000.)
+            doAfter(5) ->
+                if u .isAlive() and u .isAliveTrick()
+                    tar.u.unpause()
+
+let n1 = new Spell1("技能1",10)
+let n2 = new Spell2("技能2",18)
+let n3 = new Spell3("技能3",28)
+
+public class AIBossM extends AIBoss
+    construct(unit boss)
+        super(boss)
+    override function initSpell()
+        spells.add(new AIBossSpell(this,n3)..setWeiget(1))
+        spells.add(new AIBossSpell(this,n2)..setWeiget(2))
+        spells.add(new AIBossSpell(this,n1)..setWeiget(4))
+        compute(1.5, 60)

@@ -1,0 +1,59 @@
+// 第四课
+<?local slk = require 'slk' ?>
+
+// 以'AHtb'(风暴之锤)为模板，创建一个新的技能对象'A233'，并对属性做出一些调整
+<? 
+slk.ability.AHtb:new 'A233'
+{
+    Name = "超级风暴之锤",
+    Cool = 0,
+    Cost = 0,
+    Rng = 999999,
+    Dur = 10,
+    HeroDur = 10,
+}
+?>
+// 只要这段代码存在，你的物编中就会存在'A233'这个技能。如果你不想要这个技能了，把这段代码删除即可
+
+// 如果有需要，你可以再次改变新建对象的属性
+<? slk.ability.A233.Missilespeed = 0 ?>
+
+// 对于多等级或是带索引的数据，你可以用和读取时类似的方式修改属性
+<? slk.ability.A233.Area2 = 100 ?>
+<? slk.ability.A233.Buttonpos_1 = 3 ?>
+
+// 还可以直接赋值多个数据
+<? slk.ability.A233.Cast = {1, 2, 3} ?>
+<? slk.ability.A233.UnButtonpos = {3, 2} ?>
+
+// 你可以只填首项和尾项，中间的数据会自动补全。在制作很高等级的技能时，这会很有用
+<? slk.ability.A233.levels = 10 ?>
+<? slk.ability.A233.DataA = {10, 100} ?>
+
+// 你可以不指定新对象的ID，而是给它一个独一无二的标签。如果你之后还要用到这个对象，应该把它记下来
+<? local obj = slk.ability.AHtb:new "不指定ID" ?>
+<? obj.Cool = 0 ?>
+
+// 使用get_id来获取这个对象的实际ID
+<? local id = obj:get_id() ?>
+
+// 这样在批量创建对象时，就不需要你去关心ID是否冲突了
+<?
+for i = 1, 10 do
+    local name = string.format("可以晕[%d]秒的风暴之锤", i)
+    slk.ability.AHtb:new(name)
+    {
+        Name = name,
+        levels = 1,
+        Cool = 0,
+        Cost = 0,
+        Rng = 999999,
+        DataA = 0,
+        Dur = i,
+        HeroDur = i,
+    }
+end
+?>
+
+// 使用 permanent 方法可以创建永久对象，生成过一次后将这段代码删除，对象依旧存在。
+<? slk.ability.AHtb:new 'AAAA' :permanent() ?>

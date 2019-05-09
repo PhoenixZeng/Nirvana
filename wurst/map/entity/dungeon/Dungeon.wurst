@@ -1,0 +1,159 @@
+package Dungeon
+import Rects
+import LinkedListModule
+import CenterTimer
+import dropItem
+import HashMap
+import Players
+import phLib
+import unitAttr
+import ClosureTimers
+
+public string array dungeonNames  = ["阿拉希盆地","死亡矿井","熔火之心","祖阿曼岛","达拉然奥术秘境"]
+public Dungeon array dungeons
+/**
+ * 副本类
+ */
+public class Dungeon
+    use LinkedListModule
+    static let deathTrigger = CreateTrigger()
+    static let comeInTrigger = CreateTrigger()
+    static let owner = enemySpecial
+    static let npcOwner = playerBase
+    static let nameMap = new HashMap<string,thistype>
+
+    string              name
+    real                unitTime = 10
+    real                bossTime = 60
+    real                finalBossTime = 6000
+    Rects               area
+    Rects               comeArea
+    int                 npcId
+
+    int     array[4]    unitId
+    int     array[4]    unitNum
+    int     array[4]    bossId
+
+    Rects   array[4]    unitArea
+    Rects   array[4]    bossArea
+    Rects               abyssArea
+
+    unit                npc
+    unit    array[4]    boss
+    Unit                bossUnit
+    int                 unitPointer = 0
+    int                 bossPointer = 0
+
+    construct(string name,real unitTime,real bossTime,Rects area,Rects comeArea,Rects abyss,int npcId)
+        this.name = name
+        this.unitTime = unitTime
+        this.bossTime = bossTime
+        this.comeArea = comeArea
+        this.area = area
+        this.npcId = npcId
+        this.abyssArea = abyss
+        nameMap.put(name, this)
+    function addUnit(int id , int num ,Rects area)
+        unitId[unitPointer] = id
+        unitNum[unitPointer] = num
+        unitArea[unitPointer] = area
+        unitPointer++
+    function addBoss(int id ,Rects area)
+        bossId[bossPointer] = id
+        bossArea[bossPointer] = area
+        bossPointer++
+    function build()
+        createUnitInit()
+        createBossInit()
+        createNpcInit()
+
+    function createUnitInit()
+        for i = 0 to 3
+            for j = 0 to unitNum[i]
+                createUnit(owner, unitId[i], unitArea[i].origin.randomPoint(), 360. .next() .fromDeg())
+    function createBossInit()
+        for i = 0 to 3
+            boss[i] = createUnit(owner, bossId[i], bossArea[i].pos, 360. .next() .fromDeg())
+    function createNpcInit()
+        npc = createUnit(npcOwner, npcId, comeArea.pos, 270 .fromDeg())
+    function reviveUnit(int i)
+        createUnit(owner, unitId[i], unitArea[i].origin.randomPoint(), 360. .next() .fromDeg())
+    function reviveBoss(int i)
+        boss[i].revive(bossArea[i].pos, true)
+        print("[副本]: "+boss[i].getName()+" 复活了!")
+    
+    function toTheAbyss(unit u)
+        u.setPosPro(abyssArea.pos)
+
+    function comeIn(unit u)
+        u.getMainHero().setPosPro(comeArea.pos)
+        print("[副本]:玩家"+u.getOwner().getName()+" 进入了 "+name+" 副本!")
+
+    static function byName(string name) returns thistype
+        return nameMap.get(name)
+
+    static function initi()
+        for k = 0 to 4
+            let i = k + 1
+            let j = k * 4
+            dungeons[j+0] = new Dungeon(dungeonNames[k]+" - 第1层",8,8,dungeon[i],dungeonCome1[i],dungeonAbyss[i],'NP1A' + j + 0)
+            ..addUnit('h50A'+0 + 4*k, 20, dungeonUnit1[i])
+            ..addBoss('H60A'+0 + 4*k, dungeonBoss1[i])
+            ..build()
+            dungeons[j+1] = new Dungeon(dungeonNames[k]+" - 第2层",8,8,dungeon[i],dungeonCome2[i],dungeonAbyss[i],'NP1A' + j + 1)
+            ..addUnit('h50A'+1 + 4*k, 20, dungeonUnit2[i])
+            ..addBoss('H60A'+1 + 4*k, dungeonBoss2[i])
+            ..build()
+            dungeons[j+2] = new Dungeon(dungeonNames[k]+" - 第3层",8,8,dungeon[i],dungeonCome3[i],dungeonAbyss[i],'NP1A' + j + 2)
+            ..addUnit('h50A'+2 + 4*k, 20, dungeonUnit3[i])
+            ..addBoss('H60A'+2 + 4*k, dungeonBoss3[i])
+            ..build()
+            dungeons[j+3] = new Dungeon(dungeonNames[k]+" - 第4层",8,8,dungeon[i],dungeonCome4[i],dungeonAbyss[i],'NP1A' + j + 3)
+            ..addUnit('h50A'+3 + 4*k, 20, dungeonUnit4[i])
+            ..addBoss('H60A'+3 + 4*k, dungeonBoss4[i])
+            ..build()
+
+        deathTrigger
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+        ..addCondition(Condition(()->GetTriggerUnit().getOwner()==owner))
+        ..addAction() ->
+            let u = GetTriggerUnit()
+            let k = GetKillingUnit().getMainHero()
+            let id = u.getTypeId()
+            for index = 0 to 19
+                let d = dungeons[index]
+                let i = 0
+                let isFirst = index == 0 //第一个本掉率增加
+                if id == d.unitId[i]
+                    baozhuPools[1].tryGet(u.getPos())
+                    let itm = dungeonOtherItemPool[index div 4 + 1].tryGet(u.getPos())
+                    k.addItemHandle(itm)
+                    if isFirst
+                        dungeonAffixItemPool[index div 4 + 1].tryGet(4,u.getPos(),false)
+                    else
+                        dungeonAffixItemPool[index div 4 + 1].tryGet(u.getPos())
+                    // dungeonGemPool[index].tryGet(u.getPos())
+                    onAfter(d.unitTime) ts ->
+                        d.reviveUnit(i)
+                    break
+                else if id == d.bossId[i]
+                    baozhuPools[1].tryGet(u.getPos())
+                    let itm = dungeonOtherItemPool[index div 4 + 1].tryGet(u.getPos())
+                    k.addItemHandle(itm)
+                    dungeonAffixItemPool[index div 4 + 1].tryGet(10,u.getPos(),false)
+                    // dungeonQiyuPool[index].tryGet(10,u.getPos(),false)
+                    // dungeonGemPool[index].tryGet(0,u.getPos(),true)
+                    doAfter(d.bossTime) ->
+                        d.reviveBoss(i)
+                    break
+        // comeInTrigger
+        // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)
+        // ..addAction() ->
+        //     let t = GetSoldItem()
+        //     let u = GetBuyingUnit()
+        //     let id = t.getTypeId()
+        //     if t.getTypeId().inIdRange('I600', 'I700')
+        //         if itemMap.has(id)
+        //             let d = itemMap.get(id)
+        //             u.getMainHero().setPosPro(d.comeArea.pos)
+        //             print("[副本]:玩家"+u.getOwner().getName()+" 进入了 "+d.name+" 副本!")

@@ -1,0 +1,220 @@
+package SavedArtifact
+import Book
+import AffixsItem
+import Execute
+import ItemAffixList
+import phLib
+import attrMapper
+import HashMap
+
+public class SavedArtifactEntityAffix
+    int         energyNeed
+    string      name
+    ItemAffix   affix
+    string      tip
+
+    construct(int energyNeed,string name,ItemAffix   affix,string tip)
+        this.energyNeed = energyNeed
+        this.affix = affix
+        this.name = name
+        this.tip = tip
+
+public class SavedArtifactEntityAttr
+    int         energyNeed
+    string      name
+    AttrKey     key
+    int         val
+    string      tip
+
+    construct(int energyNeed,string name,AttrKey key,int  val,string tip)
+        this.energyNeed = energyNeed
+        this.name = name
+        this.key  = key
+        this.val  = val
+        this.tip = tip
+
+
+public class SavedArtifactEntity
+    static let map = new HashMap<string,thistype>()
+    ItemAffixList<SavedArtifactEntityAffix> affixList = new ItemAffixList<SavedArtifactEntityAffix>()
+    ItemAffixList<SavedArtifactEntityAttr>  attrList = new ItemAffixList<SavedArtifactEntityAttr>()
+    string name
+    string info = "|n|cffd42d65"
+
+    construct(string name)
+        this.name = name
+        map.put(name, this)
+
+    static function get(string name) returns thistype
+        return map.get(name)
+
+    function addAffix(int energyNeed,string affixName,ItemAffix affix,string tip)
+        affixList.add(new SavedArtifactEntityAffix(energyNeed,affixName,affix,tip))
+        info += "|n[" + energyNeed + "]"+tip
+    function addAttr(int energyNeed,string affixName,AttrKey key,int val,string tip)
+        attrList.add(new SavedArtifactEntityAttr(energyNeed,affixName,key,val,tip))
+        info += "|n[" + energyNeed + "]"+tip
+
+    static function inite()
+        new SavedArtifactEntity("[神器]霜之哀伤")
+        ..addAffix( 10,"湮灭殆尽",affix_DamageRangeWhenKill,"击杀敌人时,有概率造成一次爆炸")
+        ..addAffix( 20,"墓穴之寒",affix_subASP_ring10,"降低周围敌人10%攻速")
+        ..addAttr( 40,"冰冻皮肤",AttrKey.dmgResi,10,"伤害抵抗+10")
+        ..addAffix( 60,"王座粉碎",affix_AttackDamageRange10_2prop,"攻击时有概率造成全属性2倍范围伤害")
+        ..addAttr(120,"冰霜之刃",AttrKey.intPlus,20,"智力增幅+20")
+        ..addAffix(200,"凛冽冰寒",affix_subAMP_ring20,"降低周围敌人20%移速")
+        ..addAttr(340,"寒冬死神",AttrKey.propKilled,500,"杀敌属性+500")
+        ..addAffix(680,"冰冻灵魂",affix_saveartifact_1,"攻击时有概率造成基于能量值的范围伤害")
+
+        new SavedArtifactEntity("[神器]逐风之剑")
+        ..addAttr( 10,"狂野挥砍",AttrKey.ASP,30,"攻速+30%")
+        ..addAffix( 20,"碾压重击",affix_baoji20_5,"独立暴击20%5倍")
+        ..addAttr( 40,"血腥疯狂",AttrKey.absorb,10,"攻击吸血10")
+        ..addAttr( 60,"不破之钢",AttrKey.dmgResi,15,"伤害抵抗+15")
+        ..addAttr(120,"先王之志",AttrKey.agiPlus,20,"敏捷增幅+20")
+        ..addAttr(200,"势不可挡",AttrKey.propLevelUp,2000,"升级属性+2000")
+        ..addAffix(340,"雷霆之怒",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
+        ..addAffix(680,"风暴之舞",affix_saveartifact_2,"攻击时有概率造成基于能量值的范围伤害")
+            
+        new SavedArtifactEntity("[神器]炎魔之手")
+        ..addAffix( 10,"炎魔之怒",affix_AttackDamageRange10_1prop,"攻击时有概率造成全属性1倍范围伤害")
+        ..addAffix( 20,"熔岩灌注",affix_AttackDamage10_3,"攻击时有概率造成基于攻击力的伤害")
+        ..addAffix( 40,"岩浆爆裂",affix_AttackDamageRange10_3,"攻击时有概率造成基于攻击力的范围伤害")
+        ..addAttr( 60,"熔岩之肤",AttrKey.dmgSub,15,"伤害减免+15")
+        ..addAttr(120,"元素大师",AttrKey.dmgSub,20,"力量增幅+20")
+        ..addAttr(200,"火焰风暴",AttrKey.propTimed,80,"每秒属性+80")
+        ..addAffix(340,"元素暴动",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
+        ..addAffix(680,"火焰化身",affix_saveartifact_3,"攻击时有概率造成基于能量值的范围伤害")
+            
+        new SavedArtifactEntity("[神器]灰烬使者")
+        ..addAffix( 10,"治疗风暴",null,"")
+        ..addAffix( 20,"无尽决心",null,"")
+        ..addAffix( 40,"伸张正义",null,"")
+        ..addAffix( 60,"守护光环",null,"")
+        ..addAffix(120,"磨砺刀锋",null,"")
+        ..addAffix(200,"保护之手",null,"")
+        ..addAffix(340,"圣光之剑",null,"")
+        ..addAffix(680,"不屈意志",null,"")
+
+        new SavedArtifactEntity("[神器]埃辛诺斯战刃")
+        ..addAffix( 10,"魔性释放",null,"")
+        ..addAffix( 20,"恶魔之怒",null,"")
+        ..addAffix( 40,"混沌战刃",null,"")
+        ..addAffix( 60,"混沌屠杀",null,"")
+        ..addAffix(120,"灵魂飨宴",null,"")
+        ..addAffix(200,"刀锋舞者",null,"")
+        ..addAffix(340,"锋锐战刃",null,"")
+        ..addAffix(680,"恶魔之速",null,"")
+
+        new SavedArtifactEntity("[神器]群星之怒")
+        ..addAffix( 10,"致命瞄准",null,"")
+        ..addAffix( 20,"风之箭矢",null,"")
+        ..addAffix( 40,"快速射击",null,"")
+        ..addAffix( 60,"神准之箭",null,"")
+        ..addAffix(120,"猎人召唤",null,"")
+        ..addAffix(200,"适者生存",null,"")
+        ..addAffix(340,"死亡标记",null,"")
+        ..addAffix(680,"飞风箭矢",null,"")
+
+        new SavedArtifactEntity("[神器]毁灭之锤")
+        ..addAffix( 10,"碎地猛击",null,"")
+        ..addAffix( 20,"狂怒风暴",null,"")
+        ..addAffix( 40,"击碎之锤",null,"")
+        ..addAffix( 60,"风暴之舞",null,"")
+        ..addAffix(120,"元素之力",null,"")
+        ..addAffix(200,"大地打击",null,"")
+        ..addAffix(340,"聚能漩涡",null,"")
+        ..addAffix(680,"元素治疗",null,"")
+
+        new SavedArtifactEntity("[神器]龙父之牙")
+        ..addAffix( 10,"淬毒刀刃",null,"")
+        ..addAffix( 20,"锯齿之锋",null,"")
+        ..addAffix( 40,"暗影伏击",null,"")
+        ..addAffix( 60,"刺杀之刃",null,"")
+        ..addAffix(120,"炼金大师",null,"")
+        ..addAffix(200,"暗影迅捷",null,"")
+        ..addAffix(340,"刺客大师",null,"")
+        ..addAffix(680,"暗影行者",null,"")
+
+
+
+public class SavedArtifact
+    static let maps = new HashMap<Pages,thistype>()
+    ItemAffixList<SavedArtifactEntityAffix> affixList = new ItemAffixList<SavedArtifactEntityAffix>()
+    ItemAffixList<SavedArtifactEntityAttr>  attrList = new ItemAffixList<SavedArtifactEntityAttr>()
+    SavedArtifactEntity entity
+    Pages  pages
+    int    energy
+    player owner
+    unit   hero
+
+    construct(player p,unit hero,Pages pages)
+        this.pages = pages
+        this.owner = p
+        this.hero = hero
+        entity = SavedArtifactEntity.get(pages.page.name)
+        pages.activation(false)
+        onApply()
+        addEnergy(pages.score)
+        maps.put(pages, this)
+
+    function toString() returns string
+        return owner.getName()+":" + pages.page.name + "-" + energy
+
+    function reLoadList()
+        for i in entity.affixList
+            if i.energyNeed <= energy
+                affixList.add(i)
+        for i in entity.attrList
+            if i.energyNeed <= energy
+                attrList.add(i)
+
+    function addEnergy(int i)
+        Log.debug(this.toString())
+        energy += i
+        // print("1"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+        onLose()
+        // print("2"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+        reLoadList()
+        // print("3"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+        onApply()
+        // print("4"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+        pages.score = energy
+        // print("5"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+        pages.flushUbertip(entity.info+"|r|n")
+        // print("6"+affixList.get(0).name+":"+affixList.get(0).energyNeed)
+
+    function onApply()
+        execute() ->
+            for i in attrList
+                Unit.getUnit(hero).addAttr(i.key, i.val)
+        execute() ->
+            for i in affixList
+                i.affix.onApply(hero)
+    function onLose()
+        execute() ->
+            for i in attrList
+                Unit.getUnit(hero).addAttr(i.key, -i.val)
+        execute() ->
+            for i in affixList
+                i.affix.onLose(hero)
+    function onAttack(unit j)
+        execute() ->
+            for i in affixList
+                i.affix.onAttack(hero,j)
+    function onAttacked(unit j)
+        execute() ->
+            for i in affixList
+                i.affix.onAttacked(hero,j)
+    function onBBAttack(unit j)
+        execute() ->
+            for i in affixList
+                i.affix.onBBAttack(hero,j)
+    function onKill(unit j)
+        execute() ->
+            for i in affixList
+                i.affix.onKill(hero,j)
+    function onCast(targets t)
+        execute() ->
+            for i in affixList
+                i.affix.onCast(hero,t)

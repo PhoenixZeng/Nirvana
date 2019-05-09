@@ -1,0 +1,64 @@
+package ContinueCastTimer
+import Hero
+import CenterTimer
+import LinkedListModule
+
+public interface ContinueCastTimerInterface
+    function onContinueCastTask(ContinueCastTimer t)
+
+    function setContinueCast(targets tar,int delay,int count) returns ContinueCastTimer
+        return ContinueCastTimer.set(tar,delay,count,this)
+
+public class ContinueCastTimer
+    use LinkedListModule
+    static TimerTask task
+    ContinueCastTimerInterface cast
+    targets tar
+    int remainCount
+    int nextTime
+    int delay
+
+    ondestroy
+        cast = null
+        tar = targets(vec2(0, 0),null)
+        remainCount = 0
+        nextTime = 0
+        delay = 0
+
+    static function set(targets tar,int delay,int count,ContinueCastTimerInterface do) returns ContinueCastTimer
+        let t = new ContinueCastTimer()
+        t.delay = delay
+        t.remainCount = count
+        t.nextTime = CenterTimer.current + delay
+        t.tar = tar
+        t.cast = do
+        return t
+
+    function reset(targets tar,int delay,int count)
+        this.nextTime = CenterTimer.current + delay
+        this.delay = delay
+        this.remainCount = count
+        this.tar = tar
+
+    function isLast() returns bool
+        return remainCount == 0
+
+    function getRemainTime() returns int
+        return remainCount * delay
+
+    function do()
+        if CenterTimer.current >= nextTime
+            nextTime = CenterTimer.current + delay
+            remainCount --
+            if cast.typeId != 0
+                cast.onContinueCastTask(this)
+            if isLast() or cast.typeId == 0
+                destroy this
+
+    static function engine()
+        task = onAlways(0.03) ta ->
+            for i in ContinueCastTimer
+                i.do()
+
+init
+    ContinueCastTimer.engine()

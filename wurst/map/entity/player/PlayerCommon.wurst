@@ -1,0 +1,20 @@
+package PlayerCommon
+
+public enum PlayerRole
+    Normal
+    Vip
+    Svip
+    Editer
+
+public function PlayerRole.toString() returns string
+    switch this
+        case Normal
+            return "普通"
+        case Vip
+            return "VIP"
+        case Svip
+            return "SVIP"
+        case Editer
+            return "作者"
+        default
+            return "普通"

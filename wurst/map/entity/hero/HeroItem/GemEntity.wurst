@@ -1,0 +1,55 @@
+package GemEntity
+import HashMap
+import slk
+
+public class GemEntity
+    static let map = new HashMap<int,thistype>()
+    int id
+    string name
+    int clazz = 1
+    int level = 1
+    int fragment
+    construct(int id, int clz,int lv)
+        this.id = id
+        this.clazz = clz
+        this.level = lv
+        this.name = slk_item.loadString(id, nameKey)
+        this.fragment = slk_item.loadInt(id, fragmentKey)
+        map.put(id, this)
+
+    static function initi()
+        new GemEntity('ZB60',1,1)
+        new GemEntity('ZB61',2,1)
+        new GemEntity('ZB62',3,1)
+        new GemEntity('ZB63',4,1)
+        new GemEntity('ZB64',5,1)
+        new GemEntity('ZB65',6,1)
+        new GemEntity('ZB66',7,1)
+        new GemEntity('ZB67',8,1)
+
+        new GemEntity('ZB50',1,2)
+        new GemEntity('ZB51',2,2)
+        new GemEntity('ZB52',3,2)
+        new GemEntity('ZB53',4,2)
+        new GemEntity('ZB54',5,2)
+        new GemEntity('ZB55',6,2)
+        new GemEntity('ZB56',7,2)
+        new GemEntity('ZB57',8,2)
+
+        new GemEntity('ZB40',1,3)
+        new GemEntity('ZB41',2,3)
+        new GemEntity('ZB42',3,3)
+        new GemEntity('ZB43',4,3)
+        new GemEntity('ZB44',5,3)
+        new GemEntity('ZB45',6,3)
+        new GemEntity('ZB46',7,3)
+        new GemEntity('ZB47',8,3)
+
+        new GemEntity('ZB30',1,4)
+        new GemEntity('ZB31',2,4)
+        new GemEntity('ZB32',3,4)
+        new GemEntity('ZB33',4,4)
+        new GemEntity('ZB34',5,4)
+        new GemEntity('ZB35',6,4)
+        new GemEntity('ZB36',7,4)
+        new GemEntity('ZB37',8,4)

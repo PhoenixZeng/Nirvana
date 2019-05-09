@@ -1,0 +1,190 @@
+package GeneralAroundLinearEffectRandomSpell
+import HeroRandomSpellEntity
+import Hero
+import ContinueCastTimer
+import PathMoverRandomSpell
+import CenterTimer
+
+
+/**
+*   施法指向周围延迟线性路径特效技能
+*/
+public class GeneralSpellIndicateSectorDelayedLinearEffectRandomSpellEntity extends CastRandomSpellEntity implements DelayedLinearEffectEmitterInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    real cool
+    real targetsType
+    string effPath
+    real effScale
+    int  emissionDelay
+    int  emissionCount
+    int  stripCount
+    real delay
+    real pointCount
+    real pointInterval
+    real dmgRange
+    real dmgFactor
+    Prop prop
+
+    function copyData()
+        let _meta = meta castTo thistype
+        this.cool                       = _meta.cool
+        this.targetsType                = _meta.targetsType
+        this.effPath                    = _meta.effPath
+        this.effScale                   = _meta.effScale
+        this.dmgRange                   = _meta.dmgRange
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.stripCount                 = _meta.stripCount
+        this.delay                      = _meta.delay
+        this.pointCount                 = _meta.pointCount
+        this.pointInterval              = _meta.pointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(real targetsType,string effPath,real effScale,real dmgRange,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,int stripCount,real delay,real pointCount,real pointInterval)
+        this.cool                       = cool
+        this.targetsType                = targetsType
+        this.effPath                    = effPath
+        this.effScale                   = effScale
+        this.dmgRange                   = dmgRange
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.stripCount                 = stripCount
+        this.delay                      = delay
+        this.pointCount                 = pointCount
+        this.pointInterval              = pointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    override function onLinearEffectHit(DelayedLinearEffectWithInterface missile, unit u)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor * (1.15).pow(lv+.0)
+        hero._self.damageSpell(u, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos)
+        let face = (pos-hero._self.getPos()).getAngle()
+        let linearEffect = onLinearEffectEmission(hero._self,effPath,pos,face,hero.owner)
+        ..mover_setDelay(delay)
+        ..mover_setTime(delay*pointCount)
+        ..mover_setSpeed(pointInterval/delay, 0.)
+        ..setHitRange(dmgRange)
+        if stripCount > 1
+            setMoreLinearEffectOneDamage(linearEffect, stripCount, 0, 360/stripCount)
+        else
+            linearEffect.mover_start()
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(t.tar.p)
+
+    override function onCast(targets tar)
+        targets _tar = tar
+        if targetsType == 1
+            _tar = targets(tar.p.polarOffset(tar.u.getFacingAngle(), 1), tar.u)
+
+        if emissionCount > 1
+            setContinueCast(_tar,emissionDelay,emissionCount)
+        else
+            emission(_tar.p)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralSpellIndicateSectorDelayedLinearEffectRandomSpellEntity()
+
+    override function getActiveSpellData() returns AnclAbilityData
+        return AnclAbilityData(targetsType, 600, cool)
+
+/**
+*   攻击指向周围延迟线性路径特效技能
+*/
+public class GeneralAttackIndicateAroundDelayedLinearEffectRandomSpell extends AttackRandomSpellEntity implements DelayedLinearEffectEmitterInterface , ContinueCastTimerInterface
+    use RandomSpellModule
+    string effPath
+    real effScale
+    real delay
+    real pointCount
+    real pointInterval
+    int  stripCount
+
+    int  emissionDelay
+    int  emissionCount
+    real dmgRange
+    real dmgFactor
+    Prop prop
+    real castProb
+    int cool
+
+    int castTime
+
+    function copyData()
+        let _meta = meta castTo thistype
+        this.cool                       = _meta.cool
+        this.effPath                    = _meta.effPath
+        this.effScale                   = _meta.effScale
+        this.dmgRange                   = _meta.dmgRange
+        this.castProb                   = _meta.castProb
+        this.emissionDelay              = _meta.emissionDelay
+        this.emissionCount              = _meta.emissionCount
+        this.stripCount                 = _meta.stripCount
+        this.delay                      = _meta.delay
+        this.pointCount                 = _meta.pointCount
+        this.pointInterval              = _meta.pointInterval
+        this.dmgFactor                  = _meta.dmgFactor
+        this.prop                       = _meta.prop
+
+    function setData(string effPath,real effScale,real dmgRange,Prop prop,real dmgFactor,real castProb,real cool,real emissionDelay,int emissionCount,int stripCount,real delay,real pointCount,real pointInterval)
+        this.cool                       = (cool*100).toInt()
+        this.effPath                    = effPath
+        this.effScale                   = effScale
+        this.dmgRange                   = dmgRange
+        this.castProb                   = castProb
+        this.emissionDelay              = (emissionDelay*100).toInt()
+        this.emissionCount              = emissionCount
+        this.stripCount                 = stripCount
+        this.delay                      = delay
+        this.pointCount                 = pointCount
+        this.pointInterval              = pointInterval
+        this.dmgFactor                  = dmgFactor
+        this.prop                       = prop
+
+    override function onLinearEffectHit(DelayedLinearEffectWithInterface missile, unit u)
+        real dmg = hero._self.getPropVal(prop) *dmgFactor * (1.1).pow(lv-1.)
+        hero._self.damageSpell(u, dmg)
+
+    override function onApply(boolean inite)
+        if inite
+            copyData()
+
+    function emission(vec2 pos)
+        let face = (pos - hero._self.getPos()).getAngle()
+        let linearEffect = onLinearEffectEmission(hero._self,effPath,pos,face,hero.owner)
+        ..mover_setDelay(delay)
+        ..mover_setTime(delay*pointCount)
+        ..mover_setSpeed(pointInterval/delay, 0.)
+        ..setHitRange(dmgRange)
+        if stripCount > 1
+            setMoreLinearEffectOneDamage(linearEffect, stripCount, 0, 360/stripCount)
+        else
+            linearEffect.mover_start()
+
+    override function onContinueCastTask(ContinueCastTimer t)
+        if not hero._self.isAliveTrick()
+            return
+        emission(t.tar.p)
+
+    override function onAttack(unit u)
+        if CenterTimer.current > castTime + cool
+            if castProb.random()
+                castTime = CenterTimer.current
+                let pos = u.getPos()
+                let tar = targets(pos, u)
+                if emissionCount > 1
+                    setContinueCast(tar,emissionDelay,emissionCount)
+                else
+                    emission(pos)
+
+    override function createEntity() returns RandomSpellEntity
+        return new GeneralAttackIndicateAroundDelayedLinearEffectRandomSpell()

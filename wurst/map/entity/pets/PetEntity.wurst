@@ -1,0 +1,9 @@
+package PetEntity
+import LinkedListModule
+import Auth
+
+
+
+init
+
+    // let _u82 = new PetEntity("-cw8","鬼灵虎"  ,'pT07',2,_pet_guilinhu2)

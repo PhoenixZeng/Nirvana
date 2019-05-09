@@ -1,0 +1,35 @@
+package dzOther
+import BlizzardAPI
+//设置可摧毁物位置
+public function destructable.exPos(vec2 pos)
+    DzDestructablePosition(this, pos.x, pos.y ) 
+
+//设置单位位置-本地调用
+public function unit.exPosAsync(vec2 pos)
+    DzSetUnitPosition(this, pos.x, pos.y ) 
+
+//异步执行函数
+public function exExec(string funcName)
+    DzExecuteFunc(funcName)
+//取鼠标指向的unit
+public function exMouseUnit()returns unit
+    return DzGetUnitUnderMouse()
+
+//设置unit的贴图
+public function unit.exTexture(string path, integer texId)
+    DzSetUnitTexture ( this, path, texId )
+//设置单位模型
+public function unit.exModel(string path)
+    DzSetUnitModel( this, path )
+
+//设置内存数值
+public function exMemory(integer address, real value)
+    DzSetMemory(  address,  value )
+
+//设置单位ID
+public function unit.exId(int id)
+    DzSetUnitID(  this,  id )
+
+//设置小地图背景图片
+public function exWarMapMap(string map)
+    DzSetWar3MapMap( map )

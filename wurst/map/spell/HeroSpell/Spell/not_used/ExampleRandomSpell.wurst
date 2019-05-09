@@ -1,0 +1,539 @@
+package ExampleRandomSpell
+// import HeroRandomSpellEntity
+// import Hero
+// import CenterTimer
+// import MarkUnitRandomSpell
+// import DmgType
+// import MissileRandomSpell
+// import SpellLib
+// import Mover
+// import ContinueCastTimer
+// import TargetMissileRandomSpell
+
+// //每秒钟向四周发射弹幕
+// public class BulletAroundRandomSpellEntity extends ActiveRandomSpellEntity implements ContinueCastTimerInterface , MissileMoverHitInterface
+//     use RandomSpellModule
+//     ContinueCastTimer _timer
+//     int i = 0
+//     ondestroy
+//         if _timer != null
+//             destroy _timer
+//             _timer = null
+
+//     private function copyData()
+//         i = (meta castTo thistype).i
+//     function setData(int i)
+//         this.i = i
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+
+//     override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+//         hero._self.damageSpell(u, 999999)
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         if t.isLast()
+//             this._timer = null
+//         if not hero._self.isAliveTrick()
+//             return
+//         let missile = onMissileSpellEmission("shuanxinzhadan_bullet.mdx",hero._self,hero._self.getPos(), hero._self.getFacingAngle())
+//         ..mover_setDist(600)
+//         ..mover_setSpeed(600, 0)
+//         ..setHitRange(300)
+//         setPinballMissile(missile, 0.5, 90 .fromDeg())
+//         let mores = returnMoreMissile(missile,hero._self, 12, 180, 30)
+//         for elem in mores
+//             if elem != missile
+//                 elem.setBeenHit(missile.getBeenHit())
+//             elem.dummy.setScale(2)
+//         destroy mores
+
+//     override function onCast(targets tar)
+//         print("当前释放的技能:"+i)
+//         if _timer == null
+//             _timer = setContinueCast(targets(hero._self.getPos(), hero._self),50,1)
+//         else
+//             _timer.reset(targets(hero._self.getPos(), hero._self),50,1)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(0,0,10.)
+
+//     override function createEntity() returns RandomSpellEntity
+//         return new BulletAroundRandomSpellEntity()
+//     override function onLose()
+    
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i, unit j)
+//     override function onKill(unit i, unit j)
+//     override function onAttack(unit u)
+
+
+// // 禁止一个单位移动
+// public class StoponRandomSpellEntity extends ActiveRandomSpellEntity implements ContinueCastTimerInterface
+//     use RandomSpellModule
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         if (t.tar.p - t.tar.u.getPos()).lengthSq() > 625
+//             t.tar.u.setXY(t.tar.p)
+//             eff("Abilities\\Spells\\NightElf\\Blink\\BlinkTarget.mdl",t.tar.p)
+//     override function onCast(targets tar)
+//         setContinueCast(targets(hero._self.getPos(), hero._self),10,50)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(0,0,10.)
+//     override function createEntity() returns RandomSpellEntity
+//         return new StoponRandomSpellEntity()
+//     override function onLose()
+    
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i, unit j)
+//     override function onKill(unit i, unit j)
+//     override function onAttack(unit u)
+
+// // 从敌人身上发射到自己
+// public class ExtractRandomSpellEntity extends ActiveRandomSpellEntity implements ContinueCastTimerInterface , TargetMissileRandomVec3Interface 
+//     use RandomSpellModule
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onMissileHit(TargetMissileRandomVec3Mover missile)
+//         hero._self.addHP(999999)
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         unit caster = hero._self
+//         vec2 pos = caster.getPos()
+//         group g = CreateGroup()..enumUnitsInRange(pos, 500)
+//         while g.hasNext()
+//             let us = g.next()
+//             if enemyFilter(caster, us)
+//                 onMissileEmission(linghunzhita,us.getPos3with(25),caster)
+//                 ..mover_setSpeed(600, 0)
+//                 ..mover_setDist(1200) //最大距离
+//                 ..setRandomVec3(TargetMissileMover.randomNormalDistributionBack(pos - us.getPos()), 200, 300, 300)
+//                 ..mover_start()
+//         g.destr()
+
+//     override function onCast(targets tar)
+//         setContinueCast(targets(hero._self.getPos(), hero._self),100,5)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(0,0,10.)
+//     override function createEntity() returns RandomSpellEntity
+//         return new ExtractRandomSpellEntity()
+
+//     override function onLose()
+    
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i, unit j)
+//     override function onKill(unit i, unit j)
+//         setContinueCast(targets(hero._self.getPos(), hero._self),100,1)
+//     override function onAttack(unit u)
+
+// // 风暴之锤
+// public class MissileRandomSpellEntity extends ActiveRandomSpellEntity implements ContinueCastTimerInterface , TargetMissileRandomVec3Interface 
+//     use RandomSpellModule
+
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onMissileHit(TargetMissileRandomVec3Mover missile)
+//         hero._self.addHP(999999)
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         unit caster = hero._self
+//         vec2 pos = caster.getPos()
+//         group g = CreateGroup()..enumUnitsInRange(pos, 500)
+//         while g.hasNext()
+//             let us = g.next()
+//             if enemyFilter(caster, us)
+//                 onMissileEmission(linghunzhita,caster.getPos3with(25),us)
+//                 ..mover_setSpeed(600, 0)
+//                 ..mover_setDist(1200) //最大距离
+//                 ..mover_start()
+//         g.destr()
+
+//     override function onCast(targets tar)
+//         setContinueCast(targets(hero._self.getPos(), hero._self),100,5)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(0,0,10.)
+//     override function createEntity() returns RandomSpellEntity
+//         return new ExtractRandomSpellEntity()
+
+//     override function onLose()
+    
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i, unit j)
+//     override function onKill(unit i, unit j)
+//         setContinueCast(targets(hero._self.getPos(), hero._self),100,1)
+//     override function onAttack(unit u)
+// class ExampleTick extends CastRandomSpellEntity implements MissileMoverTickInterface
+//     int count = 0
+//     int put = -1
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onCast(targets tar)
+//         let pos =  hero._self.getPos()
+//         let face = (tar.p - pos).getAngle()
+//         let missile = onMissileSpellEmission("no path or a missile path", pos, face)
+//         ..mover_setSpeed(600, 0)
+//         ..mover_setDist(600)
+//         ..mover_setDelay(0.2)
+//         setMoreMissile(missile,5,50,25)
+//         count += 5
+//         put ++
+//     override function onMissileSpellTick(MissileMoverTickFxWitnInterface missile)
+//         hero._self.damageRange(500,missile.origin.toVec2(),"a range effect path")
+//         if missile.isMoveEnd()
+//             count --
+//             if put*5 >= count
+//                 put --
+//                 // Log.info("一次技能释放完毕了!")
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(1,600,10)
+//     override function createEntity() returns RandomSpellEntity
+//         return new ExampleTick()
+//     override function onLose()
+    
+//     // 注意Tick需要自己选取伤害
+
+// class ExampleHit extends CastRandomSpellEntity implements MissileMoverHitInterface
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onCast(targets tar)
+//         let pos =  hero._self.getPos()
+//         let face = (tar.p - pos).getAngle()
+//         let missile = onMissileSpellEmission("",hero._self, pos, face)
+//         ..mover_setSpeed(600, 0)
+//         ..mover_setDist(600)
+//         ..setHitRange(300)
+//         setMoreMissile(missile,hero._self, 3, 30, 30)
+//     override function onMissileSpellHit(MissileMoverHitFxWithInterface missile,unit u)
+//         hero._self.damageSpell(u, 500)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(1,600,10)
+//     override function createEntity() returns RandomSpellEntity
+//         return new ExampleHit()
+//     override function onLose()
+    
+
+// public class AttackEnhanceCoolDownRandomSpellEntity extends RandomSpellEntity
+//     use RandomSpellModule
+//     int castTime
+//     static int cooldown = 500
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function createEntity() returns RandomSpellEntity
+//         return new AttackEnhanceCoolDownRandomSpellEntity()
+//     override function onLose()
+    
+//     override function onAttack(unit u)
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         if castTime + cooldown < CenterTimer.current
+//             castTime = CenterTimer.current
+//             return dw * 2
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i,unit j)
+//     override function onKill(unit i,unit j)
+
+// public class QualityRandomSpellEntity extends RollDataRandomSpellEntity
+//     use RandomSpellModule
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//             randomData()
+//             print("这是一个"+seed+"级技能!")
+//     override function createEntity() returns QualityRandomSpellEntity
+//         return new QualityRandomSpellEntity()
+//     override function randomData()
+//         setRandomFactor(random())
+//     override function onLose()
+    
+//     override function onAttack(unit u)
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw * (seed * 1.)
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i,unit j)
+//     override function onKill(unit i,unit j)
+
+// public class FooActiveRandomSpellEntity extends ActiveRandomSpellEntity
+//     use RandomSpellModule
+//     int count = 0
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     override function onCast(targets tar)
+//         hero._self.setPos(tar.p)
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(0,0,1.)
+    
+//     override function onLose()
+//         count = 0
+//     override function onKill(unit i, unit j)
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onBBAttack(unit i, unit j)
+//     override function onAttack(unit u)
+//     override function createEntity() returns RandomSpellEntity
+//         return new FooActiveRandomSpellEntity()
+
+// /**
+//  *  攻击后标记敌人,攻击被标记敌人时,造成1倍全属性伤害,标记数+1
+//     当标记数超过3时,造成一次范围性伤害
+//     3秒内未再次攻击被标记敌人则移除标记
+//     3秒内攻击其他敌人,则标记转移
+//  */
+// public class MarkUnitRandomSpellEntity extends RandomSpellEntity
+//     use RandomSpellModule
+//     use MarkUnitMoudle
+//     private function copyData()
+//         // addHP = (meta castTo thistype).addHP
+//     function setData()
+//         // addHP = hp
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//             MarkUnitMoudle.setPath("1", "2", "3")
+//     override function onhit(unit tar)
+//         hero._self.damageSpell(tar, hero._self.getPropSumAndMain()*1. )
+//     override function onBoom(unit tar)
+//         unit caster = hero._self
+//         eff("a range effect path", tar.getPos() )
+//         real dmg = caster.getPropSumAndMain() * 5.
+//         group g = CreateGroup()..enumUnitsInRange(tar.getPos(), 500)
+//         while g.hasNext()
+//             let us = g.next()
+//             if enemyFilter(hero._self, us)
+//                 caster.damageSpell(us, dmg)
+//         g.destr()
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         if dw.t == DmgType.ATTACK and dw.i == hero._self
+//             MarkUnitMoudle.onAttack(dw.j)
+//         return dw
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onAttack(unit u)
+//     override function onBBAttack(unit i,unit j)
+//     override function onKill(unit i,unit j)
+    
+//     override function onLose()
+//     override function createEntity() returns RandomSpellEntity
+//         return new MarkUnitRandomSpellEntity()
+
+
+// public class GeneralSectorBulletActiveRandomSpellEntity extends CastRandomSpellEntity implements MissileMoverHitInterface , ContinueCastTimerInterface
+//     use RandomSpellModule
+//     real cool
+//     string missilePath
+
+//     int  emissionDelay
+//     int  emissionCount
+
+//     int  missileCount
+//     real missileRight
+//     real missileInterval
+//     real missileRange
+//     real missileTime
+//     real dmgFactor
+//     Prop prop
+
+//     override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+//         let dmg = hero._self.getPropVal(prop) * dmgFactor
+//         hero._self.damageSpell(u, dmg)
+        
+//     function copyData()
+//         let _meta = meta castTo GeneralSectorBulletActiveRandomSpellEntity
+//         this.cool            = _meta.cool            
+//         this.missilePath     = _meta.missilePath     
+//         this.emissionDelay   = _meta.emissionDelay   
+//         this.emissionCount   = _meta.emissionCount   
+//         this.missileCount    = _meta.missileCount    
+//         this.missileRight    = _meta.missileRight    
+//         this.missileInterval = _meta.missileInterval 
+//         this.missileRange    = _meta.missileRange    
+//         this.missileTime     = _meta.missileTime     
+//         this.dmgFactor       = _meta.dmgFactor       
+//         this.prop            = _meta.prop            
+
+//     function setData(string missilePath,Prop prop,real dmgFactor,real cool,real emissionDelay,int emissionCount,real missileRange,real missileTime,int missileCount,real missileRight,real missileInterval)
+//         this.cool            = cool            
+//         this.missilePath     = missilePath     
+//         this.emissionDelay   = (emissionDelay*100).toInt()
+//         this.emissionCount   = emissionCount   
+//         this.missileCount    = missileCount    
+//         this.missileRight    = missileRight    
+//         this.missileInterval = missileInterval 
+//         this.missileRange    = missileRange    
+//         this.missileTime     = missileTime     
+//         this.dmgFactor       = dmgFactor       
+//         this.prop            = prop            
+
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     function emission(targets tar)
+//         let caster = hero._self
+//         let pos =  caster.getPos()
+//         let face = (tar.p - pos).getAngle()
+//         let missile = onMissileSpellEmission(missilePath,caster,pos,face)
+//         ..mover_setSpeed(missileRange/missileTime, 0)
+//         ..mover_setDist(missileRange)
+//         ..setHitRange(300)
+//         if missileCount > 1
+//             setMoreMissileOneDamage(missile, caster, missileCount, missileRight, missileInterval)
+//         else
+//             missile.mover_start()
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         if not hero._self.isAliveTrick()
+//             return
+//         emission(t.tar)
+//     override function onCast(targets tar)
+//         if emissionCount > 1
+//             setContinueCast(tar,emissionDelay,emissionCount)
+//         else
+//             emission(tar)
+//     override function createEntity() returns RandomSpellEntity
+//         return new GeneralSectorBulletActiveRandomSpellEntity()
+//     override function getActiveSpellData() returns AnclAbilityData
+//         return AnclAbilityData(3, 600, cool)
+
+
+// public class GeneralSectorBulletPassiveRandomSpellEntity extends RandomSpellEntity implements MissileMoverHitInterface , ContinueCastTimerInterface
+//     use RandomSpellModule
+//     int cool
+//     string missilePath
+
+//     real castProb
+
+//     int  emissionDelay
+//     int  emissionCount
+
+//     int  missileCount
+//     real missileRight
+//     real missileInterval
+//     real missileRange
+//     real missileTime
+//     real dmgFactor
+//     Prop prop
+
+//     //
+//     int castTime = 0
+
+//     ondestroy
+//         castTime = 0
+
+//     override function onMissileSpellHit(MissileMoverHitFxWithInterface missile, unit u)
+//         let dmg = hero._self.getPropVal(prop) * dmgFactor
+//         hero._self.damageSpell(u, dmg)
+//     function copyData()
+//         let _meta = meta castTo GeneralSectorBulletPassiveRandomSpellEntity
+//         this.cool            = _meta.cool
+//         this.castProb        = _meta.castProb
+//         this.missilePath     = _meta.missilePath     
+//         this.emissionDelay   = _meta.emissionDelay   
+//         this.emissionCount   = _meta.emissionCount   
+//         this.missileCount    = _meta.missileCount    
+//         this.missileRight    = _meta.missileRight    
+//         this.missileInterval = _meta.missileInterval 
+//         this.missileRange    = _meta.missileRange    
+//         this.missileTime     = _meta.missileTime     
+//         this.dmgFactor       = _meta.dmgFactor       
+//         this.prop            = _meta.prop            
+//     function setData(string missilePath,Prop prop,real dmgFactor,real castProb,real cool,real emissionDelay,int emissionCount,real missileRange,real missileTime,int missileCount,real missileRight,real missileInterval)
+//         this.cool            = (cool*100).toInt()
+//         this.castProb        = castProb
+//         this.missilePath     = missilePath     
+//         this.emissionDelay   = (emissionDelay*100).toInt()   
+//         this.emissionCount   = emissionCount   
+//         this.missileCount    = missileCount    
+//         this.missileRight    = missileRight    
+//         this.missileInterval = missileInterval 
+//         this.missileRange    = missileRange    
+//         this.missileTime     = missileTime     
+//         this.dmgFactor       = dmgFactor       
+//         this.prop            = prop            
+//     override function onApply(boolean inite)
+//         if inite
+//             copyData()
+//     function emission(targets tar)
+//         let caster = hero._self
+//         let pos =  caster.getPos()
+//         let face = (tar.p - pos).getAngle()
+//         let missile = onMissileSpellEmission(missilePath,caster,pos,face)
+//         ..mover_setSpeed(missileRange/missileTime, 0)
+//         ..mover_setDist(missileRange)
+//         ..setHitRange(300)
+//         if missileCount > 1
+//             setMoreMissileOneDamage(missile, caster, missileCount, missileRight, missileInterval)
+//         else
+//             missile.mover_start()
+
+//     override function onContinueCastTask(ContinueCastTimer t)
+//         if not hero._self.isAliveTrick()
+//             return
+//         emission(t.tar)
+//     override function createEntity() returns RandomSpellEntity
+//         return new GeneralSectorBulletPassiveRandomSpellEntity()
+//     override function onLose()
+//     override function onDamage(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onAttack(unit u)
+//         if CenterTimer.current > castTime + cool
+//             castTime = CenterTimer.current
+//             if castProb.random()
+//                 targets tar = targets(u.getPos(), u)
+//                 if emissionCount > 1
+//                     setContinueCast(tar,emissionDelay,emissionCount)
+//                 else
+//                     emission(tar)
+//     override function onBBAttack(unit i, unit j)
+//     override function onDamaged(DmgWrapper dw) returns DmgWrapper
+//         return dw
+//     override function onKill(unit i, unit j)

@@ -1,0 +1,20 @@
+package TypeAttr
+import attr
+
+public class TypeAttr
+    use Attr<int>
+    static let map = new HashMap<int,thistype>()
+    int unitId
+
+    construct(int id)
+        _logLevel   = Loglevel.ERROR
+        _self       = id
+        _hid        = id
+        unitId      = id
+        map.put(id, this)
+
+    override function isAttrSaveHt() returns bool
+        return false
+
+    static function get(unit u) returns thistype
+        return map.get(u.getTypeId())

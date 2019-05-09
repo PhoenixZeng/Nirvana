@@ -1,0 +1,94 @@
+package ItemSuit
+import base
+import LinkedListModule
+import HashList
+import unitLib
+
+function unit.suit() 
+    int count = 0
+    for ir in ItemSuit
+        if(this.haveSuit(ir))
+            count++
+            if(count>=6)
+                break
+
+function unit.sendSuit(string name)
+    for ir in ItemSuit
+        if ir.name == name
+            for pack in ir.packs
+                this.addItemById(pack)
+
+function unit.haveSuit(ItemSuit suit) returns boolean
+    return suit.haveSuit(this)
+
+function unit.hasPack(int id) returns boolean
+    HashList<item> inventory = this.getInventroy()
+    bool flag = false
+    for item i in inventory
+        if(i.getTypeId() == id)
+            flag = true
+    return flag
+
+class ItemSuit
+    use LinkedListModule
+    HashList<int> packs = new HashList<int>()
+    int itemEffect
+    string name
+    construct(string name)
+        this.name=name
+    construct(string name,int itemEffect)
+        this.name=name
+        this.itemEffect = itemEffect
+
+    function setEffect(int itemEffect)
+        this.itemEffect = itemEffect
+        
+    function addPack(vararg int ids)
+        for id in ids
+            packs.add(id)
+
+    function toString() returns string
+        string s = name + " :"
+        for int ic in packs
+            s += ic.toIdString() + " + "
+        s = s.substring(0,s.length()-3)
+        s += " = " + this.itemEffect.toIdString()
+        return s
+   
+    function haveSuit(unit u) returns boolean
+        bool flag = true
+        for int ic in packs
+            if(not u.hasPack(ic))
+                flag = false
+                break
+        return flag
+
+    ondestroy
+        destroy packs
+
+
+   
+unit u
+// Create recipe and add Packs	
+init
+    // new ItemSuit("套装5")
+    // ..addPack('whwd')
+    // ..addPack('pghe')
+    // ..addPack('phlt')
+
+    // // Crafting Demo
+
+    // u = createUnit(players[0], 'Hpal', vec2(0, 0), angle(0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('whwd', vec2(0, 0))
+    // createItem('pghe', vec2(0, 0))
+    // createItem('phlt', vec2(0, 0))
+
+    // u.sendSuit("套装5")
+
+    // CreateTrigger()
+    // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    // ..addAction()->
+    //     u.suit()
+    
+    

@@ -1,0 +1,27 @@
+package unitShield
+import HashMap
+
+constant HashMap<unit,real> map = new HashMap<unit,real>
+constant HashMap<unit,effect> effmap = new HashMap<unit,effect>
+
+public function unit.getShield() returns real
+    return map.get(this)
+
+public function unit.setShield(real shield)
+    if effmap.get(this) == null
+        let eff = this.addEffect("war3mapImported\\AZ_Goods_crim on guard(1).mdx", "chest")
+        effmap.put(this,eff)
+    map.put(this,shield)
+
+public function unit.damageShield(real damage) returns real
+    let shield = map.get(this)
+    if damage >= shield
+        map.remove(this)
+        let eff = effmap.get(this)
+        if eff != null
+            eff.destr()
+            effmap.remove(this)
+        return damage - shield
+    else
+        map.put(this,shield - damage)
+        return 0

@@ -1,0 +1,31 @@
+package AffixsItem
+import attrMapper
+import HashMap
+import public AffixItemEntity
+import public ItemAffix
+import base
+
+public class AffixsItem extends Item
+    AffixItemEntity entity
+    private static let map = new HashMap<item,thistype>
+    construct(item i)
+        super(i)
+        entity = AffixItemEntity.map.get(i.getTypeId())
+        map.put(i, this)
+    override function toString() returns string 
+        var a = _hid + "$" + entity.name + "@" + owner.getName() + "%" + this castTo int +"->"
+        return a
+    static function getAffixsItem(item i) returns thistype
+        if i!=null
+            if map.has(i)
+                return map.get(i)
+            else if i.getItemType() == ItemType.Equipment and AffixItemEntity.map.has(i.getTypeId())
+                return new AffixsItem(i)
+        return null
+
+    override function loadFromHt()
+        super.loadFromHt()
+        this.entity = AffixItemEntity.map.get(_self.getTypeId())
+
+    ondestroy
+        map.remove(_self)

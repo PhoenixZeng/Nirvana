@@ -1,0 +1,47 @@
+package RandomSpellBasicManager
+
+public class RandomSpellBasicManager
+    static int printer = 0
+    static int id = 'PSNA'
+
+    static function get() returns int
+        if printer <= 26
+            let ids = id + printer
+            printer ++ 
+            return ids
+        else
+            return 0
+
+public class RandomActivePositionSpellBasicManager
+    static int printer = 0
+    static int id = 'PSLA'
+
+    static function get() returns int
+        if printer <= 26
+            let ids = id + printer
+            printer ++ 
+            return ids
+        else
+            return 0
+public class RandomActivePositionRangeSpellBasicManager
+    static int printer = 0
+    static int id = 'PSRA'
+
+    static function get() returns int
+        if printer <= 26
+            let ids = id + printer
+            printer ++ 
+            return ids
+        else
+            return 0
+public class RandomActiveNoneSpellBasicManager
+    static int printer = 0
+    static int id = 'PSIA'
+
+    static function get() returns int
+        if printer <= 26
+            let ids = id + printer
+            printer ++ 
+            return ids
+        else
+            return 0

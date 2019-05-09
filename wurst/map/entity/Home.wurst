@@ -1,0 +1,131 @@
+package Home
+import Rects
+import OnUnitEnterLeave
+import Forces
+import attrLib
+import YDJapiOther
+import wareAttackCommon
+import DialogTimer
+import phLib
+
+public Home HOME
+
+public class Home
+    /**
+    * 老家回城点
+    */
+    var BASE_POS = homeReturn.pos
+    /**
+    * 是否为无尽模式
+    */
+    var IS_ENDLESS = false
+    let homeId = 'n000'
+    var blackTrigger = CreateTrigger()
+    unit  basic
+    int   upgradeTime = 0
+    int   superUpgradeTime = 0
+    int   hp = 0
+    int   def = 0
+    bool  inStop = false
+    bool  inVul = false
+    int   protectCount = 0
+    int   jumpLvCount = 0
+    static int   jumpBasicCost = 200
+
+    function makeBase()
+        basic = createUnit(playerBase, homeId, home.pos, 0..fromDeg())
+
+    function initi()
+        makeBase()
+
+    function canProtect() returns bool
+        return protectCount == 0
+
+    function setCantProtect()
+        protectCount ++
+
+    function protect()
+        Log.debug("对基地进行保护")
+        protectCount ++
+        basic.setHP(basic.getMaxHP())
+        basic.setInvulnerable(true)
+        colorsPrint("[系统]:基地差点被摧毁了!给你一次重建的机会!")
+        inVul = true
+        let a = atAfter(30,"基地无敌!")
+        a.onTime() task->
+            basic.setInvulnerable(false)
+            HOME.inVul = false
+            colorsPrint("[系统]:基地已经重建了!请好好守护!")
+        a.run()
+
+    function getCurrentJumpCost() returns int
+        return jumpBasicCost * 2 .pow(jumpLvCount)
+
+    function onUpgradeHome() returns bool
+        if upgradeTime < 1000
+            upgradeTime ++
+            basic.exState(AttrKey.DEF, def, def + 1000)
+            return true
+        return false
+    function onSuperUpgradeHome() returns bool
+        if superUpgradeTime < 1000
+            superUpgradeTime ++
+            basic.exState(AttrKey.HPM, hp, hp + 100000)
+            return true
+        return false
+    function onStopAttack() returns bool
+        if not inStop
+            if stopAttack(true)
+                inStop = true
+                let a = atAfter(180,"停怪!")
+                a.onTime() task->
+                    stopAttack(false)
+                    HOME.inStop = false
+                a.run()
+                return true
+            return false
+        return false
+    function onVulHome() returns bool
+        if not inVul
+            basic.setInvulnerable(true)
+            inVul = true
+            let a = atAfter(60,"基地无敌!")
+            a.onTime() task->
+                basic.setInvulnerable(false)
+                HOME.inVul = false
+            a.run()
+            return true
+        return false
+
+function unit.exState(AttrKey s,int data,int new_data)
+    let origin = this.exState(s)
+    let val = origin + new_data - data
+    switch s
+        case AttrKey.HPM
+            let p = this.getHPPercent()
+            this.setHP(this.getMaxHP())
+            this.setState(EX_UnitState.maxHp,val)
+            this.setHP(p * this.getMaxHP())
+        case AttrKey.DEF 
+            this.setState(EX_UnitState.armor,val)
+        default
+            skip
+function unit.exState(AttrKey s) returns real
+    switch s
+        case AttrKey.HPM
+            return this.getState(EX_UnitState.maxHp)
+        case AttrKey.DEF 
+            return this.getState(EX_UnitState.armor)
+        default
+            return 0
+
+
+init
+    HOME = new Home()
+
+    //禁止非玩家经验获取
+    onEnter() ->
+        let u = getEnterLeaveUnit()
+        if (playerBase == u.getOwner() or enemy.containsUnit(u)) and u.isHero()
+            SuspendHeroXP(u, true)
+    

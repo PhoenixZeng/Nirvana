@@ -1,0 +1,207 @@
+package SpellHero
+import Hero
+import SpellCaster
+import DamageDispatcher
+import ClosureTimers
+import HeroSpellClass
+import Fx
+import YDJapiOther
+import DmgType
+import TerrainUtils
+import CenterTimer
+
+public class SpellHero extends Hero
+
+    angle jumpAng = 0 .fromDeg()
+    real jumpDis = 0
+    int jumpCount = 5
+    static let jumpCountLimit = 5
+
+    construct(unit i)
+        super(i)
+        iniJump()
+    override function addSpell()
+    override function onSpellCast(int id,targets t)
+        switch id
+            case HeroActiveSpell.jiuchangenxu
+                spell_jiucangenxu(t)
+            case HeroActiveSpell.jump
+                onJump(t)
+            case HeroActiveSpell.zhanzhengjianta
+                zhanzhengjianta(t,id)
+            case HeroActiveSpell.siwangchanrao
+                siwangchanrao(t,id)
+            case HeroActiveSpell.chuanci
+                chuanci(t,id)
+            case HeroActiveSpell.jiuchangenxu
+                jiuchangenxu(t,id)
+            case HeroActiveSpell.shenshenghujia
+                shenshenghujia(t,id)
+            case HeroActiveSpell.jianrenfengbao
+                jianrenfengbao(t,id)
+            case HeroActiveSpell.shuangdongxinxing
+                shuangdongxinxing(t,id)
+            case HeroActiveSpell.leitingyiji
+                leitingyiji(t,id)
+            case HeroActiveSpell.fuchoufengqun
+                fuchoufengqun(t,id)
+            case HeroActiveSpell.yidongsheji
+                yidongsheji(t,id)
+            case HeroActiveSpell.fengbaozhichui
+                fengbaozhichui(t,id)
+            case HeroActiveSpell.qunxinzuiluo
+                qunxinzuiluo(t,id)
+            case HeroActiveSpell.daozhenxuanfeng
+                daozhenxuanfeng(t,id)
+            case HeroActiveSpell.baofengjianyu
+                baofengjianyu(t,id)
+            case HeroActiveSpell.lieyanchongji
+                lieyanchongji(t,id)
+            default
+                super.onSpellCast(id, t)
+
+    function lieyanchongji(targets t,int _spell_active_id)
+        new Fenghuangchongfeng(this,"Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl",0.5,300,t.p)
+
+    function baofengjianyu(targets _t,int _spell_active_id)
+        var time = 4.
+        var range = 300.
+        new Baofengjianyu(this,_t.p,range,time)
+
+    function daozhenxuanfeng(targets _t,int spell_active_id)
+        let pos = _self.getPos().toVec3()
+        let half = 50.
+        let c = 1.732
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2( 2*half,       0),3.)
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2(   half, -half*c),3.)
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2(  -half, -half*c),3.)
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2(-2*half,       0),3.)
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2(  -half,  half*c),3.)
+        SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "fanofknives", pos + vec2(   half,  half*c),3.)
+
+    function qunxinzuiluo(targets _t,int _spell_active_id)
+        var time = 6.
+        var range = 800.
+        new Qunxinzuiluo(this,range,time)
+
+    function fengbaozhichui(targets t,int spell_active_id)
+        SpellCaster.castRange(_self.getOwner(), spell_active_id, "thunderbolt", t.p, 400, _self.getPos3Real())
+
+    function yidongsheji(targets t,int _spell_active_id)
+        let dis = 1500.
+        var speed = 750
+        var amount = 10
+        let face = _self.getPos().angleTo(t.p)
+        doPeriodicallyCounted(0.2, amount) cb ->
+            if aliveFilter(_self)
+                let f = face + GetRandomReal(-10., 10.) .fromDeg()
+                Fx me =  new Fx(_self.getPos().withZ(50),f,"Abilities\\Spells\\Other\\BlackArrow\\BlackArrowMissile.mdl")
+                me.getDummy().exFacing(f.degrees())
+                new MovedShoot(this,dis,me,_self.getPos().polarOffset(f, dis).withRealZ(me.getDummy()),dis/speed)
+
+
+    function fuchoufengqun(targets _t,int spell_active_id)
+        var offset = (_t.p - _self.getPos())
+        SpellCaster.castPoint(_self.getOwner(), spell_active_id,1, "carrionswarm", _self.getPos() + offset.rotate(   15 .fromDeg()),_self.getPos3Fly(),3.)
+        SpellCaster.castPoint(_self.getOwner(), spell_active_id,1, "carrionswarm", _self.getPos() + offset.rotate((-15) .fromDeg()),_self.getPos3Fly(),3.)
+    function leitingyiji(targets _t,int _spell_active_id)
+        group g = CreateGroup()..enumUnitsInRange(_t.p, 400)
+        while g.hasNext()
+            let target = g.next()
+            g.removeUnit(target)
+            if enemyFilter(_self, target)
+                //给个雷电的效果
+                eff("Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl", target.getPos()) 
+        g.destr()
+    function shuangdongxinxing(targets _t,int _spell_active_id)
+        for i = 30 to 360 step 60
+            new Shuangdongxinxing(this,0.6,_t.p.withTerrainZ(),2,400,i.toReal().fromDeg(),100)
+    function jianrenfengbao(targets _t,int _spell_active_id)
+        var time = 6.
+        var range = 300.
+        new Jianrenfengbao(this,range,time)
+    function shenshenghujia(targets _t,int _spell_active_id)
+        var time = 3.
+        var range = 500.
+        new Shenshengzhiguang(this,range,time)
+    function jiuchangenxu(targets t,int spell_active_id)
+        SpellCaster.castRange(_self.getOwner(), spell_active_id, "entanglingroots", t.p, 600, _self.getPos3Real())
+
+    function chuanci(targets t,int spell_active_id)
+        var offset = (t.p - _self.getPos())
+        SpellCaster.castPoint(_self.getOwner(), spell_active_id,1, "impale", _self.getPos() + offset,_self.getPos3Fly(),3.)
+        SpellCaster.castPoint(_self.getOwner(), spell_active_id,1, "impale", _self.getPos() + offset.rotate(   15 .fromDeg()),_self.getPos3Fly(),3.)
+        SpellCaster.castPoint(_self.getOwner(), spell_active_id,1, "impale", _self.getPos() + offset.rotate((-15) .fromDeg()),_self.getPos3Fly(),3.)
+        
+    function siwangchanrao(targets t,int spell_active_id)
+        SpellCaster.castRange(_self.getOwner(), spell_active_id, "thunderbolt", t.p, 400, _self.getPos3Real())
+
+    function zhanzhengjianta(targets _t,int spell_active_id)
+        doPeriodicallyCounted(0.5, 5) (cb) ->
+            SpellCaster.castImmediate(_self.getOwner(), spell_active_id,1, "stomp", _self.getPos3Fly(),3.)
+
+
+    
+    function iniJump()
+        _self.addAbilityPro(HeroActiveSpell.jump)
+        doPeriodically(2) task->
+            if jumpCount < jumpCountLimit
+                jumpCount++
+
+    function onJumpTimeout(TimerTask task)
+        let dis_per = 64.
+        vec2 next
+        bool endIt = false
+        if jumpDis > dis_per
+            jumpDis -= dis_per
+            next = _self.getPos().polarOffset(jumpAng, dis_per)
+        else 
+            next = _self.getPos().polarOffset(jumpAng, jumpDis)
+            endIt = true
+        if next.isTerrainWalkable()
+            _self.setXY(next.fix())
+        else
+            endIt = true
+        if endIt
+            task.destr()
+            jumpDis = 0
+            _self.setPos(_self.getPos())
+
+    function onJump(targets t)
+        if jumpCount > 0
+            if not hasShengYuChiBang
+                jumpCount--
+            jumpAng = _self.getPos().angleTo(t.p) 
+            jumpDis = min(_self.getPos().distanceTo(t.p),900)
+            _self.exFacing(_self.getPos().angleTo(t.p).degrees())
+            _self.setPos(_self.getPos())
+            let time = jumpDis /64. * 0.03
+            _self.eff("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", "chest",time)
+            _self.eff("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl", "hand left",time)
+            _self.eff("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl", "hand right",time)
+            onAlways(0.03) task->
+                onJumpTimeout(task)
+        else
+            _self.getOwner().print("[系统]:跳太久了,休息一下!")
+        
+    function spell_jiucangenxu(targets t)
+        int abilityId = HeroActiveSpell.jiuchangenxu
+        SpellCaster.castRange(_self.getOwner(), abilityId, "entanglingroots", t.p, 600, _self.getPos3Real())
+
+    function register_spell_fengbaozhichui()
+        DamageDispatcher.on() dmg ->
+            if dmg.i.isCaster() 
+                if dmg.i.hasAbility(HeroActiveSpell.fengbaozhichui)
+                    damage_spell_target(dmg.j,"war3mapImported\\AZ_Goods_Blink(3).MDX",3.3)
+                if dmg.i.hasAbility(HeroActiveSpell.siwangchanrao)
+                    damage_spell_target(dmg.j,"Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl",3.3)
+                if dmg.i.hasAbility(HeroActiveSpell.jiuchangenxu)
+                    damage_spell_target(dmg.j,null,2.3)
+
+    function damage_spell_target(unit u,string path,real power)
+        if enemyFilter(_self,u )
+            if path != null
+                eff(path,u.getPos())
+            var dmg = _self.getPropSumAndMain() * power
+            _self.damageSpell(u, dmg)
+

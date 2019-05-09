@@ -1,0 +1,70 @@
+package PlayerMultiboards
+import Players
+import ClosureTimers
+import Game
+import base
+
+multiboard gameMultiboard
+
+function onUpdate()
+    var row = 0
+    let b = gameMultiboard
+    let size = getOnlinePlayerSize()
+    MultiboardSetRowCount(b, size + 1)
+    eachPlayer() ip->
+        row++
+        let p = Player(ip)
+        let ps = Players.get(p)
+        b.getItem(row, 0)
+        // ..setValueColor(255, 0, 0, 0)
+        ..setValue(p.getName())
+        ..setWidth(0.05)
+        b.getItem(row, 1)
+        // ..setValueColor(200, 0, 0, 0)
+        ..setValue(ps.killScore.toInt().toString())
+        b.getItem(row, 2)
+        // ..setValueColor(200, 0, 0, 0)
+        ..setValue(ps.defenseScore.toString())
+        b.getItem(row, 3)
+        // ..setValueColor(200, 0, 0, 0)
+        ..setValue(ps.hero.nirvanaCount.toString())
+        b.getItem(row, 4)
+        // ..setValueColor(200, 0, 0, 0)
+        ..setValue(ps.getGameScore().toString())
+
+public function createPlayerMultiboard()
+    gameMultiboard = CreateMultiboard()
+    let b = gameMultiboard
+    let size = getOnlinePlayerSize()
+    MultiboardSetRowCount(b, size + 1)
+    MultiboardSetColumnCount(b, 7)
+    if GAME.endless
+        b.setTitle("积分榜 [ 无尽 ]")
+    else
+        if GAME.abyss
+            b.setTitle("积分榜 [ 深渊 "+getDiff()+" ]")
+        else
+            b.setTitle("积分榜 [ 难度 "+getDiff()+" ]")
+
+    b.setItemsStyle(true, false)
+    b.setItemsWidth(0.03)
+
+    b.getItem(0, 0)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("玩家名字")
+    ..setWidth(0.05)
+    b.getItem(0, 1)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("杀敌积分")
+    b.getItem(0, 2)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("守家积分")
+    b.getItem(0, 3)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("轮回次数")
+    b.getItem(0, 4)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("游戏积分")
+    MultiboardDisplay(b, true)
+    doPeriodically(1) i->
+        onUpdate()

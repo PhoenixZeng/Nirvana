@@ -1,0 +1,27 @@
+package phLib
+import public unitLib
+import public groupLib
+import public itemLib
+import public stringLib
+import public posLib
+import public randomDo
+import public base
+import public constants
+import public filterLib
+import public playerLib
+import public effectLib
+import public maths
+
+
+let colorAttark1 = color(219, 13, 13).toColorString()
+let colorAttark2 = color(219, 130, 13).toColorString()
+let colorAttark3 = color(61, 219, 13).toColorString()
+
+public function colorsPrint(string s)
+    print(colorAttark1 + s + "|r")
+    print(colorAttark2 + s + "|r")
+    print(colorAttark3 + s + "|r")
+
+
+@test function a()
+    colorsPrint("")

@@ -1,0 +1,47 @@
+package School
+import HashMap
+import LinkedListModule
+
+
+public class Soul
+    use LinkedListModule
+    string name
+    int    schoolBaseSpell
+    int    schoolInnorSpellBase
+    int    challItemId
+    static let map = new HashMap<string,thistype>()
+    construct(string name )
+        this.name = name
+        map.put(name, this)
+    construct(string name ,int a,int b)
+        this.name = name
+        this.schoolBaseSpell = a
+        this.schoolInnorSpellBase = b
+        map.put(name, this)
+
+    function setChallItemId(int id)
+        this.challItemId = id
+    
+    // function getPos() returns vec2
+    //     return NPC.byName(name+"门派").pos
+    
+    // function getNPC() returns NPC
+    //     return NPC.byName(name+"门派")
+
+    // static function getSchoolByNpc(unit u) returns thistype
+    //     School school = null
+    //     for i in School
+    //         if i.getNPC().u == u
+    //             school = i
+    //             break
+    //     return school
+
+
+
+public let BLUE   = new Soul("淡蓝")..setChallItemId('L441')
+public let RED    = new Soul("赤炎")..setChallItemId('L442')
+public let YELLOW = new Soul("圣光")..setChallItemId('L443')
+public let BLACK  = new Soul("暗黑")..setChallItemId('L444')
+public let WHITE  = new Soul("纯白")..setChallItemId('L445')
+
+

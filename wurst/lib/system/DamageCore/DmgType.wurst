@@ -1,0 +1,78 @@
+// Use this package for finding the damage type in the context of a
+// DamageDetection handler. Typically this means differentiating between spells
+// and basic attacks.
+package DmgType
+import NoWurst
+import Unit
+import public DmgCore
+import YDJapiOther
+
+constant ATTACK_TYPE_UNIVERSAL = ConvertAttackType(7)
+
+public tuple DmgWrapper(unit i,unit j,real dmg,DmgType t)
+
+public function DmgWrapper.op_mult(real i) returns DmgWrapper
+	return DmgWrapper(this.i,this.j,this.dmg * i,this.t)
+
+
+public enum DmgType
+	NULLED
+	ATTACK
+	PHYSICS
+	SPELL
+	CODE
+
+public function DmgType.toString() returns string
+	switch this
+		case ATTACK
+			return "攻击"
+		case PHYSICS
+			return "物理"
+		case SPELL
+			return "法术"
+		case CODE
+			return "真实"
+		case NULLED
+			return "提醒"
+		default
+			return "未知"
+
+
+var isCodeDmg = false
+public var lastCodeDmg = 0.
+
+public function getDamageType() returns DmgType
+	if isCodeDmg
+		isCodeDmg = false
+		return DmgType.CODE
+	else if exIsEventAttackDamage()
+		return DmgType.ATTACK
+	else if exIsEventPhysicalDamage()
+		return DmgType.PHYSICS
+	else 
+		return DmgType.SPELL
+
+public function dealCodeDamage(unit attacker, unit target, real damage)
+	let hp		 = target.getHP() - .405 
+	isCodeDmg = true
+	lastCodeDmg = damage
+	if hp > damage
+		target.setHP(hp - damage + .405)
+		UnitDamageTarget(attacker, target, 0. , true, false, ATTACK_TYPE_UNIVERSAL, DAMAGE_TYPE_UNIVERSAL, null)
+	else
+		UnitDamageTarget(attacker, target, damage, true, false, ATTACK_TYPE_UNIVERSAL, DAMAGE_TYPE_UNIVERSAL, null)
+		UnitDamageTarget(attacker, target, damage, true, false, ATTACK_TYPE_MAGIC,	 DAMAGE_TYPE_UNIVERSAL, null)
+	lastCodeDmg = 0.
+	isCodeDmg = false
+
+function getUnitBonusSpellResistance(unit u) returns real
+	let life	 = u.getHP()
+	var scale	= u.getMaxHP()
+
+	u.setHP(scale)
+	isCodeDmg = true
+	UnitDamageTarget(u, u, -scale/2., false, false, null, DAMAGE_TYPE_UNIVERSAL, null)
+	scale = 2.*(scale - u.getHP())/scale
+	u.setHP(life)
+	isCodeDmg = false
+	return scale

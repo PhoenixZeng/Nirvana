@@ -1,0 +1,99 @@
+package Title
+import HashMap
+import LinkedList
+import phLib
+
+public interface EventTitleCallBack
+    function callback(unit u)
+public interface OnGetTitleCallBack
+    function callback(unit u)
+public interface OnLostTitleCallBack
+    function callback(unit u)
+
+public class TitleEntity
+    static HashMap<string,thistype> map = new HashMap<string,thistype>
+    string name
+    EventTitleCallBack cb
+    OnGetTitleCallBack onGet_
+    OnLostTitleCallBack onLost_
+    static string ref = "overhead"
+
+    construct(string name)
+        this.name = name
+        map.put(name, this)
+    function add(unit u)
+        if onGet_ != null
+            onGet_.callback(u)
+    function remove(unit u)
+        if onLost_ != null
+            onLost_.callback(u)
+
+public class AbilTitleEntity extends TitleEntity
+    int array[6] abil
+    construct(string name)
+        super(name)
+        for i = 0 to 5
+            abil[i] = 0
+
+    function addAbil(vararg int as)
+        let a = new LinkedList<int>()
+        for i in as
+            a.add(i)
+        for i = 0 to 5
+            abil[i] = a.get(i)
+        destroy a
+
+    override function add(unit u)
+        super.add(u)
+        for i = 0 to 5
+            if abil[i] == 0
+                break
+            u.addAbilityPro(abil[i])
+    override function remove(unit u)
+        super.remove(u)
+        for i = 0 to 5
+            if abil[i] == 0
+                break
+            u.removeAbility(abil[i])
+
+
+public function TitleEntity.addCallBack(EventTitleCallBack c)
+    this.cb = c
+public function TitleEntity.onGet(OnGetTitleCallBack c)
+    this.onGet_ = c
+public function TitleEntity.onLost(OnLostTitleCallBack c)
+    this.onLost_ = c
+
+public class Title
+    static HashMap<unit,thistype> map = new HashMap<unit,thistype>
+    unit u
+    TitleEntity t
+    ondestroy
+        map.remove(u)
+        t.remove(u)
+        u = null
+        t = null
+
+    static function addTitle(string name,unit u) returns thistype
+        if TitleEntity.map.has(name)
+            let te = TitleEntity.map.get(name)
+            if map.has(u)
+                destroy map.get(u)
+            let tt = new Title()
+            tt.t = te
+            tt.u = u
+            tt.t.add(u)
+            map.put(u, tt)
+            return tt
+        else
+            return null
+
+    static function has(unit u,string name) returns bool
+        if map.has(u)
+            let ts = map.get(u)
+            return ts != null and ts.typeId != 0 
+            and ts.t != null and ts.t.name == name
+        else
+            return false
+
+

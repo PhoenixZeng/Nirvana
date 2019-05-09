@@ -1,0 +1,188 @@
+package AgentItemRecipeBinding
+import AgentItemRecipe
+import LinkedList
+import baseImport
+import HashList
+
+
+
+function unit.getItems() returns HashList<item>
+    let p = Players.get(this)
+    let set1 = p.hero._self.getInventroy()
+    let set2 = p.bb.getInventroy()
+    set1.addAll(set2)
+    destroy set2
+    return set1
+function getItemsString(LinkedList<item> list) returns string
+    let fold = list.foldl<string>("[", (i, q) -> q + i.getTypeId().toIdString() + ",")
+    return fold.substring(0, fold.length()-1) + "]"
+
+init
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction() ->
+        let t = GetManipulatedItem()
+        let u = GetManipulatingUnit()
+        if t.getLife() == 333
+            let p = Players.get(u)
+            let set1 = p.hero._self.getInventroy()
+            let heroCount = set1.size()
+            let set2 = p.bb.getInventroy()
+            set1.addAll(set2)
+            destroy set2
+            let list =  set1
+            let id = AgentItemRecipe.tryCraft(t.getTypeId(), list)
+            if id != 0
+                let h = u.getMainHero()
+                item i
+                if h.isAlive() and heroCount < 6
+                    i = createItem(id, u.getPos())
+                    u.getMainHero().addItemHandle(i)
+                else
+                    i = createItem(id, u.getPos())
+                    u.addItemHandle(i)
+                printTimedToPlayer("[系统]:升级"+i.getName()+"成功!", 10, u.getOwner())
+            else
+                printTimedToPlayer("[系统]:升级失败!检查材料完整性!", 10, u.getOwner())
+                u.getOwner().addGold(slk_item.loadInt(t.getTypeId(), goldcostKey))
+                u.getOwner().addLumber(slk_item.loadInt(t.getTypeId(), lumbercostKey))
+
+
+init
+    //基本装备
+    AgentItemRecipe.of('ZC02','ZB02')..addComponent('ZB01')
+    AgentItemRecipe.of('ZC03','ZB03')..addComponent('ZB02')
+    AgentItemRecipe.of('ZC04','ZB04')..addComponent('ZB03')
+    AgentItemRecipe.of('ZC05','ZB05')..addComponent('ZB04')
+    AgentItemRecipe.of('ZC06','ZB06')..addComponent('ZB05')
+    AgentItemRecipe.of('ZC07','ZB07')..addComponent('ZB06')
+    AgentItemRecipe.of('ZC08','ZB08')..addComponent('ZB07')
+    AgentItemRecipe.of('ZC09','ZB09')..addComponent('ZB08')
+    AgentItemRecipe.of('ZC0A','ZB0A')..addComponent('ZB09')
+    AgentItemRecipe.of('ZC0B','ZB0B')..addComponent('ZB0A')
+    AgentItemRecipe.of('ZC0C','ZB0C')..addComponent('ZB0B')
+    AgentItemRecipe.of('ZC0D','ZB0D')..addComponent('ZB0C')
+    AgentItemRecipe.of('ZC0E','ZB0E')..addComponent('ZB0D')
+    AgentItemRecipe.of('ZC0F','ZB0F')..addComponent('ZB0E')
+    AgentItemRecipe.of('ZC0G','ZB0G')..addComponent('ZB0F')
+    AgentItemRecipe.of('ZC0H','ZB0H')..addComponent('ZB0G')
+    AgentItemRecipe.of('ZC0I','ZB0I')..addComponent('ZB0H')
+    AgentItemRecipe.of('ZC0J','ZB0J')..addComponent('ZB0I')
+    AgentItemRecipe.of('ZC0K','ZB0K')..addComponent('ZB0J')
+    AgentItemRecipe.of('ZC0L','ZB0L')..addComponent('ZB0K')
+    AgentItemRecipe.of('ZC0M','ZB0M')..addComponent('ZB0L')
+    AgentItemRecipe.of('ZC0N','ZB0N')..addComponent('ZB0M')
+    AgentItemRecipe.of('ZC0O','ZB0O')..addComponent('ZB0N')
+    AgentItemRecipe.of('ZC0P','ZB0P')..addComponent('ZB0O')
+
+    AgentItemRecipe.of('ZC02','ZB12')..addComponent('ZB11')
+    AgentItemRecipe.of('ZC03','ZB13')..addComponent('ZB12')
+    AgentItemRecipe.of('ZC04','ZB14')..addComponent('ZB13')
+    AgentItemRecipe.of('ZC05','ZB15')..addComponent('ZB14')
+
+    AgentItemRecipe.of('ZC16','ZB16')..addComponent('ZB15')
+    AgentItemRecipe.of('ZC17','ZB17')..addComponent('ZB16')
+    AgentItemRecipe.of('ZC18','ZB18')..addComponent('ZB17')
+    AgentItemRecipe.of('ZC19','ZB19')..addComponent('ZB18')
+    AgentItemRecipe.of('ZC1A','ZB1A')..addComponent('ZB19')
+    AgentItemRecipe.of('ZC1B','ZB1B')..addComponent('ZB1A')
+    AgentItemRecipe.of('ZC1C','ZB1C')..addComponent('ZB1B')
+    AgentItemRecipe.of('ZC1D','ZB1D')..addComponent('ZB1C')
+    AgentItemRecipe.of('ZC1E','ZB1E')..addComponent('ZB1D')
+    AgentItemRecipe.of('ZC1F','ZB1F')..addComponent('ZB1E')
+    AgentItemRecipe.of('ZC1G','ZB1G')..addComponent('ZB1F')
+    AgentItemRecipe.of('ZC1H','ZB1H')..addComponent('ZB1G')
+    AgentItemRecipe.of('ZC1I','ZB1I')..addComponent('ZB1H')
+    AgentItemRecipe.of('ZC1J','ZB1J')..addComponent('ZB1I')
+    AgentItemRecipe.of('ZC1K','ZB1K')..addComponent('ZB1J')
+    AgentItemRecipe.of('ZC1L','ZB1L')..addComponent('ZB1K')
+    AgentItemRecipe.of('ZC1M','ZB1M')..addComponent('ZB1L')
+    AgentItemRecipe.of('ZC1N','ZB1N')..addComponent('ZB1M')
+    AgentItemRecipe.of('ZC1O','ZB1O')..addComponent('ZB1N')
+    AgentItemRecipe.of('ZC1P','ZB1P')..addComponent('ZB1O')
+
+
+    //合成圣魂珠
+    AgentItemRecipe.of('I63A','ZB26')..addComponents('ZB21','ZB0P','ZB1P')
+    AgentItemRecipe.of('I63A','ZB27')..addComponents('ZB22','ZB0P','ZB1P')
+    AgentItemRecipe.of('I63A','ZB28')..addComponents('ZB23','ZB0P','ZB1P')
+    AgentItemRecipe.of('I63A','ZB29')..addComponents('ZB24','ZB0P','ZB1P')
+    AgentItemRecipe.of('I63A','ZB2A')..addComponents('ZB25','ZB0P','ZB1P')
+    //合成圣魂
+    AgentItemRecipe.of('I63B','Y241')..addComponents('ZB26','I52G')
+    AgentItemRecipe.of('I63B','Y242')..addComponents('ZB27','I52G')
+    AgentItemRecipe.of('I63B','Y243')..addComponents('ZB28','I52G')
+    AgentItemRecipe.of('I63B','Y244')..addComponents('ZB29','I52G')
+    AgentItemRecipe.of('I63B','Y245')..addComponents('ZB2A','I52G')
+
+    //雪山
+    AgentItemRecipe.of('I62W','ZD02')..addComponents('ZD00','ZD01')
+    AgentItemRecipe.of('I62X','ZD06')..addComponents('ZD03','ZD04','ZD05','ZD02')
+    AgentItemRecipe.of('I62Y','ZD0C')..addComponents('ZD07','ZD08','ZD09','ZD0A','ZD0B')
+    AgentItemRecipe.of('I62Z','ZD0F')..addComponents('ZD0D','ZD0E','ZD06','ZD0C')
+        //雪山公主
+    AgentItemRecipe.of('I631','ZD0I')..addComponents('ZD0H','ZD0G')
+    AgentItemRecipe.of('I630','ZD0O')..addComponents('ZD0L','ZD0M','ZD0N')
+
+    AgentItemRecipe.of('I632','ZD0J')..addComponents('ZD0G','ZD0F','ZD0O')
+    AgentItemRecipe.of('I632','ZD0K')..addComponents('ZD0I','ZD0F','ZD0O')
+
+    //扭曲神殿
+    AgentItemRecipe.of('I633','ZD0T')..addComponents('ZD0P','ZD0Q','ZD0R','ZD0S')
+    AgentItemRecipe.of('I634','ZD0Y')..addComponents('ZD0U','ZD0V','ZD0W','ZD0X')
+    AgentItemRecipe.of('I635','ZD11')..addComponents('ZD0Z','ZD10')
+    AgentItemRecipe.of('I636','ZD12')..addComponents('ZD0T','ZD0Y','ZD11')
+    AgentItemRecipe.of('I637','ZD14')..addComponents('ZD12','ZD13')
+
+    AgentItemRecipe.of('I61C','JS0L')..addComponent('JS15',3)
+    AgentItemRecipe.of('I61C','JS0M')..addComponent('JS16',3)
+    AgentItemRecipe.of('I61C','JS0N')..addComponent('JS17',3)
+    AgentItemRecipe.of('I61C','JS0O')..addComponent('JS18',3)
+    AgentItemRecipe.of('I61C','JS0P')..addComponent('JS19',3)
+    AgentItemRecipe.of('I61C','JS0Q')..addComponent('JS1A',3)
+    AgentItemRecipe.of('I61C','JS0R')..addComponent('JS1B',3)
+    AgentItemRecipe.of('I61C','JS0S')..addComponent('JS1C',3)
+    AgentItemRecipe.of('I61C','JS0T')..addComponent('JS1D',3)
+    AgentItemRecipe.of('I61C','JS0U')..addComponent('JS1E',3)
+    AgentItemRecipe.of('I61C','JS0V')..addComponent('JS1F',3)
+    AgentItemRecipe.of('I61C','JS0W')..addComponent('JS1G',3)
+    AgentItemRecipe.of('I61C','JS0X')..addComponent('JS1H',3)
+    AgentItemRecipe.of('I61C','JS0Y')..addComponent('JS1I',3)
+    AgentItemRecipe.of('I61C','JS0Z')..addComponent('JS1J',3)
+    AgentItemRecipe.of('I61C','JS10')..addComponent('JS1K',3)
+    AgentItemRecipe.of('I61C','JS11')..addComponent('JS1L',3)
+    AgentItemRecipe.of('I61C','JS12')..addComponent('JS1M',3)
+    AgentItemRecipe.of('I61C','JS13')..addComponent('JS1N',3)
+    AgentItemRecipe.of('I61C','JS14')..addComponent('JS1O',3)
+
+    AgentItemRecipe.of('I61D','JS01')..addComponent('JS0L',3)
+    AgentItemRecipe.of('I61D','JS02')..addComponent('JS0M',3)
+    AgentItemRecipe.of('I61D','JS03')..addComponent('JS0N',3)
+    AgentItemRecipe.of('I61D','JS04')..addComponent('JS0O',3)
+    AgentItemRecipe.of('I61D','JS05')..addComponent('JS0P',3)
+    AgentItemRecipe.of('I61D','JS06')..addComponent('JS0Q',3)
+    AgentItemRecipe.of('I61D','JS07')..addComponent('JS0R',3)
+    AgentItemRecipe.of('I61D','JS08')..addComponent('JS0S',3)
+    AgentItemRecipe.of('I61D','JS09')..addComponent('JS0T',3)
+    AgentItemRecipe.of('I61D','JS0A')..addComponent('JS0U',3)
+    AgentItemRecipe.of('I61D','JS0B')..addComponent('JS0V',3)
+    AgentItemRecipe.of('I61D','JS0C')..addComponent('JS0W',3)
+    AgentItemRecipe.of('I61D','JS0D')..addComponent('JS0X',3)
+    AgentItemRecipe.of('I61D','JS0E')..addComponent('JS0Y',3)
+    AgentItemRecipe.of('I61D','JS0F')..addComponent('JS0Z',3)
+    AgentItemRecipe.of('I61D','JS0G')..addComponent('JS10',3)
+    AgentItemRecipe.of('I61D','JS0H')..addComponent('JS11',3)
+    AgentItemRecipe.of('I61D','JS0I')..addComponent('JS12',3)
+    AgentItemRecipe.of('I61D','JS0J')..addComponent('JS13',3)
+    AgentItemRecipe.of('I61D','JS0K')..addComponent('JS14',3)
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+package fontEffect
+
+public string attackFontBase = "model\\system\\damageFont\\red\\Dawn_"
+public string spellFontBase  = "model\\system\\damageFont\\purple\\Mawn_"
+public string codeFontBase   = "model\\system\\damageFont\\white\\Wawn_"
+public string cureFontBase   = "model\\system\\damageFont\\cure\\ziti_zhiliao"
+
+// public string attackFontBase = "model\\system\\fontEffect\\physics\\ziti_wulishanghai"
+// public string spellFontBase  = "model\\system\\fontEffect\\spell\\ziti_fashushanghai"
+// public string codeFontBase   = "model\\system\\fontEffect\\attack\\ziti_pugongshanghai"
+// public string cureFontBase   = "model\\system\\fontEffect\\cure\\ziti_zhiliao"
+
+// public string attackFontPlusBase = "model\\system\\fontEffect\\origin\\ziti_wulishanghai"
+// public string spellFontPlusBase  = "model\\system\\fontEffect\\origin\\ziti_fashushanghai"
+// public string codeFontPlusBase   = "model\\system\\fontEffect\\origin\\ziti_pugongshanghai"
+// public string cureFontPlusBase   = "model\\system\\fontEffect\\origin\\ziti_zhiliao"

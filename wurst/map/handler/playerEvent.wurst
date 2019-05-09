@@ -1,0 +1,350 @@
+package playerEvent
+import EventMapper
+import Players
+import slk
+import WorkRoom
+import Rects
+import ClosureTimers
+import HeroManager
+import public PlayerCommon
+import public Forces
+import Auth
+import PlayerService
+import WorkRoomOrnament
+
+public var heroNum = -1
+
+unit lastCaster
+vec2 lastPos
+
+public function initPlayersEvent()
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+    ..addAction() ->
+        let b = ITEM.u()
+        let id = ITEM.i().getTypeId()
+        if id.inIdOffsetRange('I600', 256*256)
+            let p =  Players.get(b)
+            let ps = PlayerService.get(p._player)
+            switch id
+                case 'I64G'
+                    ps.onExAddCount(1,1)
+                case 'I64H'
+                    ps.onExAddCount(2,1)
+                case 'I64I'
+                    ps.onExAddCount(3,1)
+                case 'I64J'
+                    ps.onExAddCount(4,1)
+                case 'I64K'
+                    ps.onExAddCount(1,5)
+                case 'I64L'
+                    ps.onExAddCount(2,5)
+                case 'I64M'
+                    ps.onExAddCount(3,5)
+                case 'I64N'
+                    ps.onExAddCount(4,5)
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)
+    ..addAction() ->
+        var b = SHOP.buyer()
+        var s = SHOP.seller()
+        var id = SHOP.i().getTypeId()
+        if id.inIdOffsetRange('I600', 256*256)
+            let p =  Players.get(b)
+            let ps = PlayerService.get(p._player)
+            switch id
+                case 'I601'
+                    ps.onGoToDungeon(1,'I601')
+                case 'I602'
+                    ps.onGoToDungeon(2,'I602')
+                case 'I603'
+                    ps.onGoToDungeon(3,'I603')
+                case 'I604'
+                    ps.onGoToDungeon(4,'I604')
+                case 'I605'
+                    ps.onGoToDungeon(5,'I605')
+                case 'I612'
+                    if not ps.onUpgradeHome()
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I613'
+                    ps.onSuperUpgradeHome()
+                case 'I614'
+                    if not ps.onStopAttack()
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I615'
+                    ps.onVulHome()
+                case 'I61B'
+                    PersonalWorkRoom.heroGoToHere(p)
+                case 'I61E'
+                    if not ps.jumpLevel()
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I62C'
+                    ps.onConvertMainAttr()
+                case 'I62D'
+                    ps.onConvertHp()
+                case 'I62E'
+                    ps.onConvertAttr()
+                case 'I62F'
+                    ps.onConvertAtk()
+                case 'I62G'
+                    ps.onPl_GoldGift()
+                case 'I62H'
+                    ps.onPl_LumberGift()
+                case 'I62I'
+                    ps.onChannelGift()
+                case 'I630'
+                    ps.onConvertDmgPlus()
+                case 'I637'
+                    ps.onEndEndless()
+                case 'I638'
+                    ps.onChioceDivineSoul()
+                case 'I639'
+                    ps.onChallDivineSoul()
+                case 'I640'
+                    if not ps.onStudySpell(1)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I641'
+                    if not ps.onStudySpell(2)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I642'
+                    if not ps.onStudySpell(3)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I643'
+                    if not ps.onStudySpell(4)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I644'
+                    ps.onUpSpell(1)
+                case 'I645'
+                    ps.onUpSpell(2)
+                case 'I646'
+                    ps.onUpSpell(3)
+                case 'I647'
+                    ps.onUpSpell(4)
+                case 'I648'
+                    ps.onForgetSpell()
+                case 'I649'
+                    if not ps.onStudyExSpell()
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I64A'
+                    if not ps.onForcedSynthesisSpell(1)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I64B'
+                    if not ps.onForcedSynthesisSpell(2)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I64C'
+                    ps.onExWorkRoomOrnament()
+                case 'I64O'
+                    ps.onExUse(1,1)
+                case 'I64P'
+                    ps.onExUse(2,1)
+                case 'I64Q'
+                    ps.onExUse(3,1)
+                case 'I64R'
+                    ps.onExUse(4,1)
+                case 'I64S'
+                    ps.onExUse(1,10)
+                case 'I64T'
+                    ps.onExUse(2,10)
+                case 'I64U'
+                    ps.onExUse(3,10)
+                case 'I64V'
+                    ps.onExUse(4,10)
+                case 'I650'
+                    ps.onUpgradeWorkRoomOrnament(s)
+                case 'I651'
+                    ps.onShowWorkRoomOrnament(s)
+                case 'I654'
+                    if not ps.onUpgradeGem(1)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I655'
+                    if not ps.onUpgradeGem(2)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I656'
+                    if not ps.onUpgradeGem(3)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I657'
+                    if not ps.onUpgradeGem(4)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65A'
+                    if not ps.onNirvanaTarget()
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65B'
+                    if not ps.onNirvana(1)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65C'
+                    if not ps.onNirvana(2)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65D'
+                    if not ps.onNirvana(3)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65E'
+                    if not ps.onNirvana(4)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65F'
+                    if not ps.onNirvana(5)
+                        ps._player.addGold(slk_item.loadInt(id, goldcostKey))
+                        ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I660'
+                    ps.onConvertGem(1)
+                case 'I661'
+                    ps.onConvertGem(2)
+                case 'I662'
+                    ps.onConvertGem(3)
+                case 'I663'
+                    ps.onConvertGem(4)
+                case 'I664'
+                    ps.onConvertGem(5)
+                case 'I665'
+                    ps.onConvertGem(6)
+                case 'I666'
+                    ps.onConvertGem(7)
+                case 'I667'
+                    ps.onConvertGem(8)
+                //雪山 交互
+                case 'I62K'
+                    ps.onInteractive(1)
+                //扭曲神殿 交互
+                case 'I62L'
+                    ps.onInteractive(2)
+                //询问神秘礼盒
+                case 'I616'
+                    ps.onAskEpic(1)
+                //询问风雪神剑
+                case 'I617'
+                    ps.onAskEpic(2)
+                //询问扭曲虚空魔核
+                case 'I618'
+                    ps.onAskEpic(3)
+
+
+
+    print("[系统]:请在180秒内选择英雄!")
+    Players.selectHeroTrg = CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELECTED)
+    ..addAction() ->
+        let p = GetTriggerPlayer()
+        let u = GetTriggerUnit()
+        if  u.isInRegion(choiceHero.i) and u.getOwner() == Player(PLAYER_NEUTRAL_PASSIVE)
+            let ps = Players.get(p)
+            let pss = PlayerService.get(ps._player)
+            HeroEntity he
+            if heroNum == -1
+                he = HeroEntity.random()
+            else
+                he = HeroEntity.getByIndex(heroNum)
+            unit  us = null
+            if ps.hero == null and he != null 
+                if ps.selectedUnit == u
+                    if us == null
+                        us = he.create(p,springReturn.pos)
+                        Log.debug("创建单位:"+us+"模板"+he.toString())
+                    print("[系统]:玩家"+p.getName()+"选择了"+us.getName())
+                    us.setOwner(p, false)
+                    if GetLocalPlayer() == ps._player
+                        ResetToGameCamera(0)
+                        SetCameraField( CAMERA_FIELD_TARGET_DISTANCE, 2200.00, 0 )
+                    us.setPosPro(springReturn.pos)
+                    ps.hero = getHero(us)
+                    heros[p.getId()] = us
+                    ps.bb = createUnit(ps._player, 'n001', ps.hero._self.getPos(), 0 .fromDeg())
+                    bbs[p.getId()] = ps.bb
+                    pss.onChioceHero()
+                    //初始化存档神器 改为由英雄service类内部实现
+                    // ps.initBook()
+                    // ps.initQiyu()
+                else
+                    if ps.testRole(he.needRole) and ps.testAuth(he.needAuth)
+                        printTimedToPlayer("[系统]:你确定要选择"+u.getName()+"吗? 再次点击确认!",5,p)
+                        ps.selectedUnit = u
+                    else
+                        printTimedToPlayer("[系统]:你没有选择"+u.getName()+"的权限,请留意游戏商城和活动!",5,p)
+                        ps.selectedUnit = null
+    doAfter(180) ->
+        Players.selectHeroTrg.destr()
+        print("[系统]:英雄选择已关闭!")
+
+    let t = CreateTrigger()
+    eachPlayer() i->
+        t..registerPlayerStateEvent(Player(i), PLAYER_STATE_RESOURCE_GOLD, GREATER_THAN_OR_EQUAL, 800000)
+    t..addAction() ->
+        let p = GetTriggerPlayer()
+        p.addGold(-800000)
+        p.addLumber(80)
+        printTimedToPlayer("[系统]:你的金币过多,自动换算800000金币成80木头!", 30, p)
+
+    let leave = CreateTrigger()
+    eachPlayer() i->
+        leave..registerPlayerEvent(Player(i), EVENT_PLAYER_LEAVE)
+    leave.addAction() ->
+        let ps =  Players.get(GetTriggerPlayer())
+        let pss = PlayerService.get(ps._player)
+        pss.onLeave()
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)
+    ..addAction()->
+        let u = GetTriggerUnit()
+        let pid = u.getOwner().getId()
+        if  u.isInRegion(persion[pid+1].i)
+            let id = u.getTypeId()
+            let oe = WorkRoomOrnamentEntity.get(id)
+            if oe != null
+                let ps =  Players.get(pid)
+                let pss = PlayerService.get(ps._player)
+                pss.onBuildWorkRoomOrnament(oe,u)
+        else
+            u.getOwner().print("[系统]:不允许建造在外面哦!只能建造在练功房!", 10)
+            u.remove()
+
+    CreateTrigger()
+    ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+    ..addAction()->
+        let u = SPELL.caster()
+        let a = SPELL.id()
+        let pos = SPELL.pos()
+        if a=='A02B' //一键拾取
+            lastCaster = u
+            EnumItemsInRect(GetPlayableMapRect(),Filter(()->GetFilterItem().isPickupable())) ->
+                let i = GetEnumItem()
+                if i.getPos().distanceTo(lastCaster.getPos()) <= 300
+                    lastCaster.addItemHandle(i)
+        else if a=='A02F' //单个物品给英雄
+            let i = SPELL.targetItem()
+            if u.hasItem(i)
+                u.removeItem(i)
+            u.getMainHero().addItemHandle(i)
+        else if a=='ZZZT' and u.isBuilding()
+            u.kill()
+        else if a=='ZZZX'
+            lastCaster = u
+            lastPos = pos
+            EnumItemsInRect(GetPlayableMapRect(),Filter(()->GetFilterItem().isPickupable())) ->
+                let i = GetEnumItem()
+                if i.getPos().distanceTo(lastPos) <= 300 and i.isSellable()
+                    let g = slk_item.loadInt(i.getTypeId(), goldcostKey)
+                    let l = slk_item.loadInt(i.getTypeId(), lumbercostKey)
+                    if g > 0 or l > 0
+                        printTimedToPlayer("[系统]:出售"+i.getName()+"成功!", 10, lastCaster.getOwner())
+                        lastCaster.getOwner().addGold(g div 2)
+                        lastCaster.getOwner().addLumber(l div 2)
+                        i.remove()

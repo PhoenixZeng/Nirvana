@@ -1,0 +1,6 @@
+package playerLib
+
+public class PlayerState
+    static constant limitFood = PLAYER_STATE_FOOD_CAP_CEILING
+    static constant usefulFood = PLAYER_STATE_RESOURCE_FOOD_CAP
+    static constant usedFood = PLAYER_STATE_RESOURCE_FOOD_USED

@@ -1,0 +1,125 @@
+package itemPlus
+// import phLib
+// import attrMapper
+
+
+// int _ItemPlusAbilId1get = 'I000'
+// int _ItemPlusAbilId2get = 'I001'
+// int _ItemPlusAbilId3get = 'I002'
+// int _ItemPlusAbilId1_ = 'I003'
+// int _ItemPlusAbilId2_ = 'I004'
+// int _ItemPlusAbilId3_ = 'I005'
+// int _ItemPlusAbilId1 = 'A054'
+// int _ItemPlusAbilId2 = 'A055'
+// int _ItemPlusAbilId3 = 'A056'
+// int _Item_HeiTie = 'I006'
+// int _Item_boostAbil_08 = 'A026'
+// int _Item_boostAbil_10 = 'A027'
+// int _Item_boostAbil_12 = 'A028'
+// int _Item_boostAbil_14 = 'A02A'
+// int _Item_boostAbil_16 = 'A02B'
+// int _Item_boostAbil_18 = 'A02D'
+// int _Item_boostAbil_20 = 'A02E'
+// function isItemPlusAbil() returns bool
+//     return GetSpellAbilityId()==_ItemPlusAbilId1
+//     or GetSpellAbilityId()==_ItemPlusAbilId2
+//     or GetSpellAbilityId()==_ItemPlusAbilId3
+
+// init
+//     CreateTrigger()
+//     ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)
+//     ..addAction()->
+//         let u = GetBuyingUnit()
+//         let id = GetSoldItem().getTypeId()
+//         if id == _ItemPlusAbilId1get
+//             u.addItemById(_ItemPlusAbilId1_)
+//         else if id == _ItemPlusAbilId2get
+//             u.addItemById(_ItemPlusAbilId2_)
+//         else if id == _ItemPlusAbilId3get
+//             u.addItemById(_ItemPlusAbilId3_)
+
+//     CreateTrigger()
+//     ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT)
+//     ..addAction()->
+//         let item_ = GetSpellTargetItem()
+//         let abil_ = GetSpellAbilityId()
+//         let unit_ = GetTriggerUnit()
+//         let owner = unit_.getOwner()
+//         if isItemPlusAbil()
+        //     let ia    = Item.getItem(item_)
+        //     var chancePlus = abil_ - 'A054'
+        //     if ia != null and ia.typeId != 0
+        //         if ia.scale >= 30
+        //             printTimed("[强化]:玩家"+owner.getName()+"强化+"+ia.scale+item_.getName()+"达到上限,无法继续强化!", 30)
+        //         if ia.tryBoost(chancePlus * 10)
+        //             if unit_.hasItem(item_)
+        //                 if unit_.isHero()
+        //                     unit_.subItemAttr(item_)
+        //                 ia.boost()
+        //                 if unit_.isHero()
+        //                     unit_.addItemAttr(item_)
+        //             else
+        //                 ia.boost()
+        //                 ia.destr(false)
+        //             printTimed("[强化]:玩家"+owner.getName()+"强化+"+ia.scale+item_.getName()+"成功!", 30)
+        //         else
+        //             // if unit_.getBuilder().hasAbility(TitleAbil.bumiejinshen)
+        //                 // printTimed("[强化]:玩家"+owner.getName()+"强化+"+ia.scale+item_.getName()+"失败!由于其[不灭金身]效果,不重置等级!", 30)
+        //             if ia.scale < 6
+        //                 printTimedToPlayer("[强化]:强化失败!", 30, owner)
+        //             else if ia.scale >= 6 and ia.scale < 12
+        //                 printTimedToPlayer("[强化]:强化失败!物品强化降低!", 30, owner)
+        //                 if unit_.hasItem(item_)
+        //                     if unit_.isHero()
+        //                         unit_.subItemAttr(item_)
+        //                     ia.boostTo((ia.scale / 2 ).toInt())
+        //                     if unit_.isHero()
+        //                         unit_.addItemAttr(item_)
+        //                 else
+        //                     ia.boostTo((ia.scale / 2 ).toInt())
+        //                     ia.destr(false)
+        //             else if ia.scale >= 12
+        //                 printTimed("[强化]:玩家"+owner.getName()+"强化+"+ia.scale+item_.getName()+"失败!物品被重置!", 30)
+        //                 if unit_.hasItem(item_)
+        //                     if unit_.isHero()
+        //                         unit_.subItemAttr(item_)
+        //                     ia.reset()
+        //                     if unit_.isHero()
+        //                         unit_.addItemAttr(item_)
+        //                 else
+        //                     ia.reset()
+        //                     ia.destr(false)
+        //             else if ia.scale >= 18
+        //                 printTimed("[强化]:玩家"+owner.getName()+"强化+"+ia.scale+item_.getName()+"失败!物品被破坏!", 30)
+        //                 if unit_.isHero()
+        //                     unit_.subItemAttr(ia._self)
+        //                 ia.destr()
+        //     else
+        //         printTimedToPlayer("[强化]:此物品不可强化!", 30, owner)
+        // else
+        //     var toScale = 0
+        //     switch abil_
+        //         case _Item_boostAbil_08
+        //             toScale = 8
+        //         case _Item_boostAbil_10
+        //             toScale = 10
+        //         case _Item_boostAbil_12
+        //             toScale = 12
+        //         case _Item_boostAbil_14
+        //             toScale = 14
+        //         case _Item_boostAbil_16
+        //             toScale = 16
+        //         case _Item_boostAbil_18
+        //             toScale = 18
+        //         case _Item_boostAbil_20
+        //             toScale = 20
+        //         default
+        //     if toScale > 0
+        //         if unit_.hasItem(item_)
+        //             unit_.subItemAttr(item_)
+        //             ia.boostTo(toScale)
+        //             unit_.addItemAttr(item_)
+        //         else
+        //             ia.boostTo(toScale)
+        //             ia.destr(false)
+        //         printTimed("[强化]:玩家"+owner.getName()+"使用强化券强化+"+ia.scale+item_.getName()+"成功!", 30)

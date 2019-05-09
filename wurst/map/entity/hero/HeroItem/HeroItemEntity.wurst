@@ -1,0 +1,28 @@
+package HeroItemEntity
+import HashMap
+import slk
+
+public enum HeroItemType
+    jian
+    yi
+    mao
+    xie
+public class HeroItemEntity
+    static let map = new HashMap<int,thistype>()
+    int id
+    string name
+    string desc
+    HeroItemType tp
+    int clazz = 0
+    int lv = 1
+
+    construct(int id,HeroItemType tp,int lv,int cls)
+        this.id = id
+        this.tp = tp
+        this.lv = lv
+        this.clazz = cls
+        this.name = slk_item.loadString(id, nameKey)
+        this.desc = slk_item.loadString(id, descKey)
+        map.put(id, this)
+
+    static function initi()

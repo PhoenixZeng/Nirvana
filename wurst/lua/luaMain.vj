@@ -1,0 +1,47 @@
+
+globals
+    hashtable j_slk_unit = InitHashtable()
+    hashtable j_slk_item = InitHashtable()
+    hashtable j_slk_abil = InitHashtable()
+endglobals
+
+<?
+    workroot = "C:\\Users\\Phoenix\\Documents\\Glory_Battle_Song\\wurst\\"
+    
+    _G['workroot'] = workroot
+    _G['StringHash'] = StringHash
+    log.info("设置工作目录:"..workroot)
+    package.path = package.path ..";"
+    .. workroot.."lua\\?.lua;"
+    .. workroot.."lua\\lua-excel\\?.lua;"
+    .. workroot.."lua\\lua-excel\\excel\\?.lua;"
+    .. workroot.."lua\\lua-lib\\?.lua;"
+?>
+
+<?
+    require "lua-lib.utils"
+    local rd = reload ("lua-excel.readForObject")
+    local mc = reload ("lua-excel.makeChallenge")
+    local ra = reload ("lua-excel.readAffixItem")
+    reload "makeBookObject"
+    --reload "makeExAbilObject"
+    rd("基本装备.xml","item")
+    rd("进攻单位.xml","unit")
+    rd("英雄.xml","unit")
+    local chall =  rd("练功房单位.xml","unit")
+    mc(chall) --生成练功房单位对应的物品
+    rd("NPC.xml","unit")
+    rd("副本单位.xml","unit")
+    rd("一次性道具.xml","item")
+    -- rd("副本掉落宝石.xml","item")
+    rd("任务道具.xml","item")
+    -- rd("灵宠.xml","unit")
+    -- rd("世界BOSS.xml","unit")
+    local it = rd("套装装备.xml","item")
+    ra(it) --修改套装的套装描述
+    reload("lua-excel.readSkin")("装饰技能.xml")
+    --reload("makeRandomSpell")
+    reload("makeHeroSpell") ("技能物品.xml")
+    reload("makePassiveSpell")("被动技能.xml")
+    
+?>

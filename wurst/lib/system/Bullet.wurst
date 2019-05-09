@@ -1,0 +1,108 @@
+package Bullet
+import phLib
+import public MoveEffect
+import CenterTimer
+import MoverEffectModule
+
+
+public class Bullet
+    use MoverEffect
+    static TimerTask task
+    MoveEffect me
+    vec3    target
+    construct(MoveEffect me,vec3 target,real time)
+        this.me = me
+        this.target = target
+        moverEffect(target, time)
+    construct(MoveEffect me,real speed,real speed_plus,angle face,angle face_plus,angle angle,angle angle_plus)
+        this.me = me
+        moverEffect(speed, speed_plus, face, face_plus, angle, angle_plus)
+    override function getPos() returns vec3
+        return me.getPos3()
+    override function onStart()
+    override function onTick()
+    override function getHitRange() returns real
+        return 100
+    override function onEnd()
+        me.destr()
+        destroy this
+    override function setPos(vec3 pos)
+        me.setPos(pos)
+    override function onHit(unit u)
+    override function isHit(unit u) returns bool
+        return true
+    
+    override static function engine()
+        task = onAlways(__frame) t->
+            for i in Bullet
+                // let flag = try() ->
+                i.do()
+                // if not flag and i.typeId != 0
+                //     i.mover_end()
+
+public class LockBullet
+    use MoverEffect
+    static TimerTask task
+    MoveEffect me
+    unit       target
+    real       lock_time
+    real       face_offset
+    construct(MoveEffect me,unit target,real time,real speed_plus,real face_offset,angle face_plus)
+        this.me = me
+        this.target = target
+        this.lock_time = time
+        this.face_offset = face_offset
+        moverEffect(target.getPos3Real(), time)
+        mover_setSpeed(__speed / __frame, speed_plus)
+        mover_setFace(__face / __frame + face_offset.fromDeg(), face_plus)
+
+    override function getPos() returns vec3
+        return me.getPos3()
+    override function onStart()
+    override function isHit(unit u) returns bool
+        return u == target
+    override function onTick()
+        real    face_offsetPost
+        if isTargetEnable()
+            let tp = getTargetPos()
+            if not __isBeDestory
+                let f  = getPos().angleTo2d(tp.toVec2())
+                let a  = getPos().airAngleTo(tp)
+                let startAngle = __startPos.angleTo2d(tp.toVec2())
+                let faceOffsetFace  = (__face - startAngle).degrees()
+                if __timePost < lock_time / 2
+                    if faceOffsetFace < 180 and faceOffsetFace > 0
+                        face_offsetPost = face_offset - face_offset / (lock_time/2) * __timePost
+                    else
+                        face_offsetPost = face_offset + (360 - face_offset) / (lock_time/2) * __timePost
+                else 
+                    face_offsetPost = 0
+                mover_setAngle(a , __anglePlus)
+                mover_setFace(f + face_offsetPost.fromDeg(), __facePlus)
+        else
+            mover_end()
+    function isTargetEnable() returns bool
+        return target.isAlive()
+
+    override function getHitRange() returns real
+        return 100
+    override function onEnd()
+        me.destr()
+        destroy this
+    override function setPos(vec3 pos)
+        me.setPos(pos)
+    override function onHit(unit u)
+        mover_end()
+    function getTargetPos() returns vec3
+        return target.getPos3Real()
+
+    override static function engine()
+        task = onAlways(__frame) t->
+            for i in LockBullet
+                i.do()
+init
+    Bullet.engine()
+    LockBullet.engine()
+
+@Test function aa()
+    print(vec2(0,0).angleTo(vec2(-1,0)).degrees())

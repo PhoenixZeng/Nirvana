@@ -1,0 +1,355 @@
+package dropItem
+import randomDo
+import HashMap
+import base
+import Forces
+import HeroRandomSpellManager
+
+/*
+native CreateItemPool           takes nothing returns itempool
+native DestroyItemPool          takes itempool whichItemPool returns nothing
+native ItemPoolAddItemType      takes itempool whichItemPool, integer itemId, real weight returns nothing
+native ItemPoolRemoveItemType   takes itempool whichItemPool, integer itemId returns nothing
+native PlaceRandomItem          takes itempool whichItemPool, real x, real y returns item
+*/
+public int dropOffset = 0
+
+public class ItemPool
+    itempool pool = CreateItemPool()
+    string   name
+    real     chance
+    static function of(string name,real chance) returns ItemPool
+        let pool = new ItemPool()
+        pool.name = name
+        pool.chance = chance
+        return pool
+    ondestroy
+        DestroyItemPool(pool)
+
+    function add(integer itemId, real weight)
+        ItemPoolAddItemType(pool,itemId,weight)
+    function del(integer itemId)
+        ItemPoolRemoveItemType(pool,itemId)
+    function tryGet(vec2 pos) returns item
+        return tryGet(0,pos,false)
+    function tryGet(int dropPlus,vec2 pos,bool mustDrup) returns item
+        if mustDrup or ((dropPlus*0.01+1)*chance + dropOffset).random()
+            return PlaceRandomItem(pool,pos.x,pos.y)
+        return null
+
+public ItemPool qiyuPool
+public ItemPool mijiPool
+public ItemPool array baozhuPools
+public ItemPool array baozhuUpPools
+public ItemPool array fabaoAbyssPools
+public ItemPool array dungeonQiyuPool
+public ItemPool array dungeonGemPool
+public ItemPool array dungeonGemExPool
+public ItemPool array dungeonAffixItemPool
+public ItemPool array dungeonOtherItemPool
+
+
+public class UnitDropManager
+    private static HashMap<int,thistype> drops = new HashMap<int,thistype>()
+    itempool pool = CreateItemPool()
+    string   name
+    int      unitId
+    real     chance
+    bool     isAutoGet = false
+    static trigger dropTri
+    static function of(string name,int unitId,real chance) returns UnitDropManager
+        let pool = new UnitDropManager()
+        pool.name = name
+        pool.unitId = unitId
+        pool.chance = chance
+        drops.put(unitId, pool)
+        return pool
+    ondestroy
+        DestroyItemPool(pool)
+    static function canDrop(int id)returns bool
+        return drops.has(id)
+    function setAutoGet()
+        isAutoGet = true
+    function add(integer itemId)
+        ItemPoolAddItemType(pool,itemId,1)
+    function add(integer itemId, real weight)
+        ItemPoolAddItemType(pool,itemId,weight)
+    static function get(int id) returns thistype
+        return drops.get(id)
+    function del(integer itemId)
+        ItemPoolRemoveItemType(pool,itemId)
+    function tryGet(vec2 pos) returns item
+        return tryGet(0,pos,false)
+    function tryGet(int dropPlus,vec2 pos,bool mustDrup) returns item
+        if mustDrup or ((dropPlus*0.01+1)*chance + dropOffset).random()
+            return PlaceRandomItem(pool,pos.x,pos.y)
+        return null
+    static function initi()
+        dropTri = CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+        ..addAction()->
+            let u = GetTriggerUnit()
+            let k = GetKillingUnit().getMainHero()
+            if UnitDropManager.canDrop(u.getTypeId())
+                let m = UnitDropManager.get(u.getTypeId())
+                let t = m.tryGet(u.getPos())
+                if m.isAutoGet
+                    Log.debug("获得物品"+t.getTypeId().toIdString())
+                    k.addItemHandle(t)
+            
+
+public abstract class UnitAbstractDropManager
+    private static HashMap<int,thistype> drops = new HashMap<int,thistype>()
+    string   name
+    int      unitId
+    real     chance
+    bool     isAutoGet = false
+    static trigger dropTri
+    static function of(string name,int unitId,real chance,UnitAbstractDropManager pool) returns UnitAbstractDropManager
+        pool.name = name
+        pool.unitId = unitId
+        pool.chance = chance
+        drops.put(unitId, pool)
+        return pool
+    ondestroy
+        drops.remove(unitId)
+    static function canDrop(int id)returns bool
+        return drops.has(id)
+    function setAutoGet()
+        isAutoGet = true
+    static function get(int id) returns thistype
+        return drops.get(id)
+    abstract function getItemId() returns int
+    function tryGet(vec2 pos) returns item
+        return tryGet(0,pos,false)
+    function tryGet(int dropPlus,vec2 pos,bool mustDrup) returns item
+        if mustDrup or ((dropPlus*0.01+1)*chance + dropOffset).random()
+            return createItem(getItemId(), pos)
+        return null
+    static function initi()
+        dropTri = CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
+        ..addAction()->
+            let u = GetTriggerUnit()
+            let k = GetKillingUnit().getMainHero()
+            if UnitAbstractDropManager.canDrop(u.getTypeId())
+                let m = UnitAbstractDropManager.get(u.getTypeId())
+                let t = m.tryGet(u.getPos())
+                if m.isAutoGet
+                    Log.debug("获得物品"+t.getTypeId().toIdString())
+                    k.addItemHandle(t)
+
+public function initDrop()
+    UnitDropManager.initi()
+    UnitAbstractDropManager.initi()
+    //怪物精髓
+    UnitDropManager.of("[精髓]盗贼王"       ,'H60A',100)..add('JS01',1)..add('JS0L',8)..add('JS15', 18)
+    UnitDropManager.of("[精髓]鱼人首领"     ,'H60B',100)..add('JS02',1)..add('JS0M',8)..add('JS16', 18)
+    UnitDropManager.of("[精髓]森林狼王"     ,'H60C',100)..add('JS03',1)..add('JS0N',8)..add('JS17', 18)
+    UnitDropManager.of("[精髓]豪猪王"       ,'H60D',100)..add('JS04',1)..add('JS0O',8)..add('JS18', 18)
+    UnitDropManager.of("[精髓]达拉内尔主教" ,'H60E',100)..add('JS05',1)..add('JS0P',8)..add('JS19', 18)
+    UnitDropManager.of("[精髓]食人魔酋长"   ,'H60F',100)..add('JS06',1)..add('JS0Q',8)..add('JS1A', 18)
+    UnitDropManager.of("[精髓]狗头人酋长"   ,'H60G',100)..add('JS07',1)..add('JS0R',8)..add('JS1B', 18)
+    UnitDropManager.of("[精髓]矿井魔蝎"     ,'H60H',100)..add('JS08',1)..add('JS0S',8)..add('JS1C', 18)
+    UnitDropManager.of("[精髓]炎魔"         ,'H60I',100)..add('JS09',1)..add('JS0T',8)..add('JS1D', 18)
+    UnitDropManager.of("[精髓]巨型蜥蜴"     ,'H60J',100)..add('JS0A',1)..add('JS0U',8)..add('JS1E', 18)
+    UnitDropManager.of("[精髓]千年龙龟"     ,'H60K',100)..add('JS0B',1)..add('JS0V',8)..add('JS1F', 18)
+    UnitDropManager.of("[精髓]成年巨龙"     ,'H60L',100)..add('JS0C',1)..add('JS0W',8)..add('JS1G', 18)
+    UnitDropManager.of("[精髓]冰霜巨魔酋长" ,'H60M',100)..add('JS0D',1)..add('JS0X',8)..add('JS1H', 18)
+    UnitDropManager.of("[精髓]丛林巨魔酋长" ,'H60N',100)..add('JS0E',1)..add('JS0Y',8)..add('JS1I', 18)
+    UnitDropManager.of("[精髓]娜迦暴君"     ,'H60O',100)..add('JS0F',1)..add('JS0Z',8)..add('JS1J', 18)
+    UnitDropManager.of("[精髓]黑暗巨魔酋长" ,'H60P',100)..add('JS0G',1)..add('JS10',8)..add('JS1K', 18)
+    UnitDropManager.of("[精髓]火元素领主"   ,'H60Q',100)..add('JS0H',1)..add('JS11',8)..add('JS1L', 18)
+    UnitDropManager.of("[精髓]风元素领主"   ,'H60R',100)..add('JS0I',1)..add('JS12',8)..add('JS1M', 18)
+    UnitDropManager.of("[精髓]水元素领主"   ,'H60S',100)..add('JS0J',1)..add('JS13',8)..add('JS1N', 18)
+    UnitDropManager.of("[精髓]土元素领主"   ,'H60T',100)..add('JS0K',1)..add('JS14',8)..add('JS1O', 18)
+
+    UnitDropManager.of("升级装备Lv2" ,'H30A',100)..add('ZC02',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv3" ,'H30B',100)..add('ZC03',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv4" ,'H30C',100)..add('ZC04',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv5" ,'H30D',100)..add('ZC05',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv6" ,'H30E',100)..add('ZC06',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv7" ,'H30F',100)..add('ZC07',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv8" ,'H30G',100)..add('ZC08',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv9" ,'H30H',100)..add('ZC09',1)..setAutoGet()
+    UnitDropManager.of("升级装备Lv10",'H30I',100)..add('ZC0A',1)..setAutoGet()
+
+    UnitDropManager.of("圣魂结晶1",'H441',100)..add('ZB21',1)
+    UnitDropManager.of("圣魂结晶2",'H442',100)..add('ZB22',1)
+    UnitDropManager.of("圣魂结晶3",'H443',100)..add('ZB23',1)
+    UnitDropManager.of("圣魂结晶4",'H444',100)..add('ZB24',1)
+    UnitDropManager.of("圣魂结晶5",'H445',100)..add('ZB25',1)
+
+    UnitDropManager.of("宝石升级怪1" ,'H401',100)..add('I530',1)
+    UnitDropManager.of("宝石升级怪2" ,'H402',100)..add('I531',1)
+    UnitDropManager.of("宝石升级怪3" ,'H403',100)..add('I532',1)
+    UnitDropManager.of("宝石升级怪4" ,'H404',100)..add('I533',1)
+
+    UnitDropManager.of("雪狐",'H700',100)..add('ZD03')
+    UnitDropManager.of("雪熊",'H701',100)..add('ZD04')
+    UnitDropManager.of("雪鸟",'H702',100)..add('ZD05')
+    UnitDropManager.of("万年玄冰巨人-寒",'H703',100)..add('ZD07')
+    UnitDropManager.of("万年玄冰巨人-霜",'H704',100)..add('ZD08')
+    UnitDropManager.of("万年玄冰巨人-冰",'H705',100)..add('ZD09')
+    UnitDropManager.of("万年玄冰巨人-雪",'H706',100)..add('ZD0A')
+    UnitDropManager.of("雪山罡风",'H707',100)..add('ZD0D')
+    UnitDropManager.of("雪山古剑",'H708',100)..add('ZD0E')
+    UnitDropManager.of("前朝公主",'H709',100)..add('ZD0G',10)..add('ZD0H',1)
+    UnitDropManager.of("前朝护卫-红",'H710',100)..add('ZD0L')
+    UnitDropManager.of("前朝护卫-蓝",'H711',100)..add('ZD0M')
+    UnitDropManager.of("前朝护卫-绿",'H712',100)..add('ZD0N')
+    UnitDropManager.of("扭曲魔物",'H713',100)..add('ZD0P')
+    UnitDropManager.of("扭曲妖物",'H714',100)..add('ZD0Q')
+    UnitDropManager.of("扭曲邪物",'H715',100)..add('ZD0R')
+    UnitDropManager.of("扭曲怪物",'H716',100)..add('ZD0S')
+    UnitDropManager.of("扭曲魔法使",'H717',100)..add('ZD0U')
+    UnitDropManager.of("扭曲重骑士",'H718',100)..add('ZD0V')
+    UnitDropManager.of("扭曲半兽人",'H719',100)..add('ZD0W')
+    UnitDropManager.of("扭曲血精灵",'H720',100)..add('ZD0X')
+    UnitDropManager.of("虚空魔使",'H721',100)..add('ZD0Z')
+    UnitDropManager.of("虚空触手",'H722',100)..add('ZD10')
+    UnitDropManager.of("熔火熔岩魔兽",'H723',100)..add('ZD13')
+
+    for i = 1 to 10
+        UnitAbstractDropManager.of("进攻"+i,'H100'+i - 1,100) ->
+            return RandomSpellEntityManager.poolGeneral.getRandomBook()
+
+
+    for i = 1 to 4
+        baozhuPools[i] = ItemPool.of("宝珠"+i, 0.3)
+        ..add('ZB60'-(i-1)*256,1)
+        ..add('ZB61'-(i-1)*256,1)
+        ..add('ZB62'-(i-1)*256,1)
+        ..add('ZB63'-(i-1)*256,1)
+        ..add('ZB64'-(i-1)*256,1)
+        ..add('ZB65'-(i-1)*256,1)
+        ..add('ZB66'-(i-1)*256,1)
+        ..add('ZB67'-(i-1)*256,1)
+
+    baozhuUpPools[1] = ItemPool.of("宝珠升级1", 100)
+    ..add('I530', 64)
+    ..add('I531', 16)
+    ..add('I532', 4)
+    ..add('I533', 1)
+    baozhuUpPools[2] = ItemPool.of("宝珠升级2", 100)
+    ..add('I530', 16)
+    ..add('I531', 64)
+    ..add('I532', 16)
+    ..add('I533', 2)
+    baozhuUpPools[3] = ItemPool.of("宝珠升级3", 100)
+    ..add('I530', 4)
+    ..add('I531', 16)
+    ..add('I532', 64)
+    ..add('I533', 4)
+    baozhuUpPools[4] = ItemPool.of("宝珠升级4", 100)
+    ..add('I530', 1)
+    ..add('I531', 4)
+    ..add('I532', 16)
+    ..add('I533', 8)
+
+
+    dungeonOtherItemPool[1] = ItemPool.of("副本杂物1",15)
+    ..add('I64G', 1)
+    dungeonAffixItemPool[1] = ItemPool.of("副本装备1",2)
+    ..add('SY01', 1)
+    ..add('SY02', 1)
+    ..add('SY03', 1)
+    ..add('SY04', 1)
+    ..add('SY05', 1)
+    ..add('SY06', 1)
+    ..add('SY07', 1)
+    ..add('SY08', 1)
+
+    // ..add('SY09', 1)
+    // ..add('SY0A', 1)
+    // ..add('SY0B', 1)
+    // ..add('SY0C', 1)
+    // ..add('SY0D', 1)
+    // ..add('SY0E', 1)
+    // ..add('SY0F', 1)
+    // ..add('SY0G', 1)
+
+
+    dungeonOtherItemPool[2] = ItemPool.of("副本杂物2",10)
+    ..add('I64G', 1)
+    dungeonAffixItemPool[2] = ItemPool.of("副本装备2",1.5)
+    ..add('SY0H', 1)
+    ..add('SY0I', 1)
+    ..add('SY0J', 1)
+    ..add('SY0K', 1)
+    ..add('SY0L', 1)
+    ..add('SY0M', 1)
+    ..add('SY0N', 1)
+    ..add('SY0O', 1)
+
+    // ..add('SY0P', 1)
+    // ..add('SY0Q', 1)
+    // ..add('SY0R', 1)
+    // ..add('SY0S', 1)
+    // ..add('SY0T', 1)
+    // ..add('SY0U', 1)
+    // ..add('SY0V', 1)
+    // ..add('SY0W', 1)
+
+    dungeonOtherItemPool[3] = ItemPool.of("副本杂物3",10)
+    ..add('I64H', 1)
+    dungeonAffixItemPool[3] = ItemPool.of("副本装备3",1.5)
+    ..add('SY0X', 1)
+    ..add('SY0Y', 1)
+    ..add('SY0Z', 1)
+    ..add('SY10', 1)
+    ..add('SY11', 1)
+    ..add('SY12', 1)
+    ..add('SY13', 1)
+    ..add('SY14', 1)
+
+    // ..add('SY15', 1)
+    // ..add('SY16', 1)
+    // ..add('SY17', 1)
+    // ..add('SY18', 1)
+    // ..add('SY19', 1)
+    // ..add('SY1A', 1)
+    // ..add('SY1B', 1)
+    // ..add('SY1C', 1)
+
+    dungeonOtherItemPool[4] = ItemPool.of("副本杂物4",10)
+    ..add('I64H', 1)
+    dungeonAffixItemPool[4] = ItemPool.of("副本装备4",1.5)
+    ..add('SY1D', 1)
+    ..add('SY1E', 1)
+    ..add('SY1F', 1)
+    ..add('SY1G', 1)
+    ..add('SY1H', 1)
+    ..add('SY1I', 1)
+    ..add('SY1J', 1)
+    ..add('SY1K', 1)
+
+    // ..add('SY1L', 1)
+    // ..add('SY1M', 1)
+    // ..add('SY1N', 1)
+    // ..add('SY1O', 1)
+    // ..add('SY1P', 1)
+    // ..add('SY1Q', 1)
+    // ..add('SY1R', 1)
+    // ..add('SY1S', 1)
+
+    dungeonOtherItemPool[5] = ItemPool.of("副本杂物5",8)
+    ..add('I64I', 1)
+    dungeonAffixItemPool[5] = ItemPool.of("副本装备5",1.2)
+    ..add('SY1T', 1)
+    ..add('SY1U', 1)
+    ..add('SY1V', 1)
+    ..add('SY1W', 1)
+    ..add('SY1X', 1)
+    ..add('SY1Y', 1)
+    ..add('SY1Z', 1)
+    ..add('SY20', 1)
+
+    // ..add('SY21', 1)
+    // ..add('SY22', 1)
+    // ..add('SY23', 1)
+    // ..add('SY24', 1)
+    // ..add('SY25', 1)
+    // ..add('SY26', 1)
+    // ..add('SY27', 1)
+    // ..add('SY28', 1)

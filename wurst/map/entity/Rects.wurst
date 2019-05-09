@@ -1,0 +1,216 @@
+package Rects
+import LinkedList
+import way
+import HashMap
+
+public class Rects
+    region i
+    rect   origin
+    vec2   pos
+
+    construct(rect r)
+        pos  = vec2(GetRectCenterX(r),GetRectCenterY(r))
+        i      = CreateRegion()..addRect(r)
+        origin = r
+        i.setRects(this)
+
+public class WayRects extends Rects
+    WayRects  first
+    WayRects  next
+    WayRects  prev
+    Way    way
+    LinkedList<Rects> rects
+
+    construct(rect r)
+        super(r)
+
+    function setFirst(Way way) returns thistype
+        rects = new LinkedList<Rects>()
+        first = this
+        rects.add(this)
+        this.way = way
+        return this
+
+    function setNext(rect r) returns thistype
+        var next = new WayRects(r)
+        this.next = next
+        next.way = first.way
+        next.prev = this
+        next.first = first
+        first.rects.add(next)
+        return next
+    function setNext(WayRects next) returns thistype
+        this.next = next
+        next.way = first.way
+        next.prev = this
+        next.first = first
+        first.rects.add(next)
+        return next
+
+HashMap<region,Rects> map = new HashMap<region,Rects>
+public function region.setRects(Rects rects_)
+    map.put(this, rects_)
+
+public function region.getRects() returns Rects
+    return map.get(this)
+
+public WayRects path_center1 = new WayRects(gg_rct_path_center_1)
+public WayRects path_center2 = new WayRects(gg_rct_path_center_2)
+public WayRects path_center3 = new WayRects(gg_rct_path_center_3)
+
+public Rects main = new Rects(gg_rct_main)
+public Rects home = new Rects(gg_rct_home)
+public Rects array workRoomRects
+public Rects array persionReturn
+public Rects array persion
+public Rects  persionAll = new Rects(gg_rct_persion_all)
+
+public Rects array soulAll
+public Rects array soulChall
+public Rects array soulCome
+
+public Rects dungeonAll = new Rects(gg_rct_dungeon_all)
+public Rects array dungeon
+public Rects array dungeonAbyss
+public Rects array dungeonCome1
+public Rects array dungeonCome2
+public Rects array dungeonCome3
+public Rects array dungeonCome4
+public Rects array dungeonUnit1
+public Rects array dungeonUnit2
+public Rects array dungeonUnit3
+public Rects array dungeonUnit4
+public Rects array dungeonBoss1
+public Rects array dungeonBoss2
+public Rects array dungeonBoss3
+public Rects array dungeonBoss4
+
+public Rects array seniorDungeon
+
+public Rects choiceHero = new Rects(gg_rct_choice_hero)
+public Rects homeReturn = new Rects(gg_rct_home_return)
+public Rects springReturn = new Rects(gg_rct_spring_return)
+public Rects final = new Rects(gg_rct_final)
+public Rects finalCome = new Rects(gg_rct_final_come)
+public Rects beastGodRect = new Rects(gg_rct_beast_god)
+public Rects attack = new Rects(gg_rct_attack)
+public Rects flowerDream = new Rects(gg_rct_area_flower_dream)
+
+public Rects snowMountainU1 = new Rects(gg_rct_snow_mountain_u1)
+public Rects snowMountainU2 = new Rects(gg_rct_snow_mountain_u2)
+public Rects snowMountainU3 = new Rects(gg_rct_snow_mountain_u3)
+
+public Rects hideWay1 = new Rects(gg_rct_hide_way_1)
+public Rects hideWay2 = new Rects(gg_rct_hide_way_2)
+public Rects hideWay3 = new Rects(gg_rct_hide_way_3)
+public Rects hideWay4 = new Rects(gg_rct_hide_way_4)
+
+init
+    seniorDungeon[1] = new Rects(gg_rct_senior_dungeon_1)
+    seniorDungeon[2] = new Rects(gg_rct_senior_dungeon_2)
+
+    workRoomRects[1] = new Rects(gg_rct_persion_chall_1)
+    workRoomRects[2] = new Rects(gg_rct_persion_chall_2)
+    workRoomRects[3] = new Rects(gg_rct_persion_chall_3)
+    workRoomRects[4] = new Rects(gg_rct_persion_chall_4)
+    workRoomRects[5] = new Rects(gg_rct_persion_chall_5)
+    persion[1] = new Rects(gg_rct_persion_1)
+    persion[2] = new Rects(gg_rct_persion_2)
+    persion[3] = new Rects(gg_rct_persion_3)
+    persion[4] = new Rects(gg_rct_persion_4)
+    persion[5] = new Rects(gg_rct_persion_5)
+    persionReturn[1] = new Rects(gg_rct_persion_return_1)
+    persionReturn[2] = new Rects(gg_rct_persion_return_2)
+    persionReturn[3] = new Rects(gg_rct_persion_return_3)
+    persionReturn[4] = new Rects(gg_rct_persion_return_4)
+    persionReturn[5] = new Rects(gg_rct_persion_return_5)
+
+    dungeon[1] = new Rects(gg_rct_dungeon_1)
+    dungeon[2] = new Rects(gg_rct_dungeon_2)
+    dungeon[3] = new Rects(gg_rct_dungeon_3)
+    dungeon[4] = new Rects(gg_rct_dungeon_4)
+    dungeon[5] = new Rects(gg_rct_dungeon_5)
+    dungeonCome1[1] = new Rects(gg_rct_dungeon_1_come_1)
+    dungeonCome1[2] = new Rects(gg_rct_dungeon_2_come_1)
+    dungeonCome1[3] = new Rects(gg_rct_dungeon_3_come_1)
+    dungeonCome1[4] = new Rects(gg_rct_dungeon_4_come_1)
+    dungeonCome1[5] = new Rects(gg_rct_dungeon_5_come_1)
+    dungeonCome2[1] = new Rects(gg_rct_dungeon_1_come_2)
+    dungeonCome2[2] = new Rects(gg_rct_dungeon_2_come_2)
+    dungeonCome2[3] = new Rects(gg_rct_dungeon_3_come_2)
+    dungeonCome2[4] = new Rects(gg_rct_dungeon_4_come_2)
+    dungeonCome2[5] = new Rects(gg_rct_dungeon_5_come_2)
+    dungeonCome3[1] = new Rects(gg_rct_dungeon_1_come_3)
+    dungeonCome3[2] = new Rects(gg_rct_dungeon_2_come_3)
+    dungeonCome3[3] = new Rects(gg_rct_dungeon_3_come_3)
+    dungeonCome3[4] = new Rects(gg_rct_dungeon_4_come_3)
+    dungeonCome3[5] = new Rects(gg_rct_dungeon_5_come_3)
+    dungeonCome4[1] = new Rects(gg_rct_dungeon_1_come_4)
+    dungeonCome4[2] = new Rects(gg_rct_dungeon_2_come_4)
+    dungeonCome4[3] = new Rects(gg_rct_dungeon_3_come_4)
+    dungeonCome4[4] = new Rects(gg_rct_dungeon_4_come_4)
+    dungeonCome4[5] = new Rects(gg_rct_dungeon_5_come_4)
+    dungeonUnit1[1] = new Rects(gg_rct_dungeon_1_unit1)
+    dungeonUnit1[2] = new Rects(gg_rct_dungeon_2_unit1)
+    dungeonUnit1[3] = new Rects(gg_rct_dungeon_3_unit1)
+    dungeonUnit1[4] = new Rects(gg_rct_dungeon_4_unit1)
+    dungeonUnit1[5] = new Rects(gg_rct_dungeon_5_unit1)
+    dungeonUnit2[1] = new Rects(gg_rct_dungeon_1_unit2)
+    dungeonUnit2[2] = new Rects(gg_rct_dungeon_2_unit2)
+    dungeonUnit2[3] = new Rects(gg_rct_dungeon_3_unit2)
+    dungeonUnit2[4] = new Rects(gg_rct_dungeon_4_unit2)
+    dungeonUnit2[5] = new Rects(gg_rct_dungeon_5_unit2)
+    dungeonUnit3[1] = new Rects(gg_rct_dungeon_1_unit3)
+    dungeonUnit3[2] = new Rects(gg_rct_dungeon_2_unit3)
+    dungeonUnit3[3] = new Rects(gg_rct_dungeon_3_unit3)
+    dungeonUnit3[4] = new Rects(gg_rct_dungeon_4_unit3)
+    dungeonUnit3[5] = new Rects(gg_rct_dungeon_5_unit3)
+    dungeonUnit4[1] = new Rects(gg_rct_dungeon_1_unit4)
+    dungeonUnit4[2] = new Rects(gg_rct_dungeon_2_unit4)
+    dungeonUnit4[3] = new Rects(gg_rct_dungeon_3_unit4)
+    dungeonUnit4[4] = new Rects(gg_rct_dungeon_4_unit4)
+    dungeonUnit4[5] = new Rects(gg_rct_dungeon_5_unit4)
+    dungeonBoss1[1] = new Rects(gg_rct_dungeon_1_boss1)
+    dungeonBoss1[2] = new Rects(gg_rct_dungeon_2_boss1)
+    dungeonBoss1[3] = new Rects(gg_rct_dungeon_3_boss1)
+    dungeonBoss1[4] = new Rects(gg_rct_dungeon_4_boss1)
+    dungeonBoss1[5] = new Rects(gg_rct_dungeon_5_boss1)
+    dungeonBoss2[1] = new Rects(gg_rct_dungeon_1_boss2)
+    dungeonBoss2[2] = new Rects(gg_rct_dungeon_2_boss2)
+    dungeonBoss2[3] = new Rects(gg_rct_dungeon_3_boss2)
+    dungeonBoss2[4] = new Rects(gg_rct_dungeon_4_boss2)
+    dungeonBoss2[5] = new Rects(gg_rct_dungeon_5_boss2)
+    dungeonBoss3[1] = new Rects(gg_rct_dungeon_1_boss3)
+    dungeonBoss3[2] = new Rects(gg_rct_dungeon_2_boss3)
+    dungeonBoss3[3] = new Rects(gg_rct_dungeon_3_boss3)
+    dungeonBoss3[4] = new Rects(gg_rct_dungeon_4_boss3)
+    dungeonBoss3[5] = new Rects(gg_rct_dungeon_5_boss3)
+    dungeonBoss4[1] = new Rects(gg_rct_dungeon_1_boss4)
+    dungeonBoss4[2] = new Rects(gg_rct_dungeon_2_boss4)
+    dungeonBoss4[3] = new Rects(gg_rct_dungeon_3_boss4)
+    dungeonBoss4[4] = new Rects(gg_rct_dungeon_4_boss4)
+    dungeonBoss4[5] = new Rects(gg_rct_dungeon_5_boss4)
+
+    soulAll[1] = new Rects(gg_rct_soul_all_1)
+    soulAll[2] = new Rects(gg_rct_soul_all_2)
+    soulAll[3] = new Rects(gg_rct_soul_all_3)
+    soulAll[4] = new Rects(gg_rct_soul_all_4)
+    soulAll[5] = new Rects(gg_rct_soul_all_5)
+    soulChall[1] = new Rects(gg_rct_soul_chall_1)
+    soulChall[2] = new Rects(gg_rct_soul_chall_2)
+    soulChall[3] = new Rects(gg_rct_soul_chall_3)
+    soulChall[4] = new Rects(gg_rct_soul_chall_4)
+    soulChall[5] = new Rects(gg_rct_soul_chall_5)
+    soulCome[1] = new Rects(gg_rct_soul_come_1)
+    soulCome[2] = new Rects(gg_rct_soul_come_2)
+    soulCome[3] = new Rects(gg_rct_soul_come_3)
+    soulCome[4] = new Rects(gg_rct_soul_come_4)
+    soulCome[5] = new Rects(gg_rct_soul_come_5)
+
+    path_center1.setFirst(Way.Left)
+    .setNext(gg_rct_home)
+    path_center2.setFirst(Way.Center)
+    .setNext(gg_rct_home)
+    path_center3.setFirst(Way.Right)
+    .setNext(gg_rct_home)
+    

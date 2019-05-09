@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Created>2015-06-05T18:19:34Z</Created>
+  <LastSaved>2019-05-04T15:04:15Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+  <RemovePersonalInformation/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowIconic/>
+  <WindowHeight>9684</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="等线" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="ABIL">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="23" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="13.8">
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="79.800000000000011"/>
+   <Column ss:AutoFitWidth="0" ss:Width="447.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="116.4"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ID</Data></Cell>
+    <Cell><Data ss:Type="String">RID</Data></Cell>
+    <Cell><Data ss:Type="String">BID</Data></Cell>
+    <Cell><Data ss:Type="String">NAME</Data></Cell>
+    <Cell><Data ss:Type="String">DESCRIPTION</Data></Cell>
+    <Cell><Data ss:Type="String">ART</Data></Cell>
+    <Cell><Data ss:Type="String">CODE</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP01</Data></Cell>
+    <Cell><Data ss:Type="String">AR01</Data></Cell>
+    <Cell><Data ss:Type="String">AB01</Data></Cell>
+    <Cell><Data ss:Type="String">寒冰之息</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,概率施加虚弱BUFF|n攻击虚弱状态敌人时,概率增加10点附加伤害持续3秒</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP01.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP03</Data></Cell>
+    <Cell><Data ss:Type="String">AR03</Data></Cell>
+    <Cell><Data ss:Type="String">AB03</Data></Cell>
+    <Cell><Data ss:Type="String">大地护佑</Data></Cell>
+    <Cell><Data ss:Type="String">格挡20%|n三维增幅+20</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP03.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP04</Data></Cell>
+    <Cell><Data ss:Type="String">AR04</Data></Cell>
+    <Cell><Data ss:Type="String">AB04</Data></Cell>
+    <Cell><Data ss:Type="String">邪恶契约</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,有概率施加精准BUFF|n附加伤害+30</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP04.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP05</Data></Cell>
+    <Cell><Data ss:Type="String">AR05</Data></Cell>
+    <Cell><Data ss:Type="String">AB05</Data></Cell>
+    <Cell><Data ss:Type="String">魔蛛迷雾</Data></Cell>
+    <Cell><Data ss:Type="String">被攻击概率施加致盲,被攻击时概率刷新技能,被攻击时概率增加10点附加伤害持续3秒</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP05.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP06</Data></Cell>
+    <Cell><Data ss:Type="String">AR06</Data></Cell>
+    <Cell><Data ss:Type="String">AB06</Data></Cell>
+    <Cell><Data ss:Type="String">丛林之心</Data></Cell>
+    <Cell><Data ss:Type="String">暴击概率+20|n附加伤害+10</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP06.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP07</Data></Cell>
+    <Cell><Data ss:Type="String">AR07</Data></Cell>
+    <Cell><Data ss:Type="String">AB07</Data></Cell>
+    <Cell><Data ss:Type="String">元素掌控</Data></Cell>
+    <Cell><Data ss:Type="String">暴击伤害+50</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP07.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP08</Data></Cell>
+    <Cell><Data ss:Type="String">AR08</Data></Cell>
+    <Cell><Data ss:Type="String">AB08</Data></Cell>
+    <Cell><Data ss:Type="String">防御药剂</Data></Cell>
+    <Cell><Data ss:Type="String">伤害减免+30</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP08.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP09</Data></Cell>
+    <Cell><Data ss:Type="String">AR09</Data></Cell>
+    <Cell><Data ss:Type="String">AB09</Data></Cell>
+    <Cell><Data ss:Type="String">破甲火焰</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,概率施加破绽BUFF</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP09.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0A</Data></Cell>
+    <Cell><Data ss:Type="String">AR0A</Data></Cell>
+    <Cell><Data ss:Type="String">AB0A</Data></Cell>
+    <Cell><Data ss:Type="String">神圣武装</Data></Cell>
+    <Cell><Data ss:Type="String">降低敌人20%攻击|n伤害减免+10</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0A.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0C</Data></Cell>
+    <Cell><Data ss:Type="String">AR0C</Data></Cell>
+    <Cell><Data ss:Type="String">AB0C</Data></Cell>
+    <Cell><Data ss:Type="String">嗜血战意</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,有概率施加暴怒BUFF|n暴击概率+10</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0C.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0E</Data></Cell>
+    <Cell><Data ss:Type="String">AR0E</Data></Cell>
+    <Cell><Data ss:Type="String">AB0E</Data></Cell>
+    <Cell><Data ss:Type="String">先祖之力</Data></Cell>
+    <Cell><Data ss:Type="String">施法时,有概率清除自身以及队友技能CD</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0E.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0F</Data></Cell>
+    <Cell><Data ss:Type="String">AR0F</Data></Cell>
+    <Cell><Data ss:Type="String">AB0F</Data></Cell>
+    <Cell><Data ss:Type="String">巫妖领域</Data></Cell>
+    <Cell><Data ss:Type="String">增加周围单位30%攻击</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0F.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0G</Data></Cell>
+    <Cell><Data ss:Type="String">AR0G</Data></Cell>
+    <Cell><Data ss:Type="String">AB0G</Data></Cell>
+    <Cell><Data ss:Type="String">海洋之心</Data></Cell>
+    <Cell><Data ss:Type="String">附加伤害30|n攻击时,概率施加虚弱BUFF</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0G.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0H</Data></Cell>
+    <Cell><Data ss:Type="String">AR0H</Data></Cell>
+    <Cell><Data ss:Type="String">AB0H</Data></Cell>
+    <Cell><Data ss:Type="String">恶魔意志</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,如果被攻击单位有破绽BUFF,则施加虚弱BUFF|n三维增幅+15</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0H.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0I</Data></Cell>
+    <Cell><Data ss:Type="String">AR0I</Data></Cell>
+    <Cell><Data ss:Type="String">AB0I</Data></Cell>
+    <Cell><Data ss:Type="String">腐蚀之箭</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,如果被攻击单位有破绽BUFF,则施加强化BUFF|n三维增幅+15</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0I.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0J</Data></Cell>
+    <Cell><Data ss:Type="String">AR0J</Data></Cell>
+    <Cell><Data ss:Type="String">AB0J</Data></Cell>
+    <Cell><Data ss:Type="String">铜皮铁骨</Data></Cell>
+    <Cell><Data ss:Type="String">被攻击时,如果攻击单位有虚弱BUFF,则施加护体BUFF|n三维增幅+15</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0J.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0K</Data></Cell>
+    <Cell><Data ss:Type="String">AR0K</Data></Cell>
+    <Cell><Data ss:Type="String">AB0K</Data></Cell>
+    <Cell><Data ss:Type="String">月神祝福</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,如果被攻击单位有虚弱BUFF,则施加破绽BUFF|n三维增幅+15</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0K.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0L</Data></Cell>
+    <Cell><Data ss:Type="String">AR0L</Data></Cell>
+    <Cell><Data ss:Type="String">AB0L</Data></Cell>
+    <Cell><Data ss:Type="String">复仇之刃</Data></Cell>
+    <Cell><Data ss:Type="String">50%攻速</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0L.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0M</Data></Cell>
+    <Cell><Data ss:Type="String">AR0M</Data></Cell>
+    <Cell><Data ss:Type="String">AB0M</Data></Cell>
+    <Cell><Data ss:Type="String">隔山打牛</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,有概率对500内单位造成基于三维的范围伤害</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0M.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0N</Data></Cell>
+    <Cell><Data ss:Type="String">AR0N</Data></Cell>
+    <Cell><Data ss:Type="String">AB0N</Data></Cell>
+    <Cell><Data ss:Type="String">猎杀之影</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,概率神行持续30秒|n伤害减免+10</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0N.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0O</Data></Cell>
+    <Cell><Data ss:Type="String">AR0O</Data></Cell>
+    <Cell><Data ss:Type="String">AB0O</Data></Cell>
+    <Cell><Data ss:Type="String">爆炸射击</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时,有概率对500内单位造成基于攻击力的范围伤害</Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0O.blp</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AP0P</Data></Cell>
+    <Cell><Data ss:Type="String">AR0P</Data></Cell>
+    <Cell><Data ss:Type="String">AB0P</Data></Cell>
+    <Cell><Data ss:Type="String">凤凰血脉</Data></Cell>
+    <Cell><Data ss:Type="String">100%暴击伤害|n暴击概率-10% </Data></Cell>
+    <Cell><Data ss:Type="String">blp\nirvana\AP0P.blp</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>4</SplitVertical>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>19</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

@@ -1,0 +1,14 @@
+package luckDrawEnum
+
+public enum BuilderType
+    N
+    R
+    SR
+    SSR
+
+public enum LuckDrawPoolType
+    Normal
+    Senior
+    Supreme
+    Special
+    NonUsed

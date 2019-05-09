@@ -1,0 +1,168 @@
+package SpellCaster
+// import ObjectIdGenerator
+// import ObjectIds
+// import UnitObjEditing
+// import MapBounds
+import phLib
+import CenterTimer
+import ClosureForGroups
+import DummyRecycler
+
+constant DUMMY_CASTER_UNIT_ID = DUMMY_UNIT_ID//compiletime(UNIT_ID_GEN.next())
+constant DUMMY_CASTER_LIVE_TIME = 3.
+
+public function unit.isCaster() returns bool
+	return this.getTypeId()==DUMMY_CASTER_UNIT_ID
+
+// public abstract class  TargetFilter
+// 	abstract function filter() returns bool
+
+// 	function check() returns bool
+// 		let a = filter()
+// 		destroy this
+// 		return a
+
+public class SpellCaster
+	static angle defaultAngle = 0 .fromDeg()
+	unit caster
+	int	 abil
+	int  lvl  = 1
+
+	private construct()
+
+	private static function prepare(player owner, int id, int lvl, vec3 pos) returns thistype
+		let c = new SpellCaster()
+		c.abil = id
+		c.lvl = lvl
+		c.initCaster(owner, pos,defaultAngle)
+		return c
+	private static function prepare(player owner, int id, int lvl, vec3 pos,angle a) returns thistype
+		let c = new SpellCaster()
+		c.abil = id
+		c.lvl = lvl
+		c.initCaster(owner, pos,a)
+		return c
+	private function initCaster(player owner, vec3 pos,angle a)
+		caster = DummyRecycler.get(pos.toVec2().fix(), a)
+		// caster = createUnit(DUMMY_PLAYER, DUMMY_CASTER_UNIT_ID, boundMax, angle(0))
+		// ..setPathing(false)..addAbility(HEIGHT_ENABLER)..removeAbility(HEIGHT_ENABLER)
+		// ..setMana(1000000)
+		// if pos.inBounds()
+		// caster.setXYZ(pos)
+		caster.setXYZReal(pos)
+		caster.setAbilityLevelPro(abil, lvl)
+		// if owner != null
+		caster.setOwner(owner, false)
+		// caster.setTimedLife(DUMMY_CASTER_LIVE_TIME)
+	private function clearCaster(unit u,real time)
+		if u != null
+			onAfter(time) i->
+				u.removeAbility(abil)
+				u.setOwner(DUMMY_PLAYER, false)
+				DummyRecycler.recycle(u)
+				//caster.remove()
+			
+	private function finish( real time)
+		onAfter(time) i->
+			caster.setOwner(DUMMY_PLAYER, false)
+			DummyRecycler.recycle(caster)
+			caster = null
+			//caster.remove()
+			destroy this
+			
+	private static function castImmediate(player owner, int abilityId, int lvl, int orderId, vec3 pos,real time) returns boolean
+		let c = prepare(owner, abilityId, lvl, pos)
+		boolean b = c.caster.issueImmediateOrderById(orderId)
+		c.finish(time)
+		return b
+		
+	private static function castTarget(player owner, int abilityId, int lvl, int orderId, widget target, vec3 casterPos,real time) returns boolean
+		let c = prepare(owner, abilityId, lvl, casterPos,casterPos.angleTo2d(target.getPos()))
+		c.caster.setFacing(c.caster.getPos().angleTo(target.getPos()))
+		boolean b = c.caster.issueTargetOrderById(orderId, target)
+		c.finish(time)
+		return b
+	
+	private static function castPoint(player owner, int abilityId, int lvl, int orderId, vec2 targetPos, vec3 casterPos,real time) returns boolean
+		let c = prepare(owner, abilityId, lvl, casterPos,casterPos.angleTo2d(targetPos))
+		c.caster.setFacing(c.caster.getPos().angleTo(targetPos))
+		boolean b = c.caster.issuePointOrderById(orderId, targetPos)
+		c.finish(time)
+		return b
+
+	private static function castTargets(player owner, int abilityId, int lvl, int orderId, vec2 targetPos, real range , vec3 casterPos,real time) returns boolean
+		let c = prepare(owner, abilityId, lvl, casterPos)
+		forUnitsInRange(targetPos, range) i ->
+			c.clearCaster(c.caster,time)
+			c.initCaster(owner, casterPos,c.caster.getPos().angleTo(i.getPos()))
+			c.caster.issueTargetOrderById(orderId, i)
+		c.finish(time)
+		return true
+
+
+	// Use with Orders package
+	static function castTarget(player owner, int abilityId, int orderId, widget target) returns boolean
+		return castTarget(owner, abilityId, 1, orderId, target, vec2(GetWidgetX(target), GetWidgetY(target)).toVec3(),DUMMY_CASTER_LIVE_TIME)
+	static function castTarget(player owner, int abilityId, int lvl, int orderId, widget target,real time) returns boolean
+		return castTarget(owner, abilityId, lvl, orderId, target, vec2(GetWidgetX(target), GetWidgetY(target)).toVec3(),time)
+
+	static function castPoint(player owner, int abilityId, int orderId, vec2 targetPos) returns boolean
+		return castPoint(owner, abilityId, 1, orderId, targetPos, targetPos.toVec3(),DUMMY_CASTER_LIVE_TIME)
+	static function castPoint(player owner, int abilityId, int lvl, int orderId, vec2 targetPos,real time) returns boolean
+		return castPoint(owner, abilityId, lvl, orderId, targetPos, targetPos.toVec3(),time)
+
+	// string orders / vec2 casterpos wrappers
+	static function castImmediate(player owner, int abilityId, string order, vec3 pos) returns boolean
+		return castImmediate(owner, abilityId, 1, OrderId(order), pos,DUMMY_CASTER_LIVE_TIME)
+	static function castImmediate(player owner, int abilityId, int lvl, string order, vec3 pos,real time) returns boolean
+		return castImmediate(owner, abilityId, lvl, OrderId(order), pos,time)
+
+	static function castTarget(player owner, int abilityId, string order, widget target, vec3 casterPos) returns boolean
+		return castTarget(owner, abilityId, 1, OrderId(order), target, casterPos,DUMMY_CASTER_LIVE_TIME)
+	static function castTarget(player owner, int abilityId, int lvl, string order, widget target, vec3 casterPos,real time) returns boolean
+		return castTarget(owner, abilityId, lvl, OrderId(order), target, casterPos,time)
+
+
+	static function castPoint(player owner, int abilityId, string order, vec2 targetPos, vec3 casterPos) returns boolean
+		return castPoint(owner, abilityId,1, OrderId(order), targetPos, casterPos,DUMMY_CASTER_LIVE_TIME)
+	static function castPoint(player owner, int abilityId, int lvl, string order, vec2 targetPos, vec3 casterPos,real time) returns boolean
+		return castPoint(owner, abilityId, lvl, OrderId(order), targetPos, casterPos,time)
+
+	/**
+	 * 群发技能
+	 */
+	static function castRange(player owner, int abilityId, string order, vec2 targetPos,real range , vec3 casterPos) returns boolean
+		return castTargets(owner, abilityId, 1, OrderId(order), targetPos,range , casterPos,DUMMY_CASTER_LIVE_TIME)
+	static function castRange(player owner, int abilityId, int lvl, string order, vec2 targetPos,real range , vec3 casterPos,real time) returns boolean
+		return castTargets(owner, abilityId, lvl, OrderId(order), targetPos,range , casterPos,time)
+
+// @compiletime function generateObject()
+// 	new UnitDefinition(DUMMY_CASTER_UNIT_ID, 'ewsp')
+// 	..setName("Spell Caster")
+// 	..setManaMaximum(1000000)
+// 	..setMovementType(MovementType.Fly)
+// 	..setUpgradesUsed("")
+// 	..setCollisionSize(0.0)
+// 	..setStructuresBuilt("")
+// 	..setRace(Race.Commoner)
+// 	..setFoodCost(0)
+// 	..setArmorType(ArmorType.Divine)
+// 	..setIconGameInterface("ReplaceableTextures\\CommandButtons\\BTNtemp.blp")
+// 	..setSpeedBase(522)
+// 	..setModelFile("dummy.mdl")
+// 	..setAnimationBlendTimeseconds(0.0)
+// 	..setAnimationCastBackswing(0.0)
+// 	..setMaximumPitchAngledegrees(0.0)
+// 	..setMaximumRollAngledegrees(0.0)
+// 	..setTurnRate(3)
+// 	..setArtSpecial("")
+// 	..setProjectileImpactZ(0.0)
+// 	..setProjectileLaunchZ(0.0)
+// 	..setNameEditorSuffix("(Basics)")
+// 	..setSightRadiusDay(1)
+// 	..setSightRadiusNight(1)
+// 	..setUnitClassification("_")
+// 	..setPropulsionWindowdegrees(1.0)
+// 	..setTooltipBasic("")
+// 	..setNormalAbilities(commaList(LOCUST_ID, GHOST_INVIS_ID))
+// 	..setCollisionSize(0)

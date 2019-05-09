@@ -1,0 +1,116 @@
+package Guard
+import LinkedListModule
+import phLib
+import CenterTimer
+import Orders
+import Execute
+import HashMap
+import Handle
+import skin
+
+public  class Guard
+    use LinkedListModule
+    use Handle<unit>
+    PetEntity ge
+    unit master
+    bool isPause = false
+    real power = 1
+    static HashMap<unit,group> masters = new HashMap<unit,group>()
+    static HashMap<unit,thistype> maps = new HashMap<unit,thistype>()
+    static real rangeAttack = 400
+    static real rangeReturn = 600
+    static real rangeOut    = 1000
+    static group tmp = CreateGroup()
+    static TimerTask task
+
+    private construct(PetEntity ge,unit mas)
+        this.ge = ge
+        this.master = mas
+        this._self = createUnit(mas.getOwner(), ge.id, mas.getPos(), 0 .fromDeg())
+        _self.addAbilityPro('Aloc')
+        _self.setMoveSpeed(522)
+        group g 
+        if masters.has(mas)
+            g = masters.get(mas)
+        else
+            g = CreateGroup()
+            masters.put(mas, g)
+        g.addUnit(_self)
+        maps.put(_self, this)
+
+    static function addGuard(PetEntity ge,unit u) returns thistype
+        let a = new Guard(ge,u)
+        return a
+    static function removeGuards(unit u)
+        if masters.has(u)
+            let g = masters.get(u)
+            for us in g
+                let gs = maps.get(us)
+                if gs != null and gs.typeId != 0
+                    g.removeUnit(gs._self)
+                    g.destr()
+                    gs._self.remove()
+                    masters.remove(u)
+                    gs.master = null
+                    gs.isPause = false
+                    gs.destr()
+
+    static function removeGuard(unit u,unit i)
+        if masters.has(u)
+            let g = masters.get(u)
+            if g.contains(i)
+                let gs = maps.get(i)
+                if gs != null and gs.typeId != 0
+                    g.removeUnit(gs._self)
+                    gs._self.remove()
+                    gs.master = null
+                    gs.isPause = false
+                    gs.destr()
+
+    override function typeName() returns string
+        return "Guard$"+_hid+":"+(this castTo int)
+    static function getGuard(unit u) returns group
+        return masters.get(u)
+    function getDamage() returns real
+        return master.getPropSumAndMain() * ge.power * power
+    function pause(bool b)
+        isPause = b
+        if b
+            _self.pause()
+        else
+            _self.unpause()
+    function do()
+        //判断暂停
+        if isPause
+            return
+        //判断主人是否存活
+        if not master.isAlive()
+            _self.pause()
+            return
+        else if master.isAlive()
+            _self.unpause()
+        //判断是否需要传送
+        let distance = master.getPos().distanceTo(_self.getPos())
+        if distance >= rangeOut
+            _self.setPos(master.getPos())
+            return
+        //判断当前是否有任务
+        let order = _self.getCurrentOrder()
+        if  order!=Orders.move and order!=0
+            return
+        //判断是否需要返回
+        if distance >= rangeReturn
+            _self.issueTargetOrderById(Orders.move, master)
+        //闲逛/攻击
+        let pos = master.getPos().polarOffset(GetRandomReal(0,360).fromDeg(),GetRandomReal(0, rangeAttack))
+        _self.issuePointOrderById(Orders.attack,pos)
+
+    function destr()
+        destroy this
+
+init
+    onAlways(2) task->
+        execute()->
+            for i in Guard
+                if i !=null and i.typeId != 0
+                    i.do()

@@ -1,0 +1,52 @@
+package EventMapper
+
+public class EVENT
+    static function u() returns unit
+        return GetTriggerUnit()
+    static function tri() returns trigger
+        return GetTriggeringTrigger()
+public class ITEM
+    static function i() returns item
+        return GetManipulatedItem()
+    static function u() returns unit
+        return GetManipulatingUnit()
+public class SHOP
+    static function seller() returns unit
+        return GetSellingUnit()
+    static function buyer() returns unit
+        return GetBuyingUnit()
+    static function i() returns item
+        return GetSoldItem()
+    static function u() returns unit
+        return GetSoldUnit()
+public class SPELL
+    static function caster() returns unit
+        return GetSpellAbilityUnit()
+    static function id() returns int
+        return GetSpellAbilityId()
+    static function targetUnit() returns unit
+        return GetSpellTargetUnit()
+    static function targetItem() returns item
+        return GetSpellTargetItem()
+    static function targetDest() returns destructable
+        return GetSpellTargetDestructable()
+    static function pos() returns vec2
+        return vec2(GetSpellTargetX(), GetSpellTargetY())
+    static function pos3() returns vec3
+        let loc = GetSpellTargetLoc()
+        let pos = vec3(GetLocationX(loc),GetLocationY(loc),GetLocationZ(loc))
+        RemoveLocation(loc)
+        return pos
+    static function x() returns real
+        return GetSpellTargetX()
+    static function y() returns real
+        return GetSpellTargetY()
+public class ATTACK
+    static function origin() returns unit
+        return GetEventDamageSource()
+    static function damage() returns real
+        return GetEventDamage()
+    static function attacker() returns unit
+        return GetAttacker()
+    static function attacked() returns unit
+        return GetTriggerUnit()

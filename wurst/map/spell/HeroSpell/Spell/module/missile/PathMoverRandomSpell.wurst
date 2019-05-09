@@ -1,0 +1,78 @@
+package PathMoverRandomSpell
+import LinearEffect
+import phLib
+
+public interface DelayedLinearEffectEmitterInterface
+    function onLinearEffectHit(DelayedLinearEffectWithInterface linearEffect,unit u)
+    function onLinearEffectEmission(unit i,string path,vec2 pos,angle face,player owner) returns DelayedLinearEffectWithInterface
+        var p = path
+        // if  not showOthersEffect[localPlayer.getId()] and localPlayer != owner
+        //     p = ""
+        return new DelayedLinearEffectWithInterface(this,i,pos.withTerrainZ(),face,p)
+    function setMoreLinearEffect(DelayedLinearEffectWithInterface linearEffect,int count,real right,real interval)
+        let pos = linearEffect.origin
+        let face = linearEffect.__face
+        let u = linearEffect.i
+        let path = linearEffect.effPath
+        DelayedLinearEffectWithInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = linearEffect
+            else
+                more = new DelayedLinearEffectWithInterface(this,u,pos,face,path)..copy(linearEffect)
+            more.__face = face + (right - interval * i).fromDeg()
+            more.mover_start()
+
+    function setMoreLinearEffectOneDamage(DelayedLinearEffectWithInterface linearEffect,int count,real right,real interval)
+        let pos = linearEffect.origin
+        let face = linearEffect.__face
+        let u = linearEffect.i
+        let path = linearEffect.effPath
+        DelayedLinearEffectWithInterface more
+        for i = 0 to count - 1
+            if i == 0
+                more = linearEffect
+            else
+                more = new DelayedLinearEffectWithInterface(this,u,pos,face,path)..copy(linearEffect)
+                more.__beenHit.destr()
+                more.__beenHit = linearEffect.__beenHit
+            more.__face = face + (right - interval * i).fromDeg()
+            more.mover_start()
+
+public class DelayedLinearEffectWithInterface extends DelayedLinearEffect
+    DelayedLinearEffectEmitterInterface cb
+    string effPath
+    unit i
+    override function getEffectPath() returns string
+        return effPath
+    construct(DelayedLinearEffectEmitterInterface cb,unit i,vec3 pos ,angle face,string effPath)
+        super(pos)
+        this.__face = face
+        this.effPath = effPath
+        this.cb = cb
+        this.i = i
+    override function isHit(unit u) returns bool
+        return enemyFilter(i,u)
+    override function onHit(unit u)
+        cb.onLinearEffectHit(this,u)
+
+function DelayedLinearEffectWithInterface.copy(DelayedLinearEffectWithInterface m)
+    this.effPath           = m.effPath
+    this.scale             = m.scale
+    this.__delay           = m.__delay           
+    this.__speed           = m.__speed           
+    this.__face            = m.__face            
+    this.__angle           = m.__angle           
+    this.__speedPlus       = m.__speedPlus       
+    this.__facePlus        = m.__facePlus        
+    this.__anglePlus       = m.__anglePlus       
+    this.__continueTime    = m.__continueTime    
+    this.__continueDist    = m.__continueDist    
+    this.__continueCount   = m.__continueCount   
+    this.__timePost        = m.__timePost        
+    this.__tickTimePost    = m.__tickTimePost    
+    this.__distPost        = m.__distPost        
+    this.__hitPost         = m.__hitPost         
+    this.__countPost       = m.__countPost       
+    this.__pause           = m.__pause           
+    this.__isBeDestory     = m.__isBeDestory     

@@ -1,0 +1,52 @@
+package YDWEAbilityState
+import JapiNative
+
+@ifNotDefined public function YDWEGetUnitAbilityState ( unit u, integer abilcode, integer state_type ) returns real
+	return EXGetAbilityState(EXGetUnitAbility(u, abilcode), state_type)
+
+
+@ifNotDefined public function YDWEGetUnitAbilityDataInteger ( unit u, integer abilcode, integer level, integer data_type ) returns integer
+	return EXGetAbilityDataInteger(EXGetUnitAbility(u, abilcode), level, data_type)
+
+
+@ifNotDefined public function YDWEGetUnitAbilityDataReal ( unit u, integer abilcode, integer level, integer data_type ) returns real
+	return EXGetAbilityDataReal(EXGetUnitAbility(u, abilcode), level, data_type)
+
+
+@ifNotDefined public function YDWEGetUnitAbilityDataString ( unit u, integer abilcode, integer level, integer data_type ) returns string
+	return EXGetAbilityDataString(EXGetUnitAbility(u, abilcode), level, data_type)
+
+
+@ifNotDefined public function YDWESetUnitAbilityState ( unit u, integer abilcode, integer state_type, real value ) returns boolean
+	return EXSetAbilityState(EXGetUnitAbility(u, abilcode), state_type, value)
+
+
+@ifNotDefined public function YDWESetUnitAbilityDataInteger ( unit u, integer abilcode, integer level, integer data_type, integer value ) returns boolean
+	return EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), level, data_type, value)
+
+
+@ifNotDefined public function YDWESetUnitAbilityDataReal ( unit u, integer abilcode, integer level, integer data_type, real value ) returns boolean
+	return EXSetAbilityDataReal(EXGetUnitAbility(u, abilcode), level, data_type, value)
+
+
+@ifNotDefined public function YDWESetUnitAbilityDataString ( unit u, integer abilcode, integer level, integer data_type, string value ) returns boolean
+	return EXSetAbilityDataString(EXGetUnitAbility(u, abilcode), level, data_type, value)
+
+
+@ifNotDefined public function YDWEUnitTransform ( unit u, integer abilcode, integer targetid ) 
+	UnitAddAbility(u, abilcode)
+	EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, 117, GetUnitTypeId(u))
+	EXSetAbilityAEmeDataA(EXGetUnitAbility(u, abilcode), GetUnitTypeId(u))
+	UnitRemoveAbility(u, abilcode)
+	UnitAddAbility(u, abilcode)
+	EXSetAbilityAEmeDataA(EXGetUnitAbility(u, abilcode), targetid)
+	UnitRemoveAbility(u, abilcode)
+
+
+@ifNotDefined public function YDWEGetItemDataString ( integer itemcode, integer data_type ) returns string
+	return EXGetItemDataString(itemcode, data_type)
+
+
+@ifNotDefined public function YDWESetItemDataString ( integer itemcode, integer data_type, string value ) returns boolean
+	return EXSetItemDataString(itemcode, data_type, value)
+

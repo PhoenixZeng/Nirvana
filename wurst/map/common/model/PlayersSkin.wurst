@@ -1,0 +1,5 @@
+package PlayersSkin
+import skin
+import AuthCheck
+
+init

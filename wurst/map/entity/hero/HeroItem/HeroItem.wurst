@@ -1,0 +1,66 @@
+package HeroItem
+import itemAttr
+import public HeroItemEntity
+import base
+import YDAbilityState
+import Gem
+import HashMap
+
+
+public class HeroItem extends Item
+    static let playerkey = "player".getHash()
+    static let gemkey = "gem".getHash()
+    HeroItemEntity entity
+    static let noOpenGemTip = "未解锁|n"
+    static let noSetGemTip  = "未镶嵌|n"
+
+    private static let map = new HashMap<item,thistype>
+    construct(item i)
+        super(i)
+        this.entity = HeroItemEntity.map.get(i.getTypeId())
+        map.put(i, this)
+
+    static function getHeroItem(item i) returns HeroItem
+        if i!=null
+            if map.has(i)
+                return map.get(i)
+            else if i.getItemType() == ItemType.Equipment and HeroItemEntity.map.has(i.getTypeId())
+                return new HeroItem(i)
+        return null
+
+    override function toString() returns string 
+        var a = _hid + "$" + entity.name + "@" + owner.getName() + "%" + this castTo int +"->"
+        return a
+
+    
+    function onGemSet(Gem g,IterableMap<int,item> gems,unit u) returns bool
+        let gz = g.entity.clazz
+        let iz = entity.clazz
+        if iz >= gz and  not gems.has(gz)
+            gems.put(gz, g._self)
+            flushTip(gems,u)
+            return true
+        return false
+
+    override function loadFromHt()
+        super.loadFromHt()
+        this.entity = HeroItemEntity.map.get(_self.getTypeId())
+
+    function flushTip(IterableMap<int,item> gems,unit u)
+        string s = entity.desc  +"\n" +color(247, 204, 10).toColorString()+"[宝石孔位(点击查看详情)]|r\n"
+        for i = 1 to 6
+            if entity.clazz < i
+                s += "["+i+"阶]:"+ noOpenGemTip
+            else
+                if not gems.has(i)
+                    s += "["+i+"阶]:"+ noSetGemTip
+                else
+                    let gem = Gem.getGem(gems.get(i)) 
+                    s += "["+i+"阶]:"+ gem.entity.name + "\n"
+        if u.getOwner() == localPlayer
+            _self.exTypeData(EX_ITEM_YD.UBERTIP, s)
+
+
+    ondestroy
+        map.remove(_self)
+

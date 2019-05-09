@@ -1,0 +1,434 @@
+package SpellSystemAI
+
+public class SpellSystemAI
+
+    static integer top = 0
+    static boolean AB = false
+    static unit array hero
+    static unit array htu
+    static real array htx
+    static real array hty
+    static integer array lastOI
+    static integer array OT
+    static integer array TYPE
+    static boolean array GUARD
+    static timer array HT
+    static group AG = null
+    static force aIusers = CreateForce()
+    static region RR = null
+    static trigger TE = null
+    static trigger TC = null
+    static real range = 1600
+    static real ratio = 1.
+    static boolean forHero = true
+    static boolean forNotHero = true
+    static boolean forStructure = false
+    static boolean onlyComputer = true
+    static boolean lock = true
+
+    private static function distanceBetweenUnits ( unit u1, unit u2 ) returns  real
+        return SquareRoot(( GetUnitX(u1)-GetUnitX(u2))*(GetUnitX(u1)-GetUnitX(u2))+(GetUnitY(u1)-GetUnitY(u2))*(GetUnitY(u1)-GetUnitY(u2)))
+
+    private static function isPlayerUseAI ( player p ) returns  boolean
+        return IsPlayerInForce(p,aIusers) and
+        (GetPlayerController(p)!=MAP_CONTROL_USER or onlyComputer==false)
+    
+    private static function isUnitUseAI ( unit u ) returns  boolean
+        return ((not IsUnitType(u,UNIT_TYPE_HERO)) and (not IsUnitType(u, UNIT_TYPE_STRUCTURE)) and forNotHero)
+        or (IsUnitType(u,UNIT_TYPE_HERO) and forHero)
+        or (IsUnitType(u, UNIT_TYPE_STRUCTURE) and forStructure)
+
+
+    private static function isUnitVisibleToEnemy ( unit u ) returns  boolean
+        for i = 1 to 14
+            if IsUnitVisible(u,Player(i)) and IsUnitEnemy(u,Player(i))
+                return true
+        return false
+    
+    private static function isUnitCanBeDamaged ( unit u ) returns  boolean
+        return GetUnitAbilityLevel(u,'Avul') <= 0
+    
+    private static function getHeroId ( unit u ) returns  integer
+        for i = 1 to top
+            if u==hero[i]
+                return i
+        return 0
+    
+    private static function getTimerId ( timer t ) returns  integer
+        for i = 1 to top
+            if t==HT[i]
+                return i
+        return 0
+    
+    private static function isFree ( integer OI ) returns  boolean
+        return OI==0 or OI==851972 or OI==851983 or OI == 852128
+    
+    private static function iS ( unit AU ) returns  boolean
+        integer OI = GetUnitCurrentOrder(AU)
+        return OI == 0
+        or OI == 851972
+        or OI == 851993
+        or OI == 851983
+        or OI == 851984
+        or OI == 851988
+        or OI == 851990
+        or OI == 851985
+        or OI == 851986
+        or OI == 851988
+        or OI == 851990
+        or OI == 999999
+
+    private static function iC ( unit u, integer i ) returns  boolean
+        return AB==false and GetUnitCurrentOrder(u)!=i and i!=lastOI[getHeroId(u)]
+    
+    private static function sD ( unit u, integer i )
+        integer id = getHeroId(u)
+        AB = true
+        lastOI[id] = i
+        OT[id] = 5
+
+    private static function iO ( unit AU, integer AI )
+        if iC(AU,AI) and IssueImmediateOrderById( AU, AI )
+            sD(AU,AI)
+
+    private static function iL ( unit AU, integer AI, real x, real y )
+        if iC(AU,AI) and IssuePointOrderById( AU, AI ,x ,y )
+            sD(AU,AI)
+
+    private static function iU ( unit AU, integer AI, unit AT )
+        if iC(AU,AI) and IssueTargetOrderById( AU, AI , AT )
+            sD(AU,AI)
+
+    private static function sO1 ( unit AU, real R )//无目标
+        real H = GetUnitLifePercent(AU)
+        iO( AU, 852129 )
+        if R<=800*ratio
+            iO( AU, 852097 )
+            iO( AU, 852489 )
+            iO( AU, 852126 )
+            iO( AU, 852503 )
+            iO( AU, 852100 )
+            iO( AU, 852528 )
+            iO( AU, 852184 )
+            iO( AU, 852164 )
+            iO( AU, 852180 )
+            iO( AU, 852554 )
+            iO( AU, 852200 )
+            iO( AU, 852594 )
+            iO( AU, 852595 )
+            iO( AU, 852596 )
+            iO( AU, 852667 )
+            iO( AU, 852663 )
+            iO( AU, 852598 )
+            iO( AU, 852599 )
+            iO( AU, 852600 )
+            if H<=50.
+                iO( AU, 852586 )
+        if R<=400*ratio
+            iO( AU, 852096 )
+            iO( AU, 852086 )
+            iO( AU, 852090 )
+            iO( AU, 852094 )
+            iO( AU, 852127 )
+            iO( AU, 852128 )
+            iO( AU, 852526 )
+            iO( AU, 852181 )
+            iO( AU, 852183 )
+            iO( AU, 852556 )
+            iO( AU, 852217 )
+            iO( AU, 852588 )
+            iO( AU, 852253 )
+            iO( AU, 852246 )
+        if R<=100*ratio
+            iO( AU, 852123 )
+        //激活
+        iO( AU, 852174 )
+        iO( AU, 852552 )
+        iO( AU, 852458 )
+        iO( AU, 852656 )
+        iO( AU, 852589 )
+        iO( AU, 852244 )
+        iO( AU, 852578 )
+        iO( AU, 852671 )
+        iO( AU, 852244 )
+        iO( AU, 852602 )
+        iO( AU, 852212 )
+        iO( AU, 852522 )
+        iO( AU, 852150 )
+        iO( AU, 852133 )
+        iO( AU, 852102 )
+        iO( AU, 852249 )
+        if R<=200*ratio
+            iO( AU, 852177 )
+
+
+    private static function sO2 ( unit AU, real x, real y, real R )//点目标
+        if R>1200
+            iL( AU, 852093, x, y )
+        iL( AU, 852089, x, y )
+        iL( AU, 852488, x, y )
+        iL( AU, 852121, x, y )
+        iL( AU, 852504, x, y )
+        iL( AU, 852125, x, y )
+        iL( AU, 852555, x, y )
+        iL( AU, 852218, x, y )
+        iL( AU, 852224, x, y )
+        iL( AU, 852221, x, y )
+        iL( AU, 852593, x, y )
+        iL( AU, 852592, x, y )
+        iL( AU, 852597, x, y )
+        iL( AU, 852580, x, y )
+        iL( AU, 852238, x, y )
+        iL( AU, 852652, x, y )
+        iL( AU, 852658, x, y )
+        iL( AU, 852669, x, y )
+        iL( AU, 852229, x, y )
+        iL( AU, 852237, x, y )
+        iL( AU, 852560, x, y )
+        iL( AU, 852591, x, y )
+        iL( AU, 852238, x, y )
+        if R>800
+            iL( AU, 852122, x, y )
+        if R>400
+            iL( AU, 852525, x, y )
+        if R<200*ratio
+            iL( AU, 852664, x, y )
+        iL( AU, 852600, x, y )
+
+    private static function sO3 ( unit AU, unit AT, boolean _Ally )//单位目标
+        // 敌
+        //if _Ally == false
+        iU( AU, 852095, AT )
+        iU( AU, 852119, AT )
+        iU( AU, 852502, AT )
+        iU( AU, 852179, AT )
+        iU( AU, 852171, AT )
+        iU( AU, 852527, AT )
+        iU( AU, 852555, AT )
+        iU( AU, 852227, AT )
+        iU( AU, 852226, AT )
+        iU( AU, 852587, AT )
+        iU( AU, 852585, AT )
+        iU( AU, 852583, AT )
+        iU( AU, 852662, AT )
+        iU( AU, 852665, AT )
+        iU( AU, 852668, AT )
+        iU( AU, 852670, AT )
+        iU( AU, 852230, AT )
+        iU( AU, 852480, AT )
+        iU( AU, 852106, AT )
+        iU( AU, 852487, AT )
+        iU( AU, 852487, AT )
+        iU( AU, 852243, AT )
+        iU( AU, 852560, AT )
+        iU( AU, 852231, AT )
+        iU( AU, 852252, AT )
+        //else
+        // 友
+        iU( AU, 852501, AT )
+        iU( AU, 852225, AT )
+        //
+        // 任意
+        iU( AU, 852092, AT )
+        iU( AU, 852222, AT )
+        iU( AU, 852274, AT )
+        iU( AU, 852600, AT )
+
+    private static function heroSpell ( integer id )
+        // print("ai : heroSpell" + TYPE[id])
+        unit hero1 = hero[id]
+        real r = distanceBetweenUnits(hero1,htu[id])
+        if iS(hero1) and isUnitVisibleToEnemy(hero1)
+            AB = false
+            if TYPE[id] == 1
+                sO3(hero1,htu[id],false)
+            else if TYPE[id] == 2
+                sO2(hero1,htx[id],hty[id],r)
+            else if TYPE[id] == 3
+                sO1(hero1,r)
+
+
+
+    private static function getTargetHero ( integer id )
+        unit WT = null
+        unit hero1 = hero[id]
+        real hPmin = 10000000000.
+        real dismin = 10000000000.
+        real hP 
+        real dis 
+        real x = GetUnitX(hero1)
+        real y = GetUnitY(hero1)
+        group G = CreateGroup()
+        player p = GetOwningPlayer(hero1)
+        integer OI = GetUnitCurrentOrder(hero1)
+        GroupEnumUnitsInRange(G,x,y,range,null)
+        for u from G
+            // if isUnitUseAI(u)
+            hP = GetUnitState(u,UNIT_STATE_LIFE)
+            if hP > 0.405 and isUnitCanBeDamaged(u) and IsUnitEnemy(u,p)
+                if lock == false
+                    dis = distanceBetweenUnits(hero1,u)
+                    if dis < dismin
+                        dismin = dis
+                        WT = u
+                else
+                    if hP < hPmin
+                        hPmin = hP
+                        WT = u
+        GroupClear(G)
+        DestroyGroup(G)
+        // print("ai:getTargetHero" + WT.getName())
+        if WT != null and GetUnitState(WT,UNIT_STATE_LIFE) > 0.405
+            htu[id] = WT
+            htx[id] = GetUnitX(WT)
+            hty[id] = GetUnitY(WT)
+        if isFree(OI) and not (htx[id] == 0 and hty[id] == 0 )
+            if not IssueTargetOrderById( hero1, 851983, WT ) or TYPE[id]!=1
+                // IssuePointOrderById( hero1, 851983, htx[id], hty[id] )
+            heroSpell(id)
+
+    private static function setGuardPosition ( integer id )
+        if isUnitVisibleToEnemy(hero[id])
+            if GUARD[id] == false
+                RecycleGuardPosition(hero[id])
+
+            GUARD[id] = true
+        else
+            if GUARD[id] == true
+                RemoveGuardPosition(hero[id])
+            GUARD[id] = false
+
+    private static function remove ( integer id )
+        DestroyTimer(HT[id])
+        GroupRemoveUnit(AG,hero[id])
+        hero[id] = hero[top]
+        HT[id] = HT[top]
+        OT[id] = OT[top]
+        TYPE[id] = TYPE[top]
+        GUARD[id] = GUARD[top]
+        hero[top] = null
+        top = top - 1
+
+    private static function timerLoop()
+        integer id = getTimerId(GetExpiredTimer())
+        if  GetUnitState(hero[id],UNIT_STATE_LIFE)<=0.405
+            remove(id)
+        else
+            if OT[id] > 0
+                OT[id] = OT[id] - 1
+            else
+                lastOI[id] = 0
+
+            TYPE[id] = TYPE[id] + 1
+            if TYPE[id] > 3
+                TYPE[id] = 0
+
+            setGuardPosition(id)
+            getTargetHero(id)
+
+    
+    private static function hC ( unit u ) returns  boolean
+        if isUnitUseAI(u) 
+        and IsUnitIllusion(u)==false 
+        and IsUnitInGroup(u,AG)==false 
+        and GetUnitAbilityLevel(u,'Aloc')==0
+        and IsUnitType(u,UNIT_TYPE_PEON)==false 
+        and IsUnitType(u,UNIT_TYPE_SUMMONED)==false 
+        and isPlayerUseAI(GetOwningPlayer(u))
+            GroupAddUnit(AG,u)
+            return true
+        return false
+    
+    private static function reg ( unit u )
+        // print("ai:reg"+u.getName())
+        top = top + 1
+        hero[top] = u
+        HT[top] = CreateTimer()
+        OT[top] = 0
+        TYPE[top] = 0
+        GUARD[top] = true
+        TimerStart(HT[top],1.11,true,function timerLoop)
+    
+    private static function trg01 (  )
+        unit u = GetTriggerUnit()
+        if hC(u)
+            reg(u)
+
+    private static function trg02 (  )
+        unit u = GetTriggerUnit()
+        if IsUnitInGroup(u,AG)==true
+            remove(getHeroId(u))
+
+        if hC(u)
+            reg(u)
+
+
+    static function start ( real r,real o,boolean h,boolean j,boolean k,boolean c,boolean l )
+        group g = CreateGroup()
+        range = r
+        ratio = o
+        forHero = h
+        forNotHero = j
+        forStructure = k
+        onlyComputer = c
+        lock = l
+        AG = CreateGroup()
+        TE = CreateTrigger()
+        TC = CreateTrigger()
+        RR = CreateRegion()
+        GroupEnumUnitsInRect(g,bj_mapInitialPlayableArea,null)
+        for u from g
+            if hC(u)
+                reg(u)
+        GroupClear(g)
+        DestroyGroup(g)
+        RegionAddRect(RR,GetWorldBounds())
+        TriggerAddAction(TE,function trg01)
+        TriggerAddAction(TC,function trg02)
+        TriggerRegisterEnterRegion(TE,RR,null)
+        TriggerRegisterAnyUnitEventBJ(TC,EVENT_PLAYER_UNIT_CHANGE_OWNER)
+
+    static function addPlayer ( player p )
+        ForceAddPlayer(aIusers,p)
+
+    static function addPlayerId ( integer id )
+        var i = id
+        if id<0
+            i=0
+        else if id>15
+            i = 15
+        addPlayer(Player(i))
+
+//==================================================================
+//电脑英雄自动施放技能系统V1.4 BY 金皮蛋 Mod BY 火凌之凤
+//使得电脑英雄能够自动对附近的敌方英雄集火并且使用技能
+//支持包括通魔在内的绝大部分英雄技能模板
+//一键移植，用法极其方便
+//==================================================================
+
+public function initAI()
+    real range = 1000//AI进攻范围
+    real ratio = 1//AI技能施放范围系数
+    boolean lock = true//true为锁定血量最少的目标,false为不锁定
+    boolean forHero = true//true为对英雄有效
+    boolean forNotHero = false//true对所有非英雄单位有效
+    boolean forStructure = false//true对所有建筑单位有效
+    boolean onlyComputer = true//true为只对电脑有效,false为对电脑和用户有效
+    // SpellSystemAI.addPlayer(Player(0))
+    // SpellSystemAI.addPlayer(Player(1))
+    // SpellSystemAI.addPlayer(Player(2))
+    // SpellSystemAI.addPlayer(Player(3))
+    // SpellSystemAI.addPlayer(Player(4))
+    // SpellSystemAI.addPlayer(Player(5))
+    // SpellSystemAI.addPlayer(Player(6))
+    // SpellSystemAI.addPlayer(Player(7))
+    // SpellSystemAI.addPlayer(Player(8))
+    // SpellSystemAI.addPlayer(Player(9))
+    SpellSystemAI.addPlayer(Player(10))
+    SpellSystemAI.addPlayer(Player(11))
+    // SpellSystemAI.addPlayer(Player(12))
+    // SpellSystemAI.addPlayer(Player(13))
+    // SpellSystemAI.addPlayer(Player(14))
+    // SpellSystemAI.addPlayer(Player(15))
+    // 开启自动施放技能系统
+    SpellSystemAI.start(range,ratio,forHero,forNotHero,forStructure,onlyComputer,lock)

@@ -1,0 +1,17 @@
+package LevelHandler
+import wareAttackCommon
+import baseImport
+
+function onNextLevel()
+    if GAME.endless
+        SetPlayerHandicap(enemyNormal, .2 + .01 * Level.lv)
+        SetPlayerHandicap(enemySpecial, 1 + .03 * Level.lv)
+    if Level.lv == 31
+        if  not GAME.endless
+            stopAttack(true)
+
+
+public function nextLevel() returns int
+    Level.lv += 1
+    onNextLevel()
+    return Level.lv

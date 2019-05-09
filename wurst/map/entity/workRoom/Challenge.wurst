@@ -1,0 +1,285 @@
+package Challenge
+import baseImport
+import YDJapiOther
+import LinkedListModule
+import Rects
+import CenterTimer
+import Orders
+import attrMapper
+
+public interface OnChallengeCreate
+    function do(unit u,unit challenger)
+
+public class Challenge
+    static HashMap<int,thistype> map = new HashMap<int,thistype>
+    int itemId
+    int id
+    int num = 1
+    int  refreshNum = 0
+    real refreshTime = 0
+    bool isAutoRefesh = false
+    bool isDef = false
+    int limit = 0
+    int challengeFlag
+
+    private OnChallengeCreate onChallengeCreate
+
+    construct(int itemId,int id,int num,int flag)
+        this.itemId = itemId
+        this.id = id
+        this.num = num
+        challengeFlag = flag
+        map.put(itemId, this)
+
+    function onChallengeCreate(OnChallengeCreate on)
+        this.onChallengeCreate = on
+    function setDef()
+        this.isDef = true
+    function setLimit(int num)
+        this.limit = num
+    function setFreshTime(real t)
+        refreshTime = t
+        isAutoRefesh = true
+    function setFresh(real t,int num)
+        setFreshTime(t)
+        refreshNum = num
+    function create(player owner,vec2 pos)
+        for i= 1 to num
+            createUnit(owner, id, pos, GetRandomReal(0, 360).fromDeg())
+    function create(player owner,vec2 pos,unit challenger)
+        for i= 1 to num
+            let a = createUnit(owner, id, pos, GetRandomReal(0, 360).fromDeg())
+            if onChallengeCreate != null
+                onChallengeCreate.do(a, challenger)
+
+public class  SelfRebothChallenge extends Challenge
+    use LinkedListModule
+    static player owner = enemySpecial
+    static HashMap<int,thistype> map1 = new HashMap<int,thistype>
+    vec2 pos
+    vec2 challPos
+    Rects rects
+    unit  _unit
+    group units
+    real  postTime = 0
+    real  createTime = 0
+    private bool canReboth = false
+    private bool isFirstBoth = true
+    construct(int itemId,int id,vec2 pos,real face,real dist)
+        super(itemId,id,1,0)
+        this.pos = pos
+        this.challPos = pos.polarOffset(face .fromDeg(), dist)
+        setFreshTime(5)
+        map1.put(itemId, this)
+    construct(int itemId,int id,int num,Rects r,vec2 challPos)
+        super(itemId,id,num,0)
+        this.rects = r
+        this.challPos = challPos
+        units = CreateGroup()
+        setFreshTime(5)
+        map1.put(itemId, this)
+    function setCreateTime(real  createTime)
+        this.createTime = createTime
+    function onTimeout()
+        postTime = 0
+        if num == 1
+            if _unit == null
+                _unit = createUnit(owner, id, pos, 270 .fromDeg())
+            else
+                if not _unit.isAliveTrick()
+                    if canReboth 
+                        _unit.revive(pos, true)
+                        canReboth = false
+                    else 
+                        canReboth = true
+                else
+                    _unit.issuePointOrderById(Orders.attack, pos)
+        else
+            if units.size() < num
+                for i = 1 to num - units.size()
+                    let u = createUnit(owner, id, rects.origin.randomPoint(), GetRandomReal(0, 360).fromDeg())
+                    units.addUnit(u)
+            int count = 0
+            for i in units
+                if i.isAliveTrick()
+                    count++
+            if count <= refreshNum
+                for i in units
+                    if not i.isAliveTrick()
+                        i.revive(rects.origin.randomPoint(), true)
+    
+    static function initi()
+        CreateTrigger()
+        ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)
+        ..addAction() ->
+            let i = GetManipulatedItem()
+            let b = GetManipulatingUnit()
+            let u = b.getMainHero()
+            if SelfRebothChallenge.map1.has(i.getTypeId())
+                let c = SelfRebothChallenge.map1.get(i.getTypeId())
+                if c != null
+                    u.setPosPro(c.challPos)
+        onAlways(0.12) task->
+            for i in SelfRebothChallenge
+                i.postTime += 0.12
+                if i.postTime >= i.refreshTime 
+                    i.onTimeout()
+                else if i.isFirstBoth
+                    i.onTimeout()
+                    i.isFirstBoth = false
+                    
+public class  AttrChallenge extends Challenge
+    use LinkedListModule
+    static player owner = enemySpecial
+    static HashMap<int,thistype> map1 = new HashMap<int,thistype>
+    vec2 pos
+    Rects rects
+    unit  _unit
+    Unit  units
+    real  postTime = 0
+    real  createTime = 0
+    AttrPstc attrs
+    private bool canReboth = false
+    private bool isFirstBoth = true
+    construct(int id,vec2 pos)
+        super('ZZMM',id,1,0)
+        this.pos = pos
+        setFreshTime(5)
+        map1.put(itemId, this)
+    function setCreateTime(real  createTime)
+        this.createTime = createTime
+    function onTimeout()
+        postTime = 0
+        if _unit == null
+            _unit = createUnit(owner, id, pos, 270 .fromDeg())
+            units = Unit.getUnit(_unit)
+            units.addExAttr(attrs, 1)
+        else
+            if not _unit.isAliveTrick()
+                if canReboth 
+                    _unit.revive(pos, true)
+                    canReboth = false
+                else 
+                    canReboth = true
+            else
+                _unit.issuePointOrderById(Orders.attack, pos)
+    
+    function addAttrPlus(AttrPstc attrs)
+        this.attrs = attrs
+    
+    static function initi()
+        onAlways(0.12) task->
+            for i in AttrChallenge
+                i.postTime += 0.12
+                if i.postTime >= i.refreshTime 
+                    i.onTimeout()
+                else if i.isFirstBoth
+                    i.onTimeout()
+                    i.isFirstBoth = false
+
+
+public Challenge array soulChalls 
+
+public AttrChallenge _cssh 
+
+let _jb2  = new Challenge('L30A','H30A',1,1)
+let _jb3  = new Challenge('L30B','H30B',1,1)
+let _jb4  = new Challenge('L30C','H30C',1,1)
+let _jb5  = new Challenge('L30D','H30D',1,1)
+
+let _hx0 = new Challenge('L300','h300',12,1)..setFresh(2,4)..setDef()
+let _hx1 = new Challenge('L301','h301',12,1)..setFresh(2,4)..setDef()
+let _hx2 = new Challenge('L302','h302',12,1)..setFresh(2,4)..setDef()
+let _hx3 = new Challenge('L303','h303',12,1)..setFresh(2,4)..setDef()
+let _hx4 = new Challenge('L304','h304',12,1)..setFresh(2,4)..setDef()
+let _hx5 = new Challenge('L305','h305',12,1)..setFresh(2,4)..setDef()
+let _hx6 = new Challenge('L306','h306',12,1)..setFresh(2,4)..setDef()
+let _hx7 = new Challenge('L307','h307',12,1)..setFresh(2,4)..setDef()
+
+let _lt1  = new Challenge('L500','H500',1,1)
+let _lt2  = new Challenge('L501','H501',1,1)
+let _lt3  = new Challenge('L502','H502',1,1)
+let _lt4  = new Challenge('L503','H503',1,1)
+let _lt5  = new Challenge('L504','H504',1,1)
+let _lt6  = new Challenge('L505','H505',1,1)
+let _lt7  = new Challenge('L506','H506',1,1)
+let _lt8  = new Challenge('L507','H507',1,1)
+let _lt9  = new Challenge('L508','H508',1,1)
+let _lt10 = new Challenge('L509','H509',1,1)
+
+let _jn1  = new Challenge('LA01','JA01',1,1)
+let _jn2  = new Challenge('LA02','JA02',1,1)
+let _jn3  = new Challenge('LA03','JA03',1,1)
+let _jn4  = new Challenge('LA04','JA04',1,1)
+
+public function initChallenge()
+    SelfRebothChallenge.initi()
+    AttrChallenge.initi()
+
+init
+    //todo 测试用木桩
+    let a = new AttrPstc()
+    a.addAttr(AttrKey.dmgResi, 99)
+    _cssh = new AttrChallenge('Hpal',vec2(-1500,-6100))..addAttrPlus(a)
+
+    OnChallengeCreate b = (i,j)->
+        i.setState(EX_UnitState.maxHp, j.getMaxHP() * 2+100000000)
+        i.setHP(i.getMaxHP())
+        i.setState(EX_UnitState.armor, 2000000)
+        i.setState(EX_UnitState.atkBase, j.getState(EX_UnitState.atkBase))
+        i.setState(EX_UnitState.atkSpeed, j.getState(EX_UnitState.atkSpeed))
+        i.setStr(j.getStr()+100000)
+        i.setAgi(j.getAgi()+100000)
+        i.setInt(j.getInt()+100000)
+
+    soulChalls[1] = new Challenge('L441','H441',1,3)..onChallengeCreate(b)
+    soulChalls[2] = new Challenge('L442','H442',1,3)..onChallengeCreate(b)
+    soulChalls[3] = new Challenge('L443','H443',1,3)..onChallengeCreate(b)
+    soulChalls[4] = new Challenge('L444','H444',1,3)..onChallengeCreate(b)
+    soulChalls[5] = new Challenge('L445','H445',1,3)..onChallengeCreate(b)
+
+    new SelfRebothChallenge('L400', 'h400', 20 ,  flowerDream, vec2(-3093, -15100))..setFresh(8,10)
+    new SelfRebothChallenge('L401', 'H401',  vec2(10800, -5700),90,1100)
+    new SelfRebothChallenge('L402', 'H402',  vec2(13400, -5700),90,1100)
+    new SelfRebothChallenge('L403', 'H403',  vec2(15800, -5700),90,1100)
+    new SelfRebothChallenge('L404', 'H404',  vec2(18000, -5700),90,1100)
+
+    //雪山
+    new SelfRebothChallenge('L601', 'h601', 20 ,  snowMountainU1, vec2(-3093, -15100))..setFresh(4,10)
+    new SelfRebothChallenge('L602', 'h602', 20 ,  snowMountainU2, vec2(-3093, -15100))..setFresh(4,10)
+    new SelfRebothChallenge('L603', 'h603', 20 ,  snowMountainU3, vec2(-3093, -15100))..setFresh(4,10)
+
+    new SelfRebothChallenge('L700', 'H700' ,vec2(3000 ,-8000 ) , 90, 100)
+    new SelfRebothChallenge('L701', 'H701' ,vec2(5000 ,-8500 ) , 90, 100)
+    new SelfRebothChallenge('L702', 'H702' ,vec2(5200 ,-9700 ) , 90, 100)
+
+    new SelfRebothChallenge('L703', 'H703' ,vec2(2900 ,-3700 ) , 90, 100)
+    new SelfRebothChallenge('L704', 'H704' ,vec2(3800 ,-3700 ) , 90, 100)
+    new SelfRebothChallenge('L705', 'H705' ,vec2(2500 ,-5900 ) , 90, 100)
+    new SelfRebothChallenge('L706', 'H706' ,vec2(4000 ,-6200 ) , 90, 100)
+
+    new SelfRebothChallenge('L707', 'H707' ,vec2(3300 ,0     ) , 90, 100)
+    new SelfRebothChallenge('L708', 'H708' ,vec2(5800 ,0     ) , 90, 100)
+
+    new SelfRebothChallenge('L709', 'H709' ,vec2(8800 ,-8000 ) , 90, 100)
+
+    new SelfRebothChallenge('L710', 'H710' ,vec2(5500 ,-14200) , 90, 100)
+    new SelfRebothChallenge('L711', 'H711' ,vec2(7000 ,-14200) , 90, 100)
+    new SelfRebothChallenge('L712', 'H712' ,vec2(9000 ,-14200) , 90, 100)
+    //扭曲神殿
+    new SelfRebothChallenge('L713', 'H713' ,vec2(-15000,3000 ) , 90, 100)
+    new SelfRebothChallenge('L714', 'H714' ,vec2(-12000,3000 ) , 90, 100)
+    new SelfRebothChallenge('L715', 'H715' ,vec2(-15000,5300 ) , 90, 100)
+    new SelfRebothChallenge('L716', 'H716' ,vec2(-12000,5300 ) , 90, 100)
+
+    new SelfRebothChallenge('L717', 'H717' ,vec2(-15500,7000 ) , 90, 100)
+    new SelfRebothChallenge('L718', 'H718' ,vec2(-12000,7000 ) , 90, 100)
+    new SelfRebothChallenge('L719', 'H719' ,vec2(-15500,11000) , 90, 100)
+    new SelfRebothChallenge('L720', 'H720' ,vec2(-12000,11000) , 90, 100)
+
+    new SelfRebothChallenge('L721', 'H721' ,vec2(-15800,13000) , 90, 100)
+    new SelfRebothChallenge('L722', 'H722' ,vec2(-12000,13000) , 90, 100)
+
+    new SelfRebothChallenge('L723', 'H723' ,vec2(-4400 ,600  ) , 90, 100)..setFreshTime(999999)
+
+

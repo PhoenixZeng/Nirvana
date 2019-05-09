@@ -1,0 +1,31 @@
+package PlayersSave
+import PlayerAuthSaved
+import PlayerInfoSaved
+import baseImport
+import AuthCheck
+import Hero
+import dzServerSave
+
+
+public function Players.initSave()
+    loadAuth(this._player)
+    loadInfo(this)
+    this.initAuth()
+
+public function Players.initBook()
+    if this.hero != null
+        loadBook(this._player, this.hero.souji.getSubBook("神器"))
+
+public function Players.save()
+    this.saveInfoAndAuth()
+    this.saveBook()
+
+public function Players.saveInfoAndAuth()
+    saveAuth(this._player)
+    saveInfo(this)
+    // this._player.dzRoomStat("STATESCORE",this.getGameScore().toString())
+    // this._player.dzRoomStat("STATESPASS",this.maxSinglePassDiff.toString())
+
+public function Players.saveBook()
+    if this.hero != null
+        saveBook(this._player, this.hero.souji.getSubBook("神器"))

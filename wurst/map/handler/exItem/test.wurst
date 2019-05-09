@@ -1,0 +1,94 @@
+package test
+import dzHardware
+import baseImport
+import LinkedListModule
+import AffixItemEntity
+import JapiNative
+import dzFrame
+
+class ItemScreenRatio
+    use LinkedListModule
+    string name
+    int  data
+    vec2 p1
+    vec2 p2
+    vec2 p3
+    vec2 p4
+    construct(string name,vec2 s1,vec2 s2)
+        this.name = name
+        this.p1 = s1
+        this.p2 = vec2(s2.x, s1.y)
+        this.p3 = s2
+        this.p4 = vec2(s1.x, s2.y)
+    function addData(int d)
+        this.data = d
+    function isMoveIn(vec2 a) returns bool
+        return a.isInPolygon(p1,p2,p3,p4)
+    static function getScreenRatio(vec2 a) returns thistype
+        for i in ItemScreenRatio
+            if i.isMoveIn(a)
+                return i
+        return null
+/*
+    x       y       x       y
+1   64      80      69      87
+2   69      80      73.5    87
+3   64      88      69      93
+4   69      88      73.5    93
+5   64      94      69      99
+6   69      94      73.5    99
+ */     
+let ht = InitHashtable()
+ItemScreenRatio array playerIn
+Frame testTip
+public function initMouseItem()
+    new ItemScreenRatio("物品1",vec2(64,80),vec2(69  ,87))..addData(1)
+    new ItemScreenRatio("物品2",vec2(69,80),vec2(73.5,87))..addData(2)
+    new ItemScreenRatio("物品3",vec2(64,88),vec2(69  ,93))..addData(3)
+    new ItemScreenRatio("物品4",vec2(69,88),vec2(73.5,93))..addData(4)
+    new ItemScreenRatio("物品5",vec2(64,94),vec2(69  ,99))..addData(5)
+    new ItemScreenRatio("物品6",vec2(69,94),vec2(73.5,99))..addData(6)
+    for i = 0 to 5
+        playerIn[i] = null
+    testTip = new Frame(BzFrameType.TEXT,"itemExTip","TXA12")
+    ..setPoint(AnchorPoint.BOTTOMRIGHT, new Frame(EX_DefaultFrame_DZ.tooltip()), AnchorPoint.BOTTOMLEFT, 0, 0)
+    ..setSize(0.08, 0.15)
+    ..show(false)
+    // CreateTrigger()
+    // ..exRegisterMouseMoveEvent(false) ->
+    //     let x = exMouseXRelative()
+    //     let y = exMouseYRelative()
+    //     let h = exWindowHeight()
+    //     let w = exWindowWidth()
+    //     let p = exTriggerKeyPlayer()
+    //     let i = ItemScreenRatio.getScreenRatio(vec2(x/w*100,y/h*100))
+    //     if i != null
+    //         if not playerIn[p.getId()]==i
+    //             playerIn[p.getId()] = i
+    //             let t = Players.get(p).hero._self.getItem(i.data-1)
+    //             if AffixItemEntity.map.has(t.getTypeId())
+    //                 let at = AffixItemEntity.map.get(t.getTypeId())
+    //                 let st = AffixItemLinkSuitEntity.getByName(at.suitName)
+    //                 let suit = slk_abil.loadString(st.idShow, descKey)
+    //                 //EXExecuteScript("(require 'jass.slk').ability['"+st.id.toIdString()+"'].Ubertip")
+    //                 testTip.setText(suit)
+    //                 testTip.show(true)
+    //     else
+    //         playerIn[p.getId()] = null
+    //         testTip.setText("")
+    //         testTip.show(false)
+
+
+    // Frame array items
+    // for i = 0 to 5
+    //     let f = EX_DefaultFrame_DZ.itemBarButton(i)
+    //     items[i] = new Frame(f,"物品栏"+(i+1))
+    //     items[i].setData("index", i)
+    //     items[i].addEvent(FrameEvents.FOCUS_ENTER)->
+    //         let index = Frame.find().getData("index")
+    //         let p = Frame.getEventPlayer()
+    //         let t = Players.get(p).hero._self.getItem(index)
+    //         print("index:"+index+";p:"+p.getName()+";t:"+t.getTypeId().toIdString())
+    //         if t.getTypeId() == 'ratf'
+    //             print("emm")
+    //             t.exTypeData(EX_ITEM_YD.TIP, GetRandomInt(0, 100).toString())

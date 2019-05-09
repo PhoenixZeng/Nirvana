@@ -1,0 +1,94 @@
+package HeroEntity
+import Auth
+import PlayerCommon
+import HashMap
+import HashList
+import phLib
+
+
+
+public class HeroEntity
+    private static HashMap<int,HeroEntity> map = new HashMap<int,HeroEntity>()
+    private static let keys = new HashList<int>
+    int         id
+    real        power = 1
+    string      name
+    Auth        needAuth
+    PlayerRole  needRole = PlayerRole.Normal
+    construct(int id,string name)
+        this.name = name
+        this.id   = id
+        map.put(id, this)
+        keys.add(id)
+
+    function setAuth(Auth a)
+        this.needAuth = a
+    function setRole(PlayerRole r)
+        this.needRole = r
+
+    function create(player p, vec2 pos) returns unit
+        return createUnit(p, id, pos, 0 .fromDeg())
+
+    function toString() returns string
+        return "HeroEntity" +name + ":" + id.toIdString()
+
+    static function get(int id) returns thistype
+        return map.get(id)
+
+    static function getByIndex(int index) returns thistype
+        return map.get(keys.get(index))
+
+    static function random() returns thistype
+        return map.get(keys.get(keys.size().toReal().next().toInt()))
+
+
+public class HeroLevelEntity extends HeroEntity
+    int level
+    construct(int level,int id,string name)
+        super(id,name)
+        this.level = level
+
+    override function toString() returns string
+        return "HeroLevelEntity" + name + ":" + id.toIdString() + ":" + level
+
+public let _QD00 = new HeroLevelEntity( 1,'QD00',"大魔法师")
+// public let _QD01 = new HeroLevelEntity( 1,'QD01',"暗影猎手")
+public let _QD02 = new HeroLevelEntity( 1,'QD02',"牛头人酋长")
+public let _QD03 = new HeroLevelEntity( 1,'QD03',"死亡骑士")
+public let _QD04 = new HeroLevelEntity( 1,'QD04',"地穴领主")
+public let _QD05 = new HeroLevelEntity( 1,'QD05',"丛林守护者")
+public let _QD06 = new HeroLevelEntity( 1,'QD06',"火焰巨魔")
+public let _QD07 = new HeroLevelEntity( 1,'QD07',"炼金术士")
+public let _QC01 = new HeroLevelEntity( 2,'QC01',"血魔法师")
+public let _QC02 = new HeroLevelEntity( 2,'QC02',"圣骑士")
+// public let _QC03 = new HeroLevelEntity( 2,'QC03',"剑圣")
+public let _QC04 = new HeroLevelEntity( 2,'QC04',"斧王")
+// public let _QC05 = new HeroLevelEntity( 2,'QC05',"兽王")
+public let _QC06 = new HeroLevelEntity( 2,'QC06',"先知")
+public let _QC07 = new HeroLevelEntity( 2,'QC07',"巫妖")
+public let _QC08 = new HeroLevelEntity( 2,'QC08',"海军上将")
+public let _QB00 = new HeroLevelEntity( 3,'QB00',"恐惧魔王")
+public let _QB01 = new HeroLevelEntity( 3,'QB01',"黑暗游侠")
+public let _QB02 = new HeroLevelEntity( 3,'QB02',"山丘之王")
+public let _QB03 = new HeroLevelEntity( 3,'QB03',"月之女祭司")
+public let _QB04 = new HeroLevelEntity( 3,'QB04',"守望者")
+public let _QB05 = new HeroLevelEntity( 3,'QB05',"熊猫酒仙")
+public let _QB06 = new HeroLevelEntity( 3,'QB06',"恶魔猎手")
+public let _QB07 = new HeroLevelEntity( 3,'QB07',"光明游侠")
+public let _QS00 = new HeroLevelEntity( 5,'QS00',"火凌之凤")
+// public let _QS01 = new HeroLevelEntity( 5,'QS01',"幽光之影")
+// public let _QS02 = new HeroLevelEntity( 5,'QS02',"SMINAD")
+// public let _QB08 = new HeroLevelEntity( 3,'QB08',"狂化剑圣")
+// public let _QB09 = new HeroLevelEntity( 3,'QB09',"狂化斧王")
+// public let _QA00 = new HeroLevelEntity( 4,'QA00',"风暴山丘")
+// public let _QA01 = new HeroLevelEntity( 4,'QA01',"风暴血法")
+// public let _QA02 = new HeroLevelEntity( 4,'QA02',"风暴剑圣")
+// public let _QA03 = new HeroLevelEntity( 4,'QA03',"风暴牛头")
+// public let _QA04 = new HeroLevelEntity( 4,'QA04',"风暴斧王")
+// public let _QA05 = new HeroLevelEntity( 4,'QA05',"风暴兽王")
+// public let _QA06 = new HeroLevelEntity( 4,'QA06',"风暴死亡骑士")
+// public let _QA07 = new HeroLevelEntity( 4,'QA07',"风暴巫妖")
+// public let _QA08 = new HeroLevelEntity( 4,'QA08',"风暴恐惧魔王")
+// public let _QA09 = new HeroLevelEntity( 4,'QA09',"风暴游侠")
+// public let _QA10 = new HeroLevelEntity( 4,'QA10',"风暴月祭祀")
+// public let _QA11 = new HeroLevelEntity( 4,'QA11',"风暴恶魔猎手")

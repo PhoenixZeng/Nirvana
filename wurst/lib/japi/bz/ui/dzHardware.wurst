@@ -1,0 +1,155 @@
+package dzHardware
+import BlizzardAPI
+
+//获取鼠标在游戏内的坐标
+public function exMouseTerrainPos( )returns vec3
+    return vec3(DzGetMouseTerrainX(),DzGetMouseTerrainY(),DzGetMouseTerrainZ()) 
+
+//鼠标是否在游戏内
+public function exIsMouseOverUI( )returns boolean 
+    return DzIsMouseOverUI()
+
+//获取鼠标屏幕坐标X
+public function exMouseX( )returns integer 
+    return DzGetMouseX()
+
+//获取鼠标屏幕坐标Y
+public function exMouseY( )returns integer 
+    return DzGetMouseY()
+
+//获取鼠标游戏窗口坐标X
+public function exMouseXRelative( )returns integer 
+    return DzGetMouseXRelative()
+
+//获取鼠标游戏窗口坐标Y
+public function exMouseYRelative( )returns integer 
+    return DzGetMouseYRelative()
+
+//设置鼠标位置
+public function exMousePos( integer x, integer y)
+    DzSetMousePos(x,y)
+
+//注册鼠标点击触发（sync为true时，调用TriggerExecute。为false时，直接运行action函数，可以异步不掉线，action里不要有同步操作）
+// public function DzTriggerRegisterMouseEvent( trigger trig, integer btn, integer status, boolean sync, string func)returns 
+public function trigger.exRegisterMouseEvent( integer btn, integer status, boolean sync, code funcHandle)
+    DzTriggerRegisterMouseEventByCode(this,btn,status,sync,funcHandle)
+
+//注册键盘点击触发
+// public function DzTriggerRegisterKeyEvent( trigger trig, integer key, integer status, boolean sync, string func)returns 
+public function trigger.exRegisterKeyEvent( integer key, integer status, boolean sync, code funcHandle)
+    DzTriggerRegisterKeyEventByCode(this,key,status,sync,funcHandle)
+    
+//注册鼠标滚轮触发
+// public function DzTriggerRegisterMouseWheelEvent( trigger trig, boolean sync, string func)returns 
+public function trigger.exRegisterMouseWheelEvent( boolean sync, code funcHandle)
+    DzTriggerRegisterMouseWheelEventByCode(this,sync,funcHandle)
+
+//注册鼠标移动触发
+// public function DzTriggerRegisterMouseMoveEvent( trigger trig, boolean sync, string func)returns 
+public function trigger.exRegisterMouseMoveEvent( boolean sync, code funcHandle)
+    DzTriggerRegisterMouseMoveEventByCode(this,sync,funcHandle)
+
+//获取触发的按键码
+public function exTriggerKey() returns integer 
+    return DzGetTriggerKey()
+
+//获取滚轮delta
+public function exWheelDelta() returns integer 
+    return DzGetWheelDelta()
+
+//判断按键是否按下
+public function exIsKeyDown( integer iKey)returns boolean
+    return DzIsKeyDown(iKey)
+
+//获取触发硬件事件的玩家
+public function exTriggerKeyPlayer() returns player 
+    return DzGetTriggerKeyPlayer()
+
+//获取war3窗口宽度
+public function exWindowWidth() returns integer 
+    return DzGetWindowWidth()
+
+//获取war3窗口高度
+public function exWindowHeight() returns integer 
+    return DzGetWindowHeight()
+
+//获取war3窗口X坐标
+public function exWindowX() returns integer 
+    return DzGetWindowX()
+
+//获取war3窗口Y坐标
+public function exWindowY() returns integer 
+    return DzGetWindowY()
+
+//注册war3窗口大小变化事件
+// public function DzTriggerRegisterWindowResizeEvent( trigger trig, boolean sync, string func)
+public function exTriggerRegisterWindowResizeEventByCode( trigger trig, boolean sync, code funcHandle)
+    DzTriggerRegisterWindowResizeEventByCode(trig,sync,funcHandle)
+//判断窗口是否激活
+public function exIsWindowActive() returns boolean 
+    return DzIsWindowActive()
+
+public class DzMouseKey
+    static let left=1//鼠标左键
+    static let right=2//鼠标右键
+
+public class DzGameKey
+    static let A = 'A'
+    static let B = 'B'
+    static let C = 'C'
+    static let D = 'D'
+    static let E = 'E'
+    static let F = 'F'
+    static let G = 'G'
+    static let H = 'H'
+    static let I = 'I'
+    static let J = 'J'
+    static let K = 'K'
+    static let L = 'L'
+    static let M = 'M'
+    static let N = 'N'
+    static let O = 'O'
+    static let P = 'P'
+    static let Q = 'Q'
+    static let R = 'R'
+    static let S = 'S'
+    static let T = 'T'
+    static let U = 'U'
+    static let V = 'V'
+    static let W = 'W'
+    static let X = 'X'
+    static let Y = 'Y'
+    static let Z = 'Z'
+    static let _0= 48//0
+    static let _1= 49//1
+    static let _2= 50//2
+    static let _3= 51//3
+    static let _4= 52//4
+    static let _5= 53//5
+    static let _6= 54//6
+    static let _7= 55//7
+    static let _8= 56//8
+    static let _9= 57//9
+    static let tab   = 9
+    static let shift = 16
+    static let ctrl  = 17
+    static let alt   = 18
+    static let capLock = 19
+    static let space = 32
+    static let F2 = 113
+    static let F3 = 114
+    static let F4 = 115
+
+public class GameKeyStatus
+    static let press = 1 //点击
+    static let release = 0 //释放
+
+// GameKey_Tab=0,gamekey,515,Tab
+// GameKey_Space=0,gamekey,32,空格
+// GameKey_Enter=0,gamekey,513,回车
+// GameKey_Backspace=0,gamekey,514,退格
+// GameKey_Shift=0,gamekey,0,Shift
+// GameKey_Tab=0,gamekey,516,→
+// GameKey_Tab=0,gamekey,517,↑
+// GameKey_Tab=0,gamekey,518,←
+// GameKey_Tab=0,gamekey,519,↓

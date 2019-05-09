@@ -1,0 +1,25 @@
+package RangeEffectCaster
+import YDEffect
+import Hero
+
+interface HitOfRange
+    function onHit(unit u)
+
+public class RangeEffectCaster
+    static function castLinear(string effectPath ,real scale ,unit caster,real range ,vec2 castPos ,vec2 offset ,int count,player owner,HitOfRange cb)
+        group g = CreateGroup()
+        var pos = castPos
+        for i = 1 to count
+            pos += offset
+
+            effect eff = efft(effectPath, pos,owner)
+            eff.exSize(scale)
+            eff.destr()
+
+            g..enumUnitsInRange(pos, range)
+            while g.hasNext()
+                let tar = g.next()
+                if enemyFilter(caster, tar)
+                    cb.onHit(tar)
+        g.destr()
+        destroy cb
