@@ -3,3 +3,5 @@ wurst.dependencies
 .vscode/*.json
 *.jar
 GBS*.w3x
+*.lnk
+ziti.ttf
