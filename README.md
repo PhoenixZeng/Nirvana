@@ -6,3 +6,4 @@
 
 need ydwe-japi
 need ydwe-lua-engine
+need netease-api
