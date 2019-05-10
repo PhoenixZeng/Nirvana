@@ -7,7 +7,7 @@ and then later delete it and create your own, new packages.
 Enjoy WurstScript? Consider starring our repo https://github.com/wurstscript/WurstScript */ 
 init
 	print("--------------------------------------")
-	print("欢迎您进入[轮回]!")
+	print("欢迎您进入[轮回Nirvana]!")
 	print(" - 程序策划:火凌之凤 SUPEMEKO 咸鱼王 红玉")
 	print(" - 美术地形:秦心")
 	print(" - 联合发行:火鸟玩 魔影作坊 天天RPG")
