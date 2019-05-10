@@ -134,6 +134,12 @@ init
     AgentItemRecipe.of('I636','ZD12')..addComponents('ZD0T','ZD0Y','ZD11')
     AgentItemRecipe.of('I637','ZD14')..addComponents('ZD12','ZD13')
 
+    //繁花秘境
+    AgentItemRecipe.of('I63C','ZD1T')..addComponents('ZD1P','ZD1R','ZD1S')
+    AgentItemRecipe.of('I63D','ZD1U')..addComponents('ZD1T','ZD1Q')
+    AgentItemRecipe.of('I63E','ZD1V')..addComponents('ZD1U','ZD0O')
+
+
     AgentItemRecipe.of('I61C','JS0L')..addComponent('JS15',3)
     AgentItemRecipe.of('I61C','JS0M')..addComponent('JS16',3)
     AgentItemRecipe.of('I61C','JS0N')..addComponent('JS17',3)

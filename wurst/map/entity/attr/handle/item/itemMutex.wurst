@@ -47,3 +47,13 @@ public class ItemMutex
         ..addMutexs('ZD11')
         new ItemMutex('ZD14')
         ..addMutexs('ZD12')
+        //繁花
+        new ItemMutex('ZD1T')
+        ..addMutex('ZD1P')
+        ..addMutex('ZD1R')
+        ..addMutex('ZD1S')
+        new ItemMutex('ZD1U')
+        ..addMutexs('ZD1T')
+        ..addMutex('ZD1Q')
+        new ItemMutex('ZD1V')
+        ..addMutexs('ZD1U')

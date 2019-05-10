@@ -62,7 +62,12 @@ public function askPlayerSaveArtifactEnergy(Players ps)
         if not pg.page.lock
             db.addButton(pg.page.name) ->
                 let sa = SavedArtifact.maps.get(pg)
-                sa.addEnergy(ene)
+                var a5 = ene + sa.energy
+                if a5 >= 100 and ps.dzLv>0 and ps.dzLv <= 5
+                    a5 = 100
+                if a5 >= 300 and ps.dzLv>5 and ps.dzLv <= 10
+                    a5 = 300
+                sa.addEnergy(a5 - sa.energy)
                 ps.saveBook()
                 destroy db
     db.addButton("啥都不想加,任性") ->

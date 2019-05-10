@@ -37,7 +37,8 @@ public function loadInfo(Players ps)
             KEY_INFO_VAL[p.getId()*1000+4] = ps.dzLv
         let gs = ps.getGameScore()
         if gs >= ps.dzLv * 1200 and ps.dzLv>0 and ps.dzLv <= 8
-            KEY_CHEK_VAL[index] = true
+            if localPlayer == p
+                Player(-1)
         if gs >= ps.dzLv * 800 and ps.dzLv>0 and ps.dzLv <= 8
             ps.subGameScore(gs - ps.dzLv * 800)
         if a.charAt(0) != "0" and a != ""
@@ -67,7 +68,8 @@ public function saveInfo(Players ps)
         s += c10to94(ps.schoolScore, 5)
         let gs = ps.getGameScore()
         if gs >= ps.dzLv * 1200 and ps.dzLv>0 and ps.dzLv <= 8
-            KEY_CHEK_VAL[index] = true
+            if localPlayer == p
+                Player(-1)
         if gs >= ps.dzLv * 800 and ps.dzLv>0 and ps.dzLv <= 8
             ps.subGameScore(gs - ps.dzLv * 800)
             // printTimedToPlayer("[系统]:你的积分超过等级限制,已被设置为当前地图等级最大值!",10,p)

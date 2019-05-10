@@ -226,6 +226,9 @@ public function initPlayersEvent()
                 //扭曲神殿 交互
                 case 'I62L'
                     ps.onInteractive(2)
+                //繁花秘境
+                case 'I63F'
+                    ps.onInteractive(3)
                 //询问神秘礼盒
                 case 'I616'
                     ps.onAskEpic(1)

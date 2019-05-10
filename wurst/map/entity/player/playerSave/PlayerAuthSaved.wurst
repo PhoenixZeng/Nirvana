@@ -122,13 +122,25 @@ public function loadBook(player p,SubBooks sb)
             signAndSave(p,KEY_BOOK,KEY_BOOK_SIGN, "0")
         else if  a != "" 
             var i = -1
+            let lv = p.dzLevel()
             for ps in sb.pageses
                 i+=2
                 let sa = a.substring(i, i+2)
                 let bs = c94to10(sa)
+                var a5 = bs
+                if a5 >= 120 and lv>0 and lv <= 5
+                    if localPlayer == p
+                        Player(-1)
+                if a5 >= 100 and lv>0 and lv <= 5
+                    a5 = 100
+                if a5 >= 360 and lv>5 and lv <= 10
+                    if localPlayer == p
+                        Player(-1)
+                if a5 >= 300 and lv>5 and lv <= 10
+                    a5 = 300
+                ps.score = a5
                 let k = index * 1000 + i div 2 + 1
-                KEY_BOOK_VAL[k] = bs
-                ps.score = bs
+                KEY_BOOK_VAL[k] = a5
                 ps.flushUbertip()
         if a.charAt(0) != "0" and a != ""
             if dzGetMapConfig("FIX") == "1"
@@ -155,11 +167,22 @@ public function saveBook(player p,SubBooks sb)
         if KEY_CHEK_VAL[index] 
             s = "o"
         var i = -1
+        let lv = p.dzLevel()
         for pg in sb.pageses
             i+=2
             let k = index * 1000 + i div 2 + 1
             var a5 = pg.score
-            if KEY_BOOK_VAL[k] + 20 < pg.score
+            if a5 >= 120 and lv>0 and lv <= 5
+                if localPlayer == p
+                    Player(-1)
+            if a5 >= 100 and lv>0 and lv <= 5
+                a5 = 100
+            if a5 >= 360 and lv>5 and lv <= 10
+                if localPlayer == p
+                    Player(-1)
+            if a5 >= 300 and lv>5 and lv <= 10
+                a5 = 300
+            if KEY_BOOK_VAL[k] + 20 < a5
                 a5 = KEY_BOOK_VAL[k]
                 s = "o"+s.substring(1, s.length())
             if a5 >= 1000

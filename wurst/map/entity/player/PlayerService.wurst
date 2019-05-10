@@ -74,6 +74,11 @@ public class PlayerService
         "守卫:有时候不止可以向前,还可以向后!",
         "守卫:如果不能用高温融合扭曲虚空的能力,可能这股力量发挥不出全部的实力!"
     ]
+    static string array flowerAreaTip = [
+        "守卫:有时候小树精身上也会长出好的灵木!",
+        "守卫:小伙子,不女装一下吗!",
+        "守卫:繁花秘境已经虚空的力量被腐化了!!"
+    ]
     function onInteractive(int index)
         var r = 100 .nextInt() + 1
         switch index
@@ -100,6 +105,11 @@ public class PlayerService
                 //扭曲神殿 交互
                 var w = 4 .nextInt()
                 _player.print(distortTempleTip[w])
+            case 3
+                hero._self.setPos(vec2(-2000,-14339))
+                //繁花秘境 交互
+                var w = 3 .nextInt()
+                _player.print(flowerAreaTip[w])
 
     function onUpgradeGem(int i) returns bool
         let c = i + 1
