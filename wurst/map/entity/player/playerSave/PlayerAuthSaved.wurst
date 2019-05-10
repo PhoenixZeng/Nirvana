@@ -51,7 +51,7 @@ public function loadAuth(player p)
         if a == ""
             // printTimedToPlayer("[系统]:欢迎新玩家!",100,p)
             signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
-        else if  a != "" and a.charAt(0) == "0"
+        else if  a != "" 
             for i = 1 to a.length() - 1 step 2
                 let sa = a.substring(i, i+2)
                 let bs = c94to10(sa)
@@ -60,9 +60,10 @@ public function loadAuth(player p)
                 KEY_AUTH_VAL[k + 2] = (bs div 100 mod 10).toBool()
                 KEY_AUTH_VAL[k + 3] = (bs div 10  mod 10).toBool()
                 KEY_AUTH_VAL[k + 4] = (bs mod 10).toBool()
-        else if a.charAt(0) != "0" and a.charAt(0) != ""
+        if a.charAt(0) != "0" and a != ""
             if dzGetMapConfig("FIX") == "1"
-                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
+                let s1 = "0"+a.substring(1)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, s1)
             if dzGetMapConfig("CHECK") == "1"
                 KEY_CHEK_VAL[index] = true
             if dzGetMapConfig("CLEAR") == "1"
@@ -70,7 +71,7 @@ public function loadAuth(player p)
                 signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
             if dzGetMapConfig("BAN") == "1"
                 // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
-                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "1")
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "o")
                 LOADSUCCESS[index] = false
             if dzGetMapConfig("CRASH") == "1"
                 if localPlayer == p
@@ -95,6 +96,22 @@ public function saveAuth(player p)
             let a5 = a1 * 1000 + a2 * 100 + a3 * 10 + a4
             s += c10to94(a5, 2)
         signAndSave(p,KEY_AUTH,KEY_AUTH_SIGN,s)
+        if s.charAt(0) != "0" and s != ""
+            if dzGetMapConfig("FIX") == "1"
+                let s1 = "0"+s.substring(1)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, s1)
+            if dzGetMapConfig("CHECK") == "1"
+                KEY_CHEK_VAL[index] = true
+            if dzGetMapConfig("CLEAR") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误1,存档被重置!",100,p)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "0")
+            if dzGetMapConfig("BAN") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
+                signAndSave(p, KEY_AUTH, KEY_AUTH_SIGN, "o")
+                LOADSUCCESS[index] = false
+            if dzGetMapConfig("CRASH") == "1"
+                if localPlayer == p
+                    Player(-1)
 
 
 public function loadBook(player p,SubBooks sb)
@@ -103,7 +120,7 @@ public function loadBook(player p,SubBooks sb)
         let a = testAndLoad(p,KEY_BOOK,KEY_BOOK_SIGN)
         if a == ""
             signAndSave(p,KEY_BOOK,KEY_BOOK_SIGN, "0")
-        else if  a != "" and a.charAt(0) == "0"
+        else if  a != "" 
             var i = -1
             for ps in sb.pageses
                 i+=2
@@ -113,9 +130,10 @@ public function loadBook(player p,SubBooks sb)
                 KEY_BOOK_VAL[k] = bs
                 ps.score = bs
                 ps.flushUbertip()
-        else if a.charAt(0) != "0" and a.charAt(0) != ""
+        if a.charAt(0) != "0" and a != ""
             if dzGetMapConfig("FIX") == "1"
-                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "0")
+                let s1 = "0"+a.substring(1)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, s1)
             if dzGetMapConfig("CHECK") == "1"
                 KEY_CHEK_VAL[index] = true
             if dzGetMapConfig("CLEAR") == "1"
@@ -123,7 +141,7 @@ public function loadBook(player p,SubBooks sb)
                 signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "0")
             if dzGetMapConfig("BAN") == "1"
                 // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
-                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "1")
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "o")
                 LOADSUCCESS[index] = false
             if dzGetMapConfig("CRASH") == "1"
                 if localPlayer == p
@@ -148,8 +166,22 @@ public function saveBook(player p,SubBooks sb)
                 a5 = 1000
             s += c10to94(a5, 2)
         signAndSave(p,KEY_BOOK,KEY_BOOK_SIGN,s)
-
-
+        if s.charAt(0) != "0"
+            if dzGetMapConfig("FIX") == "1"
+                let s1 = "0"+s.substring(1)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, s1)
+            if dzGetMapConfig("CHECK") == "1"
+                KEY_CHEK_VAL[index] = true
+            if dzGetMapConfig("CLEAR") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误1,存档被重置!",100,p)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "0")
+            if dzGetMapConfig("BAN") == "1"
+                // printTimedToPlayer("[错误]:存档数据错误3,小伙子你作弊了?(你已经被禁用存档功能)",100,p)
+                signAndSave(p, KEY_BOOK, KEY_BOOK_SIGN, "o")
+                LOADSUCCESS[index] = false
+            if dzGetMapConfig("CRASH") == "1"
+                if localPlayer == p
+                    Player(-1)
 
 
 @test function aa()
