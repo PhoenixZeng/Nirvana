@@ -582,26 +582,6 @@ public class PlayerService
     function testXiaohuangjiGuildName() returns bool
         let s = p._player.dzGuildName()
         return s == "青云同盟"  or
-        s == "小黄鸡1号" or
-        s == "小黄鸡2号" or
-        s == "小黄鸡3号" or
-        s == "小黄鸡4号" or
-        s == "小黄鸡5号" or
-        s == "小黄鸡6号" or
-        s == "小黄鸡7号" or
-        s == "小黄鸡8号" or
-        s == "小黄鸡9号" or
-        s == "小黄鸡10号" or
-        s == "小黄鸡军团1号" or
-        s == "小黄鸡军团2号" or
-        s == "小黄鸡军团3号" or
-        s == "小黄鸡军团4号" or
-        s == "小黄鸡军团5号" or
-        s == "小黄鸡军团6号" or
-        s == "小黄鸡军团7号" or
-        s == "小黄鸡军团8号" or
-        s == "小黄鸡军团9号" or
-        s == "小黄鸡军团10号" or
         s == "战斗鸡军团"
 
     function onChannelGift()
@@ -621,7 +601,7 @@ public class PlayerService
 
 
     function initVIP()
-        if _vip.testAuths(p.auths) or p._player.dzIsVIPBlue()
+        if _vip.testAuths(p.auths) 
             init4VIP()
 
     function onConvertMainAttr()
@@ -722,10 +702,14 @@ public class PlayerService
             if i.auth.testAuths(p.auths)
                 execute() ->
                     printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
-                    let pg = p.hero.daoju.getSubBook("称号").getPage(i.name)
-                    if pg !=null and not pg.isActivation
-                        pg.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                    let pg1 = p.hero.daoju.getSubBook("等级称号").getPage(i.name)
+                    let pg2 = p.hero.daoju.getSubBook("其他称号").getPage(i.name)
+                    if pg1 !=null and not pg1.isActivation
+                        pg1.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg1.page.id), 1)
+                    else if pg2 !=null and not pg2.isActivation
+                        pg2.activation(false)
+                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg2.page.id), 1)
         for i in WingSkin
             if i.auth.testAuths(p.auths)
                 execute() ->

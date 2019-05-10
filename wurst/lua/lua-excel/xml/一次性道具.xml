@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8052</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -2500,8 +2500,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">主属性</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r主属性</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r主属性</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScepterOfMastery.blp</Data></Cell>
@@ -2520,8 +2519,7 @@
     <Cell><Data ss:Type="String">血量</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r血量</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r血量</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNHeartOfAszune.blp</Data></Cell>
@@ -2540,8 +2538,7 @@
     <Cell><Data ss:Type="String">三维</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r三维</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r三维</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTN3M3.blp</Data></Cell>
@@ -2617,9 +2614,10 @@
     <Cell><Data ss:Type="String">渠道礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:小黄鸡,战斗机军团,青云同盟等工会,蓝V|r</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Font></ss:Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:小黄鸡,战斗机军团,青云同盟等工会,蓝V|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\LB03.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5331,7 +5329,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>107</TopRowBottomPane>
+   <TopRowBottomPane>112</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5349,7 +5347,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>118</ActiveRow>
+     <ActiveRow>121</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

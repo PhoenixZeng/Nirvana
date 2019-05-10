@@ -79,6 +79,7 @@ public class NirvanaSpellEntity
         ..setAffix(affix_Buff_Flaws10_1_5)
         new NirvanaSpellEntity('AP0A','AR0A','AB0A',"神圣武装",'QC02',"圣骑士")
         ..setAffix(affix_subATK_ring20)
+        ..addAttr(AttrKey.dmgSub, 10)
         // new NirvanaSpellEntity('AP0B','AR0B','AB0B',"残影刀法",'QC03',"剑圣")
         // ..setAffix(affix_CastSpellTargetWhenAttackItemAffix_huanxiang)
         new NirvanaSpellEntity('AP0C','AR0C','AB0C',"嗜血战意",'QC04',"斧王")
