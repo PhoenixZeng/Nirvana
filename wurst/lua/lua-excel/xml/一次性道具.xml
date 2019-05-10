@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-10T02:55:14Z</LastSaved>
+  <LastSaved>2019-05-10T16:17:08Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="257" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="261" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2614,8 +2614,7 @@
     <Cell><Data ss:Type="String">渠道礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\LB03.blp</Data></Cell>
@@ -3171,6 +3170,82 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">400</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63C</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">灵木之刃</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[合成]|r灵木之刃</Data></Cell>
+    <Cell><Data ss:Type="String">繁花幻木+虚空合金+秘境水晶 = 灵木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r灵木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">繁花幻木+虚空合金+秘境水晶 = 灵木之刃</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63D</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">神木之刃</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[合成]|r神木之刃</Data></Cell>
+    <Cell><Data ss:Type="String">灵木之刃+万年天木 = 神木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r神木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">灵木之刃+万年天木 = 神木之刃</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">160</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63E</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">女装-神木之刃</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[合成]|r女装-神木之刃</Data></Cell>
+    <Cell><Data ss:Type="String">神木之刃+神秘的少女礼服=女装-神木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r女装-神木之刃</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">神木之刃+神秘的少女礼服=女装-神木之刃</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">160</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63F</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">交谈</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[互动]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[互动]|r交谈</Data></Cell>
+    <Cell><Data ss:Type="String">聊一聊!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[互动]|r交谈</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">聊一聊!</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"/>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
@@ -5329,7 +5404,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>112</TopRowBottomPane>
+   <TopRowBottomPane>122</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5347,7 +5422,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>121</ActiveRow>
+     <ActiveRow>144</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

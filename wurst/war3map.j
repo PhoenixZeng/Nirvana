@@ -171,7 +171,6 @@ rect gg_rct_senior_dungeon_2= null
 rect gg_rct_choice_hero_center= null
 rect gg_rct_choice_hero_come= null
 camerasetup gg_cam_chioceHero= null
-string gg_snd_bgm
 trigger gg_trg_______u= null
 trigger gg_trg____________________001= null
 trigger gg_trg_init_lua= null
@@ -3939,6 +3938,66 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD1O', 7, 50)
     
+                    call SaveStr(j_slk_item, 'ZD1P', 2081955386, "|cFF99FF66[繁花秘境]繁花幻木|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1P', - 844856191, "|cFFFFFF99基础属性|r|n血量:1000000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1P', 3, 1000000)
+    
+                    call SaveStr(j_slk_item, 'ZD1Q', 2081955386, "|cFF99FF66[繁花秘境]万年天木|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1Q', - 844856191, "|cFFFFFF99基础属性|r|n血量:5000000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1Q', 3, 5000000)
+    
+                    call SaveStr(j_slk_item, 'ZD1R', 2081955386, "|cFF99FF66[繁花秘境]虚空合金|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1R', - 844856191, "|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:2")
+                
+                    call SaveInteger(j_slk_item, 'ZD1R', 0, 1000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1R', 10, 2)
+    
+                    call SaveStr(j_slk_item, 'ZD1S', 2081955386, "|cFF99FF66[繁花秘境]秘境水晶|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1S', - 844856191, "|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:2")
+                
+                    call SaveInteger(j_slk_item, 'ZD1S', 0, 1000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1S', 10, 2)
+    
+                    call SaveStr(j_slk_item, 'ZD1T', 2081955386, "|cFF99FF66[繁花秘境]灵木之刃|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1T', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4")
+                
+                    call SaveInteger(j_slk_item, 'ZD1T', 0, 2500000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1T', 3, 1000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1T', 10, 4)
+    
+                    call SaveStr(j_slk_item, 'ZD1U', 2081955386, "|cFF99FF66[繁花秘境]神木之刃|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1U', - 844856191, "|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4")
+                
+                    call SaveInteger(j_slk_item, 'ZD1U', 0, 5000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1U', 3, 6000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1U', 10, 4)
+    
+                    call SaveStr(j_slk_item, 'ZD1V', 2081955386, "|cFF99FF66[繁花秘境]女装-神木之刃|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1V', - 844856191, "|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:20")
+                
+                    call SaveInteger(j_slk_item, 'ZD1V', 0, 8000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1V', 3, 10000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1V', 10, 4)
+    
+                    call SaveInteger(j_slk_item, 'ZD1V', 9, 20)
+    
     endfunction
 
 //library RegisterItem ends
@@ -5572,6 +5631,15 @@ endfunction
             call SaveInteger(j_slk_item, 'I63B', 406492257, 0)
             call SaveInteger(j_slk_item, 'I63B', - 85356197, 400)
         
+            call SaveInteger(j_slk_item, 'I63C', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I63C', - 85356197, 80)
+        
+            call SaveInteger(j_slk_item, 'I63D', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I63D', - 85356197, 160)
+        
+            call SaveInteger(j_slk_item, 'I63E', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I63E', - 85356197, 160)
+        
             call SaveInteger(j_slk_item, 'I640', 406492257, 0)
             call SaveInteger(j_slk_item, 'I640', - 85356197, 0)
         
@@ -6730,6 +6798,27 @@ endfunction
             call SaveInteger(j_slk_item, 'ZD1O', 406492257, 1000)
             call SaveInteger(j_slk_item, 'ZD1O', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'ZD1P', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1P', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1Q', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1Q', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1R', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1R', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1S', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1S', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1T', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1T', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1U', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1U', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1V', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1V', - 85356197, 0)
+        
     endfunction
 
 //library itemRecipeAgent ends
@@ -6739,7 +6828,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri May 10 19:18:40 2019
+//   Date: Sat May 11 02:52:56 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
@@ -6749,14 +6838,6 @@ endfunction
 //*
 //***************************************************************************
 function InitGlobals takes nothing returns nothing
-endfunction
-//***************************************************************************
-//*
-//*  Sounds
-//*
-//***************************************************************************
-function InitSounds takes nothing returns nothing
-    set gg_snd_bgm="war3mapImported\\bgm.mp3"
 endfunction
 //***************************************************************************
 //*
@@ -6888,11 +6969,11 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_dungeon_3_boss3=Rect(- 10176.0, - 2464.0, - 9728.0, - 2048.0)
     set gg_rct_dungeon_3_boss4=Rect(- 4992.0, - 3008.0, - 4544.0, - 2592.0)
     set gg_rct_dungeon_3_come_1=Rect(- 10528.0, 1952.0, - 10208.0, 2304.0)
-    set gg_rct_dungeon_3_come_2=Rect(- 6752.0, 1696.0, - 6432.0, 2048.0)
+    set gg_rct_dungeon_3_come_2=Rect(- 6592.0, 3936.0, - 6272.0, 4288.0)
     set gg_rct_dungeon_3_come_3=Rect(- 8352.0, - 3168.0, - 8032.0, - 2816.0)
-    set gg_rct_dungeon_3_come_4=Rect(- 6720.0, - 864.0, - 6400.0, - 512.0)
+    set gg_rct_dungeon_3_come_4=Rect(- 6400.0, - 3104.0, - 6080.0, - 2752.0)
     set gg_rct_dungeon_3_unit1=Rect(- 10208.0, 2336.0, - 7776.0, 3872.0)
-    set gg_rct_dungeon_3_unit2=Rect(- 6784.0, 2080.0, - 4928.0, 3872.0)
+    set gg_rct_dungeon_3_unit2=Rect(- 6560.0, 2496.0, - 4896.0, 3808.0)
     set gg_rct_dungeon_3_unit3=Rect(- 9440.0, - 2400.0, - 7520.0, - 640.0)
     set gg_rct_dungeon_3_unit4=Rect(- 6560.0, - 2624.0, - 4832.0, - 1152.0)
     set gg_rct_dungeon_4=Rect(10016.0, - 16032.0, 18944.0, - 6752.0)
@@ -7023,7 +7104,6 @@ function Trig____________________001Actions takes nothing returns nothing
     call SetCameraField(CAMERA_FIELD_FARZ, 6000.00, 0)
     call ShowUnitShow(gg_unit_n005_0005)
     call ShowUnitShow(gg_unit_NP0A_0027)
-    call SetMapMusic(gg_snd_bgm, true, 0)
 endfunction
 //===========================================================================
 function InitTrig____________________001 takes nothing returns nothing
@@ -7278,7 +7358,6 @@ function main takes nothing returns nothing
     call SetAmbientDaySound("AshenvaleDay")
     call SetAmbientNightSound("AshenvaleNight")
     call SetMapMusic("Music", true, 0)
-    call InitSounds()
     call CreateRegions()
     call CreateCameras()
     call CreateAllUnits()
