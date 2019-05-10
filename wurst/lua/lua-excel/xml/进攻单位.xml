@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8052</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -3446,18 +3446,18 @@
     <Cell><Data ss:Type="String">Obla</Data></Cell>
     <Cell><Data ss:Type="String">虚空大君</Data></Cell>
     <Cell><Data ss:Type="Number">0.1</Data></Cell>
-    <Cell ss:Formula="=INT(RC[3]/60)"><Data ss:Type="Number">13333333</Data></Cell>
+    <Cell ss:Formula="=INT(RC[3]/40)"><Data ss:Type="Number">15000000</Data></Cell>
     <Cell><Data ss:Type="Number">20000000</Data></Cell>
     <Cell><Data ss:Type="Number">500000</Data></Cell>
-    <Cell><Data ss:Type="Number">800000000</Data></Cell>
+    <Cell><Data ss:Type="Number">600000000</Data></Cell>
     <Cell><Data ss:Type="String">虚空</Data></Cell>
     <Cell><Data ss:Type="Number">3.5</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">model\boss\VoidEmperor.mdx</Data></Cell>
     <Cell ss:Formula="=&quot;let _fb&quot;&amp;RC[-12]&amp;&quot; = new UnitAttackers('&quot;&amp;RC[-11]&amp;&quot;')&quot;"><Data
       ss:Type="String">let _fb6 = new UnitAttackers('H10G')</Data></Cell>
-    <Cell ss:Index="16" ss:Formula="=INT(RC[-6]/100)"><Data ss:Type="Number">8000000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">8000000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">8000000</Data></Cell>
+    <Cell ss:Index="16" ss:Formula="=INT(RC[-6]/100)"><Data ss:Type="Number">6000000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000000</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="52"><Data ss:Type="String">R000,R001</Data></Cell>
@@ -3530,8 +3530,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>52</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>53</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
