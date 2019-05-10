@@ -20,10 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8748</WindowHeight>
+  <WindowHeight>8052</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1557,9 +1558,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[A级宝珠]大地巨龙之心|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[A级宝珠]大地巨龙之心|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_5_4.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -1578,9 +1579,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[A级宝珠]泰坦能量核心|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[A级宝珠]泰坦能量核心|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_6_4.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -1620,9 +1621,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[A级宝珠]冰封灵魂之匣|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:40|n暴击伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[A级宝珠]冰封灵魂之匣|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:40|n暴击伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_8_4.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -1746,9 +1747,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[B级宝珠]泰坦结晶石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[B级宝珠]泰坦结晶石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_6_3.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -1788,9 +1789,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[B级宝珠]灵魂结晶石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[B级宝珠]灵魂结晶石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_8_3.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -1914,9 +1915,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFB6D7A8[C级宝珠]泰坦水晶|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFB6D7A8[C级宝珠]泰坦水晶|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_6_2.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2124,9 +2125,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZY</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFFFFFFF[D级宝珠]灵魂石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFFFFFFF[D级宝珠]灵魂石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3333,11 +3334,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>119</TopRowBottomPane>
+   <TopRowBottomPane>74</TopRowBottomPane>
    <SplitVertical>8</SplitVertical>
    <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3354,9 +3354,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>135</ActiveRow>
-     <ActiveCol>12</ActiveCol>
-     <RangeSelection>R136C13:R155C13</RangeSelection>
+     <ActiveRow>133</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4840,7 +4839,7 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="Number">27000</Data></Cell>
-    <Cell ss:Index="20"><Data ss:Type="Number">80</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell
@@ -4848,7 +4847,7 @@
       ss:Type="String">|cFF99FF66[A级宝珠]大地巨龙之心|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:27000|n|cFFFFFF55附加属性|r(%)|n附加伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -4867,7 +4866,7 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="String"></Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="Number">80</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell
@@ -4875,7 +4874,7 @@
       ss:Type="String">|cFF99FF66[A级宝珠]泰坦能量核心|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1350000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -4921,8 +4920,8 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="String"></Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="Number">40</Data></Cell>
-    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
     <Cell
@@ -4930,7 +4929,7 @@
       ss:Type="String">|cFF99FF66[A级宝珠]冰封灵魂之匣|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:40|n暴击伤害:80|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:60|n|n升级途径:|cFF1BE6B8使用 |cFF33FF00传说气息|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -5084,7 +5083,7 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="String"></Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
     <Cell
@@ -5092,7 +5091,7 @@
       ss:Type="String">|cFF99FF66[B级宝珠]泰坦结晶石|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:450000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -5138,7 +5137,7 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="String"></Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
@@ -5147,7 +5146,7 @@
       ss:Type="String">|cFF99FF66[B级宝珠]灵魂结晶石|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:40|n|n升级途径:|cFF1BE6B8使用 |cFF1BE6B8玄天灵髓|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -5301,7 +5300,7 @@
       ss:Type="String"></Data></Cell>
     <Cell ss:Formula="=IF(R[8]C&lt;&gt;&quot;&quot;,INT(R[8]C*3),&quot;&quot;)"><Data
       ss:Type="String"></Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="33" ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)"><Data
       ss:Type="String">|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
     <Cell
@@ -5309,7 +5308,7 @@
       ss:Type="String">|CFFB6D7A8[C级宝珠]泰坦水晶|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:150000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n|n升级途径:|cFF1BE6B8使用 |cFF99FF66精炼晶石|r 升级|r</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -5480,7 +5479,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
     <Cell><Data ss:Type="String">[D级宝珠]</Data></Cell>
     <Cell><Data ss:Type="String">灵魂石</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="33"
      ss:Formula="=&quot;|n&quot;&amp;VLOOKUP(RC[-30],Sheet2!R1C1:R7C10,10,0)&amp;&quot;|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!&quot;"><Data
@@ -5490,7 +5489,7 @@
       ss:Type="String">|CFFFFFFFF[D级宝珠]灵魂石|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:10|n|n升级途径:|cFF1BE6B8使用 |CFFB6D7A8石化水晶|r 升级|r|n需要轮回1才可熔炼|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
@@ -10936,12 +10935,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>117</TopRowBottomPane>
+   <TopRowBottomPane>57</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -10949,6 +10949,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>6</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -10956,8 +10957,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>134</ActiveRow>
-     <ActiveCol>32</ActiveCol>
+     <ActiveRow>71</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

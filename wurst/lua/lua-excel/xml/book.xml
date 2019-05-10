@@ -613,7 +613,7 @@
     <Cell><Data ss:Type="String">灭世者大地宝珠</Data></Cell>
     <Cell><Data ss:Type="String">大地石</Data></Cell>
     <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R90C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:120|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:灭世者大地宝珠</Data></Cell>
     <Cell ss:Formula="=&quot;[激活]&quot;&amp;&quot;点击使用&quot;&amp;RC[-3]&amp;&quot;激活第一层效果!&quot;"><Data
       ss:Type="String">[激活]点击使用大地石激活第一层效果!</Data></Cell>
@@ -629,7 +629,7 @@
     <Cell><Data ss:Type="String">守护者泰坦宝珠</Data></Cell>
     <Cell><Data ss:Type="String">泰坦石</Data></Cell>
     <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R90C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:100|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:守护者泰坦宝珠</Data></Cell>
     <Cell ss:Formula="=&quot;[激活]&quot;&amp;&quot;点击使用&quot;&amp;RC[-3]&amp;&quot;激活第一层效果!&quot;"><Data
       ss:Type="String">[激活]点击使用泰坦石激活第一层效果!</Data></Cell>
@@ -661,7 +661,7 @@
     <Cell><Data ss:Type="String">弑君者冰封宝珠</Data></Cell>
     <Cell><Data ss:Type="String">灵魂石</Data></Cell>
     <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R90C6,3,0)"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:50|n暴击伤害:120|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:80|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:弑君者冰封宝珠</Data></Cell>
     <Cell ss:Formula="=&quot;[激活]&quot;&amp;&quot;点击使用&quot;&amp;RC[-3]&amp;&quot;激活第一层效果!&quot;"><Data
       ss:Type="String">[激活]点击使用灵魂石激活第一层效果!</Data></Cell>
@@ -2050,10 +2050,10 @@
     <Cell ss:Index="4"><Data ss:Type="String">灭世者大地宝珠</Data></Cell>
     <Cell ss:Index="6"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:120|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">50000</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="Number">120</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell ss:Index="26" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -2063,10 +2063,10 @@
     <Cell ss:Index="4"><Data ss:Type="String">守护者泰坦宝珠</Data></Cell>
     <Cell ss:Index="6"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:100|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="Number">2000000</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="26" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -2088,10 +2088,10 @@
     <Cell ss:Index="4"><Data ss:Type="String">弑君者冰封宝珠</Data></Cell>
     <Cell ss:Index="6"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:50|n暴击伤害:120|n|cFFCCCCCC本局有效|r</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:80|n|cFFCCCCCC本局有效|r</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">120</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell ss:Index="26" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -3190,9 +3190,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>48</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3201,6 +3201,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3209,8 +3210,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>82</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

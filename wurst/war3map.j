@@ -915,19 +915,19 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z225', 2081955386, "灭世者大地宝珠")
             
-                call SaveStr(j_slk_abil, 'Z225', - 844856191, "|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:120|n|cFFCCCCCC本局有效|r")
+                call SaveStr(j_slk_abil, 'Z225', - 844856191, "|cFFFFFF99基础属性|r|n护甲:50000|n|cFFFFFF55附加属性|r(%)|n附加伤害:80|n|cFFCCCCCC本局有效|r")
             
                         call SaveInteger(j_slk_abil, 'Z225', 1, 50000)
         
-                        call SaveInteger(j_slk_abil, 'Z225', 11, 120)
+                        call SaveInteger(j_slk_abil, 'Z225', 11, 80)
         
                 call SaveStr(j_slk_abil, 'Z226', 2081955386, "守护者泰坦宝珠")
             
-                call SaveStr(j_slk_abil, 'Z226', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:100|n|cFFCCCCCC本局有效|r")
+                call SaveStr(j_slk_abil, 'Z226', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2000000|n|cFFFFFF55附加属性|r(%)|n攻速:60|n|cFFCCCCCC本局有效|r")
             
                         call SaveInteger(j_slk_abil, 'Z226', 0, 2000000)
         
-                        call SaveInteger(j_slk_abil, 'Z226', 2, 100)
+                        call SaveInteger(j_slk_abil, 'Z226', 2, 60)
         
                 call SaveStr(j_slk_abil, 'Z227', 2081955386, "观察者监视宝珠")
             
@@ -937,11 +937,11 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z228', 2081955386, "弑君者冰封宝珠")
             
-                call SaveStr(j_slk_abil, 'Z228', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:50|n暴击伤害:120|n|cFFCCCCCC本局有效|r")
+                call SaveStr(j_slk_abil, 'Z228', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:80|n|cFFCCCCCC本局有效|r")
             
-                        call SaveInteger(j_slk_abil, 'Z228', 8, 50)
+                        call SaveInteger(j_slk_abil, 'Z228', 8, 10)
         
-                        call SaveInteger(j_slk_abil, 'Z228', 9, 120)
+                        call SaveInteger(j_slk_abil, 'Z228', 9, 80)
         
                 call SaveStr(j_slk_abil, 'Z230', 2081955386, "传说-未开放")
             
@@ -1253,9 +1253,9 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z326', 2081955386, "黄金圣剑")
             
-                call SaveStr(j_slk_abil, 'Z326', - 844856191, "|cFFFFFF99基础属性|r|n攻击:10000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z326', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!")
             
-                        call SaveInteger(j_slk_abil, 'Z326', 0, 10000)
+                        call SaveInteger(j_slk_abil, 'Z326', 0, 20000)
         
                         call SaveInteger(j_slk_abil, 'Z326', 2, 30)
         
@@ -1269,9 +1269,9 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z327', 2081955386, "玄冰神剑")
             
-                call SaveStr(j_slk_abil, 'Z327', - 844856191, "|cFFFFFF99基础属性|r|n攻击:15000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z327', - 844856191, "|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!")
             
-                        call SaveInteger(j_slk_abil, 'Z327', 0, 15000)
+                        call SaveInteger(j_slk_abil, 'Z327', 0, 30000)
         
                         call SaveInteger(j_slk_abil, 'Z327', 2, 40)
         
@@ -1285,9 +1285,9 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z328', 2081955386, "邪神魔剑")
             
-                call SaveStr(j_slk_abil, 'Z328', - 844856191, "|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z328', - 844856191, "|cFFFFFF99基础属性|r|n攻击:50000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!")
             
-                        call SaveInteger(j_slk_abil, 'Z328', 0, 30000)
+                        call SaveInteger(j_slk_abil, 'Z328', 0, 50000)
         
                         call SaveInteger(j_slk_abil, 'Z328', 2, 50)
         
@@ -1307,49 +1307,49 @@ endglobals
             
                 call SaveStr(j_slk_abil, 'Z331', 2081955386, "冰火翅膀")
             
-                call SaveStr(j_slk_abil, 'Z331', - 844856191, "|cFFFFFF99基础属性|r|n力量:1000|n敏捷:1000|n智力:1000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z331', - 844856191, "|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z331', 4, 1000)
+                        call SaveInteger(j_slk_abil, 'Z331', 4, 2000)
         
-                        call SaveInteger(j_slk_abil, 'Z331', 5, 1000)
+                        call SaveInteger(j_slk_abil, 'Z331', 5, 2000)
         
-                        call SaveInteger(j_slk_abil, 'Z331', 6, 1000)
+                        call SaveInteger(j_slk_abil, 'Z331', 6, 2000)
         
                         call SaveInteger(j_slk_abil, 'Z331', 11, 5)
         
                 call SaveStr(j_slk_abil, 'Z332', 2081955386, "妖灵翅膀")
             
-                call SaveStr(j_slk_abil, 'Z332', - 844856191, "|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z332', - 844856191, "|cFFFFFF99基础属性|r|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z332', 4, 2000)
+                        call SaveInteger(j_slk_abil, 'Z332', 4, 4000)
         
-                        call SaveInteger(j_slk_abil, 'Z332', 5, 2000)
+                        call SaveInteger(j_slk_abil, 'Z332', 5, 4000)
         
-                        call SaveInteger(j_slk_abil, 'Z332', 6, 2000)
+                        call SaveInteger(j_slk_abil, 'Z332', 6, 4000)
         
                         call SaveInteger(j_slk_abil, 'Z332', 11, 10)
         
                 call SaveStr(j_slk_abil, 'Z333', 2081955386, "仙灵翅膀")
             
-                call SaveStr(j_slk_abil, 'Z333', - 844856191, "|cFFFFFF99基础属性|r|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z333', - 844856191, "|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z333', 4, 3000)
+                        call SaveInteger(j_slk_abil, 'Z333', 4, 6000)
         
-                        call SaveInteger(j_slk_abil, 'Z333', 5, 3000)
+                        call SaveInteger(j_slk_abil, 'Z333', 5, 6000)
         
-                        call SaveInteger(j_slk_abil, 'Z333', 6, 3000)
+                        call SaveInteger(j_slk_abil, 'Z333', 6, 6000)
         
                         call SaveInteger(j_slk_abil, 'Z333', 11, 15)
         
                 call SaveStr(j_slk_abil, 'Z334', 2081955386, "黄金翅膀")
             
-                call SaveStr(j_slk_abil, 'Z334', - 844856191, "|cFFFFFF99基础属性|r|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z334', - 844856191, "|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z334', 4, 5000)
+                        call SaveInteger(j_slk_abil, 'Z334', 4, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z334', 5, 5000)
+                        call SaveInteger(j_slk_abil, 'Z334', 5, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z334', 6, 5000)
+                        call SaveInteger(j_slk_abil, 'Z334', 6, 10000)
         
                         call SaveInteger(j_slk_abil, 'Z334', 8, 5)
         
@@ -1363,9 +1363,9 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z335', 2081955386, "真神翅膀")
             
-                call SaveStr(j_slk_abil, 'Z335', - 844856191, "|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z335', - 844856191, "|cFFFFFF99基础属性|r|n力量:15000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z335', 4, 10000)
+                        call SaveInteger(j_slk_abil, 'Z335', 4, 15000)
         
                         call SaveInteger(j_slk_abil, 'Z335', 5, 10000)
         
@@ -1383,13 +1383,13 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z336', 2081955386, "圣羽翅膀")
             
-                call SaveStr(j_slk_abil, 'Z336', - 844856191, "|cFFFFFF99基础属性|r|n力量:15000|n敏捷:15000|n智力:15000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!")
+                call SaveStr(j_slk_abil, 'Z336', - 844856191, "|cFFFFFF99基础属性|r|n力量:20000|n敏捷:20000|n智力:20000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!")
             
-                        call SaveInteger(j_slk_abil, 'Z336', 4, 15000)
+                        call SaveInteger(j_slk_abil, 'Z336', 4, 20000)
         
-                        call SaveInteger(j_slk_abil, 'Z336', 5, 15000)
+                        call SaveInteger(j_slk_abil, 'Z336', 5, 20000)
         
-                        call SaveInteger(j_slk_abil, 'Z336', 6, 15000)
+                        call SaveInteger(j_slk_abil, 'Z336', 6, 20000)
         
                         call SaveInteger(j_slk_abil, 'Z336', 8, 15)
         
@@ -1471,15 +1471,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z345', 2081955386, "铂金")
             
-                call SaveStr(j_slk_abil, 'Z345', - 844856191, "|cFFFFFF99基础属性|r|n攻击:5000|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!")
+                call SaveStr(j_slk_abil, 'Z345', - 844856191, "|cFFFFFF99基础属性|r|n攻击:5500|n力量:2200|n敏捷:2200|n智力:2200|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z345', 0, 5000)
+                        call SaveInteger(j_slk_abil, 'Z345', 0, 5500)
         
-                        call SaveInteger(j_slk_abil, 'Z345', 4, 2000)
+                        call SaveInteger(j_slk_abil, 'Z345', 4, 2200)
         
-                        call SaveInteger(j_slk_abil, 'Z345', 5, 2000)
+                        call SaveInteger(j_slk_abil, 'Z345', 5, 2200)
         
-                        call SaveInteger(j_slk_abil, 'Z345', 6, 2000)
+                        call SaveInteger(j_slk_abil, 'Z345', 6, 2200)
         
                         call SaveInteger(j_slk_abil, 'Z345', 11, 25)
         
@@ -1487,15 +1487,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z346', 2081955386, "钻石")
             
-                call SaveStr(j_slk_abil, 'Z346', - 844856191, "|cFFFFFF99基础属性|r|n攻击:6250|n力量:2500|n敏捷:2500|n智力:2500|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!")
+                call SaveStr(j_slk_abil, 'Z346', - 844856191, "|cFFFFFF99基础属性|r|n攻击:7500|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z346', 0, 6250)
+                        call SaveInteger(j_slk_abil, 'Z346', 0, 7500)
         
-                        call SaveInteger(j_slk_abil, 'Z346', 4, 2500)
+                        call SaveInteger(j_slk_abil, 'Z346', 4, 3000)
         
-                        call SaveInteger(j_slk_abil, 'Z346', 5, 2500)
+                        call SaveInteger(j_slk_abil, 'Z346', 5, 3000)
         
-                        call SaveInteger(j_slk_abil, 'Z346', 6, 2500)
+                        call SaveInteger(j_slk_abil, 'Z346', 6, 3000)
         
                         call SaveInteger(j_slk_abil, 'Z346', 11, 30)
         
@@ -1503,15 +1503,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z347', 2081955386, "大师")
             
-                call SaveStr(j_slk_abil, 'Z347', - 844856191, "|cFFFFFF99基础属性|r|n攻击:8000|n力量:3200|n敏捷:3200|n智力:3200|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!")
+                call SaveStr(j_slk_abil, 'Z347', - 844856191, "|cFFFFFF99基础属性|r|n攻击:10000|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z347', 0, 8000)
+                        call SaveInteger(j_slk_abil, 'Z347', 0, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z347', 4, 3200)
+                        call SaveInteger(j_slk_abil, 'Z347', 4, 4000)
         
-                        call SaveInteger(j_slk_abil, 'Z347', 5, 3200)
+                        call SaveInteger(j_slk_abil, 'Z347', 5, 4000)
         
-                        call SaveInteger(j_slk_abil, 'Z347', 6, 3200)
+                        call SaveInteger(j_slk_abil, 'Z347', 6, 4000)
         
                         call SaveInteger(j_slk_abil, 'Z347', 11, 35)
         
@@ -1519,15 +1519,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z348', 2081955386, "宗师")
             
-                call SaveStr(j_slk_abil, 'Z348', - 844856191, "|cFFFFFF99基础属性|r|n攻击:9500|n力量:3800|n敏捷:3800|n智力:3800|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!")
+                call SaveStr(j_slk_abil, 'Z348', - 844856191, "|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z348', 0, 9500)
+                        call SaveInteger(j_slk_abil, 'Z348', 0, 13000)
         
-                        call SaveInteger(j_slk_abil, 'Z348', 4, 3800)
+                        call SaveInteger(j_slk_abil, 'Z348', 4, 5200)
         
-                        call SaveInteger(j_slk_abil, 'Z348', 5, 3800)
+                        call SaveInteger(j_slk_abil, 'Z348', 5, 5200)
         
-                        call SaveInteger(j_slk_abil, 'Z348', 6, 3800)
+                        call SaveInteger(j_slk_abil, 'Z348', 6, 5200)
         
                         call SaveInteger(j_slk_abil, 'Z348', 11, 40)
         
@@ -1535,15 +1535,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z349', 2081955386, "王者")
             
-                call SaveStr(j_slk_abil, 'Z349', - 844856191, "|cFFFFFF99基础属性|r|n攻击:11250|n力量:4500|n敏捷:4500|n智力:4500|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!")
+                call SaveStr(j_slk_abil, 'Z349', - 844856191, "|cFFFFFF99基础属性|r|n攻击:16500|n力量:6600|n敏捷:6600|n智力:6600|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z349', 0, 11250)
+                        call SaveInteger(j_slk_abil, 'Z349', 0, 16500)
         
-                        call SaveInteger(j_slk_abil, 'Z349', 4, 4500)
+                        call SaveInteger(j_slk_abil, 'Z349', 4, 6600)
         
-                        call SaveInteger(j_slk_abil, 'Z349', 5, 4500)
+                        call SaveInteger(j_slk_abil, 'Z349', 5, 6600)
         
-                        call SaveInteger(j_slk_abil, 'Z349', 6, 4500)
+                        call SaveInteger(j_slk_abil, 'Z349', 6, 6600)
         
                         call SaveInteger(j_slk_abil, 'Z349', 11, 45)
         
@@ -1551,15 +1551,15 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z34A', 2081955386, "皇者")
             
-                call SaveStr(j_slk_abil, 'Z34A', - 844856191, "|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!")
+                call SaveStr(j_slk_abil, 'Z34A', - 844856191, "|cFFFFFF99基础属性|r|n攻击:21500|n力量:8600|n敏捷:8600|n智力:8600|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z34A', 0, 13000)
+                        call SaveInteger(j_slk_abil, 'Z34A', 0, 21500)
         
-                        call SaveInteger(j_slk_abil, 'Z34A', 4, 5200)
+                        call SaveInteger(j_slk_abil, 'Z34A', 4, 8600)
         
-                        call SaveInteger(j_slk_abil, 'Z34A', 5, 5200)
+                        call SaveInteger(j_slk_abil, 'Z34A', 5, 8600)
         
-                        call SaveInteger(j_slk_abil, 'Z34A', 6, 5200)
+                        call SaveInteger(j_slk_abil, 'Z34A', 6, 8600)
         
                         call SaveInteger(j_slk_abil, 'Z34A', 11, 50)
         
@@ -1571,15 +1571,15 @@ endglobals
             
                 call SaveStr(j_slk_abil, 'Z351', 2081955386, "星悦至尊")
             
-                call SaveStr(j_slk_abil, 'Z351', - 844856191, "|cFFFFFF99基础属性|r|n攻击:10000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!")
+                call SaveStr(j_slk_abil, 'Z351', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!")
             
-                        call SaveInteger(j_slk_abil, 'Z351', 0, 10000)
+                        call SaveInteger(j_slk_abil, 'Z351', 0, 20000)
         
-                        call SaveInteger(j_slk_abil, 'Z351', 4, 5000)
+                        call SaveInteger(j_slk_abil, 'Z351', 4, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z351', 5, 5000)
+                        call SaveInteger(j_slk_abil, 'Z351', 5, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z351', 6, 5000)
+                        call SaveInteger(j_slk_abil, 'Z351', 6, 10000)
         
                         call SaveInteger(j_slk_abil, 'Z351', 10, 5)
         
@@ -3213,17 +3213,17 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZB34', 1, 27000)
     
-                    call SaveInteger(j_slk_item, 'ZB34', 11, 80)
+                    call SaveInteger(j_slk_item, 'ZB34', 11, 60)
     
                     call SaveInteger(j_slk_item, 'ZB35', 0, 1350000)
     
-                    call SaveInteger(j_slk_item, 'ZB35', 2, 80)
+                    call SaveInteger(j_slk_item, 'ZB35', 2, 50)
     
                     call SaveInteger(j_slk_item, 'ZB36', 10, 20)
     
-                    call SaveInteger(j_slk_item, 'ZB37', 8, 40)
+                    call SaveInteger(j_slk_item, 'ZB37', 8, 10)
     
-                    call SaveInteger(j_slk_item, 'ZB37', 9, 80)
+                    call SaveInteger(j_slk_item, 'ZB37', 9, 60)
     
                     call SaveInteger(j_slk_item, 'ZB40', 4, 90000)
     
@@ -3253,11 +3253,11 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZB45', 0, 450000)
     
-                    call SaveInteger(j_slk_item, 'ZB45', 2, 60)
+                    call SaveInteger(j_slk_item, 'ZB45', 2, 40)
     
                     call SaveInteger(j_slk_item, 'ZB46', 10, 15)
     
-                    call SaveInteger(j_slk_item, 'ZB47', 8, 25)
+                    call SaveInteger(j_slk_item, 'ZB47', 8, 10)
     
                     call SaveInteger(j_slk_item, 'ZB47', 9, 40)
     
@@ -3289,7 +3289,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZB55', 0, 150000)
     
-                    call SaveInteger(j_slk_item, 'ZB55', 2, 40)
+                    call SaveInteger(j_slk_item, 'ZB55', 2, 30)
     
                     call SaveInteger(j_slk_item, 'ZB56', 10, 10)
     
@@ -3329,7 +3329,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZB66', 10, 5)
     
-                    call SaveInteger(j_slk_item, 'ZB67', 8, 5)
+                    call SaveInteger(j_slk_item, 'ZB67', 8, 10)
     
                     call SaveInteger(j_slk_item, 'ZB67', 9, 10)
     
@@ -6739,7 +6739,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Fri May 10 03:11:21 2019
+//   Date: Fri May 10 11:23:40 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
@@ -6788,45 +6788,45 @@ function CreateNeutralPassive takes nothing returns nothing
     local integer unitID
     local trigger t
     local real life
-    set u=CreateUnit(p, 'NP0N', - 341.2, - 7698.2, 27.184)
-    set u=CreateUnit(p, 'NP10', 579.9, - 7462.0, 175.360)
-    set u=CreateUnit(p, 'NP06', - 80.5, - 7861.0, 63.574)
-    set u=CreateUnit(p, 'NP0M', - 434.8, - 7365.3, 353.940)
+    set u=CreateUnit(p, 'NP0N', - 66.5, - 7848.9, 55.539)
+    set u=CreateUnit(p, 'NP0G', 381.2, 4654.0, 269.917)
+    set u=CreateUnit(p, 'NP10', - 406.4, - 7412.4, 358.606)
+    set u=CreateUnit(p, 'NP06', 300.0, - 7824.9, 92.204)
+    set u=CreateUnit(p, 'NP0M', - 303.5, - 7663.9, 28.023)
     set u=CreateUnit(p, 'NP07', 3702.8, - 14400.3, 180.230)
     set u=CreateUnit(p, 'NP0G', - 1369.8, 4609.4, 269.917)
-    set u=CreateUnit(p, 'NP0G', 348.8, 4658.0, 264.642)
-    set u=CreateUnit(p, 'NP0G', 2100.7, 4635.2, 256.215)
-    set u=CreateUnit(p, 'NP0G', 3787.5, 4675.9, 254.537)
-    set u=CreateUnit(p, 'NP0G', 5664.1, 4650.0, 259.036)
-    set u=CreateUnit(p, 'NP00', 528.0, - 7723.6, 137.363)
+    set u=CreateUnit(p, 'NP02', 380.1, 4403.4, 282.680)
+    set u=CreateUnit(p, 'NP0G', 2182.4, 4640.2, 269.917)
+    set u=CreateUnit(p, 'NP0G', 3838.1, 4685.9, 269.917)
+    set u=CreateUnit(p, 'NP0G', 5702.2, 4583.7, 269.917)
+    set u=CreateUnit(p, 'NP00', 621.6, - 7456.9, 176.410)
     set u=CreateUnit(p, 'NP05', - 307.4, - 7043.7, 317.806)
     set u=CreateUnit(p, 'NP08', - 1948.1, - 14365.8, 305.160)
-    set u=CreateUnit(p, 'NP04', 293.2, - 7885.0, 106.431)
+    set u=CreateUnit(p, 'NP04', 544.7, - 7687.8, 135.409)
     set gg_unit_NP0A_0027=CreateUnit(p, 'NP0A', 3293.8, - 11327.5, 274.003)
+    set u=CreateUnit(p, 'NP03', 40.5, 4670.7, 272.102)
     set u=CreateUnit(p, 'NP0O', 546.9, - 7102.3, 218.205)
     set u=CreateUnit(p, 'NP0B', 6822.8, - 6272.1, 165.990)
-    set u=CreateUnit(p, 'NP03', - 2011.1, 4613.7, 349.188)
+    set u=CreateUnit(p, 'NP03', - 1710.5, 4626.1, 272.102)
     set u=CreateUnit(p, 'NP0C', - 13713.9, - 722.9, 278.010)
-    set u=CreateUnit(p, 'NP0I', - 2020.5, 4321.0, 358.150)
+    set u=CreateUnit(p, 'NP0I', - 253.2, 4655.8, 262.617)
+    set u=CreateUnit(p, 'NP0J', - 267.8, 4391.9, 272.853)
+    set u=CreateUnit(p, 'NP02', 2181.3, 4389.6, 282.680)
+    set u=CreateUnit(p, 'NP03', 1841.7, 4656.9, 272.102)
+    set u=CreateUnit(p, 'NP0I', 1547.9, 4642.0, 262.617)
+    set u=CreateUnit(p, 'NP0J', 1533.4, 4378.1, 272.853)
+    set u=CreateUnit(p, 'NP02', 3837.0, 4435.2, 282.680)
+    set u=CreateUnit(p, 'NP0I', - 2004.3, 4611.2, 262.617)
+    set u=CreateUnit(p, 'NP03', 3497.4, 4702.5, 272.102)
+    set u=CreateUnit(p, 'NP0I', 3203.7, 4687.6, 262.617)
+    set u=CreateUnit(p, 'NP0J', 3189.1, 4423.7, 272.853)
+    set u=CreateUnit(p, 'NP02', 5701.1, 4333.0, 282.680)
+    set u=CreateUnit(p, 'NP03', 5361.5, 4600.3, 272.102)
+    set u=CreateUnit(p, 'NP0I', 5067.7, 4585.4, 262.617)
+    set u=CreateUnit(p, 'NP0J', 5053.2, 4321.5, 272.853)
     set u=CreateUnit(p, 'NP02', - 1370.9, 4358.8, 282.680)
     set u=CreateUnit(p, 'NP0H', 113.1, - 6960.7, 272.788)
-    set u=CreateUnit(p, 'NP0J', - 2028.2, 4058.2, 356.655)
-    set u=CreateUnit(p, 'NP03', - 234.2, 4680.2, 349.188)
-    set u=CreateUnit(p, 'NP0I', - 241.1, 4331.7, 358.147)
-    set u=CreateUnit(p, 'NP02', 336.3, 4370.1, 282.680)
-    set u=CreateUnit(p, 'NP0J', - 242.0, 4036.2, 356.655)
-    set u=CreateUnit(p, 'NP03', 1545.2, 4629.4, 349.188)
-    set u=CreateUnit(p, 'NP0I', 1538.3, 4281.0, 358.147)
-    set u=CreateUnit(p, 'NP02', 2103.1, 4368.5, 282.680)
-    set u=CreateUnit(p, 'NP0J', 1537.5, 3985.4, 356.655)
-    set u=CreateUnit(p, 'NP03', 3220.9, 4734.3, 349.188)
-    set u=CreateUnit(p, 'NP0I', 3214.0, 4385.9, 358.147)
-    set u=CreateUnit(p, 'NP02', 3784.9, 4405.8, 282.680)
-    set u=CreateUnit(p, 'NP0J', 3213.1, 4090.3, 356.655)
-    set u=CreateUnit(p, 'NP03', 5011.4, 4617.1, 349.188)
-    set u=CreateUnit(p, 'NP0I', 5004.5, 4268.7, 358.147)
-    set u=CreateUnit(p, 'NP02', 5672.6, 4359.0, 282.680)
-    set u=CreateUnit(p, 'NP0J', 5003.7, 3973.1, 356.655)
+    set u=CreateUnit(p, 'NP0J', - 2018.8, 4347.3, 272.853)
 endfunction
 //===========================================================================
 function CreatePlayerBuildings takes nothing returns nothing
