@@ -85,7 +85,7 @@ init
     new TitleSkin("-ch9" ,'SK23',"王者",_map_lv30)
     new TitleSkin("-ch10",'SK24',"皇者",rank100Auth)
     new TitleSkin("-chxy",'SK33',"星悦至尊",starGuild)
-    new TitleSkin("-chzb",'SK34',"魔域主播",starGuild)
+    new TitleSkin("-chzb",'SK34',"魔域主播",anchorGuild)
 
     new HaloSkin("-gh1",'SK25',"日炎光环",_map_p1)
     new HaloSkin("-gh2",'SK26',"森林光环",_map_p_lv2)
