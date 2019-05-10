@@ -15,10 +15,11 @@
   <RemovePersonalInformation/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>8052</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1127,7 +1128,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">黄金圣剑</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:20000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[武器皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[武器皮肤]黄金圣剑</Data></Cell>
     <Cell><Data ss:Type="String">激活武器皮肤</Data></Cell>
@@ -1142,7 +1143,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">玄冰神剑</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:15000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[武器皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[武器皮肤]玄冰神剑</Data></Cell>
     <Cell><Data ss:Type="String">激活武器皮肤</Data></Cell>
@@ -1157,7 +1158,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">邪神魔剑</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:50000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[武器皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[武器皮肤]邪神魔剑</Data></Cell>
     <Cell><Data ss:Type="String">激活武器皮肤</Data></Cell>
@@ -1172,7 +1173,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">冰火翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:1000|n敏捷:1000|n智力:1000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">等级2且单通难度2</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]冰火翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1187,7 +1188,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">妖灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">等级4且单通难度4</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]妖灵翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1202,7 +1203,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">仙灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="String">未开放</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]仙灵翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1217,7 +1218,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">黄金翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]黄金翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1232,7 +1233,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">真神翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:15000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]真神翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1247,7 +1248,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">圣羽翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:15000|n敏捷:15000|n智力:15000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:20000|n敏捷:20000|n智力:20000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="String">商城购买</Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]圣羽翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
@@ -1322,7 +1323,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">铂金</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5500|n力量:2200|n敏捷:2200|n智力:2200|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">等级16</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]铂金</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1337,7 +1338,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">钻石</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:6250|n力量:2500|n敏捷:2500|n智力:2500|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:7500|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">等级20</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]钻石</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1352,7 +1353,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">大师</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000|n力量:3200|n敏捷:3200|n智力:3200|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">等级24</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]大师</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1367,7 +1368,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">宗师</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:9500|n力量:3800|n敏捷:3800|n智力:3800|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">等级28</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]宗师</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1382,7 +1383,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">王者</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:11250|n力量:4500|n敏捷:4500|n智力:4500|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:16500|n力量:6600|n敏捷:6600|n智力:6600|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">等级30</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]王者</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1397,7 +1398,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">皇者</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:21500|n力量:8600|n敏捷:8600|n智力:8600|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">排行榜前100且等级30</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]皇者</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1412,7 +1413,7 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">星悦至尊</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:20000|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!</Data></Cell>
     <Cell><Data ss:Type="String">星悦会员俱乐部</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]星悦至尊</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
@@ -1815,7 +1816,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1850,7 +1850,7 @@
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:Hidden="1" ss:AutoFitWidth="0" ss:Span="2"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="94.8"/>
-   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="322.8"/>
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="48.6"/>
    <Column ss:Index="9" ss:Width="51.6"/>
    <Column ss:AutoFitWidth="0" ss:Width="56.4"/>
    <Column ss:Width="57" ss:Span="1"/>
@@ -2663,9 +2663,9 @@
     <Cell ss:Index="4"><Data ss:Type="String">黄金圣剑</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:20000|n|cFFFFFF55附加属性|r(%)|n攻速:30|n攻击吸血:2|n暴击伤害:50|n最终伤害:3|n|cFFFFFF11核心属性|r|n杀敌属性:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq6'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">20000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="Number">50</Data></Cell>
@@ -2682,9 +2682,9 @@
     <Cell ss:Index="4"><Data ss:Type="String">玄冰神剑</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:15000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:40|n攻击吸血:4|n暴击伤害:80|n最终伤害:6|n|cFFFFFF11核心属性|r|n杀敌属性:20|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq7'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="Number">15000</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">30000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="Number">80</Data></Cell>
@@ -2701,9 +2701,9 @@
     <Cell ss:Index="4"><Data ss:Type="String">邪神魔剑</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:50000|n|cFFFFFF55附加属性|r(%)|n攻速:50|n攻击吸血:6|n暴击伤害:100|n伤害增幅:30|n最终伤害:10|n|cFFFFFF11核心属性|r|n杀敌属性:30|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq8'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="Number">30000</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">50000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="Number">100</Data></Cell>
@@ -2726,11 +2726,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">冰火翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:1000|n敏捷:1000|n智力:1000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:5|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb1'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">1000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">1000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">1000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">2000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=&quot;属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb&quot;&amp;RC[-27]&amp;&quot;'切换翅膀!&quot;"><Data
@@ -2740,11 +2740,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">妖灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:10|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">2000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">4000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=&quot;属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb&quot;&amp;RC[-27]&amp;&quot;'切换翅膀!&quot;"><Data
@@ -2754,11 +2754,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">仙灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">3000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">6000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=&quot;属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb&quot;&amp;RC[-27]&amp;&quot;'切换翅膀!&quot;"><Data
@@ -2768,11 +2768,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">黄金翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:5|n附加伤害:50|n最终伤害:3|n伤害减免:5|n|cFFFFFF11核心属性|r|n升级属性:800|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb4'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">5000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -2789,10 +2789,10 @@
     <Cell ss:Index="4"><Data ss:Type="String">真神翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:15000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n附加伤害:80|n最终伤害:6|n伤害减免:10|n|cFFFFFF11核心属性|r|n升级属性:1600|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb5'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">10000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">15000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
     <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
@@ -2810,11 +2810,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">圣羽翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:15000|n敏捷:15000|n智力:15000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:20000|n敏捷:20000|n智力:20000|n|cFFFFFF55附加属性|r(%)|n暴击概率:15|n附加伤害:100|n最终伤害:10|n伤害减免:15|n|cFFFFFF11核心属性|r|n升级属性:3200|n冲锋CD降低为0|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb6'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">15000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">15000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">15000</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">20000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">20000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">20000</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2900,12 +2900,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">铂金</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000|n力量:2000|n敏捷:2000|n智力:2000|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5500|n力量:2200|n敏捷:2200|n智力:2200|n|cFFFFFF55附加属性|r(%)|n附加伤害:25|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch5'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">5000</Data></Cell>
-    <Cell><Data ss:Type="Number">2000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2000</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">5500</Data></Cell>
+    <Cell><Data ss:Type="Number">2200</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2200</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2200</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">25</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2916,12 +2916,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">钻石</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:6250|n力量:2500|n敏捷:2500|n智力:2500|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:7500|n力量:3000|n敏捷:3000|n智力:3000|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch6'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">6250</Data></Cell>
-    <Cell><Data ss:Type="Number">2500</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2500</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">2500</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">7500</Data></Cell>
+    <Cell><Data ss:Type="Number">3000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2932,12 +2932,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">大师</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000|n力量:3200|n敏捷:3200|n智力:3200|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n力量:4000|n敏捷:4000|n智力:4000|n|cFFFFFF55附加属性|r(%)|n附加伤害:35|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch7'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">8000</Data></Cell>
-    <Cell><Data ss:Type="Number">3200</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3200</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3200</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">4000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">35</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2948,12 +2948,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">宗师</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:9500|n力量:3800|n敏捷:3800|n智力:3800|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:40|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch8'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">9500</Data></Cell>
-    <Cell><Data ss:Type="Number">3800</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3800</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">3800</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">13000</Data></Cell>
+    <Cell><Data ss:Type="Number">5200</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5200</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5200</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2964,12 +2964,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">王者</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:11250|n力量:4500|n敏捷:4500|n智力:4500|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:16500|n力量:6600|n敏捷:6600|n智力:6600|n|cFFFFFF55附加属性|r(%)|n附加伤害:45|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch9'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">11250</Data></Cell>
-    <Cell><Data ss:Type="Number">4500</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4500</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">4500</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">16500</Data></Cell>
+    <Cell><Data ss:Type="Number">6600</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6600</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6600</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">45</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2980,12 +2980,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">皇者</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:13000|n力量:5200|n敏捷:5200|n智力:5200|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:21500|n力量:8600|n敏捷:8600|n智力:8600|n|cFFFFFF55附加属性|r(%)|n附加伤害:50|n伤害减免:1|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-ch10'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">13000</Data></Cell>
-    <Cell><Data ss:Type="Number">5200</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5200</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5200</Data></Cell>
+    <Cell ss:Index="9" ss:Formula="=RC[1]*2.5"><Data ss:Type="Number">21500</Data></Cell>
+    <Cell><Data ss:Type="Number">8600</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">8600</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">8600</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="34"
@@ -2996,12 +2996,12 @@
     <Cell ss:Index="4"><Data ss:Type="String">星悦至尊</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:20000|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:10|n暴击伤害:20|n附加伤害:50|n最终伤害:5|n获得20%额外杀敌积分|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chxy'切换称号!</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="Number">10000</Data></Cell>
-    <Cell><Data ss:Type="Number">5000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">5000</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">20000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
@@ -3185,11 +3185,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <LeftColumnVisible>3</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>48</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3208,8 +3209,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>81</ActiveRow>
-     <RangeSelection>R82C6:R83C6</RangeSelection>
+     <ActiveRow>82</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

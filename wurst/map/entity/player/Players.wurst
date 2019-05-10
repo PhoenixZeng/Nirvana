@@ -45,17 +45,17 @@ public class Players
     int    gemScore           = 0
     int    endlessScore       = 0
 
-    int    convertMainAttrVal           = 10000
+    int    convertMainAttrVal           = 5000
     int    convertMainAttrCost          = 300
-    int    convertAttrVal               = 5000
+    int    convertAttrVal               = 2500
     real   convertAttrValMul            = 2.5
     int    convertAttrCost              = 300
     int    convertAttrCount             = 0
-    int    convertHpVal                 = 50000
+    int    convertHpVal                 = 30000
     real   convertHpValMul              = 2.5
     int    convertHpCost                = 300
     int    convertHpCount               = 0
-    int    convertAtkVal                = 20000
+    int    convertAtkVal                = 10000
     real   convertAtkValMul             = 2.5
     int    convertAtkCost               = 300
     int    convertAtkCount              = 0
