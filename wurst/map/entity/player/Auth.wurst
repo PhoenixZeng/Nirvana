@@ -95,7 +95,7 @@ public class AuthGuild extends Auth
 public let authChecked = new AuthCheckd("jc")
 
 public let starGuild = new AuthGuild("星悦","星悦会员俱乐部")
-public let anchorGuild = new AuthGuild("魔域","魔域主播工会")
+public let anchorGuild = new AuthGuild("魔域","魔域主播公会")
 
 public let defAuth = new Auth("是")..setTest((a,p)-> true)    
 public let defNotAuth = new Auth("否")..setTest((a,p)-> false)    

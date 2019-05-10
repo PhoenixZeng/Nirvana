@@ -15,11 +15,10 @@
   <RemovePersonalInformation/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8052</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1429,7 +1428,7 @@
     <Cell><Data ss:Type="String">魔域主播</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
       ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:10|n附加伤害:50|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-chzb'切换称号!</Data></Cell>
-    <Cell><Data ss:Type="String">魔域主播工会</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">魔域主播公会</Data></Cell>
     <Cell ss:Formula="=&quot;[称号]&quot;&amp;RC[-4]"><Data ss:Type="String">[称号]魔域主播</Data></Cell>
     <Cell><Data ss:Type="String">激活称号</Data></Cell>
     <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
@@ -1816,10 +1815,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>46</TopRowBottomPane>
+   <TopRowBottomPane>71</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1837,8 +1837,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>56</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>90</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3185,14 +3184,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <LeftColumnVisible>3</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3201,11 +3199,9 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
     <Pane>

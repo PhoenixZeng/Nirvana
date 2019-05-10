@@ -113,6 +113,15 @@ public class Dungeon
             ..addBoss('H60A'+3 + 4*k, dungeonBoss4[i])
             ..build()
 
+        doPeriodically(30) tk->
+            for i in Dungeon
+                let u = i.boss[0]
+                if not ( u.isAlive() or u.isAliveTrick() )
+                    doAfter(i.bossTime) ->
+                        i.reviveBoss(0)
+                else if u == null
+                    i.createBossInit()
+
         deathTrigger
         ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
         ..addCondition(Condition(()->GetTriggerUnit().getOwner()==owner))

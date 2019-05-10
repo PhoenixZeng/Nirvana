@@ -670,7 +670,7 @@ public class PlayerService
         return p._player.dzGuildName() == "星悦会员俱乐部"
 
     function testAnchorGuildName() returns bool
-        return p._player.dzGuildName() == "魔域主播工会"
+        return p._player.dzGuildName() == "魔域主播公会"
 
     function onLeave()
         if p.hero != null
