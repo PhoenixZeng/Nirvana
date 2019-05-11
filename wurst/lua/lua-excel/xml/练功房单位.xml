@@ -4851,7 +4851,7 @@
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">units\demon\DoomGuard\DoomGuard</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s63"><Data ss:Type="String">units\undead\Ghoul\Ghoul</Data></Cell>
     <Cell
      ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
       ss:Type="String">let _hb虚空合金 = new Challenge('L70虚空合金','H70虚空合金',1)</Data></Cell>
@@ -4923,7 +4923,7 @@
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">units\demon\DoomGuard\DoomGuard</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s63"><Data ss:Type="String">units\nightelf\Dryad\Dryad</Data></Cell>
     <Cell
      ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
       ss:Type="String">let _hb秘境水晶 = new Challenge('L70秘境水晶','H70秘境水晶',1)</Data></Cell>
@@ -5166,7 +5166,7 @@
     <Cell ss:Index="16"><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNBundleOfLumber.blp</Data></Cell>
-    <Cell><Data ss:Type="String">units\human\WaterElemental\WaterElemental</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">units\nightelf\Ent\Ent</Data></Cell>
     <Cell
      ss:Formula="=&quot;let _hx&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L30&quot;&amp;RC[-16]&amp;&quot;','h30&quot;&amp;RC[-16]&amp;&quot;',20)&quot;"><Data
       ss:Type="String">let _hx|cFF33FF00繁花幻木|r = new Challenge('L30|cFF33FF00繁花幻木|r','h30|cFF33FF00繁花幻木|r',20)</Data></Cell>
@@ -5221,9 +5221,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5231,14 +5231,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>69</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
