@@ -9,15 +9,15 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-05-05T15:33:17Z</Created>
-  <LastSaved>2019-04-29T20:21:14Z</LastSaved>
+  <LastSaved>2019-05-11T12:05:57Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>6240</WindowHeight>
+  <WindowWidth>17256</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -1179,7 +1179,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT08</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT08</Data></Cell>
-    <Cell><Data ss:Type="String">MS0R</Data></Cell>
+    <Cell><Data ss:Type="String">MS0R,MS0V,I63F,I63G,I63C</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\Sorceress\Sorceress</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4180,11 +4180,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>25</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>63</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

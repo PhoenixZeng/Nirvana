@@ -228,6 +228,10 @@ init
     ..setTarget('h603', 50)
     ..addAward(AwardType.itemId, 'ZD0B')
     ..build()
+    new HuntMission("[任务]:清理|cFF1BE6B8被腐化的树精|r")
+    ..setTarget('h604', 50)
+    ..addAward(AwardType.itemId, 'ZD1P')
+    ..build()
     DungeonHuntMission1.initDungeonHuntMission()
     DungeonHuntMission2.initDungeonHuntMission()
     CreateTrigger()
@@ -250,6 +254,8 @@ init
             u.applyMission("[任务]:清理|cFF1BE6B8蝎子|r")
         else if id == 'MS0U'
             u.applyMission("[任务]:清理|cFF1BE6B8冰晶元素|r")
+        else if id == 'MS0V'
+            u.applyMission("[任务]:清理|cFF1BE6B8被腐化的树精|r")
 
 
 

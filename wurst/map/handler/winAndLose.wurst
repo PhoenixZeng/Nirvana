@@ -65,7 +65,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
                 var a5 = ene + sa.energy
                 if a5 >= 100 and ps.dzLv>0 and ps.dzLv <= 5
                     a5 = 100
-                if a5 >= 300 and ps.dzLv>5 and ps.dzLv <= 10
+                if a5 >= 300 and ps.dzLv>5 and ps.dzLv <= 8
                     a5 = 300
                 sa.addEnergy(a5 - sa.energy)
                 ps.saveBook()

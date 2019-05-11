@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-06T03:15:33Z</LastSaved>
+  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8748</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="47" ss:ExpandedRowCount="33" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="47" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
    <Column ss:AutoFitWidth="0" ss:Width="189"/>
@@ -1007,6 +1007,8 @@
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8天地灵气|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8天地灵气|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - 定魂精髓</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNThunderLizardEgg.blp</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Artifact</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1119,6 +1121,40 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">MS0V</Data></Cell>
+    <Cell><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">被腐化的树精</Data></Cell>
+    <Cell><Data ss:Type="String">繁花幻木</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]:清理|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">[任务]:清理|cFF1BE6B8被腐化的树精|r</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">此地的|cFF1BE6B8被腐化的树精|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8繁花幻木|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[任务]:清理|cFF1BE6B8被腐化的树精|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8被腐化的树精|r太多了,击杀|cFF1BE6B850|r只!|n[任务奖励]: - |cFF1BE6B8繁花幻木|r</Data></Cell>
+    <Cell><Data ss:Type="String">Q</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="43"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
@@ -1132,9 +1168,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>7</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1146,10 +1182,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
+     <ActiveRow>30</ActiveRow>
+     <ActiveCol>20</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

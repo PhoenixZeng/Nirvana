@@ -209,6 +209,9 @@ public function initDrop()
     UnitDropManager.of("虚空魔使",'H721',100)..add('ZD0Z')
     UnitDropManager.of("虚空触手",'H722',100)..add('ZD10')
     UnitDropManager.of("熔火熔岩魔兽",'H723',100)..add('ZD13')
+    UnitDropManager.of("被腐化的树精",'h604',0.3)..add('ZD1Q')
+    UnitDropManager.of("虚空爪牙",'H724',100)..add('ZD1R')
+    UnitDropManager.of("被腐化的秘境守卫",'H725',100)..add('ZD1S')
 
     for i = 1 to 10
         UnitAbstractDropManager.of("进攻"+i,'H100'+i - 1,100) ->

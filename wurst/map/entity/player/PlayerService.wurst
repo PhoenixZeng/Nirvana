@@ -108,8 +108,15 @@ public class PlayerService
             case 3
                 hero._self.setPos(vec2(-2000,-14339))
                 //繁花秘境 交互
-                var w = 3 .nextInt()
-                _player.print(flowerAreaTip[w])
+                if hero._self.hasItemById('ZD1T') and hero._self.hasItemById('ZD1Q')
+                    hero._self.addItemById('I63D')
+                    _player.print("这块材料不错,我来给你加强下装备!")
+                else if hero._self.hasItemById('ZD1U') and hero._self.hasItemById('ZD0O')
+                    hero._self.addItemById('I63E')
+                    _player.print("小伙子,你穿女装的样子不错!")
+                else
+                    var w = 3 .nextInt()
+                    _player.print(flowerAreaTip[w])
 
     function onUpgradeGem(int i) returns bool
         let c = i + 1

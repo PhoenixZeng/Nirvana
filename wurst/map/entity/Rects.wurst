@@ -99,6 +99,7 @@ public Rects flowerDream = new Rects(gg_rct_area_flower_dream)
 public Rects snowMountainU1 = new Rects(gg_rct_snow_mountain_u1)
 public Rects snowMountainU2 = new Rects(gg_rct_snow_mountain_u2)
 public Rects snowMountainU3 = new Rects(gg_rct_snow_mountain_u3)
+public Rects flowerU1 = new Rects(gg_rct_flower_u1)
 
 public Rects hideWay1 = new Rects(gg_rct_hide_way_1)
 public Rects hideWay2 = new Rects(gg_rct_hide_way_2)

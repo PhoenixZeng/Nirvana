@@ -104,6 +104,9 @@ public function initPlayersEvent()
                     ps.onChioceDivineSoul()
                 case 'I639'
                     ps.onChallDivineSoul()
+                case 'I63H'
+                    if s.getOwner() == ps._player and s.isBuilding()
+                        s.kill()
                 case 'I640'
                     if not ps.onStudySpell(1)
                         ps._player.addGold(slk_item.loadInt(id, goldcostKey))
@@ -336,8 +339,6 @@ public function initPlayersEvent()
             if u.hasItem(i)
                 u.removeItem(i)
             u.getMainHero().addItemHandle(i)
-        else if a=='ZZZT' and u.isBuilding()
-            u.kill()
         else if a=='ZZZX'
             lastCaster = u
             lastPos = pos

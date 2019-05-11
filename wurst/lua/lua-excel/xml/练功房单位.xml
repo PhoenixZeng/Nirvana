@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-05-05T15:33:17Z</Created>
-  <LastSaved>2019-04-25T20:59:13Z</LastSaved>
+  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -40,7 +40,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Sheet1">
-  <Table ss:ExpandedColumnCount="241" ss:ExpandedRowCount="65" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="241" ss:ExpandedRowCount="68" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:AutoFitWidth="0" ss:Width="61.8"/>
    <Column ss:AutoFitWidth="0" ss:Width="39.6"/>
@@ -1040,7 +1040,7 @@
     <Cell><Data ss:Type="String">高级木头怪</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">0.5</Data></Cell>
     <Cell ss:Formula="=INT(RC[4]/10)"><Data ss:Type="Number">5000000</Data></Cell>
-    <Cell><Data ss:Type="Number">100000000</Data></Cell>
+    <Cell><Data ss:Type="Number">50000000</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">50000000</Data></Cell>
@@ -4834,6 +4834,150 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">H724</Data></Cell>
+    <Cell><Data ss:Type="String">Obla</Data></Cell>
+    <Cell><Data ss:Type="String">虚空合金</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00虚空爪牙|r</Data></Cell>
+    <Cell ss:Formula="=&quot;掉落|cFF33FF00&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">掉落|cFF33FF00虚空合金|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">5000000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">25000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">250000000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">units\demon\DoomGuard\DoomGuard</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
+      ss:Type="String">let _hb虚空合金 = new Challenge('L70虚空合金','H70虚空合金',1)</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="44"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="58"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="81"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">H725</Data></Cell>
+    <Cell><Data ss:Type="String">Obla</Data></Cell>
+    <Cell><Data ss:Type="String">秘境水晶</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00被腐化的秘境守卫|r</Data></Cell>
+    <Cell ss:Formula="=&quot;掉落|cFF33FF00&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">掉落|cFF33FF00秘境水晶|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">11000000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">55000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">550000000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">units\demon\DoomGuard\DoomGuard</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
+      ss:Type="String">let _hb秘境水晶 = new Challenge('L70秘境水晶','H70秘境水晶',1)</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="44"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="58"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="81"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">h601</Data></Cell>
     <Cell><Data ss:Type="String">hfoo</Data></Cell>
     <Cell><Data ss:Type="String">|cFF33FF00雪花|r</Data></Cell>
@@ -5006,6 +5150,64 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">h604</Data></Cell>
+    <Cell><Data ss:Type="String">hfoo</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00繁花幻木|r</Data></Cell>
+    <Cell><Data ss:Type="String">被腐化的树精</Data></Cell>
+    <Cell ss:Formula="=&quot;[任务]奖励&quot;&amp;RC[-2]"><Data ss:Type="String">[任务]奖励|cFF33FF00繁花幻木|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">800000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">4000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">40000000</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNBundleOfLumber.blp</Data></Cell>
+    <Cell><Data ss:Type="String">units\human\WaterElemental\WaterElemental</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hx&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L30&quot;&amp;RC[-16]&amp;&quot;','h30&quot;&amp;RC[-16]&amp;&quot;',20)&quot;"><Data
+      ss:Type="String">let _hx|cFF33FF00繁花幻木|r = new Challenge('L30|cFF33FF00繁花幻木|r','h30|cFF33FF00繁花幻木|r',20)</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
@@ -5019,7 +5221,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>42</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5032,12 +5234,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>66</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

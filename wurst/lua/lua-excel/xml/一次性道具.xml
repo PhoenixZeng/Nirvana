@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-10T16:17:08Z</LastSaved>
+  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -32,12 +32,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s62">
-   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="261" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="263" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2283,7 +2280,7 @@
     <Cell><Data ss:Type="String">将3个B级精髓合成一个A级精髓|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cff00ff1e[精髓]|r合成A级精髓</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">将3个B级精髓合成一个A级精髓|n</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\jingsui1.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\item\jingsui1.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2302,7 +2299,7 @@
     <Cell><Data ss:Type="String">将3个A级精髓合成一个S级精髓|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cff00ff1e[精髓]|r合成S级精髓</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">将3个A级精髓合成一个S级精髓|n</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\jingsui2.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\item\jingsui2.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2318,7 +2315,7 @@
     <Cell><Data ss:Type="String">跳关</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000跳关|r</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">往后跳一波|r|n|cffFF8005[消耗杀敌积分]:200 每次兑换消耗X2|r</Data></Cell>
+    <Cell><Data ss:Type="String">往后跳一波|r|n|cffFF8005[消耗杀敌积分]:200 每次兑换消耗X2|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000跳关|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">往后跳一波|r|n|cffFF8005[消耗杀敌积分]:200 每次兑换消耗X2|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNSacrifice.blp</Data></Cell>
@@ -2331,16 +2328,16 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I61F</Data></Cell>
+    <Cell><Data ss:Type="String">I61F</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">后山</Data></Cell>
+    <Cell><Data ss:Type="String">后山</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[后期必进]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[后期必进]|r后山</Data></Cell>
     <Cell><Data ss:Type="String">前往后山!|n后期必进!!!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[后期必进]|r后山</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">前往后山!|n后期必进!!!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\houshan.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\item\houshan.blp</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -2361,7 +2358,7 @@
     <Cell><Data ss:Type="String">挑战史诗副本,每个史诗副本都对应一件或者多件史诗装备,并且均有隐藏内容!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[史诗副本]|r扭曲神殿</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">挑战史诗副本,每个史诗副本都对应一件或者多件史诗装备,并且均有隐藏内容!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuqushendian.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\niuqushendian.blp</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -2382,7 +2379,7 @@
     <Cell><Data ss:Type="String">挑战史诗副本,每个史诗副本都对应一件或者多件史诗装备,并且均有隐藏内容!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[史诗副本]|r雪山</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">挑战史诗副本,每个史诗副本都对应一件或者多件史诗装备,并且均有隐藏内容!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\xueshan.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\xueshan.blp</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -2417,10 +2414,10 @@
     <Cell><Data ss:Type="String">I628</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">星悦礼包</Data></Cell>
+    <Cell><Data ss:Type="String">星悦礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r星悦礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chxy'开启!|n|r[礼包内容]:|n'星悦至尊'称号|n</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chxy'开启!|n|r[礼包内容]:|n'星悦至尊'称号|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r星悦礼包</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chxy'开启!|n|r[礼包内容]:|n'星悦至尊'称号|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\book\116.blp</Data></Cell>
@@ -2440,7 +2437,7 @@
     <Cell><Data ss:Type="String">等级奖励</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r等级奖励</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]|n[称号]黑铁:五星好评赠送|n[称号]青铜:等级5|n[称号]白银:等级8|n[称号]黄金:等级12|n[称号]铂金:等级16|n[称号]钻石:等级20|n[称号]大师:等级24|n[称号]宗师:等级28|n[称号]王者:等级30|n[称号]皇者:排行榜前100且等级30|n|cffFF03FF[提示]:激活指令是&quot;-ch&quot;+称号序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]|n[称号]黑铁:五星好评赠送|n[称号]青铜:等级5|n[称号]白银:等级8|n[称号]黄金:等级12|n[称号]铂金:等级16|n[称号]钻石:等级20|n[称号]大师:等级24|n[称号]宗师:等级28|n[称号]王者:等级30|n[称号]皇者:排行榜前100且等级30|n|cffFF03FF[提示]:激活指令是&quot;-ch&quot;+称号序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r等级奖励</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]|n[称号]黑铁:五星好评赠送|n[称号]青铜:等级5|n[称号]白银:等级8|n[称号]黄金:等级12|n[称号]铂金:等级16|n[称号]钻石:等级20|n[称号]大师:等级24|n[称号]宗师:等级28|n[称号]王者:等级30|n[称号]皇者:排行榜前100且等级30|n|cffFF03FF[提示]:激活指令是&quot;-ch&quot;+称号序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\dengji.blp</Data></Cell>
@@ -2460,7 +2457,7 @@
     <Cell><Data ss:Type="String">通关奖励</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r通关奖励</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]:|n[光环]日炎光环:通关难度1|n[光环]森林光环:通关难2且等级2|n[光环]炽焰光环:通关难3且等级3|n[光环]时空光环:通关难4且等级4|n[光环]死亡斗气:通关难5且等级5|n[武器]斩光之剑:单通难1|n[翅膀]冰火翅膀:单通难2且等级2|n[武器]霜之哀伤:单通难3且等级3|n[翅膀]妖灵翅膀:单通难4且等级4|n[武器]囚火之剑:单通难5且等级5|n|cffFF03FF[提示]:光环激活指令是&quot;-gh&quot;+序号.武器激活指令是&quot;-wq&quot;+序号.翅膀激活指令是&quot;-cb&quot;+序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]:|n[光环]日炎光环:通关难度1|n[光环]森林光环:通关难2且等级2|n[光环]炽焰光环:通关难3且等级3|n[光环]时空光环:通关难4且等级4|n[光环]死亡斗气:通关难5且等级5|n[武器]斩光之剑:单通难1|n[翅膀]冰火翅膀:单通难2且等级2|n[武器]霜之哀伤:单通难3且等级3|n[翅膀]妖灵翅膀:单通难4且等级4|n[武器]囚火之剑:单通难5且等级5|n|cffFF03FF[提示]:光环激活指令是&quot;-gh&quot;+序号.武器激活指令是&quot;-wq&quot;+序号.翅膀激活指令是&quot;-cb&quot;+序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r通关奖励</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:下一盘开局自动领取,输入指令展示外观|n|r[礼包内容]:|n[光环]日炎光环:通关难度1|n[光环]森林光环:通关难2且等级2|n[光环]炽焰光环:通关难3且等级3|n[光环]时空光环:通关难4且等级4|n[光环]死亡斗气:通关难5且等级5|n[武器]斩光之剑:单通难1|n[翅膀]冰火翅膀:单通难2且等级2|n[武器]霜之哀伤:单通难3且等级3|n[翅膀]妖灵翅膀:单通难4且等级4|n[武器]囚火之剑:单通难5且等级5|n|cffFF03FF[提示]:光环激活指令是&quot;-gh&quot;+序号.武器激活指令是&quot;-wq&quot;+序号.翅膀激活指令是&quot;-cb&quot;+序号.序号在人物身上的&quot;道具目录&quot;查看|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\tongguan.blp</Data></Cell>
@@ -2480,7 +2477,7 @@
     <Cell><Data ss:Type="String">商城道具</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r商城道具</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:购买后下一盘开局自动领取,展示/召唤指令在人物身上的&quot;道具目录&quot;查看|n|r[礼包内容]:|n商城道具</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:购买后下一盘开局自动领取,展示/召唤指令在人物身上的&quot;道具目录&quot;查看|n|r[礼包内容]:|n商城道具</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r商城道具</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:购买后下一盘开局自动领取,展示/召唤指令在人物身上的&quot;道具目录&quot;查看|n|r[礼包内容]:|n商城道具</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\shangcheng.blp</Data></Cell>
@@ -2497,10 +2494,10 @@
     <Cell><Data ss:Type="String">I62C</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">主属性</Data></Cell>
+    <Cell><Data ss:Type="String">主属性</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r主属性</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r主属性</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:主属性5000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScepterOfMastery.blp</Data></Cell>
@@ -2519,7 +2516,7 @@
     <Cell><Data ss:Type="String">血量</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r血量</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r血量</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:血量30000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNHeartOfAszune.blp</Data></Cell>
@@ -2538,7 +2535,7 @@
     <Cell><Data ss:Type="String">三维</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r三维</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r三维</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:三维2500|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTN3M3.blp</Data></Cell>
@@ -2557,7 +2554,7 @@
     <Cell><Data ss:Type="String">攻击</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[兑换]|r攻击</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:攻击10000|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:攻击10000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r攻击</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:攻击10000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNArcaniteMelee.blp</Data></Cell>
@@ -2576,7 +2573,7 @@
     <Cell><Data ss:Type="String">平台金币礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r平台金币礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n开局金币+10000|n杀敌数+500|n暴击伤害+10|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n开局金币+10000|n杀敌数+500|n暴击伤害+10|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r平台金币礼包</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n开局金币+10000|n杀敌数+500|n暴击伤害+10|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\LB01.blp</Data></Cell>
@@ -2595,7 +2592,7 @@
     <Cell><Data ss:Type="String">平台木头礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r平台木头礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n最大生命值+20000|n全属性+1000|n附加伤害+10|n</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n最大生命值+20000|n全属性+1000|n附加伤害+10|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r平台木头礼包</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:购买后点击领取|n|r[礼包内容]:|n最大生命值+20000|n全属性+1000|n附加伤害+10|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\LB02.blp</Data></Cell>
@@ -2614,7 +2611,7 @@
     <Cell><Data ss:Type="String">渠道礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r渠道礼包</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:符合条件的人可以领取|n|r[礼包内容]:|n最大生命值+10000|n全属性+200|n最终伤害+10|n|r|cffFF03FF目前符合条件的:战斗鸡军团,青云同盟等工会,蓝V|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\gift\LB03.blp</Data></Cell>
@@ -2630,13 +2627,13 @@
     <Cell><Data ss:Type="String">I62J</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">魔域主播公会</Data></Cell>
+    <Cell><Data ss:Type="String">魔域主播公会</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r魔域主播公会</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chzb'开启!|n|r[礼包内容]:|n魔域主播称号|n|r|cffFF04FF目前符合条件的:魔域主播公会|r</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chzb'开启!|n|r[礼包内容]:|n魔域主播称号|n|r|cffFF04FF目前符合条件的:魔域主播公会|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r魔域主播公会</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:属性自动领取,外观效果输入'-chzb'开启!|n|r[礼包内容]:|n魔域主播称号|n|r|cffFF04FF目前符合条件的:魔域主播公会|r</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNB104.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\118.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2653,7 +2650,7 @@
     <Cell><Data ss:Type="String">请隐居者喝酒</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[交互]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[交互]|r请隐居者喝酒</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">请隐居者喝酒!|n需要:难度3以上!|n|n|cffFF07FF提示:对话时,会把英雄传送到隐居者身边(难度1也行)!|r</Data></Cell>
+    <Cell><Data ss:Type="String">请隐居者喝酒!|n需要:难度3以上!|n|n|cffFF07FF提示:对话时,会把英雄传送到隐居者身边(难度1也行)!|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[交互]|r请隐居者喝酒</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">请隐居者喝酒!|n需要:难度3以上!|n|n|cffFF07FF提示:对话时,会把英雄传送到隐居者身边(难度1也行)!|r</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -2671,7 +2668,7 @@
     <Cell><Data ss:Type="String">和守护者交谈</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[交互]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[交互]|r和守护者交谈</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">和守护者交谈!|n|n|cffFF07FF提示:对话时,会把英雄传送到守护者身边!|r</Data></Cell>
+    <Cell><Data ss:Type="String">和守护者交谈!|n|n|cffFF07FF提示:对话时,会把英雄传送到守护者身边!|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[交互]|r和守护者交谈</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">和守护者交谈!|n|n|cffFF07FF提示:对话时,会把英雄传送到守护者身边!|r</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -2692,7 +2689,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 雪山山腰</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r雪山山腰</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 雪山山腰</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\shanjiao.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\shanjiao.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2711,7 +2708,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 雪山山脊</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r雪山山脊</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 雪山山脊</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\shanji.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\shanji.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2730,7 +2727,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 雪山山顶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r雪山山顶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 雪山山顶</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\shanding.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\shanding.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2749,7 +2746,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 神殿大厅</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r神殿大厅</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 神殿大厅</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\dating.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\dating.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2768,7 +2765,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 神殿二楼</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r神殿二楼</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 神殿二楼</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\erlou.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\erlou.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2787,7 +2784,7 @@
     <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 神殿核心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r神殿核心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 神殿核心</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\hexin.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\hexin.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -2875,10 +2872,10 @@
     <Cell><Data ss:Type="String">雪山结晶</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r雪山结晶</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">雪花+冰块 = 雪山结晶</Data></Cell>
+    <Cell><Data ss:Type="String">雪花+冰块 = 雪山结晶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r雪山结晶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">雪花+冰块 = 雪山结晶</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\xueshanjiejing.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\xueshanjiejing.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2894,10 +2891,10 @@
     <Cell><Data ss:Type="String">雪灵之心</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r雪灵之心</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">雪狐皮毛+雪熊利爪+雪鸟羽毛+雪山结晶 = 雪灵之心</Data></Cell>
+    <Cell><Data ss:Type="String">雪狐皮毛+雪熊利爪+雪鸟羽毛+雪山结晶 = 雪灵之心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r雪灵之心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">雪狐皮毛+雪熊利爪+雪鸟羽毛+雪山结晶 = 雪灵之心</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\xuelingzhixin.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\xuelingzhixin.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2913,10 +2910,10 @@
     <Cell><Data ss:Type="String">万年玄冰</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r万年玄冰</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">万年玄冰碎片-寒 + 万年玄冰碎片-霜 + 万年玄冰碎片-冰 + 万年玄冰碎片-雪 + 千年玄冰 = 万年玄冰</Data></Cell>
+    <Cell><Data ss:Type="String">万年玄冰碎片-寒 + 万年玄冰碎片-霜 + 万年玄冰碎片-冰 + 万年玄冰碎片-雪 + 千年玄冰 = 万年玄冰</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r万年玄冰</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">万年玄冰碎片-寒 + 万年玄冰碎片-霜 + 万年玄冰碎片-冰 + 万年玄冰碎片-雪 + 千年玄冰 = 万年玄冰</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\wannianxuanbing.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\wannianxuanbing.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2926,16 +2923,16 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I62Z</Data></Cell>
+    <Cell><Data ss:Type="String">I62Z</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">风雪古剑</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r风雪古剑</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
+    <Cell><Data ss:Type="String">雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r风雪古剑</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxuegujian.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxuegujian.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2951,10 +2948,10 @@
     <Cell><Data ss:Type="String">神秘的少女礼服(神秘礼盒)</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r神秘的少女礼服(神秘礼盒)</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">神秘的少女裙子+神秘的少女鞋子+神秘的少女衣服+神秘礼盒=神秘的少女礼服</Data></Cell>
+    <Cell><Data ss:Type="String">神秘的少女裙子+神秘的少女鞋子+神秘的少女衣服+神秘礼盒=神秘的少女礼服</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r神秘的少女礼服(神秘礼盒)</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">神秘的少女裙子+神秘的少女鞋子+神秘的少女衣服+神秘礼盒=神秘的少女礼服</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\shaonvdeyifu.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\shaonvdeyifu.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2970,10 +2967,10 @@
     <Cell><Data ss:Type="String">公主爱心</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r公主爱心</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">公主之心+公主之信=公主爱心</Data></Cell>
+    <Cell><Data ss:Type="String">公主之心+公主之信=公主爱心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r公主爱心</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">公主之心+公主之信=公主爱心</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\anyi.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\anyi.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -2989,10 +2986,10 @@
     <Cell><Data ss:Type="String">风雪神剑</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[合成]|r风雪神剑</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">风雪古剑+公主之心+神秘的少女礼服 = 风雪神剑|n风雪古剑+公主爱心+神秘的少女礼服 = 风雪圣剑</Data></Cell>
+    <Cell><Data ss:Type="String">风雪古剑+公主之心+神秘的少女礼服 = 风雪神剑|n风雪古剑+公主爱心+神秘的少女礼服 = 风雪圣剑</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r风雪神剑</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">风雪古剑+公主之心+神秘的少女礼服 = 风雪神剑|n风雪古剑+公主爱心+神秘的少女礼服 = 风雪圣剑</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxueshengjian2.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxueshengjian2.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3011,7 +3008,7 @@
     <Cell><Data ss:Type="String">扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r扭曲结晶</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuqujiejing.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\niuqujiejing.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3030,7 +3027,7 @@
     <Cell><Data ss:Type="String">扭曲的书+扭曲的枪+扭曲的棒+扭曲的杖 = 扭曲金属</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r扭曲金属</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">扭曲的书+扭曲的枪+扭曲的棒+扭曲的杖 = 扭曲金属</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuqujinshu.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\niuqujinshu.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3049,7 +3046,7 @@
     <Cell><Data ss:Type="String">虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r虚空魔石</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\xukongmoshi.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\xukongmoshi.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3068,7 +3065,7 @@
     <Cell><Data ss:Type="String">扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r扭曲虚空之核</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3087,7 +3084,7 @@
     <Cell><Data ss:Type="String">扭曲虚空之核+熔火熔岩 = 扭曲虚空魔核</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r扭曲虚空魔核(公式隐藏)</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">扭曲虚空之核+熔火熔岩 = 扭曲虚空魔核</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongmohe.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongmohe.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3160,7 +3157,7 @@
     <Cell><Data ss:Type="String">圣魂</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[融合]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[融合]|r圣魂</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">[需要]:|cffFF8000圣魂珠|r+定魂精髓(后山左边任务)|n|cffFF07FF[提示]:合成之后显示在人物身上的[搜集图鉴]里面!|r</Data></Cell>
+    <Cell><Data ss:Type="String">[需要]:|cffFF8000圣魂珠|r+定魂精髓(后山左边任务)|n|cffFF07FF[提示]:合成之后显示在人物身上的[搜集图鉴]里面!|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[融合]|r圣魂</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">[需要]:|cffFF8000圣魂珠|r+定魂精髓(后山左边任务)|n|cffFF07FF[提示]:合成之后显示在人物身上的[搜集图鉴]里面!|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\item\SH04.blp</Data></Cell>
@@ -3182,7 +3179,7 @@
     <Cell><Data ss:Type="String">繁花幻木+虚空合金+秘境水晶 = 灵木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r灵木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">繁花幻木+虚空合金+秘境水晶 = 灵木之刃</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\flower\tianmuzhiren.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3201,7 +3198,7 @@
     <Cell><Data ss:Type="String">灵木之刃+万年天木 = 神木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r神木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">灵木之刃+万年天木 = 神木之刃</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\flower\tianmushenren.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3220,13 +3217,13 @@
     <Cell><Data ss:Type="String">神木之刃+神秘的少女礼服=女装-神木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r女装-神木之刃</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">神木之刃+神秘的少女礼服=女装-神木之刃</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\flower\nvzhuangtianmushenren.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">160</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
@@ -3234,12 +3231,48 @@
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">交谈</Data></Cell>
-    <Cell ss:Formula="=&quot;|cffFF8000[互动]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
-      ss:Type="String">|cffFF8000[互动]|r交谈</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[交互]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[交互]|r交谈</Data></Cell>
     <Cell><Data ss:Type="String">聊一聊!</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[互动]|r交谈</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[交互]|r交谈</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">聊一聊!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"/>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63G</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">秘境深处</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[传送]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[传送]|r秘境深处</Data></Cell>
+    <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 秘境深处</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r秘境深处</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 秘境深处</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\flower\fanhuamijing.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63H</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">拆除</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[拆除]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[拆除]|r拆除</Data></Cell>
+    <Cell><Data ss:Type="String">拆掉这个东西,但是并不会返还消耗!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[拆除]|r拆除</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">拆掉这个东西,但是并不会返还消耗!</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">333</Data></Cell>
@@ -3451,7 +3484,7 @@
     <Cell><Data ss:Type="String">I64A</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">稀有</Data></Cell>
+    <Cell><Data ss:Type="String">稀有</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[技能]|r强制融合技能 - &quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[技能]|r强制融合技能 - 稀有</Data></Cell>
     <Cell
@@ -3459,7 +3492,7 @@
       ss:Type="String">消耗三本普通技能书,合成一本随机稀有技能书.|n|cffFF07FF提示:只会判断英雄背包的技能!|r|n|n正常的公式融合技能只需要两本,但是实在不行就强制合成吧!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[技能]|r强制融合技能 - 稀有</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">消耗三本普通技能书,合成一本随机稀有技能书.|n|cffFF07FF提示:只会判断英雄背包的技能!|r|n|n正常的公式融合技能只需要两本,但是实在不行就强制合成吧!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\jineng1.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\item\jineng1.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -3472,7 +3505,7 @@
     <Cell><Data ss:Type="String">I64B</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">史诗</Data></Cell>
+    <Cell><Data ss:Type="String">史诗</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[技能]|r强制融合技能 - &quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[技能]|r强制融合技能 - 史诗</Data></Cell>
     <Cell
@@ -3480,7 +3513,7 @@
       ss:Type="String">消耗三本稀有技能书,合成一本随机史诗技能书.|n|cffFF07FF提示:只会判断英雄背包的技能!|r|n|n正常的公式融合技能只需要两本,但是实在不行就强制合成吧!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[技能]|r强制融合技能 - 史诗</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">消耗三本稀有技能书,合成一本随机史诗技能书.|n|cffFF07FF提示:只会判断英雄背包的技能!|r|n|n正常的公式融合技能只需要两本,但是实在不行就强制合成吧!</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\jineng2.blp</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\item\jineng2.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -3494,7 +3527,7 @@
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">抽取练功房装饰</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">抽取练功房装饰,每次消耗100杀敌数!装饰建造在练功房可以增加属性!</Data></Cell>
+    <Cell><Data ss:Type="String">抽取练功房装饰,每次消耗100杀敌数!装饰建造在练功房可以增加属性!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">抽取练功房装饰</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">抽取练功房装饰,每次消耗100杀敌数!装饰建造在练功房可以增加属性!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNPatrol.blp</Data></Cell>
@@ -4752,11 +4785,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I650</Data></Cell>
+    <Cell><Data ss:Type="String">I650</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r升级</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级当前练功房装饰物,消耗基于装饰物等级的金币和杀敌分!</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r升级</Data></Cell>
+    <Cell><Data ss:Type="String">升级当前练功房装饰物,消耗基于装饰物等级的金币和杀敌分!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r升级</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">升级当前练功房装饰物,消耗基于装饰物等级的金币和杀敌分!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNMove.blp</Data></Cell>
@@ -4774,8 +4807,8 @@
     <Cell><Data ss:Type="String">I651</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r查看等级</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">查看当前装饰物的等级!</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r查看等级</Data></Cell>
+    <Cell><Data ss:Type="String">查看当前装饰物的等级!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r查看等级</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">查看当前装饰物的等级!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNCrystalBall.blp</Data></Cell>
@@ -5283,13 +5316,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I670</Data></Cell>
+    <Cell><Data ss:Type="String">I670</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">攻击之塔</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF03FF[练功房装饰物]|r&quot;&amp;RC[-1]&amp;&quot;属性介绍&quot;"><Data
       ss:Type="String">|cffFF03FF[练功房装饰物]|r攻击之塔属性介绍</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">lv1：攻击15000|nlv2：攻击43000|nlv3：攻击116000|nlv4：攻击320000|nlv5：攻击720000|nlv6：攻击1600000    伤害增幅15|nlv7：攻击2250000    伤害增幅30|nlv8：攻击4500000    伤害增幅45|n</Data></Cell>
+    <Cell><Data ss:Type="String">lv1：攻击15000|nlv2：攻击43000|nlv3：攻击116000|nlv4：攻击320000|nlv5：攻击720000|nlv6：攻击1600000    伤害增幅15|nlv7：攻击2250000    伤害增幅30|nlv8：攻击4500000    伤害增幅45|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r攻击之塔属性介绍</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">lv1：攻击15000|nlv2：攻击43000|nlv3：攻击116000|nlv4：攻击320000|nlv5：攻击720000|nlv6：攻击1600000    伤害增幅15|nlv7：攻击2250000    伤害增幅30|nlv8：攻击4500000    伤害增幅45|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\tower\towericonhei.blp</Data></Cell>
@@ -5305,13 +5338,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I671</Data></Cell>
+    <Cell><Data ss:Type="String">I671</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">生命之塔</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF03FF[练功房装饰物]|r&quot;&amp;RC[-1]&amp;&quot;属性介绍&quot;"><Data
       ss:Type="String">|cffFF03FF[练功房装饰物]|r生命之塔属性介绍</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">lv1：生命30000|nlv2：生命86000|nlv3：生命232000|nlv4：生命640000|nlv5：生命1440000|nlv6：生命3200000    伤害减免5    伤害抵抗2|nlv7：生命4500000    伤害减免10    伤害抵抗4|nlv8：生命9000000    伤害减免15    伤害抵抗6|n</Data></Cell>
+    <Cell><Data ss:Type="String">lv1：生命30000|nlv2：生命86000|nlv3：生命232000|nlv4：生命640000|nlv5：生命1440000|nlv6：生命3200000    伤害减免5    伤害抵抗2|nlv7：生命4500000    伤害减免10    伤害抵抗4|nlv8：生命9000000    伤害减免15    伤害抵抗6|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r生命之塔属性介绍</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">lv1：生命30000|nlv2：生命86000|nlv3：生命232000|nlv4：生命640000|nlv5：生命1440000|nlv6：生命3200000    伤害减免5    伤害抵抗2|nlv7：生命4500000    伤害减免10    伤害抵抗4|nlv8：生命9000000    伤害减免15    伤害抵抗6|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\tower\towericonhuang.blp</Data></Cell>
@@ -5327,13 +5360,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I672</Data></Cell>
+    <Cell><Data ss:Type="String">I672</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">力量之塔</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF03FF[练功房装饰物]|r&quot;&amp;RC[-1]&amp;&quot;属性介绍&quot;"><Data
       ss:Type="String">|cffFF03FF[练功房装饰物]|r力量之塔属性介绍</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">lv1：力量5000|nlv2：力量15000|nlv3：力量38000|nlv4：力量110000|nlv5：力量240000|nlv6：力量520000    力量增幅10|nlv7：力量750000    力量增幅20|nlv8：力量1500000   力量增幅30|n</Data></Cell>
+    <Cell><Data ss:Type="String">lv1：力量5000|nlv2：力量15000|nlv3：力量38000|nlv4：力量110000|nlv5：力量240000|nlv6：力量520000    力量增幅10|nlv7：力量750000    力量增幅20|nlv8：力量1500000   力量增幅30|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r力量之塔属性介绍</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">lv1：力量5000|nlv2：力量15000|nlv3：力量38000|nlv4：力量110000|nlv5：力量240000|nlv6：力量520000    力量增幅10|nlv7：力量750000    力量增幅20|nlv8：力量1500000   力量增幅30|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\tower\towericonbai.blp</Data></Cell>
@@ -5349,13 +5382,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I673</Data></Cell>
+    <Cell><Data ss:Type="String">I673</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">敏捷之塔</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF03FF[练功房装饰物]|r&quot;&amp;RC[-1]&amp;&quot;属性介绍&quot;"><Data
       ss:Type="String">|cffFF03FF[练功房装饰物]|r敏捷之塔属性介绍</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">lv1：敏捷5000|nlv2：敏捷15000|nlv3：敏捷38000|nlv4：敏捷110000|nlv5：敏捷240000|nlv6：敏捷520000    敏捷增幅10|nlv7：敏捷750000    敏捷增幅20|nlv8：敏捷1500000   敏捷增幅30|n</Data></Cell>
+    <Cell><Data ss:Type="String">lv1：敏捷5000|nlv2：敏捷15000|nlv3：敏捷38000|nlv4：敏捷110000|nlv5：敏捷240000|nlv6：敏捷520000    敏捷增幅10|nlv7：敏捷750000    敏捷增幅20|nlv8：敏捷1500000   敏捷增幅30|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r敏捷之塔属性介绍</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">lv1：敏捷5000|nlv2：敏捷15000|nlv3：敏捷38000|nlv4：敏捷110000|nlv5：敏捷240000|nlv6：敏捷520000    敏捷增幅10|nlv7：敏捷750000    敏捷增幅20|nlv8：敏捷1500000   敏捷增幅30|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\tower\towericonhong.blp</Data></Cell>
@@ -5371,13 +5404,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">I674</Data></Cell>
+    <Cell><Data ss:Type="String">I674</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">智力之塔</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF03FF[练功房装饰物]|r&quot;&amp;RC[-1]&amp;&quot;属性介绍&quot;"><Data
       ss:Type="String">|cffFF03FF[练功房装饰物]|r智力之塔属性介绍</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">lv1：智力5000|nlv2：智力15000|nlv3：智力38000|nlv4：智力110000|nlv5：智力240000|nlv6：智力520000    智力增幅10|nlv7：智力750000    智力增幅20|nlv8：智力1500000   智力增幅30|n</Data></Cell>
+    <Cell><Data ss:Type="String">lv1：智力5000|nlv2：智力15000|nlv3：智力38000|nlv4：智力110000|nlv5：智力240000|nlv6：智力520000    智力增幅10|nlv7：智力750000    智力增幅20|nlv8：智力1500000   智力增幅30|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF03FF[练功房装饰物]|r智力之塔属性介绍</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">lv1：智力5000|nlv2：智力15000|nlv3：智力38000|nlv4：智力110000|nlv5：智力240000|nlv6：智力520000    智力增幅10|nlv7：智力750000    智力增幅20|nlv8：智力1500000   智力增幅30|n</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">blp\tower\towericonlan.blp</Data></Cell>
@@ -5406,7 +5439,7 @@
    <SplitHorizontal>2</SplitHorizontal>
    <TopRowBottomPane>122</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>19</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5423,7 +5456,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>144</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>22</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

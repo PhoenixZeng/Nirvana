@@ -48,11 +48,13 @@ public class RandomSpellBoxs
     // function onKill(unit i,unit j)
     //     for loc = 0 to abilityNum - 1
     //         RandomSpellBox.get(pid, loc).entity.onKill(i,j)
-    function onCast(int id,targets tar)
+    function onCast(int id,targets tar) returns bool
         for loc = 0 to abilityNum - 1
             let e = RandomSpellBox.get(pid, loc).entity
             if e instanceof ActiveRandomSpellEntity
                 (e castTo ActiveRandomSpellEntity).onTestCast(id,tar)
+                return true
+        return false
     function getBox(int loc) returns RandomSpellBox
         return RandomSpellBox.get(pid, loc)
 

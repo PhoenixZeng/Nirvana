@@ -265,17 +265,17 @@ public class HeroService
                     j.onKill(_self, u)
         
     function onCast(int id,targets t)
-        boxs.onCast(id,t)
-        execute() ->
-            for i in hero.nirvanaSpells
-                i.onCast(_self,t)
-        execute() ->
-            for i in hero.saveArtifacts
-                i.onCast(t)
-        for i in hero.artificeAffixs
+        if boxs.onCast(id,t)
             execute() ->
-                for j in hero.artificeAffixs.get(i).affixList
-                    j.onCast(_self , t)
+                for i in hero.nirvanaSpells
+                    i.onCast(_self,t)
+            execute() ->
+                for i in hero.saveArtifacts
+                    i.onCast(t)
+            for i in hero.artificeAffixs
+                execute() ->
+                    for j in hero.artificeAffixs.get(i).affixList
+                        j.onCast(_self , t)
 
     function onAddArtificeAffixs(AffixItemLinkEntity le) returns bool
         if hero.artificeAffixs.has(le.lv) or hero.artificeSuits.has(le.lv)

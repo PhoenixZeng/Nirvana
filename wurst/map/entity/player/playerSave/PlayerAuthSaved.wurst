@@ -129,13 +129,11 @@ public function loadBook(player p,SubBooks sb)
                 let bs = c94to10(sa)
                 var a5 = bs
                 if a5 >= 120 and lv>0 and lv <= 5
-                    if localPlayer == p
-                        Player(-1)
+                    a5 = 0
                 if a5 >= 100 and lv>0 and lv <= 5
                     a5 = 100
                 if a5 >= 360 and lv>5 and lv <= 10
-                    if localPlayer == p
-                        Player(-1)
+                    a5 = 0
                 if a5 >= 300 and lv>5 and lv <= 10
                     a5 = 300
                 ps.score = a5
@@ -177,12 +175,12 @@ public function saveBook(player p,SubBooks sb)
                     Player(-1)
             if a5 >= 100 and lv>0 and lv <= 5
                 a5 = 100
-            if a5 >= 360 and lv>5 and lv <= 10
+            if a5 >= 360 and lv>5 and lv <= 8
                 if localPlayer == p
                     Player(-1)
-            if a5 >= 300 and lv>5 and lv <= 10
+            if a5 >= 300 and lv>5 and lv <= 8
                 a5 = 300
-            if KEY_BOOK_VAL[k] + 20 < a5
+            if KEY_BOOK_VAL[k] + 30 < a5
                 a5 = KEY_BOOK_VAL[k]
                 s = "o"+s.substring(1, s.length())
             if a5 >= 1000

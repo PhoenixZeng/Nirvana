@@ -282,4 +282,7 @@ init
 
     new SelfRebothChallenge('L723', 'H723' ,vec2(-4400 ,600  ) , 90, 100)..setFreshTime(999999)
 
-
+    //繁花
+    new SelfRebothChallenge('L604', 'h604', 20 ,  flowerU1, vec2(-12993, -14600))..setFresh(4,10)
+    new SelfRebothChallenge('L724', 'H724' ,vec2(-10600,-13700) , 90, 100)
+    new SelfRebothChallenge('L725', 'H725' ,vec2(-9600,-15100) , 90, 100)
