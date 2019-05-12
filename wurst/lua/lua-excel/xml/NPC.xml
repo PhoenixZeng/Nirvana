@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6240</WindowHeight>
-  <WindowWidth>17256</WindowWidth>
+  <WindowHeight>9684</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -2156,7 +2156,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT0O</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT0O</Data></Cell>
-    <Cell><Data ss:Type="String">I627,I628,I629,I62A,I62B,I62G,I62H,I62I</Data></Cell>
+    <Cell><Data ss:Type="String">I627,I628,I629,I62A,I62B,I62G,I62H,I62I,I61J,I61K</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Units\Creeps\StormPandarenBrewmaster\StormPandarenBrewmaster</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4180,10 +4180,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>5</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

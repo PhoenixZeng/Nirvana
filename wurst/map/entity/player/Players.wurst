@@ -97,6 +97,8 @@ public class Players
     bool   plGoldFlag       = false
     bool   plLumberFlag     = false
     bool   addGroupGiftFlag = false
+    bool   lvExGiftFlag     = false
+    bool   consumptionGiftFlag = false
 
     HashList<Auth> auths = new HashList<Auth>
 

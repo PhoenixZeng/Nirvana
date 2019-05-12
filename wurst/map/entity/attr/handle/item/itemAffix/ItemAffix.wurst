@@ -232,8 +232,9 @@ public class CastRandomCooldownItemAffix implements ItemAffix
     override function onKill(unit i,unit j)
     override function onCast(unit i,targets t)
         if chance.random() and users.containsUnit(i)
-            eachPlayer() a->
-                UnitResetCooldown(heros[a])
+            for ii = 0 to 4
+                if Player(ii).isIngame()
+                    UnitResetCooldown(heros[ii])
 
 public let affix_castRandomCooldownItemAffix_8 = new CastRandomCooldownItemAffix(8)
 

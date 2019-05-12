@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
+  <LastSaved>2019-05-12T03:16:13Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -32,9 +32,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="263" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="266" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2190,7 +2193,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">335</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1200</Data></Cell>
+    <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2385,6 +2388,67 @@
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I61I</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">直接打BOSS!</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000直接打BOSS!|r</Data></Cell>
+    <Cell><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000直接打BOSS!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNCallToArms.blp</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I61J</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">等级礼包</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[礼包]|r等级礼包</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n更高等级敬请期待|n</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r等级礼包</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n更高等级敬请期待|n</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\gift\dengjilibao.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I61K</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">消费礼包</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[礼包]|r消费礼包</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,每秒属性100,木材8|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,每秒属性500,木材888|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r消费礼包</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,每秒属性100,木材8|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,每秒属性500,木材888|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\gift\xiaofeilibao.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5437,9 +5501,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>127</TopRowBottomPane>
+   <TopRowBottomPane>95</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>19</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5455,8 +5519,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>153</ActiveRow>
-     <ActiveCol>28</ActiveCol>
+     <ActiveRow>111</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

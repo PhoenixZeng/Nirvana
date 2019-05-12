@@ -66,30 +66,30 @@ function enableFog(player p)
     for i = 1 to 2
         CreateFogModifierRectBJ(true, p, FOG_OF_WAR_VISIBLE, seniorDungeon[i].origin)
 
-function initGame(int i,int us)
+function initGame(int diff,int us)
     initializeYD()
-    setDiff(i)
+    setDiff(diff)
     handleDiffcult()
     dzFrameInit()
     initTimeHandler()
     CreateFogModifierRectBJ(true, Player(10), FOG_OF_WAR_VISIBLE, attack.origin)
     BeastGod.inite()
-    if i == 0
+    if diff == 0
         print("[系统]:玩家"+getMainPlayer().getName()+"选择了新手试玩模式")
         print("[系统]:试玩模式较多功能不开放!")
         colorsPrint("[系统]:试玩模式需要选择英雄!否则可能引起存档异常!")
         initPlayersEvent()
-        eachPlayer() i->
-            enableFog(Player(i))
-            let ps = Players.get(i)
-            ps.initSave()
-            let pss = PlayerService.get(ps._player)
-            pss.initVIP()
-    else if i > 0
-        print("[系统]:玩家"+getMainPlayer().getName()+"选择了难度"+i)
+        for ii = 0 to 4
+            if Player(ii).isIngame()
+                enableFog(Player(ii))
+                let ps = Players.get(ii)
+                ps.initSave()
+                let pss = PlayerService.get(ps._player)
+                pss.initVIP()
+    else if diff > 0
+        print("[系统]:玩家"+getMainPlayer().getName()+"选择了难度"+diff)
         
-        eachPlayer() i->
-            // SetPlayerHandicapXP(Player(i),1+0.8*(us-1))
+        execute()  ->
             TpItem.inite()
         execute()  ->
             initAI()
@@ -103,17 +103,21 @@ function initGame(int i,int us)
             PracticeEntity.initPracticeEntity()
             initPlayersEvent()
         execute()  ->
-            eachPlayer() i->
-                enableFog(Player(i))
-                Players.get(i)
+            for ii = 0 to 4
+                if Player(ii).isIngame()
+                    // SetPlayerHandicapXP(Player(ii),1+0.8*(us-1))
+                    enableFog(Player(ii))
+                    Players.get(ii)
         execute()  ->
-            eachPlayer() i->
-                Players.get(i).initSave()
+            for ii = 0 to 4
+                if Player(ii).isIngame()
+                    Players.get(ii).initSave()
         execute()  ->
-            eachPlayer() i->
-                let ps = Players.get(i)
-                let pss = PlayerService.get(ps._player)
-                pss.initVIP()
+            for ii = 0 to 4
+                if Player(ii).isIngame()
+                    let ps = Players.get(ii)
+                    let pss = PlayerService.get(ps._player)
+                    pss.initVIP()
         execute()  ->
             HeroAttr.initi()
             HpBar.inite()

@@ -241,8 +241,8 @@ public function initPlayersEvent()
                 //询问扭曲虚空魔核
                 case 'I618'
                     ps.onAskEpic(3)
-
-
+                case 'I61I'
+                    ps.onWantAttackFinalBoss()
 
     print("[系统]:请在180秒内选择英雄!")
     Players.selectHeroTrg = CreateTrigger()
@@ -266,9 +266,6 @@ public function initPlayersEvent()
                         Log.debug("创建单位:"+us+"模板"+he.toString())
                     print("[系统]:玩家"+p.getName()+"选择了"+us.getName())
                     us.setOwner(p, false)
-                    if GetLocalPlayer() == ps._player
-                        ResetToGameCamera(0)
-                        SetCameraField( CAMERA_FIELD_TARGET_DISTANCE, 2200.00, 0 )
                     us.setPosPro(springReturn.pos)
                     ps.hero = getHero(us)
                     heros[p.getId()] = us
@@ -290,8 +287,9 @@ public function initPlayersEvent()
         print("[系统]:英雄选择已关闭!")
 
     let t = CreateTrigger()
-    eachPlayer() i->
-        t..registerPlayerStateEvent(Player(i), PLAYER_STATE_RESOURCE_GOLD, GREATER_THAN_OR_EQUAL, 800000)
+    for ii = 0 to 4
+        if Player(ii).isIngame()
+            t..registerPlayerStateEvent(Player(ii), PLAYER_STATE_RESOURCE_GOLD, GREATER_THAN_OR_EQUAL, 800000)
     t..addAction() ->
         let p = GetTriggerPlayer()
         p.addGold(-800000)
@@ -299,8 +297,9 @@ public function initPlayersEvent()
         printTimedToPlayer("[系统]:你的金币过多,自动换算800000金币成80木头!", 30, p)
 
     let leave = CreateTrigger()
-    eachPlayer() i->
-        leave..registerPlayerEvent(Player(i), EVENT_PLAYER_LEAVE)
+    for ii = 0 to 4
+        if Player(ii).isIngame()
+            leave..registerPlayerEvent(Player(ii), EVENT_PLAYER_LEAVE)
     leave.addAction() ->
         let ps =  Players.get(GetTriggerPlayer())
         let pss = PlayerService.get(ps._player)

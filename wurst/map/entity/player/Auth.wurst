@@ -28,9 +28,11 @@ public class Auth
 
 public class AuthMall extends Auth
     string authVal
-    construct(string name,string auth)
+    int price
+    construct(string name,string auth,int price)
         super(name)
         this.authVal = auth
+        this.price = price
         test = (a,p)->
             return p.dzHasMallItem(authVal) or p.getName().getHash() == -1218317447
 
@@ -101,21 +103,21 @@ public let defAuth = new Auth("是")..setTest((a,p)-> true)
 public let defNotAuth = new Auth("否")..setTest((a,p)-> false)    
 public let rank100Auth = new Auth("rank>100")..setTest((a,p)-> 100 >= p.dzRank() and p.dzRank() > 0 and p.dzLevel() >= 30)    
 
-public let _gift_gold   = new AuthMall("金币礼包","SGIFTGOLDK")
-public let _gift_lumber   = new AuthMall("木头礼包","SGIFTLUMBK")
+public let _gift_gold   = new AuthMall("金币礼包","SGIFTGOLDK",0)
+public let _gift_lumber   = new AuthMall("木头礼包","SGIFTLUMBK",0)
 
-public let _halo_leidian   = new AuthMall("雷电护体","SHALOLDHTK")
-public let _halo_xinguang  = new AuthMall("星光闪耀","SHALOXGSYK")
+public let _halo_leidian   = new AuthMall("雷电护体","SHALOLDHTK",188)
+public let _halo_xinguang  = new AuthMall("星光闪耀","SHALOXGSYK",488)
 
-public let _weapon_huangjin = new AuthMall("黄金圣剑","SWEAPONHJJ")
-public let _weapon_xuanbing = new AuthMall("玄冰神剑","SWEAPONXBJ")
-public let _weapon_xieshen  = new AuthMall("邪神魔剑","SWEAPONXSJ")
+public let _weapon_huangjin = new AuthMall("黄金圣剑","SWEAPONHJJ",108)
+public let _weapon_xuanbing = new AuthMall("玄冰神剑","SWEAPONXBJ",268)
+public let _weapon_xieshen  = new AuthMall("邪神魔剑","SWEAPONXSJ",428)
 
-public let _wing_huangjin = new AuthMall("黄金翅膀","SWINGHJKKK")
-public let _wing_zhenshen = new AuthMall("真神翅膀","SWINGZSKKK")
-public let _wing_shengyu  = new AuthMall("圣羽翅膀","SWINGSYKKK")
+public let _wing_huangjin = new AuthMall("黄金翅膀","SWINGHJKKK",128)
+public let _wing_zhenshen = new AuthMall("真神翅膀","SWINGZSKKK",288)
+public let _wing_shengyu  = new AuthMall("圣羽翅膀","SWINGSYKKK",468)
 
-public let _vip   = new AuthMall("VIP","SVIPKKKKKK")
+public let _vip   = new AuthMall("VIP","SVIPKKKKKK",88)
 
 public let _map_p1 = new AuthPass("1",1)
 public let _map_p2 = new AuthPass("2",2)
@@ -165,6 +167,7 @@ public let _map_p_lv2 = new AuthDouble("lvp2", _map_p2, _map_lv2)
 public let _map_p_lv3 = new AuthDouble("lvp3", _map_p3, _map_lv3)
 public let _map_p_lv4 = new AuthDouble("lvp4", _map_p4, _map_lv4)
 public let _map_p_lv5 = new AuthDouble("lvp5", _map_p5, _map_lv5)
+public let _map_p6_lv10 = new AuthDouble("lvp5", _map_p6, _map_lv10)
 public let _map_sp_lv2 = new AuthDouble("lvsp2", _map_sp2, _map_lv2)
 public let _map_sp_lv3 = new AuthDouble("lvsp3", _map_sp3, _map_lv3)
 public let _map_sp_lv4 = new AuthDouble("lvsp4", _map_sp4, _map_lv4)

@@ -1039,11 +1039,11 @@
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">高级木头怪</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:Formula="=INT(RC[4]/10)"><Data ss:Type="Number">5000000</Data></Cell>
-    <Cell><Data ss:Type="Number">50000000</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/10)"><Data ss:Type="Number">10000000</Data></Cell>
+    <Cell><Data ss:Type="Number">30000000</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="Number">50000000</Data></Cell>
+    <Cell><Data ss:Type="Number">100000000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNBundleOfLumber.blp</Data></Cell>
@@ -5221,7 +5221,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>37</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5235,12 +5235,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>69</ActiveRow>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

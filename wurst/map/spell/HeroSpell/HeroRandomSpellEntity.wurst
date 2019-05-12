@@ -292,9 +292,11 @@ public abstract class ActiveRandomSpellEntity extends RandomSpellEntity
         return super.getNameLvStr() + " ("+getHotkey()+")"
     protected abstract function onCast(targets tar)
     abstract function getActiveSpellData() returns AnclAbilityData
-    function onTestCast(int id,targets tar)
+    function onTestCast(int id,targets tar) returns bool
         if id == boxId
             onCast(tar)
+            return true
+        return false
     function setBoxInfo(int id,int index)
         boxId = id
         boxIndex = index

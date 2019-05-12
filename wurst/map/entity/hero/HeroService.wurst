@@ -20,6 +20,7 @@ import Game
 import DmgType
 import HeroSpellBox
 import PlayerAuthSaved
+import Players
 
 public class HeroService
     Hero hero
@@ -680,7 +681,7 @@ public class HeroService
 
     function devourHeart(DevourHeartEntity e)
         if not devourHeartMap.has(e.itemId)
-            _self.addItemById(e.itemId)
+            Players.get(_self).bb.addItemById(e.itemId)
             Log.debug(_self.getOwner().getName()+"激活的怪物精髓等级为"+e.clazz+"品级为:"+e.lv)
             onDevourHeart(e.clazz,e.lv,e.itemId - 'Y000'+'Z000')
             devourHeartMap.put(e.itemId, true)

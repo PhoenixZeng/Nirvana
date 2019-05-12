@@ -92,8 +92,9 @@ public class HeroAttr
         closed..show(true)
         opened..show(false)
 
-        eachPlayer() i->
-            new HeroAttr(Player(i))
+        for ii = 0 to 4
+            if Player(ii).isIngame()
+                new HeroAttr(Player(ii))
         doPeriodically(0.5) task->
             for i in HeroAttr
                 if i.ps.hero != null and i.isOpen
@@ -190,8 +191,9 @@ public class HpBar
         ..setText("0/0（0%）")
         hpBarBase.show(false)
 
-        eachPlayer( ) i->
-            new HpBar(Player(i))
+        for ii = 0 to 4
+            if Player(ii).isIngame()
+                new HpBar(Player(ii))
         var i = 0
         doPeriodically(0.1) task->
             i++

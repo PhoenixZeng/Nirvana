@@ -6,7 +6,6 @@ import HumanAttacker
 import baseImport
 import path
 import winAndLose
-import deathHandler
 import BeastGod
 
 DialogTimerTask endTask
@@ -38,8 +37,9 @@ function finalTrigger()
 public function attackFinal()
     //将泉水位置改成到最终区域
     springReturn = finalCome
-    eachPlayer() i->
-        Players.get(i).hero._self.setPosPro(finalCome.pos)
+    for i = 0 to 4
+        if Player(i).isIngame()
+            Players.get(i).hero._self.setPosPro(finalCome.pos)
     deathHandler.disable()
     finalTrigger()
     print("[系统]:开启最终决战,所有人强制传送到决战之地!死亡后将原地复活!")

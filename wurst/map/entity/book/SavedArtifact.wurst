@@ -63,8 +63,8 @@ public class SavedArtifactEntity
         ..addAffix( 60,"王座粉碎",affix_AttackDamageRange10_2prop,"攻击时有概率造成全属性2倍范围伤害")
         ..addAttr(120,"冰霜之刃",AttrKey.intPlus,15,"智力增幅+15")
         ..addAffix(200,"凛冽冰寒",affix_subAMP_ring20,"降低周围敌人20%移速")
-        ..addAttr(340,"寒冬死神",AttrKey.propKilled,30,"杀敌属性+30")
-        ..addAffix(680,"冰冻灵魂",affix_saveartifact_1,"攻击时有概率造成基于能量值的范围伤害")
+        ..addAttr(300,"寒冬死神",AttrKey.propKilled,30,"杀敌属性+30")
+        // ..addAffix(680,"冰冻灵魂",affix_saveartifact_1,"攻击时有概率造成基于能量值的范围伤害")
 
         new SavedArtifactEntity("[神器]逐风之剑")
         ..addAttr( 10,"狂野挥砍",AttrKey.ASP,30,"攻速+30%")
@@ -73,8 +73,8 @@ public class SavedArtifactEntity
         ..addAttr( 60,"不破之钢",AttrKey.dmgSub,10,"伤害减免+10")
         ..addAttr(120,"先王之志",AttrKey.agiPlus,15,"敏捷增幅+15")
         ..addAttr(200,"势不可挡",AttrKey.propLevelUp,500,"升级属性+500")
-        ..addAffix(340,"雷霆之怒",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
-        ..addAffix(680,"风暴之舞",affix_saveartifact_2,"攻击时有概率造成基于能量值的范围伤害")
+        ..addAffix(300,"雷霆之怒",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
+        // ..addAffix(680,"风暴之舞",affix_saveartifact_2,"攻击时有概率造成基于能量值的范围伤害")
             
         new SavedArtifactEntity("[神器]炎魔之手")
         ..addAffix( 10,"炎魔之怒",affix_AttackDamageRange10_1prop,"攻击时有概率造成全属性1倍范围伤害")
@@ -83,8 +83,8 @@ public class SavedArtifactEntity
         ..addAttr( 60,"熔岩之肤",AttrKey.dmgSub,10,"伤害减免+10")
         ..addAttr(120,"元素大师",AttrKey.strPlus,15,"力量增幅+15")
         ..addAttr(200,"火焰风暴",AttrKey.propTimed,20,"每秒属性+20")
-        ..addAffix(340,"元素暴动",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
-        ..addAffix(680,"火焰化身",affix_saveartifact_3,"攻击时有概率造成基于能量值的范围伤害")
+        ..addAffix(300,"元素暴动",affix_AttackDamageRange10_3prop,"攻击时有概率造成全属性3倍范围伤害")
+        // ..addAffix(680,"火焰化身",affix_saveartifact_3,"攻击时有概率造成基于能量值的范围伤害")
             
         new SavedArtifactEntity("[神器]灰烬使者")
         ..addAffix( 10,"治疗风暴",null,"")

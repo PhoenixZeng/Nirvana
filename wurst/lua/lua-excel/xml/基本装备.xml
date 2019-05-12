@@ -20,18 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path> </Path>
-   <SheetName> </SheetName>
-  </SupBook>
-  <SupBook>
-   <Path> </Path>
-   <SheetName> </SheetName>
-  </SupBook>
   <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2399,9 +2392,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[雪山]雪山罡风|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[雪山]雪山罡风|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\mountain\xueshangangfeng.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2437,9 +2430,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[雪山]风雪古剑|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:50|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[雪山]风雪古剑|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:50|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxuegujian.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2516,9 +2509,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFF9933[雪山]风雪神剑|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:80|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFF9933[雪山]风雪神剑|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:80|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxueshengjian2.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2536,9 +2529,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFF9933[雪山]风雪圣剑|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:130|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:100|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFF9933[雪山]风雪圣剑|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:130|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:100|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\mountain\fengxueshengjian1.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3415,9 +3408,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[繁花秘境]灵木之刃|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[繁花秘境]灵木之刃|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\flower\tianmuzhiren.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3434,9 +3427,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[繁花秘境]神木之刃|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[繁花秘境]神木之刃|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\flower\tianmushenren.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3453,9 +3446,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[繁花秘境]女装-神木之刃|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:20</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:50</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[繁花秘境]女装-神木之刃|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:20</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:50</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\flower\nvzhuangtianmushenren.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3474,7 +3467,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
@@ -3495,8 +3487,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>158</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>164</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5806,14 +5798,14 @@
     <Cell ss:Index="3"><Data ss:Type="String">B</Data></Cell>
     <Cell><Data ss:Type="String">[雪山]</Data></Cell>
     <Cell><Data ss:Type="String">雪山罡风</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="33"><Data ss:Type="String">雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
     <Cell
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[雪山]雪山罡风|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">B</Data></Cell>
@@ -5835,7 +5827,7 @@
     <Cell><Data ss:Type="String">风雪古剑</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="Number">1000000</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="Number">25</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="20"><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
@@ -5845,7 +5837,7 @@
       ss:Type="String">|cFF99FF66[雪山]风雪古剑|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:50|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">A</Data></Cell>
@@ -5895,7 +5887,7 @@
     <Cell ss:Index="13"><Data ss:Type="Number">5000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">25</Data></Cell>
-    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="20"><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
@@ -5905,7 +5897,7 @@
       ss:Type="String">|cFFFF9933[雪山]风雪神剑|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:80|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">S</Data></Cell>
@@ -5915,7 +5907,7 @@
     <Cell ss:Index="13"><Data ss:Type="Number">5000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">25</Data></Cell>
-    <Cell><Data ss:Type="Number">130</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:Index="20"><Data ss:Type="Number">60</Data></Cell>
     <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
@@ -5925,7 +5917,7 @@
       ss:Type="String">|cFFFF9933[雪山]风雪圣剑|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:130|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:100|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">B</Data></Cell>
@@ -6583,12 +6575,13 @@
     <Cell ss:Index="8"><Data ss:Type="Number">2500000</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="Number">1000000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[繁花秘境]灵木之刃|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
@@ -6597,12 +6590,13 @@
     <Cell ss:Index="8"><Data ss:Type="Number">5000000</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="Number">6000000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[繁花秘境]神木之刃|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
@@ -6611,13 +6605,13 @@
     <Cell ss:Index="8"><Data ss:Type="Number">8000000</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="Number">10000000</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[繁花秘境]女装-神木之刃|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:20</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="35"
@@ -11134,10 +11128,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>127</TopRowBottomPane>
+   <TopRowBottomPane>87</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -11154,9 +11149,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>160</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R161</RangeSelection>
+     <ActiveRow>116</ActiveRow>
+     <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

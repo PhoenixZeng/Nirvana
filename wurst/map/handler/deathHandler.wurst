@@ -11,7 +11,6 @@ import PlayerService
 import HeroService
 import WorkRoomOrnament
 
-public trigger deathHandler
 
 init          
     deathHandler = CreateTrigger()
@@ -57,17 +56,18 @@ init
                 if h  != null
                     h.target = null
                 if u.getOwner().isIngame()
-                    var time = 5.+GAME.difficult*3
+                    var time = 4.+GAME.difficult*2
                     if p.role == PlayerRole.Vip
                         time -= 4
                     atAfter(time,u.getOwner().getName()+"复活:")
                     ..onOver(itk->begin 
-                        u.revive(springReturn.pos, true)
-                        u.getOwner().panCameraToTimed(u.getPos(),0.5)
-                        if g != null
-                            for gg in g
-                                let gs  = Guard.maps.get(gg)
-                                gs.pause(false)
+                        if u.getOwner().isIngame()
+                            u.revive(springReturn.pos, true)
+                            u.getOwner().panCameraToTimed(u.getPos(),0.5)
+                            if g != null
+                                for gg in g
+                                    let gs  = Guard.maps.get(gg)
+                                    gs.pause(false)
                     end)
                     ..run()
             else if u.isBuilding()

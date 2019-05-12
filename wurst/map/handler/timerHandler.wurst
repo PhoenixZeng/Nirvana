@@ -11,8 +11,9 @@ import HeroService
  */
 public function initTimeHandler()
     onAlways(600) task->
-        eachPlayer() j->
-            let s = Players.get(j)
+        for ip = 0 to 4
+            if Player(ip).isIngame()
+            let s = Players.get(ip)
             int add = 0
             if not GAME.difficult == 0
                 add=3
@@ -20,11 +21,12 @@ public function initTimeHandler()
             s.addGameScore(add)
             s.save()
     onAlways(600) task->
-        eachPlayer() j->
-            let s = Players.get(j)
-            if not GAME.difficult == 0
-                doAfter(2) ->
-                    printTimedToPlayer("[系统]:当前游戏积分+3", 30, s._player)
+        for ip = 0 to 4
+            if Player(ip).isIngame()
+                let s = Players.get(ip)
+                if not GAME.difficult == 0
+                    doAfter(2) ->
+                        printTimedToPlayer("[系统]:当前游戏积分+3", 30, s._player)
     doPeriodically(300) is->
         //顺便清理地图上的物品
         print("[系统]:清除地上的无效物品造成短暂卡顿!")
@@ -34,10 +36,11 @@ public function initTimeHandler()
             RemoveItem(t)
 
     onAlways(1) task->
-        eachPlayer() j->
-            let s = Players.get(j)
-            if s.hero != null
-                let hs = HeroService.get(s.hero)
-                hs.onHeartbeat()
+        for ip = 0 to 4
+            if Player(ip).isIngame()
+                let s = Players.get(ip)
+                if s.hero != null
+                    let hs = HeroService.get(s.hero)
+                    hs.onHeartbeat()
 
     

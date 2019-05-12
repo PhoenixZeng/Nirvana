@@ -92,7 +92,7 @@ init
     new HaloSkin("-gh3",'SK27',"炽焰光环",_map_p_lv3)
     new HaloSkin("-gh4",'SK28',"时空光环",_map_p_lv4)
     new HaloSkin("-gh5",'SK29',"死亡斗气",_map_p_lv5)
-    new HaloSkin("-gh6",'SK30',"寒冰斗气",defNotAuth)
+    new HaloSkin("-gh6",'SK30',"寒冰斗气",_map_p6_lv10)
     new HaloSkin("-gh7",'SK31',"雷电护体",_halo_leidian)
     new HaloSkin("-gh8",'SK32',"星光闪耀",_halo_xinguang)
 

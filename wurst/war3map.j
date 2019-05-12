@@ -1155,15 +1155,17 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z316', 2081955386, "寒冰斗气")
             
-                call SaveStr(j_slk_abil, 'Z316', - 844856191, "|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:30|n属性叠加!拥有多个时只能召唤一个!|n激活后输入'-gh6'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z316', - 844856191, "|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n血量:50000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n属性叠加!拥有多个时只能召唤一个!|n激活后输入'-gh6'切换皮肤!")
             
-                        call SaveInteger(j_slk_abil, 'Z316', 4, 6000)
+                        call SaveInteger(j_slk_abil, 'Z316', 4, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z316', 5, 6000)
+                        call SaveInteger(j_slk_abil, 'Z316', 5, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z316', 6, 6000)
+                        call SaveInteger(j_slk_abil, 'Z316', 6, 10000)
         
-                        call SaveInteger(j_slk_abil, 'Z316', 7, 30)
+                        call SaveInteger(j_slk_abil, 'Z316', 3, 50000)
+        
+                        call SaveInteger(j_slk_abil, 'Z316', 7, 60)
         
                 call SaveStr(j_slk_abil, 'Z317', 2081955386, "雷电护体")
             
@@ -3415,9 +3417,9 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0D', 2081955386, "|cFF99FF66[雪山]雪山罡风|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0D', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑")
+                    call SaveStr(j_slk_item, 'ZD0D', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n雪灵之心+万年玄冰+雪山罡风+雪山古剑 = 风雪古剑")
                 
-                    call SaveInteger(j_slk_item, 'ZD0D', 9, 60)
+                    call SaveInteger(j_slk_item, 'ZD0D', 9, 50)
     
                     call SaveStr(j_slk_item, 'ZD0E', 2081955386, "|cFF99FF66[雪山]雪山古剑|r")
                 
@@ -3429,13 +3431,13 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0F', 2081955386, "|cFF99FF66[雪山]风雪古剑|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0F', - 844856191, "|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!")
+                    call SaveStr(j_slk_item, 'ZD0F', - 844856191, "|cFFFFFF99基础属性|r|n攻击:1000000|n|cFFFFFF55附加属性|r(%)|n暴击概率:25|n暴击伤害:50|n附加伤害:60|n伤害抵抗:10|n伤害减免:15|n非常强力的一把古剑,不过剑上似乎存在神秘的封印!")
                 
                     call SaveInteger(j_slk_item, 'ZD0F', 0, 1000000)
     
                     call SaveInteger(j_slk_item, 'ZD0F', 8, 25)
     
-                    call SaveInteger(j_slk_item, 'ZD0F', 9, 60)
+                    call SaveInteger(j_slk_item, 'ZD0F', 9, 50)
     
                     call SaveInteger(j_slk_item, 'ZD0F', 11, 60)
     
@@ -3465,7 +3467,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0J', 2081955386, "|cFFFF9933[雪山]风雪神剑|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0J', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:80|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!")
+                    call SaveStr(j_slk_item, 'ZD0J', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2000000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:60|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n风雪神剑!")
                 
                     call SaveInteger(j_slk_item, 'ZD0J', 0, 2000000)
     
@@ -3475,7 +3477,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD0J', 8, 25)
     
-                    call SaveInteger(j_slk_item, 'ZD0J', 9, 80)
+                    call SaveInteger(j_slk_item, 'ZD0J', 9, 60)
     
                     call SaveInteger(j_slk_item, 'ZD0J', 11, 60)
     
@@ -3485,7 +3487,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0K', 2081955386, "|cFFFF9933[雪山]风雪圣剑|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0K', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:130|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!")
+                    call SaveStr(j_slk_item, 'ZD0K', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2500000|n护甲:5000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n暴击概率:25|n暴击伤害:100|n附加伤害:60|n伤害抵抗:10|n伤害减免:20|n充满公主爱意的风雪圣剑!|n唯一装备!")
                 
                     call SaveInteger(j_slk_item, 'ZD0K', 0, 2500000)
     
@@ -3495,7 +3497,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD0K', 8, 25)
     
-                    call SaveInteger(j_slk_item, 'ZD0K', 9, 130)
+                    call SaveInteger(j_slk_item, 'ZD0K', 9, 100)
     
                     call SaveInteger(j_slk_item, 'ZD0K', 11, 60)
     
@@ -3969,7 +3971,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD1T', 2081955386, "|cFF99FF66[繁花秘境]灵木之刃|r")
                 
-                    call SaveStr(j_slk_item, 'ZD1T', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4")
+                    call SaveStr(j_slk_item, 'ZD1T', - 844856191, "|cFFFFFF99基础属性|r|n攻击:2500000|n血量:1000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30")
                 
                     call SaveInteger(j_slk_item, 'ZD1T', 0, 2500000)
     
@@ -3977,9 +3979,11 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD1T', 10, 4)
     
+                    call SaveInteger(j_slk_item, 'ZD1T', 9, 30)
+    
                     call SaveStr(j_slk_item, 'ZD1U', 2081955386, "|cFF99FF66[繁花秘境]神木之刃|r")
                 
-                    call SaveStr(j_slk_item, 'ZD1U', - 844856191, "|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4")
+                    call SaveStr(j_slk_item, 'ZD1U', - 844856191, "|cFFFFFF99基础属性|r|n攻击:5000000|n血量:6000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:30")
                 
                     call SaveInteger(j_slk_item, 'ZD1U', 0, 5000000)
     
@@ -3987,9 +3991,11 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD1U', 10, 4)
     
+                    call SaveInteger(j_slk_item, 'ZD1U', 9, 30)
+    
                     call SaveStr(j_slk_item, 'ZD1V', 2081955386, "|cFF99FF66[繁花秘境]女装-神木之刃|r")
                 
-                    call SaveStr(j_slk_item, 'ZD1V', - 844856191, "|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:20")
+                    call SaveStr(j_slk_item, 'ZD1V', - 844856191, "|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:50")
                 
                     call SaveInteger(j_slk_item, 'ZD1V', 0, 8000000)
     
@@ -3997,7 +4003,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD1V', 10, 4)
     
-                    call SaveInteger(j_slk_item, 'ZD1V', 9, 20)
+                    call SaveInteger(j_slk_item, 'ZD1V', 9, 50)
     
     endfunction
 
@@ -5596,6 +5602,9 @@ endfunction
             call SaveInteger(j_slk_item, 'I61H', 406492257, 0)
             call SaveInteger(j_slk_item, 'I61H', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'I61I', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I61I', - 85356197, 0)
+        
             call SaveInteger(j_slk_item, 'I62W', 406492257, 0)
             call SaveInteger(j_slk_item, 'I62W', - 85356197, 20)
         
@@ -6841,7 +6850,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Sat May 11 22:14:43 2019
+//   Date: Mon May 13 03:44:10 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================

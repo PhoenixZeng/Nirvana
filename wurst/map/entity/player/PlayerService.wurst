@@ -18,6 +18,10 @@ import Gem
 import HeroRandomSpellManager
 import HashList
 import PlayerAuthSaved
+import wareAttackCommon
+import wareAttack
+import WorkRoom
+import ClosureTimers
 
 public class PlayerService
     Hero    hero
@@ -37,6 +41,22 @@ public class PlayerService
         if map.has(p)
             return map.get(p)
         return new PlayerService(p)
+
+    function onWantAttackFinalBoss()
+        if p.dzLv < 5
+            _player.print("地图等级不足!")
+            return
+        if p.killScore < 5000
+            _player.print("杀敌积分不足!")
+            return
+        p.killScore -= 5000
+        if attackTimeFirst != null and attackTimeFirst.typeId != 0 and attackTimeFirst.isRunning == true
+            attackTimeFirst.pause()
+        if attackTimeWait != null and attackTimeWait.typeId != 0 and attackTimeWait.isRunning == true
+            attackTimeWait.pause()
+        if attackTimeEvery != null and attackTimeEvery.typeId != 0 and attackTimeEvery.isRunning == true
+            attackTimeEvery.pause()
+        attackFinal()
         
     function onAskEpic(int index)
         switch index
@@ -247,7 +267,7 @@ public class PlayerService
     static string array ex_attr_1s = ["攻击","力量","敏捷","智力","血量"]
     static int array ex_attr_1 = [12000,4500,4500,4500,3000]
     static string array ex_attr_2s = ["附加伤害","暴击伤害","伤害增幅"]
-    static int array ex_attr_2 = [3,5,3]
+    static int array ex_attr_2 = [1,1,1]
     static string array ex_attr_3s = ["力量增幅","敏捷增幅","智力增幅"]
     static int array ex_attr_3 = [1,1,1]
 
@@ -256,7 +276,7 @@ public class PlayerService
             case 1
                 if 70 .random()
                     _player.print("[系统]:没寻到!", 10)
-                else if 70 .random()
+                else if 50 .random()
                     let index = 5 .nextInt()
                     switch index
                         case 0
@@ -287,7 +307,7 @@ public class PlayerService
             case 2
                 if 70 .random()
                     _player.print("[系统]:没寻到!", 10)
-                else if 70 .random()
+                else if 50 .random()
                     let index = 3 .nextInt()
                     switch index
                         case 0
@@ -314,7 +334,7 @@ public class PlayerService
             case 3
                 if 70 .random()
                     _player.print("[系统]:没寻到!", 10)
-                else if 70 .random()
+                else if 50 .random()
                     let index = 3 .nextInt()
                     switch index
                         case 0
@@ -344,7 +364,7 @@ public class PlayerService
             case 4
                 if 70 .random()
                     _player.print("[系统]:没寻到!", 10)
-                else if 70 .random()
+                else if 50 .random()
                     let index = 3 .nextInt()
                     switch index
                         case 0
@@ -397,6 +417,9 @@ public class PlayerService
     function onNirvanaTarget() returns bool
         if  hero.nirvanaTargetFlag
             _player.print("[系统]:已经定向转生过了!", 10)
+            return false
+        if not p.hero._self.isAlive()
+            _player.print("[系统]:死亡的情况下不可轮回!", 10)
             return false
         if p.hero.nirvanaCount >= 5
             let hs = HeroService.get(p.hero)
@@ -702,72 +725,199 @@ public class PlayerService
     function onChioceHero()
         hero = p.hero
         HeroService.get(p.hero)
-        //todo 关闭VIP
-        if false
-            return
-        for i in WeaponSkin
-            if i.auth.testAuths(p.auths)
-                execute() ->
-                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
-                    let pg = p.hero.daoju.getSubBook("武器皮肤").getPage(i.name)
-                    if pg !=null and not pg.isActivation
-                        pg.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
-                    else
-                        print(i.name +":"+pg.page.name)
-        for i in TitleSkin
-            if i.auth.testAuths(p.auths)
-                execute() ->
-                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
-                    let pg1 = p.hero.daoju.getSubBook("等级称号").getPage(i.name)
-                    let pg2 = p.hero.daoju.getSubBook("其他称号").getPage(i.name)
-                    if pg1 !=null and not pg1.isActivation
-                        pg1.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg1.page.id), 1)
-                    else if pg2 !=null and not pg2.isActivation
-                        pg2.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg2.page.id), 1)
-        for i in WingSkin
-            if i.auth.testAuths(p.auths)
-                execute() ->
-                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
-                    let pg = p.hero.daoju.getSubBook("翅膀皮肤").getPage(i.name)
-                    if pg !=null and not pg.isActivation
-                        pg.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
-                    else
-                        print(i.name +":"+pg.page.name)
-        for i in HaloSkin
-            if i.auth.testAuths(p.auths)
-                execute() ->
-                    printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
-                    let pg = p.hero.daoju.getSubBook("光环").getPage(i.name)
-                    if pg !=null and not pg.isActivation
-                        pg.activation(false)
-                        p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
-                    else
-                        print(i.name +":"+pg.page.name)
-        // 设置检测到的降低伤害
-        if authChecked.testAuths(p.auths)
-            p.hero.setChecked()
-        if p.role == PlayerRole.Vip
-            init4VIPHero()
-            p.hero._self.addAbilityPro('SK00') //vip光环
-            print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎VIP玩家"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
-        if testAnchorGuildName()
-            print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎魔域主播"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
-            printTimedToPlayer("[系统]:已经自动获取魔域主播礼包,属性自动生效,外观效果请使用指令-chzb激活!", 10, _player)
-        if testStarGuildName()
-            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
-            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
-            print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
-            printTimedToPlayer("[系统]:已经自动获取星悦礼包,属性自动生效,外观效果请使用指令-chxy激活!", 10, _player)
-        if _weapon_xieshen.testAuths(p.auths)
-            p.exKillScoreMul+=20
-        if _halo_xinguang.testAuths(p.auths)
-            p.hero.hasXingGuangShanYao = true
-        if _wing_shengyu.testAuths(p.auths)
-            p.hero.hasShengYuChiBang = true
+        doAfter(0.1) ->
+            for i in WeaponSkin
+                execute()->
+                    if i.auth.testAuths(p.auths)
+                        printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                        let pg = p.hero.daoju.getSubBook("武器皮肤").getPage(i.name)
+                        if pg !=null and not pg.isActivation
+                            pg.activation(false)
+                            p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                        else
+                            print(i.name +":"+pg.page.name)
+        doAfter(0.11) ->
+            for i in TitleSkin
+                execute()->
+                    if i.auth.testAuths(p.auths)
+                        printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                        let pg1 = p.hero.daoju.getSubBook("等级称号").getPage(i.name)
+                        let pg2 = p.hero.daoju.getSubBook("其他称号").getPage(i.name)
+                        if pg1 !=null and not pg1.isActivation
+                            pg1.activation(false)
+                            p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg1.page.id), 1)
+                        else if pg2 !=null and not pg2.isActivation
+                            pg2.activation(false)
+                            p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg2.page.id), 1)
+        doAfter(0.12) ->
+            for i in WingSkin
+                execute()->
+                    if i.auth.testAuths(p.auths)
+                        printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                        let pg = p.hero.daoju.getSubBook("翅膀皮肤").getPage(i.name)
+                        if pg !=null and not pg.isActivation
+                            pg.activation(false)
+                            p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                        else
+                            print(i.name +":"+pg.page.name)
+        doAfter(0.13) ->
+            for i in HaloSkin
+                execute()->
+                    if i.auth.testAuths(p.auths)
+                        printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                        let pg = p.hero.daoju.getSubBook("光环").getPage(i.name)
+                        if pg !=null and not pg.isActivation
+                            pg.activation(false)
+                            p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
+                        else
+                            print(i.name +":"+pg.page.name)
+        doAfter(0.15) ->
+            // 设置检测到的降低伤害
+            if authChecked.testAuths(p.auths)
+                p.hero.setChecked()
+            if p.role == PlayerRole.Vip
+                init4VIPHero()
+                p.hero._self.addAbilityPro('SK00') //vip光环
+                print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎VIP玩家"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+            if testAnchorGuildName()
+                print("[系统]:"+color(0, 238, 255).toColorString()+"欢迎魔域主播"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+                printTimedToPlayer("[系统]:已经自动获取魔域主播礼包,属性自动生效,外观效果请使用指令-chzb激活!", 10, _player)
+            if testStarGuildName()
+                print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+                print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+                print("[系统]:"+color(0, 238, 255).toColorString()+"热烈欢迎[星悦会员俱乐部]大佬:"+color(255, 0, 0).toColorString()+p._player.getName()+"|r"+color(0, 238, 255).toColorString()+"进入游戏|r!")
+                printTimedToPlayer("[系统]:已经自动获取星悦礼包,属性自动生效,外观效果请使用指令-chxy激活!", 10, _player)
+            if _weapon_xieshen.testAuths(p.auths)
+                p.exKillScoreMul+=20
+            if _halo_xinguang.testAuths(p.auths)
+                p.hero.hasXingGuangShanYao = true
+            if _wing_shengyu.testAuths(p.auths)
+                p.hero.hasShengYuChiBang = true
+            getLvExGift()
+            getConsumptionGift()
+
+    // 等级2 |n开局金币8000
+    // 等级6 |n护甲5000，杀敌属性10，每秒属性20
+    // 等级10|n三维10000，升级属性300，每秒属性30,暴击伤害40
+    // 等级12|n血量50000，开局金币16000,附加伤害40
+    // 等级15|n护甲20000，杀敌属性20，伤害增幅40，普通技能书
+    // 等级18|n三维20000，升级属性600，三维增幅30，每秒属性80
+    function getLvExGift()
+        if not p.lvExGiftFlag
+            p.lvExGiftFlag = true
+            let lv = p.dzLv
+            if lv >= 2
+                _player.print("[系统]:自动领取"+color(0, 238, 255).toColorString()+"等级礼包|r成功!根据在地图等级"+lv+",自动获得以下属性!")
+            if lv>= 2
+                _player.addGold(8000)
+                _player.print(color(0, 255, 55).toColorString()+" - 开局金币8000|r")
+            if lv>= 6
+                hero.addAttr(AttrKey.DEF, 5000)
+                hero.addAttr(AttrKey.propKilled, 10)
+                hero.addAttr(AttrKey.propTimed, 20)
+                _player.print(color(0, 255, 55).toColorString()+" - 护甲5000，杀敌属性10，每秒属性20|r")
+            if lv>= 10
+                hero.addAttr(AttrKey.STR, 10000)
+                hero.addAttr(AttrKey.AGI, 10000)
+                hero.addAttr(AttrKey.INE, 10000)
+                hero.addAttr(AttrKey.propLevelUp, 300)
+                hero.addAttr(AttrKey.propTimed, 30)
+                hero.addAttr(AttrKey.ctcDmg, 40)
+                _player.print(color(0, 255, 55).toColorString()+" - 三维10000，升级属性300，每秒属性30,暴击伤害40|r")
+            if lv>= 12
+                hero.addAttr(AttrKey.HPM, 50000)
+                hero.addAttr(AttrKey.addDmg, 40)
+                _player.addGold(16000)
+                _player.print(color(0, 255, 55).toColorString()+" - 血量50000，开局金币16000,附加伤害40|r")
+            if lv>= 15
+                hero.addAttr(AttrKey.DEF, 20000)
+                hero.addAttr(AttrKey.propKilled, 20)
+                hero.addAttr(AttrKey.dmgPlus, 40)
+                let pr = PersonalWorkRoom.map.get(p)
+                createItem(RandomSpellEntityManager.poolRare.getRandomBook(), pr.returnArea.pos)
+                _player.print(color(0, 255, 55).toColorString()+" - 护甲20000，杀敌属性20，伤害增幅40，稀有技能书|r")
+            if lv>= 18
+                hero.addAttr(AttrKey.STR, 20000)
+                hero.addAttr(AttrKey.AGI, 20000)
+                hero.addAttr(AttrKey.INE, 20000)
+                hero.addAttr(AttrKey.propLevelUp, 600)
+                hero.addAttr(AttrKey.strPlus, 30)
+                hero.addAttr(AttrKey.agiPlus, 30)
+                hero.addAttr(AttrKey.intPlus, 30)
+                _player.print(color(0, 255, 55).toColorString()+" - 三维20000，升级属性600，三维增幅30，每秒属性80|r")
+        else
+            _player.print("[系统]:已经领取过了")
+        
+    
+    // 80      血量+30000,最终伤害+10
+    // 108     护甲+20000,每秒属性+100,开局木材+8
+    // 268     附加伤害+60,升级属性+1400
+    // 388     护甲+30000,每秒属性+200
+    // 666     暴击概率+30,随机稀有技能书一本
+    // 888     血量+200000,伤害减免+20,伤害增幅+100,开局木材+88
+    // 1188    暴击伤害+120,随机稀有技能书一本
+    // 1488    血量+500000,杀敌积分获取系数+50%
+    // 1888    护甲+100000,每秒属性+500,开局木材+888
+    // 2388    附加伤害+80,暴击伤害+120,随机史诗技能书一本
+    function getConsumptionGift()
+        if not p.consumptionGiftFlag
+            p.consumptionGiftFlag = true
+            int mallPrices = 0
+            for auth in p.auths
+                if auth instanceof AuthMall
+                    mallPrices += (auth castTo AuthMall).price
+            if mallPrices>= 80
+                _player.print("[系统]:自动领取"+color(0, 238, 255).toColorString()+"消费礼包|r成功!根据在商城消费额度"+mallPrices+",自动获得以下属性!")
+            if mallPrices>= 80
+                hero.addAttr(AttrKey.HPM, 30000)
+                hero.addAttr(AttrKey.finDmg, 10)
+                _player.print(color(255, 0, 0).toColorString()+" - 血量+30000,最终伤害+10|r")
+            if mallPrices>= 108
+                hero.addAttr(AttrKey.DEF, 20000)
+                hero.addAttr(AttrKey.propTimed, 100)
+                _player.addLumber(8)
+                _player.print(color(255, 0, 0).toColorString()+" - 护甲+20000,每秒属性+100,木材+8|r")
+            if mallPrices>= 268
+                hero.addAttr(AttrKey.addDmg, 60)
+                hero.addAttr(AttrKey.propLevelUp,1400)
+                _player.print(color(255, 0, 0).toColorString()+" - 附加伤害+60,升级属性+1400|r")
+            if mallPrices>= 388
+                hero.addAttr(AttrKey.DEF, 30000)
+                hero.addAttr(AttrKey.propTimed,200)
+                _player.print(color(255, 0, 0).toColorString()+" - 护甲+30000,每秒属性+200|r")
+            if mallPrices>= 666
+                hero.addAttr(AttrKey.ctcProb, 30)
+                hero.addAttr(AttrKey.dmgSub,20)
+                let pr = PersonalWorkRoom.map.get(p)
+                createItem(RandomSpellEntityManager.poolRare.getRandomBook(), pr.returnArea.pos)
+                _player.print(color(255, 0, 0).toColorString()+" - 暴击概率+30,伤害减免+20,随机稀有技能书一本|r")
+            if mallPrices>= 888
+                hero.addAttr(AttrKey.HPM, 200000)
+                hero.addAttr(AttrKey.dmgPlus,100)
+                _player.addLumber(88)
+                _player.print(color(255, 0, 0).toColorString()+" - 血量+200000,伤害增幅+100,木材+88|r")
+            if mallPrices>= 1188
+                hero.addAttr(AttrKey.ctcDmg,120)
+                let pr = PersonalWorkRoom.map.get(p)
+                createItem(RandomSpellEntityManager.poolRare.getRandomBook(), pr.returnArea.pos)
+                _player.print(color(255, 0, 0).toColorString()+" - 暴击伤害+120,随机稀有技能书一本|r")
+            if mallPrices>= 1488
+                hero.addAttr(AttrKey.HPM,500000)
+                p.exKillScoreMul += 50
+                _player.print(color(255, 0, 0).toColorString()+" - 血量+500000,杀敌积分获取系数+50%|r")
+            if mallPrices>= 1888
+                hero.addAttr(AttrKey.DEF,100000)
+                hero.addAttr(AttrKey.propTimed,500)
+                _player.addLumber(888)
+                _player.print(color(255, 0, 0).toColorString()+" - 护甲+100000,每秒属性+500,木材+888|r")
+            if mallPrices>= 2388
+                hero.addAttr(AttrKey.addDmg,80)
+                hero.addAttr(AttrKey.ctcDmg,120)
+                let pr = PersonalWorkRoom.map.get(p)
+                createItem(RandomSpellEntityManager.poolEpic.getRandomBook(), pr.returnArea.pos)
+                _player.print(color(255, 0, 0).toColorString()+" - 附加伤害+80,暴击伤害+120,随机史诗技能书一本|r")
+        else
+            _player.print("[系统]:已经领取过了")
 
     function jumpLevel() returns bool
         let lv = Level.get()

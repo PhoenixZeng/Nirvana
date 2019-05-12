@@ -20,7 +20,6 @@ public class BeastGod
         beastGod.addAttr(AttrKey.addDmg ,100)
         beastGod.addAttr(AttrKey.ctcProb,3)
         beastGod.addAttr(AttrKey.ctcDmg ,800)
-        beastGod.addAttr(AttrKey.dmgSub ,40)
         beastGod.addAttr(AttrKey.dmgResi,20)
         _self.setInvulnerable(true)
         new AIBossM(_self)
@@ -77,8 +76,8 @@ class Spell3 extends AIBossSpellType
         let u = tar.u
         if u .isAlive() and u .isAliveTrick()
             tar.u.pause()
-            for i = 0 to 11
-                markLine(tar.u,tar.u.getFacingAngle().degrees() + i*30,2000,2,UnitDamageType.Spell,1000000000.)
+            for i = 0 to 5
+                markLine(tar.u,tar.u.getFacingAngle().degrees() + i*60,2000,2,UnitDamageType.Spell,1000000000.)
             doAfter(5) ->
                 if u .isAlive() and u .isAliveTrick()
                     tar.u.unpause()

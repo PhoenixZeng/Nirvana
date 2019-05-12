@@ -52,8 +52,8 @@ public class RandomSpellBoxs
         for loc = 0 to abilityNum - 1
             let e = RandomSpellBox.get(pid, loc).entity
             if e instanceof ActiveRandomSpellEntity
-                (e castTo ActiveRandomSpellEntity).onTestCast(id,tar)
-                return true
+                if (e castTo ActiveRandomSpellEntity).onTestCast(id,tar)
+                    return true
         return false
     function getBox(int loc) returns RandomSpellBox
         return RandomSpellBox.get(pid, loc)

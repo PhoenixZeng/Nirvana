@@ -2,6 +2,9 @@ package Game
 
 public Game GAME
 
+
+public trigger deathHandler
+
 class Game
     int difficult = 0
     bool abyss  = false
