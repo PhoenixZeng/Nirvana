@@ -34,8 +34,8 @@ public abstract class SuperableBuff extends Buff
     override protected function onCover(Buff now) returns bool
         if now instanceof thistype
             let sb = now castTo thistype
-            onSuperpose()
             superpose(sb.lv,getDuration())
+            onSuperpose()
             return false
         else
             return true

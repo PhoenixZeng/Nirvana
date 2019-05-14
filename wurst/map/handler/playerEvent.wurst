@@ -232,6 +232,9 @@ public function initPlayersEvent()
                 //繁花秘境
                 case 'I63F'
                     ps.onInteractive(3)
+                //深岩之洲
+                case 'I63I'
+                    ps.onInteractive(4)
                 //询问神秘礼盒
                 case 'I616'
                     ps.onAskEpic(1)

@@ -57,3 +57,6 @@ public class TpItem
         new TpItem('I62V' , vec2( 9000   , -15500 ) )
         //繁花
         new TpItem('I63G' , vec2( -14400 , -15000 ) )
+        //深岩
+        new TpItem('I63L' , vec2( 8200   , -2500  ) )
+        

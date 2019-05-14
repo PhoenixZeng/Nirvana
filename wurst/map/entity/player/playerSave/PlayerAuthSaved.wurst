@@ -171,13 +171,11 @@ public function saveBook(player p,SubBooks sb)
             let k = index * 1000 + i div 2 + 1
             var a5 = pg.score
             if a5 >= 120 and lv>0 and lv <= 5
-                if localPlayer == p
-                    Player(-1)
+                pg.score = 0
             if a5 >= 100 and lv>0 and lv <= 5
                 a5 = 100
             if a5 >= 360 and lv>5 and lv <= 8
-                if localPlayer == p
-                    Player(-1)
+                pg.score = 0
             if a5 >= 300 and lv>5 and lv <= 8
                 a5 = 300
             if KEY_BOOK_VAL[k] + 30 < a5

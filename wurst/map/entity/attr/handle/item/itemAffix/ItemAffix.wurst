@@ -8,6 +8,7 @@ import ClosureTimers
 import YDJapiOther
 import SpellCaster
 import Book
+import Critical
 
 // 技能
 //     光环 
@@ -423,6 +424,7 @@ public class AttackAddBuffAInvItemAffix implements ItemAffix
     override function onCast(unit i,targets t)
 
 public let affix_AInv2_1 = new AttackAddBuffAInvItemAffix(2,1)
+public let affix_AInv1_2 = new AttackAddBuffAInvItemAffix(1,2)
 
 public class AttackAddBuffAccurateItemAffix implements ItemAffix
     real chance
@@ -656,6 +658,8 @@ public ItemAffix affix_AttackDamageRange10_3
 public ItemAffix affix_AttackDamageRange30_3
 public ItemAffix affix_AttackAdd_addDmg_WhenWeak
 
+public ItemAffix affix_DamageRangeBaseOnDmgSub_10
+
 public ItemAffix affix_DamageRangeWhenKill
 
 init
@@ -765,6 +769,14 @@ init
     affix_AttackAdd_addDmg_WhenWeak = AttackItemAffix.register() (i,j)->
         if 30 .random() and j.getBuff("虚弱") != null
             Unit.getUnit(i).addTimedExAttr(3, AttrKey.addDmg,10, 1)
+    affix_DamageRangeBaseOnDmgSub_10 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let s = Unit.getUnit(i).getAttr(AttrKey.dmgSub)
+            let dmg = i.getPropSum() * s / 10.
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
 
     affix_DamageRangeWhenKill = KillItemAffix.register()  (i,j)->
         if 10 .random()
@@ -775,6 +787,7 @@ init
                 if enemyFilter(i, is)
                     i.damageSpell(is, dmg)
             ENUM_GROUP.clear()
+
 
 
 
@@ -995,3 +1008,51 @@ public class CastSpellTargetWhenAttackItemAffix implements ItemAffix
     override function onCast(unit i,targets t)
 
 public let affix_CastSpellTargetWhenAttackItemAffix_huanxiang = new CastSpellTargetWhenAttackItemAffix(3,'I02M',852274)
+
+
+
+public class AttackCriticalItemAffix implements ItemAffix
+    Critical ctc
+    construct(real chance,real power)
+        this.ctc = new Critical(chance,power)
+    override function onApply(unit u)
+        let list = CriticalList.getAttackFor(u,true)
+        list.push(ctc)
+    override function onLose(unit u)
+        let list = CriticalList.getAttackFor(u,false)
+        if list != null
+            list.remove(ctc)
+
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets j)
+
+public let attack_ctc_3_20 = new AttackCriticalItemAffix(3,20)
+public let attack_ctc_3_40 = new AttackCriticalItemAffix(3,40)
+public let attack_ctc_3_60 = new AttackCriticalItemAffix(3,60)
+public let attack_ctc_3_100 = new AttackCriticalItemAffix(3,100)
+
+public class SpellCriticalItemAffix implements ItemAffix
+    Critical ctc
+    construct(real chance,real power)
+        this.ctc = new Critical(chance,power)
+    override function onApply(unit u)
+        let list = CriticalList.getSpellFor(u,true)
+        list.push(ctc)
+    override function onLose(unit u)
+        let list = CriticalList.getSpellFor(u,false)
+        if list != null
+            list.remove(ctc)
+
+    override function onAttack(unit i,unit j)
+    override function onAttacked(unit i,unit j)
+    override function onBBAttack(unit i,unit j)
+    override function onKill(unit i,unit j)
+    override function onCast(unit i,targets j)
+
+public let spell_ctc_10_1_5 = new SpellCriticalItemAffix(10,1.5)
+public let spell_ctc_10_2_0 = new SpellCriticalItemAffix(10,2.0)
+public let spell_ctc_10_2_5 = new SpellCriticalItemAffix(10,2.5)
+public let spell_ctc_10_4_0 = new SpellCriticalItemAffix(10,4.0)

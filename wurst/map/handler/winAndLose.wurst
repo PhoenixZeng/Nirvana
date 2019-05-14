@@ -53,13 +53,15 @@ function Players.getEndlessAwardScore()
 
 public function askPlayerSaveArtifactEnergy(Players ps)
     let sb = ps.hero.souji.getSubBook("神器")
-    var ene = 2+(2*GAME.difficult)
+    var ene = 2
     if ps.role == PlayerRole.Vip
         ene += 2
         printTimedToPlayer("[系统]:VIP获得额外2点神器能量!", 30, ps._player)
-    let db = new DialogBox("选择需要增加"+ene+"点能量的神器")
-    for pg in sb.pageses
-        if not pg.page.lock
+    let db = new DialogBox("神器")
+    if GAME.difficult <= 5
+        ene += (2*GAME.difficult)
+        for i = 0 to 2
+            let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
                 db.addButton(pg.page.name) ->
                     let sa = SavedArtifact.maps.get(pg)
@@ -74,7 +76,27 @@ public function askPlayerSaveArtifactEnergy(Players ps)
                     ps.saveBook()
                     destroy db
             else
-                printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!", 30, ps._player)
+                printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
+    else if GAME.difficult <= 7 and GAME.difficult >= 6
+        ene += (3*(GAME.difficult-4))
+        for i = 3 to 4
+            let pg = sb.pageses.get(i)
+            if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
+                db.addButton(pg.page.name) ->
+                    let sa = SavedArtifact.maps.get(pg)
+                    var a5 = ene + sa.energy
+                    if a5 >= 100 and ps.dzLv>0 and ps.dzLv <= 5
+                        a5 = 100
+                        printTimedToPlayer("[系统]:此神器能量达到当前等级的最大值,提升地图等级才可解锁后续!", 30, ps._player)
+                    if a5 >= 300 and ps.dzLv>5 and ps.dzLv <= 8
+                        a5 = 300
+                        printTimedToPlayer("[系统]:此神器能量达到当前等级的最大值,提升地图等级才可解锁后续!", 30, ps._player)
+                    sa.addEnergy(a5 - sa.energy)
+                    ps.saveBook()
+                    destroy db
+            else
+                printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
+    db.setTitle("选择需要增加"+ene+"点能量的神器")
     db.addButton("啥都不想加,任性") ->
         destroy db
     db.display(ps._player, true)

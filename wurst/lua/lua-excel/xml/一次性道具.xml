@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-12T03:16:13Z</LastSaved>
+  <LastSaved>2019-05-14T00:27:04Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -37,11 +37,11 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="266" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="270" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
-   <Column ss:AutoFitWidth="0" ss:Width="170.4"/>
+   <Column ss:AutoFitWidth="0" ss:Width="182.39999999999998"/>
    <Column ss:AutoFitWidth="0" ss:Width="39.6"/>
    <Column ss:AutoFitWidth="0" ss:Width="32.4"/>
    <Column ss:AutoFitWidth="0" ss:Width="22.799999999999997"/>
@@ -2441,9 +2441,9 @@
     <Cell><Data ss:Type="String">消费礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r消费礼包</Data></Cell>
-    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,每秒属性100,木材8|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,每秒属性500,木材888|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
+    <Cell><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,木材8,每秒属性100|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,木材888,每秒属性500|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r消费礼包</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,每秒属性100,木材8|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,每秒属性500,木材888|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当商城消费额度达到以下值时,自动领取小于等于消费额度的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n消费80  |n - 血量30000,最终伤害10|n消费108 |n - 护甲20000,木材8,每秒属性100|n消费268 |n - 附加伤害60,升级属性1400|n消费388 |n - 护甲30000,每秒属性200|n消费666 |n - 暴击概率30,伤害减免20,随机稀有技能1|n消费888 |n - 血量200000,伤害增幅100,木材88|n消费1188|n - 暴击伤害120,随机稀有技能1|n消费1488|n - 血量500000,杀敌积分获取系数50%|n消费1888|n - 护甲100000,木材888,每秒属性500|n消费2388|n - 附加伤害80,暴击伤害120,随机史诗技能1</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\gift\xiaofeilibao.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -3343,6 +3343,83 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63I</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">交谈</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[交互]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[交互]|r交谈</Data></Cell>
+    <Cell><Data ss:Type="String">聊一聊!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[交互]|r交谈</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">聊一聊!</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63J</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">大地壁垒</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[合成]|r大地壁垒</Data></Cell>
+    <Cell><Data ss:Type="String">大地符文+大地龙鳞+大地元素之心 = 大地壁垒</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r大地壁垒</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">大地符文+大地龙鳞+大地元素之心 = 大地壁垒</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\rock\dadibilei.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63K</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">大地灵魂壁垒</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[合成]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[合成]|r大地灵魂壁垒</Data></Cell>
+    <Cell><Data ss:Type="String">大地壁垒+强者的灵魂 = 大地灵魂壁垒</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[合成]|r大地灵魂壁垒</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">大地壁垒+强者的灵魂 = 大地灵魂壁垒</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\rock\dadilinghunbilei.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">333</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I63L</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">深岩之洲</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[传送]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[传送]|r深岩之洲</Data></Cell>
+    <Cell ss:Formula="=&quot;传送到 &quot;&amp;RC[-2]"><Data ss:Type="String">传送到 深岩之洲</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[传送]|r深岩之洲</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传送到 深岩之洲</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\spec_dungeon\rock\shenyanzhizhou.blp</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
@@ -5501,9 +5578,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>95</TopRowBottomPane>
+   <TopRowBottomPane>140</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>17</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5519,7 +5596,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>111</ActiveRow>
+     <ActiveRow>163</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

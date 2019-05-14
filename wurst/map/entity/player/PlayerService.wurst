@@ -17,7 +17,6 @@ import Hero
 import Gem
 import HeroRandomSpellManager
 import HashList
-import PlayerAuthSaved
 import wareAttackCommon
 import wareAttack
 import WorkRoom
@@ -95,16 +94,21 @@ public class PlayerService
         "守卫:如果不能用高温融合扭曲虚空的能力,可能这股力量发挥不出全部的实力!"
     ]
     static string array flowerAreaTip = [
-        "守卫:有时候小树精身上也会长出好的灵木!",
-        "守卫:小伙子,不女装一下吗!",
-        "守卫:繁花秘境已经虚空的力量被腐化了!!"
+        "有时候小树精身上也会长出好的灵木!",
+        "小伙子,不女装一下吗!",
+        "繁花秘境已经虚空的力量被腐化了!!"
+    ]
+    static string array rockAreaTip = [
+        "守卫:你还是这么多年第一位来到这里的勇者!",
+        "守卫:只有防御能力极强的人才会拥有强者的灵魂!",
+        "守卫:那个人从这里离开之后,就隐藏在人群中了!"
     ]
     function onInteractive(int index)
         var r = 100 .nextInt() + 1
         switch index
             case 1
                 hero._self.setPos(vec2(3300,-11400))
-                if getDiff() <= 2 and getDiff() != 0
+                if GAME.difficult < 3
                     _player.print("隐居者感觉难度太低了,不想理你!(难度3以上才开放)")
                     return
                 //雪山 交互
@@ -137,6 +141,11 @@ public class PlayerService
                 else
                     var w = 3 .nextInt()
                     _player.print(flowerAreaTip[w])
+            case 4
+                //深岩之洲 交互
+                hero._self.setPos(vec2( 8200   , -2500 ))
+                var w = 3 .nextInt()
+                _player.print(rockAreaTip[w])
 
     function onUpgradeGem(int i) returns bool
         let c = i + 1

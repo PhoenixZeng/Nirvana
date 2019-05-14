@@ -99,7 +99,7 @@ init
     new WeaponSkin("-wq1",'SK07',"斩光之剑",_map_sp1)
     new WeaponSkin("-wq2",'SK08',"霜之哀伤",_map_sp_lv3)
     new WeaponSkin("-wq3",'SK09',"囚火之剑",_map_sp_lv5)
-    new WeaponSkin("-wq4",'SK10',"魔王邪剑",defNotAuth)
+    new WeaponSkin("-wq4",'SK10',"魔王邪剑",_map_p7_lv12)
     new WeaponSkin("-wq5",'SK11',"屠龙宝刀",defNotAuth)
     new WeaponSkin("-wq6",'SK12',"黄金圣剑",_weapon_huangjin)//商城道具
     new WeaponSkin("-wq7",'SK13',"玄冰神剑",_weapon_xuanbing)//商城道具

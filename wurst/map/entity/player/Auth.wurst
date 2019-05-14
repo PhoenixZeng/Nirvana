@@ -42,6 +42,12 @@ public class AuthDouble extends Auth
         test = (a,p)->
             return auth1.test.test(a, p) and auth2.test.test(a, p)
 
+public class AuthOr extends Auth
+    construct(string name,Auth auth1,Auth auth2)
+        super(name)
+        test = (a,p)->
+            return auth1.test.test(a, p) or auth2.test.test(a, p)
+
 public class AuthMapLevel extends Auth
     int lv
     construct(string name,int lv)
@@ -96,7 +102,11 @@ public class AuthGuild extends Auth
 
 public let authChecked = new AuthCheckd("jc")
 
-public let starGuild = new AuthGuild("星悦","星悦会员俱乐部")
+public let star1Guild = new AuthGuild("星悦1","星悦会员俱乐部")
+public let star2Guild = new AuthGuild("星悦2","星悦俱乐部")
+
+public let starGuild = new AuthOr("星悦",star1Guild,star2Guild)
+
 public let anchorGuild = new AuthGuild("魔域","魔域主播公会")
 
 public let defAuth = new Auth("是")..setTest((a,p)-> true)    
@@ -125,13 +135,14 @@ public let _map_p3 = new AuthPass("3",3)
 public let _map_p4 = new AuthPass("4",4)
 public let _map_p5 = new AuthPass("5",5)
 public let _map_p6 = new AuthPass("6",6)
+public let _map_p7 = new AuthPass("7",7)
 public let _map_sp1 = new AuthSinglePass("单1",1)
 public let _map_sp2 = new AuthSinglePass("单2",2)
 public let _map_sp3 = new AuthSinglePass("单3",3)
 public let _map_sp4 = new AuthSinglePass("单4",4)
 public let _map_sp5 = new AuthSinglePass("单5",5)
 public let _map_sp6 = new AuthSinglePass("单6",6)
-
+public let _map_sp7 = new AuthSinglePass("单7",7)
 
 public let _map_lv2  = new AuthMapLevel("maplv2" ,2 )
 public let _map_lv3  = new AuthMapLevel("maplv3" ,3 )
@@ -168,6 +179,7 @@ public let _map_p_lv3 = new AuthDouble("lvp3", _map_p3, _map_lv3)
 public let _map_p_lv4 = new AuthDouble("lvp4", _map_p4, _map_lv4)
 public let _map_p_lv5 = new AuthDouble("lvp5", _map_p5, _map_lv5)
 public let _map_p6_lv10 = new AuthDouble("lvp5", _map_p6, _map_lv10)
+public let _map_p7_lv12 = new AuthDouble("lvp5", _map_p7, _map_lv12)
 public let _map_sp_lv2 = new AuthDouble("lvsp2", _map_sp2, _map_lv2)
 public let _map_sp_lv3 = new AuthDouble("lvsp3", _map_sp3, _map_lv3)
 public let _map_sp_lv4 = new AuthDouble("lvsp4", _map_sp4, _map_lv4)

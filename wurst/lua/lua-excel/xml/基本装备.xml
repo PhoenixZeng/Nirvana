@@ -10,7 +10,7 @@
   <Author>dark</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2015-06-05T18:19:00Z</Created>
-  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
+  <LastSaved>2019-05-14T00:27:04Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,7 +24,6 @@
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -56,7 +55,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ITEM">
-  <Table ss:ExpandedColumnCount="46" ss:ExpandedRowCount="162" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="46" ss:ExpandedRowCount="168" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="204"/>
    <Column ss:AutoFitWidth="0" ss:Width="165"/>
@@ -2626,9 +2625,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲魔石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲魔石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuqumoshi.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2645,9 +2644,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲妖石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲妖石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuquyaoshi.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2664,9 +2663,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲邪石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲邪石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxieshi.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2683,9 +2682,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲怪石|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲怪石|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuquguaishi.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2702,9 +2701,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]扭曲结晶|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:10|n力量增幅:6|n敏捷增幅:6|n智力增幅:6|n扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]扭曲结晶|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:10|n力量增幅:6|n敏捷增幅:6|n智力增幅:6|n扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Error">#REF!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuqujiejing.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2816,9 +2815,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]虚空水晶|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:20|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]虚空水晶|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:20|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\xukongshuijing.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2873,9 +2872,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]扭曲虚空之核|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]扭曲虚空之核|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongzhihe.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2892,9 +2891,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]熔火熔岩|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害增幅:20|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[扭曲神殿]熔火熔岩|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害增幅:20|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\ronghuorongyan.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -2912,9 +2911,9 @@
     <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
     <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFF9933[扭曲神殿]扭曲虚空魔核|r</Data></Cell>
-    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:50|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n伤害减免:40|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFF9933[扭曲神殿]扭曲虚空魔核|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:50|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n伤害减免:40|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\temple\niuquxukongmohe.blp</Data></Cell>
     <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Permanent</Data></Cell>
@@ -3459,6 +3458,120 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD1W</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地符文|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地符文|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\dadifuwen.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD1X</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地龙鳞|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地龙鳞|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\dadilongling.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD1Y</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地元素之心|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地元素之心|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\dadiyuansuzhixin.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD1Z</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地壁垒|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n护甲:100000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地壁垒|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n护甲:100000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\dadibilei.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD20</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]强者的灵魂|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:200000|n敏捷:200000|n智力:200000|n伤害抵抗:10</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]强者的灵魂|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:200000|n敏捷:200000|n智力:200000|n伤害抵抗:10</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\qiangzhelinghun.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">ZD21</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">srbd</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地灵魂壁垒|r</Data></Cell>
+    <Cell ss:Formula="=Sheet1!R[-1]C[26]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n护甲:120000|n伤害抵抗:10</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF99FF66[深岩之洲]大地灵魂壁垒|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n护甲:120000|n伤害抵抗:10</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">blp\spec_dungeon\rock\dadilinghunbilei.blp</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Permanent</Data></Cell>
+    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">233</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="41"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -3467,10 +3580,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>127</TopRowBottomPane>
+   <TopRowBottomPane>147</TopRowBottomPane>
    <SplitVertical>8</SplitVertical>
    <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3487,8 +3601,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>164</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>165</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5983,7 +6097,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">扭曲魔石</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -5992,14 +6106,14 @@
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲魔石|r</Data></Cell>
     <Cell
-     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-12]&amp;#REF!&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-12])&amp;IF(#REF!=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;#REF!)&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
+      ss:Type="Error">#REF!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">扭曲妖石</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -6008,14 +6122,14 @@
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲妖石|r</Data></Cell>
     <Cell
-     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-12]&amp;#REF!&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-12])&amp;IF(#REF!=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;#REF!)&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
+      ss:Type="Error">#REF!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">扭曲邪石</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -6024,14 +6138,14 @@
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲邪石|r</Data></Cell>
     <Cell
-     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-12]&amp;#REF!&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-12])&amp;IF(#REF!=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;#REF!)&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
+      ss:Type="Error">#REF!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">E</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">扭曲怪石</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -6040,14 +6154,14 @@
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|CFFFFFFFF[扭曲神殿]扭曲怪石|r</Data></Cell>
     <Cell
-     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶</Data></Cell>
+     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-12]&amp;#REF!&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-12])&amp;IF(#REF!=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;#REF!)&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
+      ss:Type="Error">#REF!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">B</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">扭曲结晶</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
@@ -6056,8 +6170,8 @@
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[扭曲神殿]扭曲结晶|r</Data></Cell>
     <Cell
-     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:10|n力量增幅:6|n敏捷增幅:6|n智力增幅:6|n扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核</Data></Cell>
+     ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-12]&amp;#REF!&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-12])&amp;IF(#REF!=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;#REF!)&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
+      ss:Type="Error">#REF!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">D</Data></Cell>
@@ -6143,14 +6257,14 @@
     <Cell ss:Index="9"><Data ss:Type="Number">300000</Data></Cell>
     <Cell><Data ss:Type="Number">300000</Data></Cell>
     <Cell><Data ss:Type="Number">300000</Data></Cell>
-    <Cell ss:Index="23"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="33"><Data ss:Type="String">虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
     <Cell
      ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
       ss:Type="String">|cFF99FF66[扭曲神殿]虚空水晶|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:20|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n虚空水晶+虚空触角 = 虚空魔石</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">C</Data></Cell>
@@ -6194,8 +6308,7 @@
     <Cell><Data ss:Type="Number">500000</Data></Cell>
     <Cell><Data ss:Type="Number">500000</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="Number">40</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -6205,12 +6318,13 @@
       ss:Type="String">|cFF99FF66[扭曲神殿]扭曲虚空之核|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">A</Data></Cell>
     <Cell><Data ss:Type="String">[扭曲神殿]</Data></Cell>
     <Cell><Data ss:Type="String">熔火熔岩</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">20</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -6221,7 +6335,7 @@
       ss:Type="String">|cFF99FF66[扭曲神殿]熔火熔岩|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害增幅:20|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">S</Data></Cell>
@@ -6230,9 +6344,8 @@
     <Cell ss:Index="9"><Data ss:Type="Number">500000</Data></Cell>
     <Cell><Data ss:Type="Number">500000</Data></Cell>
     <Cell><Data ss:Type="Number">500000</Data></Cell>
-    <Cell ss:Index="19"><Data ss:Type="Number">40</Data></Cell>
-    <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
@@ -6242,7 +6355,7 @@
       ss:Type="String">|cFFFF9933[扭曲神殿]扭曲虚空魔核|r</Data></Cell>
     <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]&amp;RC[-16]&amp;RC[-15]&amp;RC[-14]&amp;RC[-13]&amp;RC[-12]&amp;RC[-11]&amp;RC[-10]&amp;RC[-9]&amp;RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[-12])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-6]&amp;RC[-5]&amp;RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28)&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[-5])&amp;IF(RC[-4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[-4])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:50|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n伤害减免:40|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
@@ -6614,34 +6727,92 @@
       ss:Type="String">|cFFFFFF99基础属性|r|n攻击:8000000|n血量:10000000|n|cFFFFFF55附加属性|r(%)|n攻击吸血:4|n暴击伤害:50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">大地符文</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="Number">40000</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]大地符文|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">大地龙鳞</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="Number">40000</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]大地龙鳞|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n护甲:40000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">大地元素之心</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">300000</Data></Cell>
+    <Cell><Data ss:Type="Number">300000</Data></Cell>
+    <Cell><Data ss:Type="Number">300000</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]大地元素之心|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">大地壁垒</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">300000</Data></Cell>
+    <Cell><Data ss:Type="Number">300000</Data></Cell>
+    <Cell><Data ss:Type="Number">300000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="Number">100000</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]大地壁垒|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n护甲:100000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">强者的灵魂</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">200000</Data></Cell>
+    <Cell><Data ss:Type="Number">200000</Data></Cell>
+    <Cell><Data ss:Type="Number">200000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]强者的灵魂|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:200000|n敏捷:200000|n智力:200000|n伤害抵抗:10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="35"
+    <Cell ss:Index="3" ss:StyleID="s62"><Data ss:Type="String">A</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[深岩之洲]</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">大地灵魂壁垒</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">500000</Data></Cell>
+    <Cell><Data ss:Type="Number">500000</Data></Cell>
+    <Cell><Data ss:Type="Number">500000</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="Number">120000</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:Index="34"
+     ss:Formula="=VLOOKUP(RC[-31],Sheet2!R1C1:R7C2,2,0)&amp;RC[-30]&amp;RC[-29]&amp;RC[-28]&amp;Sheet2!R1C3&amp;&quot;&quot;"><Data
+      ss:Type="String">|cFF99FF66[深岩之洲]大地灵魂壁垒|r</Data></Cell>
+    <Cell
      ss:Formula="=IF(RC[-27]&amp;RC[-26]&amp;RC[-25]&amp;RC[-24]&amp;RC[-23]&amp;RC[-22]=&quot;&quot;,,R1C7)&amp;IF(RC[-27]=&quot;&quot;,,&quot;|n&quot;&amp;R1C8&amp;RC[-27])&amp;IF(RC[-26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[-26])&amp;IF(RC[-25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[-25])&amp;IF(RC[-24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[-24])&amp;IF(RC[-23]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[-23])&amp;IF(RC[-22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[-22])&amp;IF(RC[-20]&amp;RC[-19]&amp;RC[-18]&amp;RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14)&amp;IF(RC[-20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15&amp;RC[-20])&amp;IF(RC[-19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[-19])&amp;IF(RC[-18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[-18])&amp;IF(RC[-17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[-17])&amp;IF(RC[-16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[-16])&amp;IF(RC[-15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[-15])&amp;IF(RC[-14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[-14])&amp;IF(RC[-13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[-13])&amp;IF(RC[-11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[-11])&amp;IF(RC[-10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[-10])&amp;IF(RC[-9]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[-9])&amp;IF(RC[-8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[-8])&amp;IF(RC[-7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[-7])&amp;IF(RC[-6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29&amp;RC[-6])&amp;IF(RC[-2]=&quot;&quot;,,&quot;|n&quot;&amp;RC[-2])"><Data
-      ss:Type="String"></Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n护甲:120000|n伤害抵抗:10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="35"
@@ -11128,11 +11299,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>87</TopRowBottomPane>
+   <TopRowBottomPane>137</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -11149,8 +11319,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>116</ActiveRow>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>171</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

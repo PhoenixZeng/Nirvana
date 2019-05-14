@@ -5,22 +5,16 @@ import phLib
 import Attacker
 import attrMapper
 import Forces
-import YDJapiOther
 import Level
 
 
 public class AbyssSpellManager
     static HashList<AbyssInfo> infos = new HashList<AbyssInfo>()
-    static function getAddAbyssInfo(unit u)
-        if not GAME.endless and GAME.abyss
-            let d = getDiff()
-            if d <= 3
+    static function getAddAbyssInfo(unit u,int d)
+        if not GAME.endless
+            for i = 1 to d
                 let s = GetRandomInt(0, infos.size()-1)
                 infos.get(s).onApply(u)
-            else
-                for i = 1 to 2
-                    let s = GetRandomInt(0, infos.size()-1)
-                    infos.get(s).onApply(u)
         else if GAME.endless 
             var l = Level.get() div 20 + 1
             if l > 5
@@ -52,7 +46,7 @@ public class AbyssSpellLvInfo extends AbyssSpellInfo
         super(id,isCast)
     override function onApply(unit u)
         super.onApply(u)
-        u.setAbilityLevel(id, getDiff())
+        u.setAbilityLevel(id, GAME.difficult)
 
 init
     new AbyssSpellLvInfo('A02W',true)//风暴之锤
@@ -61,8 +55,6 @@ init
     new AbyssSpellLvInfo('A02V',true)//雷霆一击
     new AbyssSpellLvInfo('A030',true)//诱捕
     new AbyssSpellLvInfo('A02U',true)//战争践踏
-    new AbyssSpellLvInfo('A031',false)//闪避
-    new AbyssSpellLvInfo('A02R',false)//邪恶光环
     new AbyssSpellLvInfo('A02T',false)//硬化皮肤
     new AbyssSpellLvInfo('A02Q',false)//专注光环
 
@@ -86,19 +78,6 @@ init
     new AbyssAttrInfo(AttrKey.dmgSub,30,5)
     new AbyssAttrInfo(AttrKey.dmgPlus,20,5)
 
-public class AbyssStateInfo extends AbyssInfo
-    unitstate state
-    real val
-    real diffOffset
-    construct(unitstate state ,real val,real diffOffset)
-        this.state = state
-        this.val = val
-        this.diffOffset = diffOffset
-    override function onApply(unit u)
-        u.setState(state, val + (getDiff()-1)*diffOffset)
-
-init
-    new AbyssStateInfo(EX_UnitState.atkRange,80,80)
 
 
 

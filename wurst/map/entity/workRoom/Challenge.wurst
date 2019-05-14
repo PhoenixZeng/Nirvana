@@ -286,3 +286,8 @@ init
     new SelfRebothChallenge('L604', 'h604', 20 ,  flowerU1, vec2(-12993, -14600))..setFresh(4,10)
     new SelfRebothChallenge('L724', 'H724' ,vec2(-10600,-13700) , 90, 100)
     new SelfRebothChallenge('L725', 'H725' ,vec2(-9600,-15100) , 90, 100)
+
+    //大地
+    new SelfRebothChallenge('L726', 'H726' ,vec2( 8200 , -600 ) , 90, 100)
+    new SelfRebothChallenge('L727', 'H727' ,vec2( 8200 ,  760 ) , 90, 100)
+    new SelfRebothChallenge('L728', 'H728' ,vec2( 8000 , 4100 ) , 90, 100)

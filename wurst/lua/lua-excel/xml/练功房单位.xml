@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-05-05T15:33:17Z</Created>
-  <LastSaved>2019-05-11T11:31:37Z</LastSaved>
+  <LastSaved>2019-05-14T00:27:04Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -38,9 +38,13 @@
   <Style ss:ID="s63">
    <Font ss:FontName="等线" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="等线" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Sheet1">
-  <Table ss:ExpandedColumnCount="241" ss:ExpandedRowCount="68" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="241" ss:ExpandedRowCount="71" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:AutoFitWidth="0" ss:Width="61.8"/>
    <Column ss:AutoFitWidth="0" ss:Width="39.6"/>
@@ -4978,6 +4982,219 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">H726</Data></Cell>
+    <Cell><Data ss:Type="String">Obla</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">大地符文</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00大地巨熊|r</Data></Cell>
+    <Cell ss:Formula="=&quot;掉落|cFF33FF00&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">掉落|cFF33FF00大地符文|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">8000000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">40000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">400000000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">units\creeps\FurbolgElder\FurbolgElder</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
+      ss:Type="String">let _hb大地符文 = new Challenge('L70大地符文','H70大地符文',1)</Data></Cell>
+    <Cell><Data ss:Type="Number">2.2999999999999998</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="44"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="58"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="81"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">H727</Data></Cell>
+    <Cell><Data ss:Type="String">Obla</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">大地龙鳞</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00大地龙人|r</Data></Cell>
+    <Cell ss:Formula="=&quot;掉落|cFF33FF00&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">掉落|cFF33FF00大地龙鳞|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">9000000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">45000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">450000000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s63"><Data ss:Type="String">Units\Creeps\DragonSpawnBlue\DragonSpawnBlue</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
+      ss:Type="String">let _hb大地龙鳞 = new Challenge('L70大地龙鳞','H70大地龙鳞',1)</Data></Cell>
+    <Cell><Data ss:Type="Number">2.7</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="44"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="58"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="81"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">H728</Data></Cell>
+    <Cell><Data ss:Type="String">Obla</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">大地元素之心</Data></Cell>
+    <Cell><Data ss:Type="String">|cFF33FF00大地元素|r</Data></Cell>
+    <Cell ss:Formula="=&quot;掉落|cFF33FF00&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">掉落|cFF33FF00大地元素之心|r</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell ss:Formula="=INT(RC[4]/50)"><Data ss:Type="Number">10000000</Data></Cell>
+    <Cell ss:StyleID="s62" ss:Formula="=INT(RC[3]/10)"><Data ss:Type="Number">50000000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">500000000</Data></Cell>
+    <Cell><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s63"><Data ss:Type="String">units\creeps\RockGolem\RockGolem</Data></Cell>
+    <Cell
+     ss:Formula="=&quot;let _hb&quot;&amp;RC[-16]&amp;&quot; = new Challenge('L70&quot;&amp;RC[-16]&amp;&quot;','H70&quot;&amp;RC[-16]&amp;&quot;',1)&quot;"><Data
+      ss:Type="String">let _hb大地元素之心 = new Challenge('L70大地元素之心','H70大地元素之心',1)</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="44"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="58"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="71"><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="String">Rifleman</Data></Cell>
+    <Cell ss:Index="81"><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="87"><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="90"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="110"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="115"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="124"><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell ss:Index="126"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="136"><Data ss:Type="Number">390</Data></Cell>
+    <Cell><Data ss:Type="Number">2.8</Data></Cell>
+    <Cell ss:Index="145"><Data ss:Type="String">normal</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell ss:Index="158"><Data ss:Type="String">ground,air</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="164"><Data ss:Type="Number">0.2</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell ss:Index="168"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="206"><Data ss:Type="String">orc</Data></Cell>
+    <Cell ss:Index="209"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="216"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="218"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="221"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="225"><Data ss:Type="Number">1800</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="238"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">h601</Data></Cell>
     <Cell><Data ss:Type="String">hfoo</Data></Cell>
     <Cell><Data ss:Type="String">|cFF33FF00雪花|r</Data></Cell>
@@ -5221,9 +5438,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5231,15 +5448,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>64</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

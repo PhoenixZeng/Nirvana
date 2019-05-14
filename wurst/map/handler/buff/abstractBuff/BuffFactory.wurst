@@ -18,9 +18,6 @@ public function unit.getBuff(string name) returns Buff
     let list = Buff.getAllWhereIsTarget(this)
     if list != null and list.typeId != 0 and not list.isEmpty()
         for bf in list
-            if bf.typeId == 0
-                list.remove(bf)
-        for bf in list
             if bf.getName() == name
                 return bf
     return null

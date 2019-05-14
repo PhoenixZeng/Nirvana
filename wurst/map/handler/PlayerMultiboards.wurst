@@ -43,9 +43,9 @@ public function createPlayerMultiboard()
         b.setTitle("积分榜 [ 无尽 ]")
     else
         if GAME.abyss
-            b.setTitle("积分榜 [ 深渊 "+getDiff()+" ]")
+            b.setTitle("积分榜 [ 深渊 "+GAME.difficult+" ]")
         else
-            b.setTitle("积分榜 [ 难度 "+getDiff()+" ]")
+            b.setTitle("积分榜 [ 难度 "+GAME.difficult+" ]")
 
     b.setItemsStyle(true, false)
     b.setItemsWidth(0.03)

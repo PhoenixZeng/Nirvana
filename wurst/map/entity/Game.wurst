@@ -16,7 +16,6 @@ class Game
     var PLUS_ITEM_DIFFICULT = 0.25
 
     let nandu1_zuiquan = 'ND01'
-    let nandu2_xixue = 'ND02'
     let nandu3_xieer = 'ND03'
     let nandu4_minlin = 'ND04'
     let nandu5_zhuanzhu = 'ND05'
@@ -27,11 +26,6 @@ class Game
     var playerSizeStart = 1
 
 
-
-public function getDiff()returns int
-    return GAME.difficult
-public function setDiff(int i)
-    GAME.difficult = i
     
 init
     GAME = new Game()

@@ -33,6 +33,7 @@ import timerHandler
 import TpItem
 import HeroRandomSpellManager
 import itemMutex
+import AIBoss
 
 function initializeYD()
     yd_MapMinX = GetCameraBoundMinX() - GetCameraMargin(CAMERA_MARGIN_LEFT)
@@ -68,7 +69,7 @@ function enableFog(player p)
 
 function initGame(int diff,int us)
     initializeYD()
-    setDiff(diff)
+    GAME.difficult = diff
     handleDiffcult()
     dzFrameInit()
     initTimeHandler()
@@ -143,6 +144,7 @@ function initGame(int diff,int us)
         execute()  ->
             initDrop()
             ItemMutex.initi()
+            AIBoss.inite()
     initServerDate()
     createPlayerMultiboard()
     initAI()
@@ -201,7 +203,7 @@ function initF9Tip()
 
 function choiceDiff(int us)
     let box = new DialogBox("难度选择")
-    for i = 1 to 5
+    for i = 1 to 7
         box.addButton("难度"+i)->
             initGame(i,us)
             destroy box

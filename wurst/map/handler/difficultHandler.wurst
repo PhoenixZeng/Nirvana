@@ -14,62 +14,61 @@ import DummyRecycler
 import BeastGod
 
 public function handleDiffcult()
-    let diff = getDiff()
+    let diff = GAME.difficult
+    let diffFix = diff>6?6:diff
     //敌人技能伤害处理
     DamageHandler.on() dmg ->
         var d = dmg.dmg
         if enemySpecial == dmg.i.getOwner() and dmg.t == DmgType.SPELL and users.containsUnit(dmg.j)
             let m = dmg.i.getState(EX_UnitState.atkMax)
-            d = m * (1+getDiff())/2.
+            d = m * (1+GAME.difficult)/2.
         return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
     if not GAME.endless
-        SetPlayerHandicap(enemyNormal, .2 + .30 * diff)
-        SetPlayerHandicap(enemySpecial, 1 + .10 * diff)
-        for i=1 to 11
-            SetPlayerTechResearched(Player(i),'R003', GAME.difficult)
+        SetPlayerHandicap(enemyNormal, .2 + .30 * diffFix)
+        SetPlayerHandicap(enemySpecial, 1 + .10 * diffFix)
         onEnter() ->
             let u = getEnterLeaveUnit()
+            let d = GAME.difficult
             if u.getTypeId() != DUMMY_UNIT_ID
                 if enemyNormal == u.getOwner()
+                    let di = d>6?6:d
                     if u.isHero()
-                        u.setAbilityLevelPro(GAME.nandu1_zuiquan, GAME.difficult)
-                    // u.setAbilityLevelPro(GAME.nandu2_xixue, GAME.difficult)
-                    u.setAbilityLevelPro(GAME.nandu3_xieer, GAME.difficult)
-                    u.setAbilityLevelPro(GAME.nandu4_minlin, GAME.difficult)
-                    u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, GAME.difficult)
+                        u.setAbilityLevelPro(GAME.nandu1_zuiquan, di)
+                        if  d >= 6
+                            AbyssSpellManager.getAddAbyssInfo(u,d - 5)
+                    u.setAbilityLevelPro(GAME.nandu3_xieer, di)
+                    u.setAbilityLevelPro(GAME.nandu4_minlin, di)
+                    u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, di)
                 else if enemySpecial == u.getOwner()
                     if u.getTypeId() != BeastGod.id
-                        let d = getDiff()
                         if d == 1
                             u.addAbilityPro(GAME.nandu_only_for_1)
                         else if d > 1
                             u.addAbilityPro(commonCTC)
                         if d > 4
-                            let a = GAME.difficult - 2
-                            u.setAbilityLevelPro(GAME.nandu1_zuiquan, GAME.difficult)
-                            // u.setAbilityLevelPro(GAME.nandu2_xixue, a)
+                            let a = d - 2
+                            u.setAbilityLevelPro(GAME.nandu1_zuiquan, d)
                             u.setAbilityLevelPro(GAME.nandu3_xieer, a)
                             u.setAbilityLevelPro(GAME.nandu4_minlin, a)
                             u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, a)
+                        if  d >= 6 and u.isHero()
+                            AbyssSpellManager.getAddAbyssInfo(u,d - 5)
                     else
-                        let a = GAME.difficult
+                        let a = d
                         u.setAbilityLevelPro(GAME.nandu1_zuiquan, a)
-                        // u.setAbilityLevelPro(GAME.nandu2_xixue, a)
                         u.setAbilityLevelPro(GAME.nandu4_minlin, a)
                         u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, a)
                         if a > 4
-                            u.setAbilityLevelPro(GAME.nandu3_xieer, a - 2)
+                            u.setAbilityLevelPro(GAME.nandu3_xieer, 4)
                         else if a > 1
                             u.setAbilityLevelPro(GAME.nandu3_xieer, 1)
 
                 if GAME.abyss and enemy.containsUnit(u)
                     if  u.isInRegion(attack.i) or  u.isInRegion(dungeonAll.i)
-                        AbyssSpellManager.getAddAbyssInfo(u)
+                        AbyssSpellManager.getAddAbyssInfo(u,1)
     else
         SetPlayerHandicap(enemyNormal, .2)
         SetPlayerHandicap(enemySpecial, 1)
-        for i=1 to 11
-            SetPlayerTechResearched(Player(i),'R003', GAME.difficult)
         onEnter() ->
             let u = getEnterLeaveUnit()
             let lv = Level.get()
@@ -80,7 +79,6 @@ public function handleDiffcult()
                 if enemyNormal == u.getOwner()
                     if u.isHero()
                         u.setAbilityLevelPro(GAME.nandu1_zuiquan, a)
-                    u.setAbilityLevelPro(GAME.nandu2_xixue, a)
                     u.setAbilityLevelPro(GAME.nandu3_xieer, a)
                     u.setAbilityLevelPro(GAME.nandu4_minlin, a)
                     u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, a)
@@ -89,13 +87,11 @@ public function handleDiffcult()
                     if a > 4
                         let b = a - 2
                         u.setAbilityLevelPro(GAME.nandu1_zuiquan, b)
-                        // u.setAbilityLevelPro(GAME.nandu2_xixue, b)
                         u.setAbilityLevelPro(GAME.nandu3_xieer, b)
-                        // u.setAbilityLevelPro(GAME.nandu4_minlin, b)
                         u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, b)
                 if lv > 10
                     if  u.isInRegion(attack.i) or  u.isInRegion(dungeonAll.i) and enemy.containsUnit(u)
-                        AbyssSpellManager.getAddAbyssInfo(u)
+                        AbyssSpellManager.getAddAbyssInfo(u,lv div 5)
 
 
 

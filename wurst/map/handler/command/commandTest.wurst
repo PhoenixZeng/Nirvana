@@ -155,7 +155,7 @@ init
                     condProbOffSet = _cmd.toInt()
                 case "diff"
                     _cmd = chat.substring(4, 5)
-                    setDiff(_cmd.toInt())
+                    GAME.difficult = _cmd.toInt()
                 case "levl"
                     _cmd = chat.substring(4, 7)
                     Level.set(_cmd.toInt())

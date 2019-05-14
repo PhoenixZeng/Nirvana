@@ -79,7 +79,10 @@ public class Dungeon
     function reviveUnit(int i)
         createUnit(owner, unitId[i], unitArea[i].origin.randomPoint(), 360. .next() .fromDeg())
     function reviveBoss(int i)
-        boss[i].revive(bossArea[i].pos, true)
+        if boss[i] != null
+            boss[i].remove()
+        boss[i] = createUnit(owner, bossId[i], bossArea[i].pos, 360. .next() .fromDeg())
+        // boss[i].revive(bossArea[i].pos, true)
         print("[副本]: "+boss[i].getName()+" 复活了!")
     
     function toTheAbyss(unit u)
@@ -112,15 +115,6 @@ public class Dungeon
             ..addUnit('h50A'+3 + 4*k, 20, dungeonUnit4[i])
             ..addBoss('H60A'+3 + 4*k, dungeonBoss4[i])
             ..build()
-
-        doPeriodically(30) tk->
-            for i in Dungeon
-                let u = i.boss[0]
-                if not ( u.isAlive() or u.isAliveTrick() )
-                    doAfter(i.bossTime) ->
-                        i.reviveBoss(0)
-                else if u == null
-                    i.createBossInit()
 
         deathTrigger
         ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)

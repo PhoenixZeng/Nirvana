@@ -1,22 +1,22 @@
 package SpellSystemAI
+import OnUnitEnterLeave
 
 public class SpellSystemAI
 
-    static integer top = 0
+    static int top = 0
     static boolean AB = false
     static unit array hero
     static unit array htu
     static real array htx
     static real array hty
-    static integer array lastOI
-    static integer array OT
-    static integer array TYPE
+    static int array lastOI
+    static int array OT
+    static int array TYPE
     static boolean array GUARD
     static timer array HT
     static group AG = null
     static force aIusers = CreateForce()
     static region RR = null
-    static trigger TE = null
     static trigger TC = null
     static real range = 1600
     static real ratio = 1.
@@ -25,9 +25,6 @@ public class SpellSystemAI
     static boolean forStructure = false
     static boolean onlyComputer = true
     static boolean lock = true
-
-    private static function distanceBetweenUnits ( unit u1, unit u2 ) returns  real
-        return SquareRoot(( GetUnitX(u1)-GetUnitX(u2))*(GetUnitX(u1)-GetUnitX(u2))+(GetUnitY(u1)-GetUnitY(u2))*(GetUnitY(u1)-GetUnitY(u2)))
 
     private static function isPlayerUseAI ( player p ) returns  boolean
         return IsPlayerInForce(p,aIusers) and
@@ -48,23 +45,23 @@ public class SpellSystemAI
     private static function isUnitCanBeDamaged ( unit u ) returns  boolean
         return GetUnitAbilityLevel(u,'Avul') <= 0
     
-    private static function getHeroId ( unit u ) returns  integer
+    private static function getHeroId ( unit u ) returns  int
         for i = 1 to top
             if u==hero[i]
                 return i
         return 0
     
-    private static function getTimerId ( timer t ) returns  integer
+    private static function getTimerId ( timer t ) returns  int
         for i = 1 to top
             if t==HT[i]
                 return i
         return 0
     
-    private static function isFree ( integer OI ) returns  boolean
+    private static function isFree ( int OI ) returns  boolean
         return OI==0 or OI==851972 or OI==851983 or OI == 852128
     
     private static function iS ( unit AU ) returns  boolean
-        integer OI = GetUnitCurrentOrder(AU)
+        int OI = GetUnitCurrentOrder(AU)
         return OI == 0
         or OI == 851972
         or OI == 851993
@@ -78,24 +75,24 @@ public class SpellSystemAI
         or OI == 851990
         or OI == 999999
 
-    private static function iC ( unit u, integer i ) returns  boolean
+    private static function iC ( unit u, int i ) returns  boolean
         return AB==false and GetUnitCurrentOrder(u)!=i and i!=lastOI[getHeroId(u)]
     
-    private static function sD ( unit u, integer i )
-        integer id = getHeroId(u)
+    private static function sD ( unit u, int i )
+        int id = getHeroId(u)
         AB = true
         lastOI[id] = i
         OT[id] = 5
 
-    private static function iO ( unit AU, integer AI )
+    private static function iO ( unit AU, int AI )
         if iC(AU,AI) and IssueImmediateOrderById( AU, AI )
             sD(AU,AI)
 
-    private static function iL ( unit AU, integer AI, real x, real y )
+    private static function iL ( unit AU, int AI, real x, real y )
         if iC(AU,AI) and IssuePointOrderById( AU, AI ,x ,y )
             sD(AU,AI)
 
-    private static function iU ( unit AU, integer AI, unit AT )
+    private static function iU ( unit AU, int AI, unit AT )
         if iC(AU,AI) and IssueTargetOrderById( AU, AI , AT )
             sD(AU,AI)
 
@@ -234,10 +231,10 @@ public class SpellSystemAI
         iU( AU, 852274, AT )
         iU( AU, 852600, AT )
 
-    private static function heroSpell ( integer id )
+    private static function heroSpell ( int id )
         // print("ai : heroSpell" + TYPE[id])
         unit hero1 = hero[id]
-        real r = distanceBetweenUnits(hero1,htu[id])
+        real r = hero1.getPos().distanceTo(htu[id].getPos())
         if iS(hero1) and isUnitVisibleToEnemy(hero1)
             AB = false
             if TYPE[id] == 1
@@ -249,25 +246,22 @@ public class SpellSystemAI
 
 
 
-    private static function getTargetHero ( integer id )
+    private static function getTargetHero ( int id )
         unit WT = null
         unit hero1 = hero[id]
         real hPmin = 10000000000.
         real dismin = 10000000000.
         real hP 
         real dis 
-        real x = GetUnitX(hero1)
-        real y = GetUnitY(hero1)
-        group G = CreateGroup()
         player p = GetOwningPlayer(hero1)
-        integer OI = GetUnitCurrentOrder(hero1)
-        GroupEnumUnitsInRange(G,x,y,range,null)
-        for u from G
+        int OI = GetUnitCurrentOrder(hero1)
+        ENUM_GROUP.enumUnitsInRange(hero1.getPos(), range, null)
+        for u from ENUM_GROUP
             // if isUnitUseAI(u)
             hP = GetUnitState(u,UNIT_STATE_LIFE)
             if hP > 0.405 and isUnitCanBeDamaged(u) and IsUnitEnemy(u,p)
                 if lock == false
-                    dis = distanceBetweenUnits(hero1,u)
+                    dis = hero1.getPos().distanceTo(u.getPos())
                     if dis < dismin
                         dismin = dis
                         WT = u
@@ -275,10 +269,9 @@ public class SpellSystemAI
                     if hP < hPmin
                         hPmin = hP
                         WT = u
-        GroupClear(G)
-        DestroyGroup(G)
+        ENUM_GROUP.clear()
         // print("ai:getTargetHero" + WT.getName())
-        if WT != null and GetUnitState(WT,UNIT_STATE_LIFE) > 0.405
+        if WT != null and WT.isAliveTrick()
             htu[id] = WT
             htx[id] = GetUnitX(WT)
             hty[id] = GetUnitY(WT)
@@ -287,7 +280,7 @@ public class SpellSystemAI
                 // IssuePointOrderById( hero1, 851983, htx[id], hty[id] )
             heroSpell(id)
 
-    private static function setGuardPosition ( integer id )
+    private static function setGuardPosition ( int id )
         if isUnitVisibleToEnemy(hero[id])
             if GUARD[id] == false
                 RecycleGuardPosition(hero[id])
@@ -298,7 +291,7 @@ public class SpellSystemAI
                 RemoveGuardPosition(hero[id])
             GUARD[id] = false
 
-    private static function remove ( integer id )
+    private static function remove ( int id )
         DestroyTimer(HT[id])
         GroupRemoveUnit(AG,hero[id])
         hero[id] = hero[top]
@@ -310,7 +303,7 @@ public class SpellSystemAI
         top = top - 1
 
     private static function timerLoop()
-        integer id = getTimerId(GetExpiredTimer())
+        int id = getTimerId(GetExpiredTimer())
         if  GetUnitState(hero[id],UNIT_STATE_LIFE)<=0.405
             remove(id)
         else
@@ -340,7 +333,6 @@ public class SpellSystemAI
         return false
     
     private static function reg ( unit u )
-        // print("ai:reg"+u.getName())
         top = top + 1
         hero[top] = u
         HT[top] = CreateTimer()
@@ -348,23 +340,8 @@ public class SpellSystemAI
         TYPE[top] = 0
         GUARD[top] = true
         TimerStart(HT[top],1.11,true,function timerLoop)
-    
-    private static function trg01 (  )
-        unit u = GetTriggerUnit()
-        if hC(u)
-            reg(u)
-
-    private static function trg02 (  )
-        unit u = GetTriggerUnit()
-        if IsUnitInGroup(u,AG)==true
-            remove(getHeroId(u))
-
-        if hC(u)
-            reg(u)
-
 
     static function start ( real r,real o,boolean h,boolean j,boolean k,boolean c,boolean l )
-        group g = CreateGroup()
         range = r
         ratio = o
         forHero = h
@@ -373,25 +350,32 @@ public class SpellSystemAI
         onlyComputer = c
         lock = l
         AG = CreateGroup()
-        TE = CreateTrigger()
         TC = CreateTrigger()
         RR = CreateRegion()
-        GroupEnumUnitsInRect(g,bj_mapInitialPlayableArea,null)
-        for u from g
+        ENUM_GROUP.enumUnitsInRect(bj_mapInitialPlayableArea, null)
+        for u from ENUM_GROUP
             if hC(u)
                 reg(u)
-        GroupClear(g)
-        DestroyGroup(g)
+        ENUM_GROUP.clear()
         RegionAddRect(RR,GetWorldBounds())
-        TriggerAddAction(TE,function trg01)
-        TriggerAddAction(TC,function trg02)
-        TriggerRegisterEnterRegion(TE,RR,null)
-        TriggerRegisterAnyUnitEventBJ(TC,EVENT_PLAYER_UNIT_CHANGE_OWNER)
+        onEnter() ->
+            unit u = getEnterLeaveUnit()
+            if IsUnitInGroup(u,AG)
+                remove(getHeroId(u))
+            if hC(u)
+                reg(u)
+        TC.registerAnyUnitEvent(EVENT_PLAYER_UNIT_CHANGE_OWNER)
+        TC.addAction() ->
+            unit u = GetTriggerUnit()
+            if IsUnitInGroup(u,AG)
+                remove(getHeroId(u))
+            if hC(u)
+                reg(u)
 
     static function addPlayer ( player p )
         ForceAddPlayer(aIusers,p)
 
-    static function addPlayerId ( integer id )
+    static function addPlayerId ( int id )
         var i = id
         if id<0
             i=0
@@ -407,13 +391,13 @@ public class SpellSystemAI
 //==================================================================
 
 public function initAI()
-    real range = 1000//AI进攻范围
-    real ratio = 1//AI技能施放范围系数
+    real range = 800//AI进攻范围
     boolean lock = true//true为锁定血量最少的目标,false为不锁定
     boolean forHero = true//true为对英雄有效
     boolean forNotHero = false//true对所有非英雄单位有效
     boolean forStructure = false//true对所有建筑单位有效
     boolean onlyComputer = true//true为只对电脑有效,false为对电脑和用户有效
+    real ratio = 1//AI技能施放范围系数
     // SpellSystemAI.addPlayer(Player(0))
     // SpellSystemAI.addPlayer(Player(1))
     // SpellSystemAI.addPlayer(Player(2))

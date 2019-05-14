@@ -57,3 +57,11 @@ public class ItemMutex
         ..addMutex('ZD1Q')
         new ItemMutex('ZD1V')
         ..addMutexs('ZD1U')
+        //深岩
+        new ItemMutex('ZD1Z')
+        ..addMutex('ZD1W')
+        ..addMutex('ZD1X')
+        ..addMutex('ZD1Y')
+        new ItemMutex('ZD21')
+        ..addMutexs('ZD1Z')
+        ..addMutex('ZD20')

@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -151,18 +151,18 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell><Data ss:Type="String">MS00</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">MS00</Data></Cell>
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">盗贼</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">制式升级断水装备</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">制式升级断水护甲</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水装备|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水装备|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水护甲|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8盗贼|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8盗贼|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8制式升级断水护甲|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -187,14 +187,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">鱼人</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv1</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水护甲lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv1|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv1|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8鱼人|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8鱼人|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv1|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -219,14 +219,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">森林狼</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv2</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水护甲lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv2|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv2|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8森林狼|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8森林狼|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv2|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -251,14 +251,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">豪猪</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水装备lv3</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级断水护甲lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv3|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级断水装备lv3|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8豪猪|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8豪猪|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级断水护甲lv3|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -283,14 +283,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">达拉内尔信徒</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">断水升级玄铁装备</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">断水升级玄铁护甲</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁装备|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁装备|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁护甲|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8达拉内尔信徒|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8达拉内尔信徒|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8断水升级玄铁护甲|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -315,14 +315,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">食人魔</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv1</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁护甲lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv1|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv1|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8食人魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8食人魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv1|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -347,14 +347,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">狗头人</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv2</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁护甲lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv2|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv2|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8狗头人|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8狗头人|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv2|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -379,14 +379,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">矿井蝎子</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁装备lv3</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级玄铁护甲lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv3|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁装备lv3|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8矿井蝎子|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8矿井蝎子|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级玄铁护甲lv3|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -411,14 +411,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">熔岩怪物</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">玄铁升级烈焰装备</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">玄铁升级烈焰护甲</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰装备|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰装备|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰护甲|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8熔岩怪物|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8熔岩怪物|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8玄铁升级烈焰护甲|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -443,14 +443,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">火焰蜥蜴</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv1</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰护甲lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv1|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv1|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8火焰蜥蜴|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8火焰蜥蜴|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv1|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -475,14 +475,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">烈焰龙龟</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv2</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰护甲lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv2|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv2|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8烈焰龙龟|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8烈焰龙龟|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv2|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -507,14 +507,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">幼龙</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰装备lv3</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级烈焰护甲lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv3|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰装备lv3|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8幼龙|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8幼龙|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级烈焰护甲lv3|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -539,14 +539,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">冰霜巨魔</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">烈焰升级龙吟装备</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">烈焰升级龙吟护甲</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟装备|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟装备|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟护甲|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8冰霜巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8冰霜巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8烈焰升级龙吟护甲|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -571,14 +571,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">丛林巨魔</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv1</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟护甲lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv1|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv1|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8丛林巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8丛林巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv1|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -603,14 +603,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">娜迦护卫</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv2</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟护甲lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv2|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv2|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8娜迦护卫|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8娜迦护卫|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv2|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -635,14 +635,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">黑暗巨魔</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟装备lv3</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级龙吟护甲lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv3|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟装备lv3|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8黑暗巨魔|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8黑暗巨魔|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级龙吟护甲lv3|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -667,14 +667,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">火元素</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">龙吟升级神使装备</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">龙吟升级神使护甲</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使装备|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使装备|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使护甲|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8火元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8火元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8龙吟升级神使护甲|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -699,14 +699,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">风元素</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv1</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使护甲lv1</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv1|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv1|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv1|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8风元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8风元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv1|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -731,14 +731,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">水元素</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv2</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使护甲lv2</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv2|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv2|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv2|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8水元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8水元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv2|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -763,14 +763,14 @@
     <Cell><Data ss:Type="String">srbd</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">土元素</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使装备lv3</Data></Cell>
-    <Cell ss:Formula="=&quot;击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
-      ss:Type="String">击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">升级神使护甲lv3</Data></Cell>
+    <Cell ss:Formula="=&quot;补充击杀|cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r(&quot;&amp;RC[4]&amp;&quot;)&quot;"><Data
+      ss:Type="String">补充击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
     <Cell
-     ss:Formula="=&quot;此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv3|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B820|r只!|n[任务奖励]: - |cFF1BE6B8升级神使装备lv3|r</Data></Cell>
+     ss:Formula="=&quot;|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8&quot;&amp;RC[-3]&amp;&quot;|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8&quot;&amp;RC[-2]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv3|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">补充击杀|cFF1BE6B8土元素|r(Q)</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFF1BE6B8因为偶尔会出现副本BOSS不复活的BUG,特意添加此任务,通过刷小怪也能升级!|r|n此地的|cFF1BE6B8土元素|r太多了,击杀|cFF1BE6B840|r只!|n[任务奖励]: - |cFF1BE6B8升级神使护甲lv3|r</Data></Cell>
     <Cell><Data ss:Type="String">Q</Data></Cell>
     <Cell><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScrollOfHealing.blp</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="Number">2</Data></Cell>
@@ -1168,9 +1168,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>7</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1182,12 +1182,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>30</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <RangeSelection>R3C8:R22C8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

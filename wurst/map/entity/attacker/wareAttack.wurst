@@ -22,7 +22,7 @@ function finalTrigger()
                     u.revive(finalCome.pos, true)
                 end)
                 ..run()
-        else if u == BG.beastGod._self
+        else if u == BOSS.beastGod._self
             colorsPrint("[胜利]:虚空大君已经被你们击杀!")
             registerWin()
             endTask.pause()
@@ -44,20 +44,20 @@ public function attackFinal()
     finalTrigger()
     print("[系统]:开启最终决战,所有人强制传送到决战之地!死亡后将原地复活!")
     print("[系统]:无论是否打败,都将在3分钟内结束!")
-    BG.beastGod._self.setInvulnerable(false)
+    BOSS.beastGod._self.setInvulnerable(false)
     HOME.basic.setInvulnerable(true)
     CreateTrigger()
-    ..registerUnitEvent(BG.beastGod._self, EVENT_UNIT_DEATH)
+    ..registerUnitEvent(BOSS.beastGod._self, EVENT_UNIT_DEATH)
     ..addAction() ->
-        if GetDyingUnit() == BG.beastGod._self
+        if GetDyingUnit() == BOSS.beastGod._self
             if endTask != null and endTask.isRunning
                 endTask.endIt()
     endTask = atAfter(180, "决战时间")
     endTask.onTime() i->
-        if BG.beastGod._self.isAlive()
+        if BOSS.beastGod._self.isAlive()
             colorsPrint("[失败]:虚空大君已经逃跑了!")
-            BG.beastGod._self.pause()
-            BG.beastGod._self.hide()
+            BOSS.beastGod._self.pause()
+            BOSS.beastGod._self.hide()
             registerDefeat()
         else
             colorsPrint("[胜利]:虚空大君已经被你们击杀!")

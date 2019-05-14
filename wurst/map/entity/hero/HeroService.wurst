@@ -490,7 +490,7 @@ public class HeroService
         if hero.nirvanaCount < l
             owner.print("[宝珠]:轮回次数不足!")
             return false
-        if hero.gemIntoSelfCount >= getDiff() + 1 and hero.gems.get(g.entity.clazz) == null and lv != 5
+        if hero.gemIntoSelfCount >= GAME.difficult + 1 and hero.gems.get(g.entity.clazz) == null and lv != 5
             owner.print("[宝珠]:当前难度可熔炼入体次数达到限制!")
             return false
         return onSetGem(g,clz,l)

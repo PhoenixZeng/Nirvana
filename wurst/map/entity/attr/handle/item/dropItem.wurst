@@ -212,6 +212,10 @@ public function initDrop()
     UnitDropManager.of("被腐化的树精",'h604',0.2)..add('ZD1Q')
     UnitDropManager.of("虚空爪牙",'H724',100)..add('ZD1R')
     UnitDropManager.of("被腐化的秘境守卫",'H725',100)..add('ZD1S')
+    UnitDropManager.of("大地巨熊",'H726',100)..add('ZD1W')
+    UnitDropManager.of("大地龙人",'H727',100)..add('ZD1X')
+    UnitDropManager.of("大地元素之心",'H728',100)..add('ZD1Y')
+    UnitDropManager.of("练功师",'Hpal',100)..add('ZD20')
 
     for i = 1 to 10
         UnitAbstractDropManager.of("进攻"+i,'H100'+i - 1,100) ->

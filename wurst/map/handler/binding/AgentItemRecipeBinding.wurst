@@ -138,7 +138,9 @@ init
     AgentItemRecipe.of('I63C','ZD1T')..addComponents('ZD1P','ZD1R','ZD1S')
     AgentItemRecipe.of('I63D','ZD1U')..addComponents('ZD1T','ZD1Q')
     AgentItemRecipe.of('I63E','ZD1V')..addComponents('ZD1U','ZD0O')
-
+    //深岩
+    AgentItemRecipe.of('I63J','ZD1Z')..addComponents('ZD1W','ZD1X','ZD1Y')
+    AgentItemRecipe.of('I63K','ZD21')..addComponents('ZD1Z','ZD20')
 
     AgentItemRecipe.of('I61C','JS0L')..addComponent('JS15',3)
     AgentItemRecipe.of('I61C','JS0M')..addComponent('JS16',3)

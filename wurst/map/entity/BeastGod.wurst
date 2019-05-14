@@ -7,8 +7,9 @@ import AIBoss
 import mark
 import phLib
 import ClosureTimers
+import Game
 
-public BeastGod BG
+public BeastGod BOSS
 
 public class BeastGod
     static let id = 'H10G'
@@ -21,11 +22,22 @@ public class BeastGod
         beastGod.addAttr(AttrKey.ctcProb,3)
         beastGod.addAttr(AttrKey.ctcDmg ,800)
         beastGod.addAttr(AttrKey.dmgResi,20)
+        beastGod.addAttr(AttrKey.dmgSub,20)
         _self.setInvulnerable(true)
-        new AIBossM(_self)
 
     static function inite()
-        BG = new BeastGod()
+        let diff = GAME.difficult
+        BOSS = new BeastGod()
+        if diff >= 5
+            BOSS.beastGod.addAttr(AttrKey.addDmg ,100+diff*80)
+        AIBoss.register(BOSS._self) ths->
+            let n1 = new Spell1("技能1",15. - diff * 1.5)
+            let n2 = new Spell2("技能2",20. - diff * 1.5)
+            let n3 = new Spell3("技能3",30. - diff * 1.5)
+            ths.spells.add(new AIBossSpell(ths,n3)..setWeiget(1))
+            ths.spells.add(new AIBossSpell(ths,n2)..setWeiget(2))
+            ths.spells.add(new AIBossSpell(ths,n1)..setWeiget(4))
+            ths.compute(1.5, 60)
 
 class Spell1 extends AIBossSpellType
     string name
@@ -40,7 +52,7 @@ class Spell1 extends AIBossSpellType
         let u = tar.u
         if u .isAlive() and u .isAliveTrick()
             tar.u.pause()
-            markSector(tar.u,tar.u.getFacingAngle().degrees(),1500,60,2,UnitDamageType.Spell,100000000.)
+            markSector(tar.u,tar.u.getFacingAngle().degrees(),1500,60,2,UnitDamageType.Attack,1000000000.)
             doAfter(5) ->
                 if u .isAlive() and u .isAliveTrick()
                     tar.u.unpause()
@@ -58,7 +70,7 @@ class Spell2 extends AIBossSpellType
         let u = tar.u
         if u .isAlive() and u .isAliveTrick()
             tar.u.pause()
-            markRound(tar.u,500,2,UnitDamageType.Spell,1000000000.)
+            markRound(tar.u,500,2,UnitDamageType.Attack,1000000000.)
             doAfter(5) ->
                 if u .isAlive() and u .isAliveTrick()
                     tar.u.unpause()
@@ -77,20 +89,8 @@ class Spell3 extends AIBossSpellType
         if u .isAlive() and u .isAliveTrick()
             tar.u.pause()
             for i = 0 to 5
-                markLine(tar.u,tar.u.getFacingAngle().degrees() + i*60,2000,2,UnitDamageType.Spell,1000000000.)
+                markLine(tar.u,tar.u.getFacingAngle().degrees() + i*60,2000,2,UnitDamageType.Attack,1000000000.)
             doAfter(5) ->
                 if u .isAlive() and u .isAliveTrick()
                     tar.u.unpause()
 
-let n1 = new Spell1("技能1",10)
-let n2 = new Spell2("技能2",18)
-let n3 = new Spell3("技能3",28)
-
-public class AIBossM extends AIBoss
-    construct(unit boss)
-        super(boss)
-    override function initSpell()
-        spells.add(new AIBossSpell(this,n3)..setWeiget(1))
-        spells.add(new AIBossSpell(this,n2)..setWeiget(2))
-        spells.add(new AIBossSpell(this,n1)..setWeiget(4))
-        compute(1.5, 60)

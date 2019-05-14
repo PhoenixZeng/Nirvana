@@ -3,6 +3,7 @@ import HashMap
 import LinkedListModule
 import HashList
 import unitLib
+import ClosureTimers
 
 /*
 
@@ -75,7 +76,7 @@ public class BossStatus
 
     function trigAction()
         if GetDyingUnit() != null
-            ai.death()
+            ai.destr()
             return
         if GetAttacker() != null
             attackedTime  = GAMETIME
@@ -203,21 +204,30 @@ public abstract class AIBoss
 
     BossStatus status
 
+    static bool inited = false
+
     ondestroy
         destroy status
         destroy spells
         boss = null
 
-    construct(unit boss)
-        this.boss = boss
-        status = new BossStatus(this)
-        // spells.add()
-        startTimer()
-        initSpell()
+    static function inite()
+        if not inited
+            doPeriodically(1) t ->
+                if AIBoss.size > 0
+                    for elem in AIBoss
+                        elem.period()
+            inited = true
 
-    abstract function initSpell()
+    static function register(unit u,thistype a) returns thistype
+        a.boss = u
+        a.status = new BossStatus(a)
+        a.initSpell(a)
+        return a
 
-    function death()
+    abstract function initSpell(thistype a)
+
+    function destr()
         destroy this
 
     function powerUpPeriod() returns int
@@ -306,16 +316,6 @@ public abstract class AIBoss
         let t = (1 / restore).toInt() + 1
         probBasicUp = t > 2 ? RATEARRAY[ t-2 ] : 5000
 
-let period = CreateTimer()
-function startTimer()
-    period.startPeriodic(1, function doAIBossPeriod)
-function doAIBossPeriod()
-    if AIBoss.size > 0
-        for elem in AIBoss
-            elem.period()
-    else
-        GetExpiredTimer().pause()
-        Log.info("停止了!")
 
         // 每秒增加概率              power+1需要的秒数
         // 0.0037	                20

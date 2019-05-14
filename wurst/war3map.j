@@ -851,11 +851,11 @@ endglobals
             
                 call SaveStr(j_slk_abil, 'Z213', - 844856191, "萨弗拉斯-炎魔拉格纳罗斯之手。|n能量值满足[]内数值时,激活后面的效果!")
             
-                call SaveStr(j_slk_abil, 'Z214', 2081955386, "[神器]灰烬使者 - 未开放")
+                call SaveStr(j_slk_abil, 'Z214', 2081955386, "[神器]灰烬使者")
             
                 call SaveStr(j_slk_abil, 'Z214', - 844856191, "圣光信徒所净化所铸造，能够将亡灵化为灰烬。|n能量值满足[]内数值时,激活后面的效果!")
             
-                call SaveStr(j_slk_abil, 'Z215', 2081955386, "[神器]埃辛诺斯战刃 - 未开放")
+                call SaveStr(j_slk_abil, 'Z215', 2081955386, "[神器]埃辛诺斯战刃")
             
                 call SaveStr(j_slk_abil, 'Z215', - 844856191, "万年前的上古之战中，伊利丹从末日守卫军中缴获。|n能量值满足[]内数值时,激活后面的效果!")
             
@@ -1155,7 +1155,7 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z316', 2081955386, "寒冰斗气")
             
-                call SaveStr(j_slk_abil, 'Z316', - 844856191, "|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n血量:50000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n属性叠加!拥有多个时只能召唤一个!|n激活后输入'-gh6'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z316', - 844856191, "|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n血量:50000|n护甲:10000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n属性叠加!拥有多个时只能召唤一个!|n激活后输入'-gh6'切换皮肤!")
             
                         call SaveInteger(j_slk_abil, 'Z316', 4, 10000)
         
@@ -1164,6 +1164,8 @@ endglobals
                         call SaveInteger(j_slk_abil, 'Z316', 6, 10000)
         
                         call SaveInteger(j_slk_abil, 'Z316', 3, 50000)
+        
+                        call SaveInteger(j_slk_abil, 'Z316', 1, 10000)
         
                         call SaveInteger(j_slk_abil, 'Z316', 7, 60)
         
@@ -1239,11 +1241,13 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z324', 2081955386, "魔王邪剑")
             
-                call SaveStr(j_slk_abil, 'Z324', - 844856191, "|cFFFFFF99基础属性|r|n攻击:8000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:25|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq4'切换皮肤!")
+                call SaveStr(j_slk_abil, 'Z324', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n|cFFFFFF55附加属性|r(%)|n暴击概率:6|n暴击伤害:66|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq4'切换皮肤!")
             
-                        call SaveInteger(j_slk_abil, 'Z324', 0, 8000)
+                        call SaveInteger(j_slk_abil, 'Z324', 0, 20000)
         
-                        call SaveInteger(j_slk_abil, 'Z324', 9, 25)
+                        call SaveInteger(j_slk_abil, 'Z324', 8, 6)
+        
+                        call SaveInteger(j_slk_abil, 'Z324', 9, 66)
         
                 call SaveStr(j_slk_abil, 'Z325', 2081955386, "屠龙宝刀")
             
@@ -2271,9 +2275,9 @@ endglobals
                 
                     call SaveStr(j_slk_item, 'Y213', 2081955386, "[激活][神器]炎魔之手")
                 
-                    call SaveStr(j_slk_item, 'Y214', 2081955386, "[激活][神器]灰烬使者 - 未开放")
+                    call SaveStr(j_slk_item, 'Y214', 2081955386, "[激活][神器]灰烬使者")
                 
-                    call SaveStr(j_slk_item, 'Y215', 2081955386, "[激活][神器]埃辛诺斯战刃 - 未开放")
+                    call SaveStr(j_slk_item, 'Y215', 2081955386, "[激活][神器]埃辛诺斯战刃")
                 
                     call SaveStr(j_slk_item, 'Y216', 2081955386, "[激活][神器]群星之怒 - 未开放")
                 
@@ -3547,64 +3551,24 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0P', 2081955386, "|CFFFFFFFF[扭曲神殿]扭曲魔石|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0P', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶")
+                    call SaveStr(j_slk_item, 'ZD0P', - 844856191, "#REF!")
                 
-                    call SaveInteger(j_slk_item, 'ZD0P', 13, 3)
-    
-                    call SaveInteger(j_slk_item, 'ZD0P', 19, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0P', 20, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0P', 21, 2)
-    
                     call SaveStr(j_slk_item, 'ZD0Q', 2081955386, "|CFFFFFFFF[扭曲神殿]扭曲妖石|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0Q', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶")
+                    call SaveStr(j_slk_item, 'ZD0Q', - 844856191, "#REF!")
                 
-                    call SaveInteger(j_slk_item, 'ZD0Q', 13, 3)
-    
-                    call SaveInteger(j_slk_item, 'ZD0Q', 19, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0Q', 20, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0Q', 21, 2)
-    
                     call SaveStr(j_slk_item, 'ZD0R', 2081955386, "|CFFFFFFFF[扭曲神殿]扭曲邪石|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0R', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶")
+                    call SaveStr(j_slk_item, 'ZD0R', - 844856191, "#REF!")
                 
-                    call SaveInteger(j_slk_item, 'ZD0R', 13, 3)
-    
-                    call SaveInteger(j_slk_item, 'ZD0R', 19, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0R', 20, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0R', 21, 2)
-    
                     call SaveStr(j_slk_item, 'ZD0S', 2081955386, "|CFFFFFFFF[扭曲神殿]扭曲怪石|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0S', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:3|n力量增幅:2|n敏捷增幅:2|n智力增幅:2|n扭曲魔石+扭曲妖石+扭曲邪石+扭曲怪石 = 扭曲结晶")
+                    call SaveStr(j_slk_item, 'ZD0S', - 844856191, "#REF!")
                 
-                    call SaveInteger(j_slk_item, 'ZD0S', 13, 3)
-    
-                    call SaveInteger(j_slk_item, 'ZD0S', 19, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0S', 20, 2)
-    
-                    call SaveInteger(j_slk_item, 'ZD0S', 21, 2)
-    
                     call SaveStr(j_slk_item, 'ZD0T', 2081955386, "|cFF99FF66[扭曲神殿]扭曲结晶|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0T', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害抵抗:10|n力量增幅:6|n敏捷增幅:6|n智力增幅:6|n扭曲结晶+扭曲金属+虚空魔石 = 扭曲虚空之核")
+                    call SaveStr(j_slk_item, 'ZD0T', - 844856191, "#REF!")
                 
-                    call SaveInteger(j_slk_item, 'ZD0T', 13, 10)
-    
-                    call SaveInteger(j_slk_item, 'ZD0T', 19, 6)
-    
-                    call SaveInteger(j_slk_item, 'ZD0T', 20, 6)
-    
-                    call SaveInteger(j_slk_item, 'ZD0T', 21, 6)
-    
                     call SaveStr(j_slk_item, 'ZD0U', 2081955386, "|CFFB6D7A8[扭曲神殿]扭曲的书|r")
                 
                     call SaveStr(j_slk_item, 'ZD0U', - 844856191, "|cFFFFFF99基础属性|r|n力量:50000|n敏捷:50000|n智力:50000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:10|n扭曲的书+扭曲的枪+扭曲的棒+扭曲的杖 = 扭曲金属")
@@ -3661,7 +3625,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD0Z', 2081955386, "|cFF99FF66[扭曲神殿]虚空水晶|r")
                 
-                    call SaveStr(j_slk_item, 'ZD0Z', - 844856191, "|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:20|n虚空水晶+虚空触角 = 虚空魔石")
+                    call SaveStr(j_slk_item, 'ZD0Z', - 844856191, "|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n虚空水晶+虚空触角 = 虚空魔石")
                 
                     call SaveInteger(j_slk_item, 'ZD0Z', 4, 300000)
     
@@ -3669,7 +3633,7 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD0Z', 6, 300000)
     
-                    call SaveInteger(j_slk_item, 'ZD0Z', 14, 20)
+                    call SaveInteger(j_slk_item, 'ZD0Z', 14, 10)
     
                     call SaveStr(j_slk_item, 'ZD10', 2081955386, "|cFF99FF66[扭曲神殿]虚空触角|r")
                 
@@ -3701,7 +3665,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD12', 2081955386, "|cFF99FF66[扭曲神殿]扭曲虚空之核|r")
                 
-                    call SaveStr(j_slk_item, 'ZD12', - 844856191, "|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!")
+                    call SaveStr(j_slk_item, 'ZD12', - 844856191, "|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害减免:30|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n拥有奇特力量的宝石,不过似乎不太稳定!")
                 
                     call SaveInteger(j_slk_item, 'ZD12', 4, 500000)
     
@@ -3710,8 +3674,6 @@ endglobals
                     call SaveInteger(j_slk_item, 'ZD12', 6, 500000)
     
                     call SaveInteger(j_slk_item, 'ZD12', 7, 40)
-    
-                    call SaveInteger(j_slk_item, 'ZD12', 13, 10)
     
                     call SaveInteger(j_slk_item, 'ZD12', 14, 30)
     
@@ -3723,8 +3685,10 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD13', 2081955386, "|cFF99FF66[扭曲神殿]熔火熔岩|r")
                 
-                    call SaveStr(j_slk_item, 'ZD13', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!")
+                    call SaveStr(j_slk_item, 'ZD13', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害增幅:20|n伤害减免:10|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n拥有极高温度的熔岩!")
                 
+                    call SaveInteger(j_slk_item, 'ZD13', 7, 20)
+    
                     call SaveInteger(j_slk_item, 'ZD13', 14, 10)
     
                     call SaveInteger(j_slk_item, 'ZD13', 19, 5)
@@ -3735,7 +3699,7 @@ endglobals
     
                     call SaveStr(j_slk_item, 'ZD14', 2081955386, "|cFFFF9933[扭曲神殿]扭曲虚空魔核|r")
                 
-                    call SaveStr(j_slk_item, 'ZD14', - 844856191, "|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40|n伤害抵抗:10|n伤害减免:50|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!")
+                    call SaveStr(j_slk_item, 'ZD14', - 844856191, "|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n伤害减免:40|n力量增幅:15|n敏捷增幅:15|n智力增幅:15|n拥有奇特力量的宝石,拥有着不可思议的力量!|n唯一装备!")
                 
                     call SaveInteger(j_slk_item, 'ZD14', 4, 500000)
     
@@ -3743,11 +3707,9 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD14', 6, 500000)
     
-                    call SaveInteger(j_slk_item, 'ZD14', 7, 40)
+                    call SaveInteger(j_slk_item, 'ZD14', 7, 60)
     
-                    call SaveInteger(j_slk_item, 'ZD14', 13, 10)
-    
-                    call SaveInteger(j_slk_item, 'ZD14', 14, 50)
+                    call SaveInteger(j_slk_item, 'ZD14', 14, 40)
     
                     call SaveInteger(j_slk_item, 'ZD14', 19, 15)
     
@@ -4004,6 +3966,66 @@ endglobals
                     call SaveInteger(j_slk_item, 'ZD1V', 10, 4)
     
                     call SaveInteger(j_slk_item, 'ZD1V', 9, 50)
+    
+                    call SaveStr(j_slk_item, 'ZD1W', 2081955386, "|cFF99FF66[深岩之洲]大地符文|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1W', - 844856191, "|cFFFFFF99基础属性|r|n护甲:40000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1W', 1, 40000)
+    
+                    call SaveStr(j_slk_item, 'ZD1X', 2081955386, "|cFF99FF66[深岩之洲]大地龙鳞|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1X', - 844856191, "|cFFFFFF99基础属性|r|n护甲:40000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1X', 1, 40000)
+    
+                    call SaveStr(j_slk_item, 'ZD1Y', 2081955386, "|cFF99FF66[深岩之洲]大地元素之心|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1Y', - 844856191, "|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1Y', 4, 300000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1Y', 5, 300000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1Y', 6, 300000)
+    
+                    call SaveStr(j_slk_item, 'ZD1Z', 2081955386, "|cFF99FF66[深岩之洲]大地壁垒|r")
+                
+                    call SaveStr(j_slk_item, 'ZD1Z', - 844856191, "|cFFFFFF99基础属性|r|n力量:300000|n敏捷:300000|n智力:300000|n护甲:100000")
+                
+                    call SaveInteger(j_slk_item, 'ZD1Z', 4, 300000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1Z', 5, 300000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1Z', 6, 300000)
+    
+                    call SaveInteger(j_slk_item, 'ZD1Z', 1, 100000)
+    
+                    call SaveStr(j_slk_item, 'ZD20', 2081955386, "|cFF99FF66[深岩之洲]强者的灵魂|r")
+                
+                    call SaveStr(j_slk_item, 'ZD20', - 844856191, "|cFFFFFF99基础属性|r|n力量:200000|n敏捷:200000|n智力:200000|n伤害抵抗:10")
+                
+                    call SaveInteger(j_slk_item, 'ZD20', 4, 200000)
+    
+                    call SaveInteger(j_slk_item, 'ZD20', 5, 200000)
+    
+                    call SaveInteger(j_slk_item, 'ZD20', 6, 200000)
+    
+                    call SaveInteger(j_slk_item, 'ZD20', 13, 10)
+    
+                    call SaveStr(j_slk_item, 'ZD21', 2081955386, "|cFF99FF66[深岩之洲]大地灵魂壁垒|r")
+                
+                    call SaveStr(j_slk_item, 'ZD21', - 844856191, "|cFFFFFF99基础属性|r|n力量:500000|n敏捷:500000|n智力:500000|n护甲:120000|n伤害抵抗:10")
+                
+                    call SaveInteger(j_slk_item, 'ZD21', 4, 500000)
+    
+                    call SaveInteger(j_slk_item, 'ZD21', 5, 500000)
+    
+                    call SaveInteger(j_slk_item, 'ZD21', 6, 500000)
+    
+                    call SaveInteger(j_slk_item, 'ZD21', 1, 120000)
+    
+                    call SaveInteger(j_slk_item, 'ZD21', 13, 10)
     
     endfunction
 
@@ -4359,6 +4381,18 @@ endglobals
                 
                     call SaveInteger(j_slk_unit, 'H725', 406492257, 4)
                 
+                    call SaveStr(j_slk_unit, 'H726', 2081955386, "|cFF33FF00大地巨熊|r")
+                
+                    call SaveInteger(j_slk_unit, 'H726', 406492257, 4)
+                
+                    call SaveStr(j_slk_unit, 'H727', 2081955386, "|cFF33FF00大地龙人|r")
+                
+                    call SaveInteger(j_slk_unit, 'H727', 406492257, 4)
+                
+                    call SaveStr(j_slk_unit, 'H728', 2081955386, "|cFF33FF00大地元素|r")
+                
+                    call SaveInteger(j_slk_unit, 'H728', 406492257, 4)
+                
                     call SaveStr(j_slk_unit, 'JA01', 2081955386, "[技能]挑战技能1")
                 
                     call SaveInteger(j_slk_unit, 'JA01', 406492257, 4)
@@ -4390,6 +4424,8 @@ endglobals
                     call SaveStr(j_slk_unit, 'NP07', 2081955386, "圣魂信仰")
                 
                     call SaveStr(j_slk_unit, 'NP08', 2081955386, "繁花仙子")
+                
+                    call SaveStr(j_slk_unit, 'NP09', 2081955386, "深岩之洲")
                 
                     call SaveStr(j_slk_unit, 'NP0A', 2081955386, "雪山-隐居者")
                 
@@ -5662,6 +5698,12 @@ endfunction
             call SaveInteger(j_slk_item, 'I63E', 406492257, 0)
             call SaveInteger(j_slk_item, 'I63E', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'I63J', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I63J', - 85356197, 40)
+        
+            call SaveInteger(j_slk_item, 'I63K', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I63K', - 85356197, 60)
+        
             call SaveInteger(j_slk_item, 'I640', 406492257, 0)
             call SaveInteger(j_slk_item, 'I640', - 85356197, 0)
         
@@ -6841,6 +6883,24 @@ endfunction
             call SaveInteger(j_slk_item, 'ZD1V', 406492257, 1000)
             call SaveInteger(j_slk_item, 'ZD1V', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'ZD1W', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1W', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1X', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1X', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1Y', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1Y', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD1Z', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD1Z', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD20', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD20', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD21', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD21', - 85356197, 0)
+        
     endfunction
 
 //library itemRecipeAgent ends
@@ -6850,7 +6910,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Mon May 13 03:44:10 2019
+//   Date: Tue May 14 09:57:26 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
@@ -6927,6 +6987,7 @@ function CreateNeutralPassive takes nothing returns nothing
     set u=CreateUnit(p, 'NP03', 5366.5, 4640.4, 272.102)
     set u=CreateUnit(p, 'NP0I', 5036.3, 4283.4, 262.617)
     set u=CreateUnit(p, 'NP0J', 5030.4, 3932.0, 272.853)
+    set u=CreateUnit(p, 'NP09', 8313.5, - 2657.7, 285.340)
     set u=CreateUnit(p, 'NP02', - 2008.6, 4644.3, 282.680)
     set u=CreateUnit(p, 'NP0H', 113.1, - 6960.7, 272.788)
     set u=CreateUnit(p, 'NP0J', - 2046.7, 3917.7, 272.853)
@@ -7086,7 +7147,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_hide_way_3=Rect(6560.0, - 8640.0, 7008.0, - 8224.0)
     set gg_rct_hide_way_4=Rect(8736.0, - 11136.0, 9184.0, - 10720.0)
     set gg_rct_senior_dungeon_1=Rect(- 16384.0, - 3904.0, - 11392.0, 16384.0)
-    set gg_rct_senior_dungeon_2=Rect(2144.0, - 12512.0, 8032.0, 1536.0)
+    set gg_rct_senior_dungeon_2=Rect(1568.0, - 12640.0, 7264.0, 1408.0)
     set gg_rct_choice_hero_center=Rect(16384.0, 14080.0, 16864.0, 14368.0)
     set gg_rct_choice_hero_come=Rect(16448.0, 13120.0, 16768.0, 13344.0)
     set gg_rct_flower_u1=Rect(- 14048.0, - 15328.0, - 12448.0, - 14432.0)

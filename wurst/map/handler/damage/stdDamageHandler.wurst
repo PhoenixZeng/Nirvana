@@ -4,9 +4,9 @@ import baseImport
 import attrMapper
 import DmgType
 import dzGameFrame
-import Guard
 import Hero
 import winAndLose
+import Critical
 
 
 init
@@ -24,7 +24,7 @@ init
     DamageHandler.on() dmg ->
         var d = dmg.dmg
         var newdmg = DmgWrapper(dmg.i, dmg.j, dmg.dmg, dmg.t)
-        let g = Guard.getGuard(dmg.i.getMainHero())
+        // let g = Guard.getGuard(dmg.i.getMainHero())
         // if g != null and g.contains(dmg.i)
             // d = Guard.maps.get(dmg.i).getDamage()
             // print("受到战宠伤害!伤害调整为"+d+":目标名字"+dmg.j.getName())
@@ -118,12 +118,26 @@ init
                     if enemyNormal == dmg.j.getOwner()
                         d *= 1 - (GAME.difficult) * 0.183
                     else if enemySpecial == dmg.j.getOwner()
-                        d *= 1 - (GAME.difficult) * 0.16
+                        d *= 1 - (GAME.difficult) * 0.17
                 else if users.containsUnit(dmg.j)
                     if enemyNormal == dmg.i.getOwner()
                         d *= 1 + (GAME.difficult) * 0.183
                     else if enemySpecial == dmg.i.getOwner()
-                        d *= 1 + (GAME.difficult) * 0.16
+                        d *= 1 + (GAME.difficult) * 0.17
+            else if GAME.difficult == 6
+                if  users.containsUnit(dmg.i) 
+                    if enemy.containsUnit(dmg.j) 
+                        d *= 1 - 0.95
+                else if users.containsUnit(dmg.j)
+                    if enemy.containsUnit(dmg.i) 
+                        d *= 2.2
+            else if GAME.difficult == 7
+                if  users.containsUnit(dmg.i) 
+                    if enemy.containsUnit(dmg.j) 
+                        d *= 1 - 0.98
+                else if users.containsUnit(dmg.j)
+                    if enemy.containsUnit(dmg.i) 
+                        d *= 2.8
         return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
 
     //无尽全局伤害处理
@@ -195,7 +209,21 @@ init
     //                 d *= 1 + 0.07+ 0.05 * diff
     //     return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
 
-
+    DamageHandler.on() dmg ->
+        var rate = 1.
+        if users.containsUnit(dmg.i) and dmg.i.isHero()
+            CriticalList list = null
+            if dmg.t == DmgType.ATTACK
+                list = CriticalList.getAttackFor(dmg.i,false)
+            // else if dmg.t == DmgType.SPELL
+            //     list = CriticalList.getSpellFor(dmg.i,false)
+            if list != null
+                for elem in list
+                    if elem.chance.random()
+                        rate += (elem.power - 1)
+                        Log.trace(dmg.i.getName()+"触发暴击+"+(elem.power - 1))
+                Log.trace(dmg.i.getName()+"暴击结算:"+rate)
+        return DmgWrapper(dmg.i, dmg.j, rate * dmg.dmg, dmg.t)
 
     // 标准伤害处理器
     //

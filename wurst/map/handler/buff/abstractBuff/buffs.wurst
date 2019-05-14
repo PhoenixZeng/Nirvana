@@ -166,11 +166,6 @@ public abstract class Buff
 		BuffHashList<Buff> buffs = whichHash.get(whichUnit) 
 		if (buffs != null and buffs.typeId != 0)
 			buffs.remove(whichBuff)
-			for i in buffs
-				if i.typeId == 0
-					buffs.remove(i)
-					i = null
-					destroy i
 			if (buffs.size() == 0)
 				whichHash.remove(whichUnit)
 				destroy buffs
@@ -246,7 +241,7 @@ public abstract class Buff
 		return true
 		
 	/**
-	 * Finish the buff' effect
+	 * Finish the buff's effect
 	 */	
 	function finish() returns bool
 		bool deallocate = this.onRemoval()
@@ -303,15 +298,17 @@ public abstract class Buff
 		
 		let buffs = Buff.getAllWhereIsTarget(target)
 		// print("buff产生:"+getName()+",当前索引:"+(this castTo int).toString())
+		bool remove = false
 		if buffs!=null and buffs.typeId != 0 and not buffs.isEmpty()
 			// print("->  当前单位buff总数:"+buffs.size().toString())
 			for bf in buffs
-				if bf == null or bf.typeId == 0
-					buffs.remove(bf)
-				else if bf.getName() == this.getName()
+				if bf.getName() == this.getName()
 					if not bf.onCover(this)
-						this.destr()
-						return false
+						remove = true
+						break
+		if remove
+			this.destr()
+			return false
 	
 		this.setTarget(target)
 
@@ -340,11 +337,12 @@ public abstract class Buff
 		return this.apply(target, getDuration())
 
 function finishBuffs(BuffHashList<Buff> buffs)
+	let lists = new BuffHashList<Buff>(buffs)
 	if  buffs != null and buffs.typeId != 0 and buffs.size() > 0 
-		for _buff in buffs
+		for _buff in lists
 			if _buff.typeId != 0 and _buff != null
 				_buff.destr()
-		destroy buffs
+	destroy lists
 
 function finishAllBuffsOfLeaverUnit()
 	unit leaver = getEnterLeaveUnit()
