@@ -9,15 +9,15 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-05-05T15:33:17Z</Created>
-  <LastSaved>2019-05-14T00:54:36Z</LastSaved>
+  <LastSaved>2019-05-15T04:39:53Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6240</WindowHeight>
-  <WindowWidth>17256</WindowWidth>
+  <WindowHeight>9684</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -748,14 +748,15 @@
     <Cell ss:Index="237"><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">COMMENT</Data></Cell>
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">NP01</Data></Cell>
     <Cell><Data ss:Type="String">Obla</Data></Cell>
-    <Cell><Data ss:Type="String">装备商人</Data></Cell>
-    <Cell><Data ss:Type="String">装备商人</Data></Cell>
+    <Cell><Data ss:Type="String">上古之神</Data></Cell>
+    <Cell><Data ss:Type="String">上古之神</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">NT01</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT01</Data></Cell>
+    <Cell><Data ss:Type="String">I681,I682,I683,I684,I685,I686</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\nightelf\herowarden\herowarden</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3006,7 +3007,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I62D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3068,7 +3069,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I63D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3130,7 +3131,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I64D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3192,7 +3193,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I65D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3254,7 +3255,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I66D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3316,7 +3317,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I67D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3378,7 +3379,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I68D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3440,7 +3441,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I69D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3502,7 +3503,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I70D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3564,7 +3565,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I71D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3626,7 +3627,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I72D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3688,7 +3689,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I73D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3750,7 +3751,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I74D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3812,7 +3813,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I75D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3874,7 +3875,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I76D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3936,7 +3937,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I77D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -3998,7 +3999,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I78D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4060,7 +4061,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I79D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4122,7 +4123,7 @@
     <Cell><Data ss:Type="String">NT1A</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT1A</Data></Cell>
-    <Cell><Data ss:Type="String">I61C,I80D</Data></Cell>
+    <Cell><Data ss:Type="String">I61C,I61D</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4187,7 +4188,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

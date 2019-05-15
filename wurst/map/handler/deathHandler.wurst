@@ -30,6 +30,8 @@ init
                     hs.onKill(u)
                 if u.getOwner() == enemyNormal
                     let us = Attacker.getAttacker(u)
+                    if 0.5 .random()
+                        createItem('I680', u.getPos())
                     if us != null
                         doAfter(1)->
                             us.destr()

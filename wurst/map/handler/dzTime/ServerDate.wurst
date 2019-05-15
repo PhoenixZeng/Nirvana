@@ -1,6 +1,7 @@
 package ServerDate
 import base
 import DzSave
+import ClosureTimers
 
 public int DAY  = 0
 public int HOUR = 0
@@ -9,8 +10,6 @@ public int MON  = 0
 public int SEC  = 0
 public int WEEK = 0
 public int YEAR = 0
-
-
 
 int NS = 31536000
 int LS = 31622400	
@@ -35,7 +34,7 @@ public function getGamePassTime() returns string
     int dHOUR  = dTime div 3600
     int dMIN   = dTime div 60 mod 60
     int dSEC   = dTime mod 3600 mod 60
-    return "游戏时间为" + I2S(dHOUR)+"时"+ I2S(dMIN)+"分"+ I2S(dSEC)+"秒  "
+    return "" + I2S(dHOUR)+"时"+ I2S(dMIN)+"分"+ I2S(dSEC)+"秒  "
 
 function mathMod ( int dividend, int divisor ) returns int
     int modulus = dividend - (dividend div divisor) * divisor
@@ -127,6 +126,14 @@ public function initServerDate( int time )
 
 public function initServerDate()
     initServerDate(DzAPI_Map_GetGameStartTime())
+
+public function overGameOnTime7()
+    doPeriodically(20) tk ->
+        int dTime = serverTime - serverStartTime
+        int dHOUR  = dTime div 3600
+        if dHOUR >= 7
+            for p = 0 to 4
+                CustomDefeatBJ( Player(p), "失败!" )
 
 //是否在活动时间内-每天的特定时间范围
 public function dateRangeInDay (int startDate, int lastDate ) returns bool

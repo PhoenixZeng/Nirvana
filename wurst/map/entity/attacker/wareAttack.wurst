@@ -52,7 +52,11 @@ public function attackFinal()
         if GetDyingUnit() == BOSS.beastGod._self
             if endTask != null and endTask.isRunning
                 endTask.endIt()
-    endTask = atAfter(180, "决战时间")
+    var time = 180.
+    if GAME.difficult >= 5
+        let d = GAME.difficult - 4
+        time += 40 * d
+    endTask = atAfter(time, "决战时间")
     endTask.onTime() i->
         if BOSS.beastGod._self.isAlive()
             colorsPrint("[失败]:虚空大君已经逃跑了!")

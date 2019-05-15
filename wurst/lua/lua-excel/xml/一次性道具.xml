@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-14T00:27:04Z</LastSaved>
+  <LastSaved>2019-05-15T03:07:45Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="270" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="277" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -5565,6 +5565,147 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I680</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r虚空碎片&quot;"><Data
+      ss:Type="String">|cffFF8000[活动]|r虚空碎片</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">虚空碎片!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r虚空碎片</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">虚空碎片!</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I681</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r查看进度&quot;"><Data
+      ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I682</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">克苏恩</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000克苏恩|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-克苏恩]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000克苏恩|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-克苏恩]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\120.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I683</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">尤格萨隆</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000尤格萨隆|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-尤格萨隆]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000尤格萨隆|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-尤格萨隆]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\121.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I684</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">亚煞极</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000亚煞极|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-亚煞极]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000亚煞极|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-亚煞极]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\122.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I685</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">恩佐斯</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000恩佐斯|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-恩佐斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000恩佐斯|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-恩佐斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\123.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I686</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">萨拉塔斯</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000萨拉塔斯|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-萨拉塔斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000萨拉塔斯|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-萨拉塔斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!|r</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\124.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
@@ -5578,9 +5719,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>140</TopRowBottomPane>
+   <TopRowBottomPane>265</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5596,8 +5737,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>163</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>272</ActiveRow>
+     <RangeSelection>R273C7:R277C7</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -11,6 +11,7 @@ import Book
 import SavedArtifact
 import DialogTimer
 import attackHandler
+import ElderGod
 
 public trigger _GameDefeatTrigger
 public bool showAttackedTip
@@ -35,6 +36,7 @@ function Players.getAwardScore()
         printTimedToPlayer("[系统]:总获得:"+s1, 30, this._player)
     this.enableAddGameScore = true
     this.addGameScore(s1)
+    PlayerElderGod.get(this._player).addOnWin()
 
 function Players.getEndlessAwardScore()
     if GAME.endless
@@ -63,7 +65,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
         for i = 0 to 2
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
-                db.addButton(pg.page.name) ->
+                db.addButton(pg.page.name+"+"+ene) ->
                     let sa = SavedArtifact.maps.get(pg)
                     var a5 = ene + sa.energy
                     if a5 >= 100 and ps.dzLv>0 and ps.dzLv <= 5
@@ -77,12 +79,12 @@ public function askPlayerSaveArtifactEnergy(Players ps)
                     destroy db
             else
                 printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
-    else if GAME.difficult <= 7 and GAME.difficult >= 6
-        ene += (3*(GAME.difficult-4))
+    else if GAME.difficult <= 7 and GAME.difficult >= 4
+        ene += (2*GAME.difficult)
         for i = 3 to 4
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
-                db.addButton(pg.page.name) ->
+                db.addButton(pg.page.name+"+"+ene) ->
                     let sa = SavedArtifact.maps.get(pg)
                     var a5 = ene + sa.energy
                     if a5 >= 100 and ps.dzLv>0 and ps.dzLv <= 5
@@ -96,7 +98,6 @@ public function askPlayerSaveArtifactEnergy(Players ps)
                     destroy db
             else
                 printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
-    db.setTitle("选择需要增加"+ene+"点能量的神器")
     db.addButton("啥都不想加,任性") ->
         destroy db
     db.display(ps._player, true)

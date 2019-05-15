@@ -72,10 +72,9 @@ public class AbyssAttrInfo extends AbyssInfo
             if a != null
                 a.addAttr(k, val)
 init
-    new AbyssAttrInfo(AttrKey.absorb,1,0)
-    new AbyssAttrInfo(AttrKey.dmgResi,50,0)
+    new AbyssAttrInfo(AttrKey.dmgResi,20,0)
     new AbyssAttrInfo(AttrKey.dmgBack,1,1)
-    new AbyssAttrInfo(AttrKey.dmgSub,30,5)
+    new AbyssAttrInfo(AttrKey.dmgSub,10,3)
     new AbyssAttrInfo(AttrKey.dmgPlus,20,5)
 
 

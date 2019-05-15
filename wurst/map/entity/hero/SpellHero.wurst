@@ -14,6 +14,7 @@ public class SpellHero extends Hero
 
     angle jumpAng = 0 .fromDeg()
     real jumpDis = 0
+    real jumpSpeed = 0
     int jumpCount = 5
     static let jumpCountLimit = 5
 
@@ -149,7 +150,7 @@ public class SpellHero extends Hero
                 jumpCount++
 
     function onJumpTimeout(TimerTask task)
-        let dis_per = 64.
+        let dis_per = jumpSpeed
         vec2 next
         bool endIt = false
         if jumpDis > dis_per
@@ -165,17 +166,19 @@ public class SpellHero extends Hero
         if endIt
             task.destr()
             jumpDis = 0
+            jumpSpeed -= 64
             _self.setPos(_self.getPos())
 
     function onJump(targets t)
         if jumpCount > 0
             if not hasShengYuChiBang
                 jumpCount--
-            jumpAng = _self.getPos().angleTo(t.p) 
+            jumpAng = _self.getPos().angleTo(t.p)
+            jumpSpeed += 64 
             jumpDis = min(_self.getPos().distanceTo(t.p),900)
             _self.exFacing(_self.getPos().angleTo(t.p).degrees())
             _self.setPos(_self.getPos())
-            let time = jumpDis /64. * 0.03
+            let time = jumpDis /jumpSpeed * 0.03
             _self.eff("Abilities\\Weapons\\PhoenixMissile\\Phoenix_Missile.mdl", "chest",time)
             _self.eff("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl", "hand left",time)
             _self.eff("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl", "hand right",time)

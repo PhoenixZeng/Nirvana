@@ -1085,6 +1085,86 @@ endglobals
         
                         call SaveInteger(j_slk_abil, 'Z245', 10, 20)
         
+                call SaveStr(j_slk_abil, 'Z250', 2081955386, "上古之神")
+            
+                call SaveStr(j_slk_abil, 'Z250', - 844856191, "[上古之神获得]|n上古之神邪恶的力量.存档道具!")
+            
+                call SaveStr(j_slk_abil, 'Z251', 2081955386, "[古神之力]克苏恩")
+            
+                call SaveStr(j_slk_abil, 'Z251', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n攻速:20|n暴击概率:20")
+            
+                        call SaveInteger(j_slk_abil, 'Z251', 0, 20000)
+        
+                        call SaveInteger(j_slk_abil, 'Z251', 4, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z251', 5, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z251', 6, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z251', 2, 20)
+        
+                        call SaveInteger(j_slk_abil, 'Z251', 8, 20)
+        
+                call SaveStr(j_slk_abil, 'Z252', 2081955386, "[古神之力]尤格萨隆")
+            
+                call SaveStr(j_slk_abil, 'Z252', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:40")
+            
+                        call SaveInteger(j_slk_abil, 'Z252', 0, 20000)
+        
+                        call SaveInteger(j_slk_abil, 'Z252', 4, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z252', 5, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z252', 6, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z252', 9, 40)
+        
+                call SaveStr(j_slk_abil, 'Z253', 2081955386, "[古神之力]亚煞极")
+            
+                call SaveStr(j_slk_abil, 'Z253', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n伤害增幅:40")
+            
+                        call SaveInteger(j_slk_abil, 'Z253', 0, 20000)
+        
+                        call SaveInteger(j_slk_abil, 'Z253', 4, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z253', 5, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z253', 6, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z253', 7, 40)
+        
+                call SaveStr(j_slk_abil, 'Z254', 2081955386, "[古神之力]恩佐斯")
+            
+                call SaveStr(j_slk_abil, 'Z254', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n附加伤害:40")
+            
+                        call SaveInteger(j_slk_abil, 'Z254', 0, 20000)
+        
+                        call SaveInteger(j_slk_abil, 'Z254', 4, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z254', 5, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z254', 6, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z254', 11, 40)
+        
+                call SaveStr(j_slk_abil, 'Z255', 2081955386, "[古神之力]萨拉塔斯")
+            
+                call SaveStr(j_slk_abil, 'Z255', - 844856191, "|cFFFFFF99基础属性|r|n攻击:20000|n力量:5000|n敏捷:5000|n智力:5000|n|cFFFFFF55附加属性|r(%)|n力量增幅:25|n敏捷增幅:25|n智力增幅:25")
+            
+                        call SaveInteger(j_slk_abil, 'Z255', 0, 20000)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 4, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 5, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 6, 5000)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 19, 25)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 20, 25)
+        
+                        call SaveInteger(j_slk_abil, 'Z255', 21, 25)
+        
                 call SaveStr(j_slk_abil, 'Z300', 2081955386, "道具目录")
             
                 call SaveStr(j_slk_abil, 'Z300', - 844856191, "奖励道具和商城道具")
@@ -2326,6 +2406,16 @@ endglobals
                     call SaveStr(j_slk_item, 'Y244', 2081955386, "[激活]暗黑之撒旦")
                 
                     call SaveStr(j_slk_item, 'Y245', 2081955386, "[激活]纯白之雪")
+                
+                    call SaveStr(j_slk_item, 'Y251', 2081955386, "[古神之力]克苏恩")
+                
+                    call SaveStr(j_slk_item, 'Y252', 2081955386, "[古神之力]尤格萨隆")
+                
+                    call SaveStr(j_slk_item, 'Y253', 2081955386, "[古神之力]亚煞极")
+                
+                    call SaveStr(j_slk_item, 'Y254', 2081955386, "[古神之力]恩佐斯")
+                
+                    call SaveStr(j_slk_item, 'Y255', 2081955386, "[古神之力]萨拉塔斯")
                 
                     call SaveStr(j_slk_item, 'Y311', 2081955386, "[光环]日炎光环")
                 
@@ -4410,6 +4500,8 @@ endglobals
                     call SaveInteger(j_slk_unit, 'JA04', 406492257, 7)
                 
                     call SaveStr(j_slk_unit, 'NP00', 2081955386, "宝珠商人")
+                
+                    call SaveStr(j_slk_unit, 'NP01', 2081955386, "上古之神")
                 
                     call SaveStr(j_slk_unit, 'NP02', 2081955386, "装备升级")
                 
@@ -6910,7 +7002,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue May 14 09:57:26 2019
+//   Date: Wed May 15 13:24:17 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
@@ -6988,6 +7080,7 @@ function CreateNeutralPassive takes nothing returns nothing
     set u=CreateUnit(p, 'NP0I', 5036.3, 4283.4, 262.617)
     set u=CreateUnit(p, 'NP0J', 5030.4, 3932.0, 272.853)
     set u=CreateUnit(p, 'NP09', 8313.5, - 2657.7, 285.340)
+    set u=CreateUnit(p, 'NP01', - 543.1, - 6641.5, 311.490)
     set u=CreateUnit(p, 'NP02', - 2008.6, 4644.3, 282.680)
     set u=CreateUnit(p, 'NP0H', 113.1, - 6960.7, 272.788)
     set u=CreateUnit(p, 'NP0J', - 2046.7, 3917.7, 272.853)

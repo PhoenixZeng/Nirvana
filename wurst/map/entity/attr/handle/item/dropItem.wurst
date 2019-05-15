@@ -48,6 +48,8 @@ public ItemPool array dungeonGemExPool
 public ItemPool array dungeonAffixItemPool
 public ItemPool array dungeonOtherItemPool
 
+public interface OnKillTypeUnit
+    function onKill(unit u,unit k)
 
 public class UnitDropManager
     private static HashMap<int,thistype> drops = new HashMap<int,thistype>()
@@ -56,6 +58,7 @@ public class UnitDropManager
     int      unitId
     real     chance
     bool     isAutoGet = false
+    OnKillTypeUnit onKillCb
     static trigger dropTri
     static function of(string name,int unitId,real chance) returns UnitDropManager
         let pool = new UnitDropManager()
@@ -74,6 +77,11 @@ public class UnitDropManager
         ItemPoolAddItemType(pool,itemId,1)
     function add(integer itemId, real weight)
         ItemPoolAddItemType(pool,itemId,weight)
+    function adds(vararg int itemIds)
+        for i in itemIds
+            ItemPoolAddItemType(pool,i,1)
+    function onKill(OnKillTypeUnit onKillCb)
+        this.onKillCb = onKillCb
     static function get(int id) returns thistype
         return drops.get(id)
     function del(integer itemId)
@@ -96,6 +104,8 @@ public class UnitDropManager
                 if m.isAutoGet
                     Log.debug("获得物品"+t.getTypeId().toIdString())
                     k.addItemHandle(t)
+                if m.onKillCb != null
+                    m.onKillCb.onKill(u,k)
             
 
 public abstract class UnitAbstractDropManager

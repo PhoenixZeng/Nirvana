@@ -23,6 +23,9 @@ public class Auth
     construct(string name)
         this.name = name
 
+    function test(player p) returns bool
+        return test.test(this, p)
+
     function setTest(AuthTest t)
         test = t
 

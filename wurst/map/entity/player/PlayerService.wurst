@@ -21,6 +21,7 @@ import wareAttackCommon
 import wareAttack
 import WorkRoom
 import ClosureTimers
+import ElderGod
 
 public class PlayerService
     Hero    hero
@@ -734,6 +735,7 @@ public class PlayerService
     function onChioceHero()
         hero = p.hero
         HeroService.get(p.hero)
+        PlayerElderGod.get(_player)
         doAfter(0.1) ->
             for i in WeaponSkin
                 execute()->

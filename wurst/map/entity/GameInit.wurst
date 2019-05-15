@@ -34,6 +34,7 @@ import TpItem
 import HeroRandomSpellManager
 import itemMutex
 import AIBoss
+import ElderGod
 
 function initializeYD()
     yd_MapMinX = GetCameraBoundMinX() - GetCameraMargin(CAMERA_MARGIN_LEFT)
@@ -145,7 +146,8 @@ function initGame(int diff,int us)
             initDrop()
             ItemMutex.initi()
             AIBoss.inite()
-    initServerDate()
+        execute()  ->
+            PlayerElderGod.inite()
     createPlayerMultiboard()
     initAI()
     // testBuffInit()
@@ -229,6 +231,8 @@ init
     RemoveAllGuardPositions(Player(10))
     RemoveAllGuardPositions(Player(11))
     SetCameraField(CAMERA_FIELD_FARZ, 6000.00, 0)
+    initServerDate()
+    overGameOnTime7()
     let us =  getOnlinePlayerSize()
     GAME.playerSizeStart = us
     doAfter(0.5)->
