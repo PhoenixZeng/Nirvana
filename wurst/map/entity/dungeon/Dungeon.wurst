@@ -30,16 +30,16 @@ public class Dungeon
     Rects               comeArea
     int                 npcId
 
-    int     array[4]    unitId
-    int     array[4]    unitNum
-    int     array[4]    bossId
+    int                 unitId
+    int                 unitNum
+    int                 bossId
 
-    Rects   array[4]    unitArea
-    Rects   array[4]    bossArea
+    Rects               unitArea
+    Rects               bossArea
     Rects               abyssArea
 
     unit                npc
-    unit    array[4]    boss
+    unit                boss
     Unit                bossUnit
     int                 unitPointer = 0
     int                 bossPointer = 0
@@ -54,13 +54,13 @@ public class Dungeon
         this.abyssArea = abyss
         nameMap.put(name, this)
     function addUnit(int id , int num ,Rects area)
-        unitId[unitPointer] = id
-        unitNum[unitPointer] = num
-        unitArea[unitPointer] = area
+        unitId = id
+        unitNum = num
+        unitArea = area
         unitPointer++
     function addBoss(int id ,Rects area)
-        bossId[bossPointer] = id
-        bossArea[bossPointer] = area
+        bossId = id
+        bossArea = area
         bossPointer++
     function build()
         createUnitInit()
@@ -68,22 +68,20 @@ public class Dungeon
         createNpcInit()
 
     function createUnitInit()
-        for i = 0 to 3
-            for j = 0 to unitNum[i]
-                createUnit(owner, unitId[i], unitArea[i].origin.randomPoint(), 360. .next() .fromDeg())
+        for j = 0 to unitNum
+            createUnit(owner, unitId, unitArea.origin.randomPoint(), 360. .next() .fromDeg())
     function createBossInit()
-        for i = 0 to 3
-            boss[i] = createUnit(owner, bossId[i], bossArea[i].pos, 360. .next() .fromDeg())
+        boss = createUnit(owner, bossId, bossArea.pos, 360. .next() .fromDeg())
     function createNpcInit()
         npc = createUnit(npcOwner, npcId, comeArea.pos, 270 .fromDeg())
-    function reviveUnit(int i)
-        createUnit(owner, unitId[i], unitArea[i].origin.randomPoint(), 360. .next() .fromDeg())
-    function reviveBoss(int i)
-        if boss[i] != null
-            boss[i].remove()
-        boss[i] = createUnit(owner, bossId[i], bossArea[i].pos, 360. .next() .fromDeg())
+    function reviveUnit()
+        createUnit(owner, unitId, unitArea.origin.randomPoint(), 360. .next() .fromDeg())
+    function reviveBoss()
+        if boss != null
+            boss.remove()
+        boss = createUnit(owner, bossId, bossArea.pos, 360. .next() .fromDeg())
         // boss[i].revive(bossArea[i].pos, true)
-        print("[副本]: "+boss[i].getName()+" 复活了!")
+        print("[副本]: "+boss.getName()+" 复活了!")
     
     function toTheAbyss(unit u)
         u.setPosPro(abyssArea.pos)
@@ -125,9 +123,8 @@ public class Dungeon
             let id = u.getTypeId()
             for index = 0 to 19
                 let d = dungeons[index]
-                let i = 0
                 let isFirst = index == 0 //第一个本掉率增加
-                if id == d.unitId[i]
+                if id == d.unitId
                     baozhuPools[1].tryGet(u.getPos())
                     let itm = dungeonOtherItemPool[index div 4 + 1].tryGet(u.getPos())
                     k.addItemHandle(itm)
@@ -137,9 +134,9 @@ public class Dungeon
                         dungeonAffixItemPool[index div 4 + 1].tryGet(u.getPos())
                     // dungeonGemPool[index].tryGet(u.getPos())
                     onAfter(d.unitTime) ts ->
-                        d.reviveUnit(i)
+                        d.reviveUnit()
                     break
-                else if id == d.bossId[i]
+                else if id == d.bossId
                     baozhuPools[1].tryGet(u.getPos())
                     let itm = dungeonOtherItemPool[index div 4 + 1].tryGet(u.getPos())
                     k.addItemHandle(itm)
@@ -147,7 +144,7 @@ public class Dungeon
                     // dungeonQiyuPool[index].tryGet(10,u.getPos(),false)
                     // dungeonGemPool[index].tryGet(0,u.getPos(),true)
                     doAfter(d.bossTime) ->
-                        d.reviveBoss(i)
+                        d.reviveBoss()
                     break
         // comeInTrigger
         // ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL_ITEM)

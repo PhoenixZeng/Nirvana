@@ -207,6 +207,14 @@ public function initPlayersEvent()
                     if not ps.onNirvana(5)
                         ps._player.addGold(slk_item.loadInt(id, goldcostKey))
                         ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
+                case 'I65G'
+                    ps.convertModelSkin(1)
+                case 'I65H'
+                    ps.convertModelSkin(2)
+                case 'I65I'
+                    ps.convertModelSkin(3)
+                case 'I65J'
+                    ps.convertModelSkin(4)
                 case 'I660'
                     ps.onConvertGem(1)
                 case 'I661'

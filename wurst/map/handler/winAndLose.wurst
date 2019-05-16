@@ -60,8 +60,8 @@ public function askPlayerSaveArtifactEnergy(Players ps)
         ene += 2
         printTimedToPlayer("[系统]:VIP获得额外2点神器能量!", 30, ps._player)
     let db = new DialogBox("神器")
+    ene += (2*GAME.difficult)
     if GAME.difficult <= 5
-        ene += (2*GAME.difficult)
         for i = 0 to 2
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
@@ -79,8 +79,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
                     destroy db
             else
                 printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
-    else if GAME.difficult <= 7 and GAME.difficult >= 4
-        ene += (2*GAME.difficult)
+    if GAME.difficult <= 7 and GAME.difficult >= 4
         for i = 3 to 4
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))

@@ -48,6 +48,7 @@ public class Hero extends Unit
     TitleSkin  titleSkin
     WingSkin   wingSkin
     HaloSkin   haloSkin
+    ModelSkin  modelSkin
     real       power             = 1
     int        nirvanaCount      = 0
     bool       nirvanaTargetFlag = false

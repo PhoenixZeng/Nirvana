@@ -22,6 +22,7 @@ import wareAttack
 import WorkRoom
 import ClosureTimers
 import ElderGod
+import PlayersSave
 
 public class PlayerService
     Hero    hero
@@ -41,6 +42,31 @@ public class PlayerService
         if map.has(p)
             return map.get(p)
         return new PlayerService(p)
+
+    int array[4] modelSkinLvNeeds = [6,6,10,10]
+    int array[4] modelSkinScoreNeeds = [200,400,600,800]
+    AuthSave array[4] modelSkinAuth = [_model_1,_model_2,_model_3,_model_4]
+
+    function convertModelSkin(int i)
+        if i>= 0  and i <= 4
+            let auth = modelSkinAuth[i-1]
+            if auth.testAuths(p.auths)
+                _player.print("你已经拥有这个皮肤了!")
+                return
+            if p.dzLv < modelSkinLvNeeds[i-1]
+                _player.print("地图等级不足!")
+                return 
+            if not p.testGameScore(modelSkinScoreNeeds[i-1])
+                _player.print("积分不足!")
+                return 
+            p.subGameScore(modelSkinScoreNeeds[i-1])
+            auth.setAuth(_player)
+            p.auths.add(auth)
+            p.saveInfoAndAuth()
+            printTimedToPlayer("[系统]:你已经激活"+auth.name+"!", 10, _player)
+            let pg = hero.renwu.getSubBook("皮肤").getPage(auth.name)
+            if pg !=null and not pg.isActivation
+                pg.activation(false)
 
     function onWantAttackFinalBoss()
         if p.dzLv < 5
@@ -782,7 +808,17 @@ public class PlayerService
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
                         else
                             print(i.name +":"+pg.page.name)
+        doAfter(0.14) ->
+            for i in ModelSkin
+                execute()->
+                    if i.auth.testAuths(p.auths)
+                        printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
+                        let pg = hero.renwu.getSubBook("皮肤").getPage(i.name)
+                        if pg !=null and not pg.isActivation
+                            pg.activation(false)
         doAfter(0.15) ->
+            getLvExGift()
+            getConsumptionGift()
             // 设置检测到的降低伤害
             if authChecked.testAuths(p.auths)
                 p.hero.setChecked()
@@ -804,8 +840,6 @@ public class PlayerService
                 p.hero.hasXingGuangShanYao = true
             if _wing_shengyu.testAuths(p.auths)
                 p.hero.hasShengYuChiBang = true
-            getLvExGift()
-            getConsumptionGift()
 
     // 等级2 |n开局金币8000
     // 等级6 |n护甲5000，杀敌属性10，每秒属性20

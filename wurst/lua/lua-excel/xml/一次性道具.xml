@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-15T03:07:45Z</LastSaved>
+  <LastSaved>2019-05-16T09:02:08Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="277" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="281" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -5194,6 +5194,90 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65G</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]风暴死亡骑士</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴死亡骑士|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗200点积分兑换|r|n地图等级6以上才可以兑换!|n&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗200点积分兑换|r|n地图等级6以上才可以兑换!|n</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴死亡骑士|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗200点积分兑换|r|n地图等级6以上才可以兑换!|n</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\125.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65H</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]风暴大主教</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴大主教|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗400点积分兑换|r|n地图等级6以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗400点积分兑换|r|n地图等级6以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴大主教|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗400点积分兑换|r|n地图等级6以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\126.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65I</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]雅典娜</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]雅典娜|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗600点积分兑换|r|n地图等级10以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗600点积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]雅典娜|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗600点积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\127.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65J</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]白夜</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]白夜|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗800点积分兑换|r|n地图等级10以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗800点积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]白夜|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗800点积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\128.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">I660</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
@@ -5719,7 +5803,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>265</TopRowBottomPane>
+   <TopRowBottomPane>245</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5737,8 +5821,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>272</ActiveRow>
-     <RangeSelection>R273C7:R277C7</RangeSelection>
+     <ActiveRow>255</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -21,6 +21,7 @@ import DmgType
 import HeroSpellBox
 import PlayerAuthSaved
 import Players
+import dzOther
 
 public class HeroService
     Hero hero
@@ -102,6 +103,7 @@ public class HeroService
         hero.addExAttr(plus,1)
         hero.lastLevel = 1
         hero._self.setLevelPro(1,true)
+        onChangeModelSkin(hero.modelSkin)
         if hero.nirvanaCount < 5
             boxs.unlock()
             owner.print("[技能]:你解锁了一个技能位!",10)
@@ -393,6 +395,22 @@ public class HeroService
             _self.removeAbility(hero.haloSkin.id)
         hero.haloSkin = skin
         _self.addAbilityPro(hero.haloSkin.id)
+
+    function onChangeModelSkin(ModelSkin skin)
+        if hero._self.isAlive()
+            if hero.modelSkin != null
+                let pg = hero.renwu.getSubBook("皮肤").getPage(hero.modelSkin.name)
+                if pg !=null and pg.isActivation
+                    hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), -1)
+            hero.modelSkin = skin
+            hero._self.exModel(skin.path)
+            onChangeWeaponSkin(hero.weaponSkin)
+            onChangeTitleSkin(hero.titleSkin)
+            onChangeWingSkin(hero.wingSkin)
+            onChangeHaloSkin(hero.haloSkin)
+            let pg1 = hero.renwu.getSubBook("皮肤").getPage(skin.name)
+            if pg1 !=null and pg1.isActivation
+                hero.addExAttr(AttrPlus.loadBookPageAttr(pg1.page.id), 1)
 
     function setSchool(Soul school)
         hero.school = school

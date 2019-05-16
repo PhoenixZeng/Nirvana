@@ -72,8 +72,25 @@ public class PetSkin
         this.id = id
         this.auth = auth
 
+public class ModelSkin
+    use LinkedListModule
+    string cmd
+    string name
+    string path
+    Auth   auth
+    construct(string cmd,string name,Auth auth,string path)
+        this.cmd = cmd
+        this.name = name
+        this.path = path
+        this.auth = auth
+
 
 init
+    new ModelSkin("-pf1","[皮肤]风暴死亡骑士",_model_1,"model\\skins_hero\\Herodeathknight1.mdx")
+    new ModelSkin("-pf2","[皮肤]风暴大主教",_model_2,"model\\skins_hero\\artanis.mdx")
+    new ModelSkin("-pf3","[皮肤]雅典娜",_model_3,"model\\skins_hero\\yadianna.mdx")
+    new ModelSkin("-pf4","[皮肤]白夜",_model_4,"model\\skins_hero\\baiye.mdx")
+
     new TitleSkin("-ch1" ,'SK15',"黑铁",_map_lv2)
     new TitleSkin("-ch2" ,'SK16',"青铜",_map_lv5)
     new TitleSkin("-ch3" ,'SK17',"白银",_map_lv8)

@@ -6,7 +6,6 @@ import WorkRoom
 import skin
 import Rects
 import Auth
-import public PlayersSkin
 import PlayerService
 import dzSync
 import HeroService
@@ -98,6 +97,13 @@ init
             if s == i.cmd
                 if i.auth.testAuths(p.auths)
                     hs.onChangeWingSkin(i)
+                    break
+    Command.when("-pf",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+        let hs = HeroService.get(p.hero)
+        for i in ModelSkin
+            if s == i.cmd
+                if i.auth.testAuths(p.auths)
+                    hs.onChangeModelSkin(i)
                     break
     // Command.when("-cw",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
     //     let hs = HeroService.get(p.hero)

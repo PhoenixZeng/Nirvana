@@ -7,7 +7,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Created>2015-06-05T18:19:34Z</Created>
-  <LastSaved>2019-05-15T03:07:45Z</LastSaved>
+  <LastSaved>2019-05-16T08:11:32Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,11 +15,10 @@
   <RemovePersonalInformation/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8988</WindowHeight>
+  <WindowHeight>9684</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -78,7 +77,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="BOOK">
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="122" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="126" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="13.8">
    <Column ss:Index="3" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="64.8"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="126"/>
@@ -158,8 +157,8 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">SUBBOOK</Data></Cell>
-    <Cell><Data ss:Type="String">皮肤-未开放</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">当前角色可激活的皮肤!</Data></Cell>
+    <Cell><Data ss:Type="String">皮肤</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">角色可激活的皮肤!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">replenishoff</Data></Cell>
     <Cell ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
       ss:Type="String">blp\book\5.blp</Data></Cell>
@@ -1893,6 +1892,70 @@
     <Cell ss:Formula="=&quot;let _p&quot;&amp;RC[-12]&amp;&quot; = new Page(&quot;&amp;RC[-12]&amp;&quot;,_s&quot;&amp;RC[-11]&amp;&quot;)&quot;"><Data
       ss:Type="String">let _p124 = new Page(124,_s119)</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">125</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">PAGE</Data></Cell>
+    <Cell ss:Formula="=&quot;[皮肤]&quot;&amp;RC[1]"><Data ss:Type="String">[皮肤]风暴死亡骑士</Data></Cell>
+    <Cell><Data ss:Type="String">风暴死亡骑士</Data></Cell>
+    <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n攻击吸血:3|n附加伤害:30|n|n激活后输入'-pf1'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:[皮肤]风暴死亡骑士</Data></Cell>
+    <Cell ss:Formula="=&quot;&quot;&amp;RC[-4]"><Data ss:Type="String">[皮肤]风暴死亡骑士</Data></Cell>
+    <Cell><Data ss:Type="String">激活皮肤</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
+      ss:Type="String">blp\book\125.blp</Data></Cell>
+    <Cell ss:Formula="=&quot;let _p&quot;&amp;RC[-12]&amp;&quot; = new Page(&quot;&amp;RC[-12]&amp;&quot;,_s&quot;&amp;RC[-11]&amp;&quot;)&quot;"><Data
+      ss:Type="String">let _p125 = new Page(125,_s5)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">126</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">PAGE</Data></Cell>
+    <Cell ss:Formula="=&quot;[皮肤]&quot;&amp;RC[1]"><Data ss:Type="String">[皮肤]风暴大主教</Data></Cell>
+    <Cell><Data ss:Type="String">风暴大主教</Data></Cell>
+    <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n力量增幅:20|n敏捷增幅:20|n智力增幅:20|n|n激活后输入'-pf2'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:[皮肤]风暴大主教</Data></Cell>
+    <Cell ss:Formula="=&quot;&quot;&amp;RC[-4]"><Data ss:Type="String">[皮肤]风暴大主教</Data></Cell>
+    <Cell><Data ss:Type="String">激活皮肤</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
+      ss:Type="String">blp\book\126.blp</Data></Cell>
+    <Cell ss:Formula="=&quot;let _p&quot;&amp;RC[-12]&amp;&quot; = new Page(&quot;&amp;RC[-12]&amp;&quot;,_s&quot;&amp;RC[-11]&amp;&quot;)&quot;"><Data
+      ss:Type="String">let _p126 = new Page(126,_s5)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">127</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">PAGE</Data></Cell>
+    <Cell ss:Formula="=&quot;[皮肤]&quot;&amp;RC[1]"><Data ss:Type="String">[皮肤]雅典娜</Data></Cell>
+    <Cell><Data ss:Type="String">雅典娜</Data></Cell>
+    <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n|n激活后输入'-pf3'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:[皮肤]雅典娜</Data></Cell>
+    <Cell ss:Formula="=&quot;&quot;&amp;RC[-4]"><Data ss:Type="String">[皮肤]雅典娜</Data></Cell>
+    <Cell><Data ss:Type="String">激活皮肤</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
+      ss:Type="String">blp\book\127.blp</Data></Cell>
+    <Cell ss:Formula="=&quot;let _p&quot;&amp;RC[-12]&amp;&quot; = new Page(&quot;&amp;RC[-12]&amp;&quot;,_s&quot;&amp;RC[-11]&amp;&quot;)&quot;"><Data
+      ss:Type="String">let _p127 = new Page(127,_s5)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">128</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">PAGE</Data></Cell>
+    <Cell ss:Formula="=&quot;[皮肤]&quot;&amp;RC[1]"><Data ss:Type="String">[皮肤]白夜</Data></Cell>
+    <Cell><Data ss:Type="String">白夜</Data></Cell>
+    <Cell ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:60|n|n激活后输入'-pf4'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell ss:Formula="=&quot;获得:&quot;&amp;RC[-3]"><Data ss:Type="String">获得:[皮肤]白夜</Data></Cell>
+    <Cell ss:Formula="=&quot;&quot;&amp;RC[-4]"><Data ss:Type="String">[皮肤]白夜</Data></Cell>
+    <Cell><Data ss:Type="String">激活皮肤</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
+      ss:Type="String">blp\book\128.blp</Data></Cell>
+    <Cell ss:Formula="=&quot;let _p&quot;&amp;RC[-12]&amp;&quot; = new Page(&quot;&amp;RC[-12]&amp;&quot;,_s&quot;&amp;RC[-11]&amp;&quot;)&quot;"><Data
+      ss:Type="String">let _p128 = new Page(128,_s5)</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1907,12 +1970,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>96</TopRowBottomPane>
+   <TopRowBottomPane>86</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1920,6 +1984,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1927,8 +1992,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>130</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>122</ActiveRow>
+     <ActiveCol>11</ActiveCol>
+     <RangeSelection>R123C12:R126C12</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1936,7 +2002,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Sheet3">
-  <Table ss:ExpandedColumnCount="34" ss:ExpandedRowCount="111" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="34" ss:ExpandedRowCount="115" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:Hidden="1" ss:AutoFitWidth="0" ss:Span="2"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="94.8"/>
@@ -3332,6 +3398,50 @@
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
       ss:Type="String"></Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4"><Data ss:Type="String">[皮肤]风暴死亡骑士</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s28"
+     ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n攻击吸血:3|n附加伤害:30|n|n激活后输入'-pf1'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:Index="34" ss:Formula="=&quot;|n激活后输入'-pf&quot;&amp;RC[-27]&amp;&quot;'切换皮肤和皮肤属性效果!&quot;"><Data
+      ss:Type="String">|n激活后输入'-pf1'切换皮肤和皮肤属性效果!</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4"><Data ss:Type="String">[皮肤]风暴大主教</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s28"
+     ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n力量增幅:20|n敏捷增幅:20|n智力增幅:20|n|n激活后输入'-pf2'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="34" ss:Formula="=&quot;|n激活后输入'-pf&quot;&amp;RC[-27]&amp;&quot;'切换皮肤和皮肤属性效果!&quot;"><Data
+      ss:Type="String">|n激活后输入'-pf2'切换皮肤和皮肤属性效果!</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4"><Data ss:Type="String">[皮肤]雅典娜</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s28"
+     ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n伤害增幅:60|n|n激活后输入'-pf3'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="34" ss:Formula="=&quot;|n激活后输入'-pf&quot;&amp;RC[-27]&amp;&quot;'切换皮肤和皮肤属性效果!&quot;"><Data
+      ss:Type="String">|n激活后输入'-pf3'切换皮肤和皮肤属性效果!</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4"><Data ss:Type="String">[皮肤]白夜</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s28"
+     ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
+      ss:Type="String">|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n暴击伤害:60|n|n激活后输入'-pf4'切换皮肤和皮肤属性效果!</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="34" ss:Formula="=&quot;|n激活后输入'-pf&quot;&amp;RC[-27]&amp;&quot;'切换皮肤和皮肤属性效果!&quot;"><Data
+      ss:Type="String">|n激活后输入'-pf4'切换皮肤和皮肤属性效果!</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -3346,14 +3456,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <LeftColumnVisible>3</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>86</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3362,7 +3471,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3371,8 +3479,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>111</ActiveRow>
-     <ActiveCol>25</ActiveCol>
+     <ActiveRow>122</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
