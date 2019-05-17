@@ -67,30 +67,27 @@ public function handleDiffcult()
                     if  u.isInRegion(attack.i) or  u.isInRegion(dungeonAll.i)
                         AbyssSpellManager.getAddAbyssInfo(u,1)
     else
-        SetPlayerHandicap(enemyNormal, .2)
-        SetPlayerHandicap(enemySpecial, 1)
         onEnter() ->
             let u = getEnterLeaveUnit()
             let lv = Level.get()
             var a = lv div 5 + 1
             if a > 10
                 a = 10
+            SetPlayerHandicap(enemySpecial, 1+ .30 * a)
+            SetPlayerHandicap(enemyNormal, .2+ .30 * a)
             if u.getTypeId() != DUMMY_UNIT_ID
+                let ablv = a>6?6:a
                 if enemyNormal == u.getOwner()
                     if u.isHero()
-                        u.setAbilityLevelPro(GAME.nandu1_zuiquan, a)
-                    u.setAbilityLevelPro(GAME.nandu3_xieer, a)
-                    u.setAbilityLevelPro(GAME.nandu4_minlin, a)
-                    u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, a)
+                        u.setAbilityLevelPro(GAME.nandu1_zuiquan, ablv)
+                    u.setAbilityLevelPro(GAME.nandu4_minlin, ablv)
+                    u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, ablv)
                 else if enemySpecial == u.getOwner()
                     u.addAbilityPro(commonCTC)
-                    if a > 4
-                        let b = a - 2
-                        u.setAbilityLevelPro(GAME.nandu1_zuiquan, b)
-                        u.setAbilityLevelPro(GAME.nandu3_xieer, b)
-                        u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, b)
+                    u.setAbilityLevelPro(GAME.nandu1_zuiquan, ablv)
+                    u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, ablv)
                 if lv > 10
-                    if  u.isInRegion(attack.i) or  u.isInRegion(dungeonAll.i) and enemy.containsUnit(u)
+                    if  u.isInRegion(attack.i)  and enemy.containsUnit(u)
                         AbyssSpellManager.getAddAbyssInfo(u,lv div 5)
 
 

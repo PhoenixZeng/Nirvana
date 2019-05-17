@@ -2397,12 +2397,13 @@
     <Cell><Data ss:Type="String">I61I</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell><Data ss:Type="String">直接打BOSS!</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">结束游戏</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
-      ss:Type="String">|cffFF8000直接打BOSS!|r</Data></Cell>
-    <Cell><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000直接打BOSS!|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!</Data></Cell>
+      ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!</Font></ss:Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNCallToArms.blp</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -5803,7 +5804,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>245</TopRowBottomPane>
+   <TopRowBottomPane>235</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5821,7 +5822,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>255</ActiveRow>
+     <ActiveRow>110</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

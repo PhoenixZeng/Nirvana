@@ -237,21 +237,21 @@ init
     GAME.playerSizeStart = us
     doAfter(0.5)->
         print("[系统]:玩家"+getMainPlayer().getName()+"正在选择难度和模式")
-        // let box1 = new DialogBox("模式选择")
-        // box1.addButton("正常模式")->
-        //     GAME.abyss = false
-            // choiceDiff(us)
-        choiceDiff(us)
-            // destroy box1
+        let box1 = new DialogBox("模式选择")
+        box1.addButton("正常模式")->
+            GAME.abyss = false
+            choiceDiff(us)
+            choiceDiff(us)
+            destroy box1
         // box1.addButton("深渊模式(较难)")->
         //     print("[系统]:选择了深渊模式!深渊模式下怪物拥有随机的技能,BOSS还会具有主动技能!")
         //     GAME.abyss = true
         //     choiceDiff(us)
         //     destroy box1
-        // box1.addButton("无尽模式(较难)")->
-        //     print("[系统]:选择了无尽模式!深渊模式下怪物会从较低的难度逐步加大!")
-        //     GAME.endless = true
-        //     GAME.abyss = true
-        //     initGame(5,us)
-        //     destroy box1
-        // box1.display(getMainPlayer(), true)
+        box1.addButton("无尽模式")->
+            print("[系统]:选择了无尽模式!无尽模式下怪物会从较低的难度逐步加大!")
+            GAME.endless = true
+            // GAME.abyss = true
+            initGame(1,us)
+            destroy box1
+        box1.display(getMainPlayer(), true)

@@ -49,7 +49,7 @@ function Players.getEndlessAwardScore()
         else if ew >= 20 and ew <= 25
             es = 10
         else if ew > 25
-            es = (ew - 25) + 10
+            es = (ew div 3 - 8) + 10
         printTimedToPlayer("[系统]:奖励无尽分数"+es, 30, this._player)
         this.endlessScore += es
 
@@ -101,6 +101,15 @@ public function askPlayerSaveArtifactEnergy(Players ps)
         destroy db
     db.display(ps._player, true)
 
+public function registerWinForEndless()
+    eachPlayer() p->
+        let ps = Players.get(p)
+        ps.getEndlessAwardScore()
+        ps.save()
+    atAfter(10, "等待存档").run()
+    doAfter(10)->
+        gameVictory()
+        
 public function registerWin()
     isWin = true
     if not isDefeat

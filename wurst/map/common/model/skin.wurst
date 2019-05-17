@@ -117,14 +117,14 @@ init
     new WeaponSkin("-wq2",'SK08',"霜之哀伤",_map_sp_lv3)
     new WeaponSkin("-wq3",'SK09',"囚火之剑",_map_sp_lv5)
     new WeaponSkin("-wq4",'SK10',"魔王邪剑",_map_p7_lv12)
-    new WeaponSkin("-wq5",'SK11',"屠龙宝刀",defNotAuth)
+    new WeaponSkin("-wq5",'SK11',"屠龙宝刀",_weapon_tulongbaodao)
     new WeaponSkin("-wq6",'SK12',"黄金圣剑",_weapon_huangjin)//商城道具
     new WeaponSkin("-wq7",'SK13',"玄冰神剑",_weapon_xuanbing)//商城道具
     new WeaponSkin("-wq8",'SK14',"邪神魔剑",_weapon_xieshen)//商城道具
 
     new WingSkin("-cb1",'SK01',"冰火翅膀",_map_sp_lv2)
     new WingSkin("-cb2",'SK02',"妖灵翅膀",_map_sp_lv4)
-    new WingSkin("-cb3",'SK03',"仙灵翅膀",defNotAuth)
+    new WingSkin("-cb3",'SK03',"仙灵翅膀",_wing_xianlinzhiyi)
     new WingSkin("-cb4",'SK04',"黄金翅膀",_wing_huangjin)
     new WingSkin("-cb5",'SK05',"真神翅膀",_wing_zhenshen)
     new WingSkin("-cb6",'SK06',"圣羽翅膀",_wing_shengyu)

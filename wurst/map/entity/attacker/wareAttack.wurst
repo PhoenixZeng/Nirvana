@@ -94,6 +94,18 @@ function attackEachWareWait(int ware)
     int delay = 120
     if GAME.endless
         delay = 80
+        if ware >= 20 and ware < 40
+            delay = 70
+        else if ware >= 40 and ware < 60
+            delay = 60
+        else if ware >= 60 and ware < 80
+            delay = 50
+        else if ware >= 80 and ware < 100
+            delay = 40
+        else if ware >= 100 and ware < 150
+            delay = 30
+        else if ware >= 150 
+            delay = 15
     if ware <= 30
         if ware mod 6 == 0
             attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻[BOSS]:")
@@ -115,12 +127,12 @@ function attackEachWareWait(int ware)
                 attackFinal()
             attackTimeWait.run()
         else
-            if ware mod 5 == 0
+            if ware mod 3 == 0
                 attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻[BOSS]:")
             else
                 attackTimeWait = atAfter(delay.toReal(), "第"+ware+"波进攻:")
             attackTimeWait.onTime() i->
-                if ware mod 5 == 0
+                if ware mod 3 == 0
                     colorsPrint("[系统]:第"+ware+"波攻击来袭!此波为BOSS关!")
                 else
                     colorsPrint("[系统]:第"+ware+"波攻击来袭!")

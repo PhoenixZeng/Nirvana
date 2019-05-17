@@ -15,10 +15,11 @@
   <RemovePersonalInformation/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>4428</WindowHeight>
+  <WindowWidth>13800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1115,8 +1116,9 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">屠龙宝刀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:30|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq5'切换皮肤!</Data></Cell>
-    <Cell><Data ss:Type="String">未开放</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:88|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq5'切换皮肤!</Data></Cell>
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">无尽100波</Font></ss:Data></Cell>
     <Cell ss:Formula="=&quot;[武器皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[武器皮肤]屠龙宝刀</Data></Cell>
     <Cell><Data ss:Type="String">激活武器皮肤</Data></Cell>
     <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
@@ -1205,8 +1207,9 @@
     <Cell><Data ss:Type="String">PAGE</Data></Cell>
     <Cell><Data ss:Type="String">仙灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=VLOOKUP(RC[-2],Sheet3!R2C4:R118C6,3,0)"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
-    <Cell><Data ss:Type="String">未开放</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">无尽50波</Font></ss:Data></Cell>
     <Cell ss:Formula="=&quot;[翅膀皮肤]&quot;&amp;RC[-4]"><Data ss:Type="String">[翅膀皮肤]仙灵翅膀</Data></Cell>
     <Cell><Data ss:Type="String">激活翅膀皮肤</Data></Cell>
     <Cell ss:Index="12" ss:Formula="=&quot;blp\book\&quot;&amp;RC[-11]&amp;&quot;.blp&quot;"><Data
@@ -1970,13 +1973,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>86</TopRowBottomPane>
+   <TopRowBottomPane>56</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1984,7 +1986,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1992,9 +1993,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>122</ActiveRow>
-     <ActiveCol>11</ActiveCol>
-     <RangeSelection>R123C12:R126C12</RangeSelection>
+     <ActiveRow>69</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R70</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2810,10 +2811,10 @@
     <Cell ss:Index="4" ss:StyleID="s66"><Data ss:Type="String">屠龙宝刀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:10000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:30|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq5'切换皮肤!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n攻击:30000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:88|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq5'切换皮肤!</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="Number">10000</Data></Cell>
-    <Cell ss:Index="19"><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="Number">30000</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">88</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=&quot;属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq&quot;&amp;RC[-27]&amp;&quot;'切换皮肤!&quot;"><Data
       ss:Type="String">属性叠加!拥有多个时只能使用一个!|n激活后输入'-wq5'切换皮肤!</Data></Cell>
@@ -2910,15 +2911,15 @@
       ss:Type="String">属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb2'切换翅膀!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4"><Data ss:Type="String">仙灵翅膀</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s66"><Data ss:Type="String">仙灵翅膀</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s28"
      ss:Formula="=IF(RC[3]&amp;RC[4]&amp;RC[5]&amp;RC[6]&amp;RC[7]&amp;RC[8]=&quot;&quot;,,R1C8)&amp;IF(RC[3]=&quot;&quot;,,&quot;|n&quot;&amp;R1C9&amp;RC[3])&amp;IF(RC[4]=&quot;&quot;,,&quot;|n&quot;&amp;R1C10&amp;RC[4])&amp;IF(RC[5]=&quot;&quot;,,&quot;|n&quot;&amp;R1C11&amp;RC[5])&amp;IF(RC[6]=&quot;&quot;,,&quot;|n&quot;&amp;R1C12&amp;RC[6])&amp;IF(RC[7]=&quot;&quot;,,&quot;|n&quot;&amp;R1C13&amp;RC[7])&amp;IF(RC[8]=&quot;&quot;,,&quot;|n&quot;&amp;R1C14&amp;RC[8])&amp;IF(RC[10]&amp;RC[11]&amp;RC[12]&amp;RC[13]&amp;RC[14]&amp;RC[15]&amp;RC[16]&amp;RC[17]&amp;RC[18]&amp;RC[19]&amp;RC[20]&amp;RC[21]&amp;RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C15)&amp;IF(RC[10]=&quot;&quot;,,&quot;|n&quot;&amp;R1C16&amp;RC[10])&amp;IF(RC[11]=&quot;&quot;,,&quot;|n&quot;&amp;R1C17&amp;RC[11])&amp;IF(RC[12]=&quot;&quot;,,&quot;|n&quot;&amp;R1C18&amp;RC[12])&amp;IF(RC[13]=&quot;&quot;,,&quot;|n&quot;&amp;R1C19&amp;RC[13])&amp;IF(RC[14]=&quot;&quot;,,&quot;|n&quot;&amp;R1C20&amp;RC[14])&amp;IF(RC[15]=&quot;&quot;,,&quot;|n&quot;&amp;R1C21&amp;RC[15])&amp;IF(RC[16]=&quot;&quot;,,&quot;|n&quot;&amp;R1C22&amp;RC[16])&amp;IF(RC[17]=&quot;&quot;,,&quot;|n&quot;&amp;R1C23&amp;RC[17])&amp;IF(RC[18]=&quot;&quot;,,&quot;|n&quot;&amp;R1C24&amp;RC[18])&amp;IF(RC[19]=&quot;&quot;,,&quot;|n&quot;&amp;R1C25&amp;RC[19])&amp;IF(RC[20]=&quot;&quot;,,&quot;|n&quot;&amp;R1C26&amp;RC[20])&amp;IF(RC[21]=&quot;&quot;,,&quot;|n&quot;&amp;R1C27&amp;RC[21])&amp;IF(RC[22]=&quot;&quot;,,&quot;|n&quot;&amp;R1C28&amp;RC[22])&amp;IF(RC[24]&amp;RC[25]&amp;RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C29)&amp;IF(RC[24]=&quot;&quot;,,&quot;|n&quot;&amp;R1C30&amp;RC[24])&amp;IF(RC[25]=&quot;&quot;,,&quot;|n&quot;&amp;R1C31&amp;RC[25])&amp;IF(RC[26]=&quot;&quot;,,&quot;|n&quot;&amp;R1C32&amp;RC[26])&amp;IF(RC[28]=&quot;&quot;,,&quot;|n&quot;&amp;RC[28])"><Data
-      ss:Type="String">|cFFFFFF99基础属性|r|n力量:6000|n敏捷:6000|n智力:6000|n|cFFFFFF55附加属性|r(%)|n附加伤害:15|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
+      ss:Type="String">|cFFFFFF99基础属性|r|n力量:10000|n敏捷:10000|n智力:10000|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="Number">6000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000</Data></Cell>
-    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">6000</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Formula="=RC[-1]"><Data ss:Type="Number">10000</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="34"
      ss:Formula="=&quot;属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb&quot;&amp;RC[-27]&amp;&quot;'切换翅膀!&quot;"><Data
       ss:Type="String">属性叠加!拥有多个时只能使用一个!|n激活后输入'-cb3'切换翅膀!</Data></Cell>
@@ -3456,11 +3457,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <LeftColumnVisible>3</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>86</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3479,8 +3481,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>122</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>57</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

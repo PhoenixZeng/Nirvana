@@ -171,15 +171,15 @@ init
                 else if lv <= 50
                     if  users.containsUnit(dmg.i) 
                         if enemyNormal == dmg.j.getOwner()
-                            d *= 1 - (lv - 1)/lv
-                        else if enemySpecial == dmg.j.getOwner()
                             d *= 1 - (lv - 1)/lv / 1.5
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= 1 - (lv - 1)/lv / 2
                     else if users.containsUnit(dmg.j)
                         if enemyNormal == dmg.i.getOwner()
                             d *= 1 + lv * 0.04
                         else if enemySpecial == dmg.i.getOwner()
-                            d *= 1 + lv * 0.03
-                else
+                            d *= 1 + lv * 0.05
+                else if lv <= 80
                     if  users.containsUnit(dmg.i) 
                         if enemyNormal == dmg.j.getOwner()
                             d *= (1 - (lv - 1)/lv)/2
@@ -189,25 +189,20 @@ init
                         if enemyNormal == dmg.i.getOwner()
                             d *= 1 + lv * 0.05
                         else if enemySpecial == dmg.i.getOwner()
-                            d *= 1 + lv * 0.04
+                            d *= 1 + lv * 0.06
+                else
+                    if  users.containsUnit(dmg.i) 
+                        if enemyNormal == dmg.j.getOwner()
+                            d *= (1 - (lv - 1)/lv)/2.5
+                        else if enemySpecial == dmg.j.getOwner()
+                            d *= (1 - (lv - 3)/lv)/2.5
+                    else if users.containsUnit(dmg.j)
+                        if enemyNormal == dmg.i.getOwner()
+                            d *= 1 + lv * 0.1
+                        else if enemySpecial == dmg.i.getOwner()
+                            d *= 1 + lv * 0.1
         return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
 
-    //深渊伤害处理
-    // DamageHandler.on() dmg ->
-    //     var d = dmg.dmg
-    //     if GAME.abyss and not GAME.endless
-    //         let diff = getDiff()
-    //         if  users.containsUnit(dmg.i) 
-    //             if enemyNormal == dmg.j.getOwner()
-    //                 d *= 1 - 0.1 - 0.15 * diff
-    //             else if enemySpecial == dmg.j.getOwner()
-    //                 d *= 1 - 0.15 - 0.15 * diff
-    //         else if users.containsUnit(dmg.j)
-    //             if enemyNormal == dmg.i.getOwner()  
-    //                 d *= 1 + 0.15+ 0.1 * diff
-    //             else if enemySpecial == dmg.i.getOwner()
-    //                 d *= 1 + 0.07+ 0.05 * diff
-    //     return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
 
     DamageHandler.on() dmg ->
         var rate = 1.

@@ -19,11 +19,11 @@ public class EnemyAttackers
         map.put(ware,this)
 
     static function getEnemyAttacker(int ware) returns EnemyAttackers
-        if ware <= 36
+        if ware <= 30
             return map.get(ware)
         else
             let a = ware mod 3
-            let lv = 33 + a
+            let lv = 28 + a
             return map.get(lv)
 
 

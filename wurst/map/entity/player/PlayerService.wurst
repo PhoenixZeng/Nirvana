@@ -23,6 +23,7 @@ import WorkRoom
 import ClosureTimers
 import ElderGod
 import PlayersSave
+import winAndLose
 
 public class PlayerService
     Hero    hero
@@ -69,20 +70,23 @@ public class PlayerService
                 pg.activation(false)
 
     function onWantAttackFinalBoss()
-        if p.dzLv < 5
-            _player.print("地图等级不足!")
-            return
-        if p.killScore < 5000
-            _player.print("杀敌积分不足!")
-            return
-        p.killScore -= 5000
-        if attackTimeFirst != null and attackTimeFirst.typeId != 0 and attackTimeFirst.isRunning == true
-            attackTimeFirst.pause()
-        if attackTimeWait != null and attackTimeWait.typeId != 0 and attackTimeWait.isRunning == true
-            attackTimeWait.pause()
-        if attackTimeEvery != null and attackTimeEvery.typeId != 0 and attackTimeEvery.isRunning == true
-            attackTimeEvery.pause()
-        attackFinal()
+        if GAME.endless
+            if p.dzLv < 5
+                _player.print("地图等级不足!")
+                return
+            if p.killScore < 5000
+                _player.print("杀敌积分不足!")
+                return
+            p.killScore -= 5000
+            if attackTimeFirst != null and attackTimeFirst.typeId != 0 and attackTimeFirst.isRunning == true
+                attackTimeFirst.pause()
+            if attackTimeWait != null and attackTimeWait.typeId != 0 and attackTimeWait.isRunning == true
+                attackTimeWait.pause()
+            if attackTimeEvery != null and attackTimeEvery.typeId != 0 and attackTimeEvery.isRunning == true
+                attackTimeEvery.pause()
+            attackFinal()
+        else
+            registerWinForEndless()
         
     function onAskEpic(int index)
         switch index

@@ -295,7 +295,12 @@ public abstract class Buff
 			return false
 		if (this.canBeAffected(target) == false)
 			return false
-		
+
+		if duration > 0.03
+			this.timeleft = duration
+		else
+			this.timeleft = getDuration()
+
 		let buffs = Buff.getAllWhereIsTarget(target)
 		// print("buff产生:"+getName()+",当前索引:"+(this castTo int).toString())
 		bool remove = false
@@ -312,10 +317,6 @@ public abstract class Buff
 	
 		this.setTarget(target)
 
-		if duration > 0.03
-			this.timeleft = duration
-		else
-			this.timeleft = getDuration()
 		this.running = true
 		let canCast = this.onApplied()
 		if canCast

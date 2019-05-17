@@ -126,6 +126,9 @@ public let _weapon_huangjin = new AuthMall("黄金圣剑","SWEAPONHJJ",108)
 public let _weapon_xuanbing = new AuthMall("玄冰神剑","SWEAPONXBJ",268)
 public let _weapon_xieshen  = new AuthMall("邪神魔剑","SWEAPONXSJ",428)
 
+public let _wing_xianlinzhiyi  = new AuthEndless("仙灵翅膀",50)
+public let _weapon_tulongbaodao  = new AuthEndless("屠龙宝刀",100)
+
 public let _wing_huangjin = new AuthMall("黄金翅膀","SWINGHJKKK",128)
 public let _wing_zhenshen = new AuthMall("真神翅膀","SWINGZSKKK",288)
 public let _wing_shengyu  = new AuthMall("圣羽翅膀","SWINGSYKKK",468)

@@ -31,7 +31,5 @@ AuthTest endlessTestImpl =(a,p) ->  Players.get(p).endlessWare >= (a castTo Auth
 
 
 init
-    //todo
-    // _weapon_tianrenzhang_huo   .setTest(endlessTestImpl)
-    // _weapon_shuangzhiaishang   .setTest(endlessTestImpl)
-    // _wing_tianshi              .setTest(endlessTestImpl)
+    _wing_xianlinzhiyi    .setTest(endlessTestImpl)
+    _weapon_tulongbaodao   .setTest(endlessTestImpl)
