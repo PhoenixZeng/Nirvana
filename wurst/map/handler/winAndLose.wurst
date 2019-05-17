@@ -40,8 +40,9 @@ function Players.getAwardScore()
 
 function Players.getEndlessAwardScore()
     if GAME.endless
-        this.endlessWare = Level.get()
-        let ew = this.endlessWare
+        let lv = Level.get()
+        this.endlessWare = max(lv,this.endlessWare )
+        let ew = lv
         printTimedToPlayer("[系统]:当前无尽波数"+ew, 30, this._player)
         int es = 0
         if ew > 10 and ew < 20

@@ -32,13 +32,16 @@ function onUpdate()
             b.getItem(row, 4)
             // ..setValueColor(200, 0, 0, 0)
             ..setValue(ps.getGameScore().toString())
+            b.getItem(row, 5)
+            // ..setValueColor(200, 0, 0, 0)
+            ..setValue(ps.endlessScore.toString())
 
 public function createPlayerMultiboard()
     gameMultiboard = CreateMultiboard()
     let b = gameMultiboard
     let size = getOnlinePlayerSize()
     MultiboardSetRowCount(b, size + 1)
-    MultiboardSetColumnCount(b, 7)
+    MultiboardSetColumnCount(b, 6)
     if GAME.endless
         b.setTitle("积分榜 [ 无尽 ]")
     else
@@ -66,6 +69,9 @@ public function createPlayerMultiboard()
     b.getItem(0, 4)
     ..setValueColor(255, 0, 0, 0)
     ..setValue("游戏积分")
+    b.getItem(0, 5)
+    ..setValueColor(255, 0, 0, 0)
+    ..setValue("无尽积分")
     MultiboardDisplay(b, true)
     doPeriodically(1) i->
         onUpdate()
