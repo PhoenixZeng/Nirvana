@@ -138,6 +138,7 @@ function attackEachWareWait(int ware)
                     colorsPrint("[系统]:第"+ware+"波攻击来袭!")
                 attackEachWare(ware)
             attackTimeWait.run()
+            getPlayerCurrentEndlessWare()
 
 public function attackStart()
     attackTimeFirst = atAfter(120,"开始进攻")
