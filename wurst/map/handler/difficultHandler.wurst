@@ -58,8 +58,10 @@ public function handleDiffcult()
                         u.setAbilityLevelPro(GAME.nandu1_zuiquan, a)
                         u.setAbilityLevelPro(GAME.nandu4_minlin, a)
                         u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, a)
-                        if a > 4
+                        if a > 5
                             u.setAbilityLevelPro(GAME.nandu3_xieer, 4)
+                        else if a == 5
+                            u.setAbilityLevelPro(GAME.nandu3_xieer, 3)
                         else if a > 1
                             u.setAbilityLevelPro(GAME.nandu3_xieer, 1)
 
@@ -82,10 +84,14 @@ public function handleDiffcult()
                         u.setAbilityLevelPro(GAME.nandu1_zuiquan, ablv)
                     u.setAbilityLevelPro(GAME.nandu4_minlin, ablv)
                     u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, ablv)
+                    if a > 12
+                        u.setAbilityLevelPro(GAME.nandu3_xieer, a - 8)
                 else if enemySpecial == u.getOwner()
                     u.addAbilityPro(commonCTC)
                     u.setAbilityLevelPro(GAME.nandu1_zuiquan, ablv)
                     u.setAbilityLevelPro(GAME.nandu5_zhuanzhu, ablv)
+                    if a > 12
+                        u.setAbilityLevelPro(GAME.nandu3_xieer, a - 8)
                 if lv > 10
                     if  u.isInRegion(attack.i)  and enemy.containsUnit(u)
                         AbyssSpellManager.getAddAbyssInfo(u,lv div 5)

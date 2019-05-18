@@ -44,12 +44,13 @@ public class PlayerService
             return map.get(p)
         return new PlayerService(p)
 
-    int array[4] modelSkinLvNeeds = [6,6,10,10]
-    int array[4] modelSkinScoreNeeds = [200,400,600,800]
-    AuthSave array[4] modelSkinAuth = [_model_1,_model_2,_model_3,_model_4]
+    int array[8] modelSkinLvNeeds = [6,6,10,10,8,8,10,10]
+    int array[8] modelSkinScoreNeeds = [200,400,600,800,500,500,500,500]
+    int array[8] modelSkinEndScoreNeeds = [0,0,0,0,233,233,488,488]
+    AuthSave array[8] modelSkinAuth = [_model_1,_model_2,_model_3,_model_4,_model_5,_model_6,_model_7,_model_8]
 
     function convertModelSkin(int i)
-        if i>= 0  and i <= 4
+        if i>= 1  and i <= 8
             let auth = modelSkinAuth[i-1]
             if auth.testAuths(p.auths)
                 _player.print("你已经拥有这个皮肤了!")
@@ -60,7 +61,11 @@ public class PlayerService
             if not p.testGameScore(modelSkinScoreNeeds[i-1])
                 _player.print("积分不足!")
                 return 
+            if not p.endlessScore >= (modelSkinEndScoreNeeds[i-1])
+                _player.print("无尽积分不足!")
+                return 
             p.subGameScore(modelSkinScoreNeeds[i-1])
+            p.endlessScore -= modelSkinEndScoreNeeds[i-1]
             auth.setAuth(_player)
             p.auths.add(auth)
             p.saveInfoAndAuth()
@@ -70,7 +75,7 @@ public class PlayerService
                 pg.activation(false)
 
     function onWantAttackFinalBoss()
-        if GAME.endless
+        if not GAME.endless
             if p.dzLv < 5
                 _player.print("地图等级不足!")
                 return

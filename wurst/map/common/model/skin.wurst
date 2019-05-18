@@ -90,6 +90,10 @@ init
     new ModelSkin("-pf2","[皮肤]风暴大主教",_model_2,"model\\skins_hero\\artanis.mdx")
     new ModelSkin("-pf3","[皮肤]雅典娜",_model_3,"model\\skins_hero\\yadianna.mdx")
     new ModelSkin("-pf4","[皮肤]白夜",_model_4,"model\\skins_hero\\baiye.mdx")
+    new ModelSkin("-pf5","[皮肤]风暴希尔瓦娜斯",_model_5,"model\\skins_hero\\sylvanuswindrunner1.mdx")
+    new ModelSkin("-pf6","[皮肤]道姑",_model_6,"model\\skins_hero\\daogu.mdx")
+    new ModelSkin("-pf7","[皮肤]米雪",_model_7,"model\\skins_hero\\mixue.mdx")
+    new ModelSkin("-pf8","[皮肤]翎羽",_model_8,"model\\skins_hero\\lingyu.mdx")
 
     new TitleSkin("-ch1" ,'SK15',"黑铁",_map_lv2)
     new TitleSkin("-ch2" ,'SK16',"青铜",_map_lv5)

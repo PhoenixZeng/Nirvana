@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-16T09:02:08Z</LastSaved>
+  <LastSaved>2019-05-18T04:47:21Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="281" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="285" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2401,9 +2401,9 @@
     <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
     <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!</Font></ss:Data></Cell>
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!|n注意:只有在家炸和此功能下结束游戏可以获得无尽积分!</Font></ss:Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!|n注意:只有在家炸和此功能下结束游戏可以获得无尽积分!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNCallToArms.blp</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -5279,6 +5279,90 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65K</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]风暴希尔瓦娜斯</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴希尔瓦娜斯|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!|n&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!|n</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]风暴希尔瓦娜斯|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!|n</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\129.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65L</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]道姑</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]道姑|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]道姑|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗233点无尽积分和500点游戏积分兑换|r|n地图等级8以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\130.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65M</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]米雪</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]米雪|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!|n&quot;&quot;别人图588的英雄现在直接兑换啦&quot;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!|n&quot;别人图588的英雄现在直接兑换啦&quot;</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]米雪|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!|n&quot;别人图588的英雄现在直接兑换啦&quot;</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\131.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I65N</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">[皮肤]翎羽</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]翎羽|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]翎羽|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\132.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">I660</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
@@ -5804,7 +5888,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>235</TopRowBottomPane>
+   <TopRowBottomPane>91</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

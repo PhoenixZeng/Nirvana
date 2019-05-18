@@ -138,6 +138,10 @@ public let _model_1  = new AuthSave("[皮肤]风暴死亡骑士",11)
 public let _model_2  = new AuthSave("[皮肤]风暴大主教",12)
 public let _model_3  = new AuthSave("[皮肤]雅典娜",13)
 public let _model_4  = new AuthSave("[皮肤]白夜",14)
+public let _model_5  = new AuthSave("[皮肤]风暴希尔瓦娜斯",15)
+public let _model_6  = new AuthSave("[皮肤]道姑",16)
+public let _model_7  = new AuthSave("[皮肤]米雪",17)
+public let _model_8  = new AuthSave("[皮肤]翎羽",18)
 
 public let _vip   = new AuthMall("VIP","SVIPKKKKKK",88)
 

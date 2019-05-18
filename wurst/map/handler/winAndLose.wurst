@@ -58,7 +58,7 @@ function Players.getEndlessAwardScore()
         else if ew >= 20 and ew <= 25
             es = 10
         else if ew > 25
-            es = (ew div 3 - 8) + 10
+            es = ew div 2 
         printTimedToPlayer("[系统]:奖励无尽分数"+es, 30, this._player)
         this.endlessScore += es
 

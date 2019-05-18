@@ -215,6 +215,14 @@ public function initPlayersEvent()
                     ps.convertModelSkin(3)
                 case 'I65J'
                     ps.convertModelSkin(4)
+                case 'I65K'
+                    ps.convertModelSkin(5)
+                case 'I65L'
+                    ps.convertModelSkin(6)
+                case 'I65M'
+                    ps.convertModelSkin(7)
+                case 'I65N'
+                    ps.convertModelSkin(8)
                 case 'I660'
                     ps.onConvertGem(1)
                 case 'I661'

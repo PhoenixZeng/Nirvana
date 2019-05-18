@@ -1488,7 +1488,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT0D</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT0D</Data></Cell>
-    <Cell><Data ss:Type="String">I65G,I65H,I65I,I65J</Data></Cell>
+    <Cell><Data ss:Type="String">I65G,I65H,I65I,I65J,I65K,I65L,I65M,I65N</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\human\HeroPaladin\HeroPaladin</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4185,7 +4185,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>5</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
