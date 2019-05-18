@@ -75,6 +75,8 @@ public function handleDiffcult()
             var a = lv div 5 + 1
             if a > 10
                 a = 10
+            if a <= 7
+                GAME.difficult = a
             SetPlayerHandicap(enemySpecial, 1+ .30 * a)
             SetPlayerHandicap(enemyNormal, .2+ .30 * a)
             if u.getTypeId() != DUMMY_UNIT_ID
