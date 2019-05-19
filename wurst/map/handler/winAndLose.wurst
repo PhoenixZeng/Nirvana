@@ -111,14 +111,16 @@ public function askPlayerSaveArtifactEnergy(Players ps)
     db.display(ps._player, true)
 
 public function registerWinForEndless()
-    for i = 0 to 4
-        if Player(i).isIngame()
-            let ps = Players.get(i)
-            ps.getEndlessAwardScore()
-            ps.save()
-    atAfter(10, "等待存档").run()
-    doAfter(10)->
-        gameVictory()
+    if not isWin
+        isWin = true
+        for i = 0 to 4
+            if Player(i).isIngame()
+                let ps = Players.get(i)
+                ps.getEndlessAwardScore()
+                ps.save()
+        atAfter(10, "等待存档").run()
+        doAfter(10)->
+            gameVictory()
         
 public function registerWin()
     isWin = true
