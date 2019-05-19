@@ -83,13 +83,21 @@ public function initPlayersEvent()
                         ps._player.addGold(slk_item.loadInt(id, goldcostKey))
                         ps._player.addLumber(slk_item.loadInt(id, lumbercostKey))
                 case 'I62C'
-                    ps.onConvertMainAttr()
+                    ps.onConvertMainAttr(1)
                 case 'I62D'
-                    ps.onConvertHp()
+                    ps.onConvertHp(1)
                 case 'I62E'
-                    ps.onConvertAttr()
+                    ps.onConvertAttr(1)
                 case 'I62F'
-                    ps.onConvertAtk()
+                    ps.onConvertAtk(1)
+                case 'I63M'
+                    ps.onConvertMainAttr(100)
+                case 'I63N'
+                    ps.onConvertHp(100)
+                case 'I63O'
+                    ps.onConvertAttr(100)
+                case 'I63P'
+                    ps.onConvertAtk(100)
                 case 'I62G'
                     ps.onPl_GoldGift()
                 case 'I62H'

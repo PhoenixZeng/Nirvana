@@ -689,37 +689,36 @@ public class PlayerService
         if _vip.testAuths(p.auths) 
             init4VIP()
 
-    function onConvertMainAttr()
+    function onConvertMainAttr(int count)
         if p.hero != null
-            if p.subKillScore(p.convertMainAttrCost)
+            if p.subKillScore(p.convertMainAttrCost * count)
                 let key = p.hero.getMainAttr()
-                p.hero.addAttr(key, p.convertMainAttrVal)
-                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertMainAttrVal, 10, p._player) 
+                p.hero.addAttr(key, p.convertMainAttrVal * count)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertMainAttrVal * count, 10, p._player) 
             else
-                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertMainAttrCost, 10, p._player) 
-    function onConvertAttr()
-        if p.hero != null and p.convertAttrCount < Players.convertCountLimit
-            if p.subKillScore(p.convertAttrCost)
-                p.hero.addAttr(AttrKey.STR, p.convertAttrVal)
-                p.hero.addAttr(AttrKey.AGI, p.convertAttrVal)
-                p.hero.addAttr(AttrKey.INE, p.convertAttrVal)
-                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAttrVal, 10, p._player) 
-            else
-                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAttrCost, 10, p._player) 
-    function onConvertAtk()
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertMainAttrCost * count, 10, p._player) 
+    function onConvertAttr(int count)
+        if p.subKillScore(p.convertAttrCost * count)
+            p.hero.addAttr(AttrKey.STR, p.convertAttrVal * count)
+            p.hero.addAttr(AttrKey.AGI, p.convertAttrVal * count)
+            p.hero.addAttr(AttrKey.INE, p.convertAttrVal * count)
+            printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAttrVal * count, 10, p._player) 
+        else
+            printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAttrCost * count, 10, p._player) 
+    function onConvertAtk(int count)
         if p.hero != null 
-            if p.subKillScore(p.convertAtkCost)
-                p.hero.addAttr(AttrKey.ATK, p.convertAtkVal)
-                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAtkVal, 10, p._player) 
+            if p.subKillScore(p.convertAtkCost * count)
+                p.hero.addAttr(AttrKey.ATK, p.convertAtkVal * count)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertAtkVal * count, 10, p._player) 
             else
-                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAtkCost, 10, p._player) 
-    function onConvertHp()
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertAtkCost * count, 10, p._player) 
+    function onConvertHp(int count)
         if p.hero != null 
-            if p.subKillScore(p.convertHpCost)
-                p.hero.addAttr(AttrKey.HPM, p.convertHpVal)
-                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertHpVal, 10, p._player) 
+            if p.subKillScore(p.convertHpCost * count)
+                p.hero.addAttr(AttrKey.HPM, p.convertHpVal * count)
+                printTimedToPlayer("[系统]:兑换成功!增加:"+p.convertHpVal * count, 10, p._player) 
             else
-                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertHpCost, 10, p._player) 
+                printTimedToPlayer("[系统]:杀敌积分不足,当前消耗为"+p.convertHpCost * count, 10, p._player) 
 
     function onPl_GoldGift()
         if not p.plGoldFlag and _gift_gold.testAuths(p.auths)

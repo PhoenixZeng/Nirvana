@@ -1854,7 +1854,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT0J</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT0J</Data></Cell>
-    <Cell><Data ss:Type="String">I62C,I62D,I62E,I62F</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">I62C,I62D,I62E,I62F,I63M,I63N,I63O,I63P</Font></ss:Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\other\HeroArchMageGhost\HeroArchMageGhost</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4188,7 +4189,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>21</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="285" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="289" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2400,8 +2400,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">结束游戏</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!|n注意:只有在家炸和此功能下结束游戏可以获得无尽积分!</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!|n注意:只有在家炸和此功能下结束游戏可以获得无尽积分!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000结束游戏|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费5000杀敌积分,直接打最终BOSS!|n地图等级5以上的玩家才可以使用!|n在无尽模式下,此功能会直接结束游戏!|n注意:只有在家炸和此功能下结束游戏可以获得无尽积分!</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNCallToArms.blp</Data></Cell>
@@ -2622,6 +2621,86 @@
     <Cell><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:攻击10000|r</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r攻击</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:300|n[内容]:攻击10000|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNArcaniteMelee.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I63M</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">主属性</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;*100&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r主属性*100</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:30000|n[内容]:主属性500000|r</Font></ss:Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r主属性*100</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:30000|n[内容]:主属性500000|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNScepterOfMastery.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I63N</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">血量</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;*100&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r血量*100</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:30000|n[内容]:血量3000000|r</Font></ss:Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r血量*100</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:30000|n[内容]:血量3000000|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNHeartOfAszune.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I63O</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">三维</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;*100&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r三维*100</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:30000|n[内容]:三维250000|r</Font></ss:Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r三维*100</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:30000|n[内容]:三维250000|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTN3M3.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I63P</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">攻击</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;*100&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r攻击*100</Data></Cell>
+    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">|cffFF8005[消耗杀敌积分]:30000|n[内容]:攻击1000000|r</Font></ss:Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r攻击*100</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[消耗杀敌积分]:30000|n[内容]:攻击1000000|r</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">ReplaceableTextures\CommandButtons\BTNArcaniteMelee.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -3329,7 +3408,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
-    <Cell><Data ss:Type="String">I63H</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I63H</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell><Data ss:Type="String">拆除</Data></Cell>
@@ -3338,6 +3417,8 @@
     <Cell><Data ss:Type="String">拆掉这个东西,但是并不会返还消耗!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[拆除]|r拆除</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">拆掉这个东西,但是并不会返还消耗!</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">339</Data></Cell>
@@ -5888,7 +5969,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>91</TopRowBottomPane>
+   <TopRowBottomPane>134</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5906,7 +5987,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>110</ActiveRow>
+     <ActiveRow>162</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
