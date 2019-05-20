@@ -6,11 +6,9 @@ import baseImport
 import Hero
 import Rects
 import Guard
-import unitAttr
 import PlayerService
 import HeroService
 import WorkRoomOrnament
-
 
 init          
     deathHandler = CreateTrigger()
@@ -30,8 +28,6 @@ init
                     hs.onKill(u)
                 if u.getOwner() == enemyNormal
                     let us = Attacker.getAttacker(u)
-                    if 0.5 .random()
-                        createItem('I680', u.getPos())
                     if us != null
                         doAfter(1)->
                             us.destr()

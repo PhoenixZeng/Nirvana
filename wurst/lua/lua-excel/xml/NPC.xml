@@ -9,7 +9,7 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-05-05T15:33:17Z</Created>
-  <LastSaved>2019-05-15T04:39:53Z</LastSaved>
+  <LastSaved>2019-05-20T05:26:46Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -756,7 +756,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT01</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT01</Data></Cell>
-    <Cell><Data ss:Type="String">I681,I682,I683,I684,I685,I686</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I682,I683,I684,I685,I686,I687</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\nightelf\herowarden\herowarden</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -1854,8 +1854,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">NT0J</Data></Cell>
     <Cell ss:Formula="=&quot;Aneu,Avul,Apit&quot;&amp;&quot;,&quot;&amp;RC[-1]"><Data
       ss:Type="String">Aneu,Avul,Apit,NT0J</Data></Cell>
-    <Cell ss:StyleID="s62"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">I62C,I62D,I62E,I62F,I63M,I63N,I63O,I63P</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I62C,I62D,I62E,I62F,I63M,I63N,I63O,I63P</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">units\other\HeroArchMageGhost\HeroArchMageGhost</Data></Cell>
     <Cell><Data ss:Type="String">undead</Data></Cell>
     <Cell><Data ss:Type="String">null</Data></Cell>
@@ -4189,7 +4188,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

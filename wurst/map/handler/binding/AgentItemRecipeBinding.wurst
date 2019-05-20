@@ -184,13 +184,8 @@ init
     AgentItemRecipe.of('I61D','JS0J')..addComponent('JS13',3)
     AgentItemRecipe.of('I61D','JS0K')..addComponent('JS14',3)
 
-
-
-
-
-
-
-
-
-
-
+    //古神
+    AgentItemRecipe.of('I61D','ZD22')..addComponents('ZD15','ZD19','ZD1D','ZD1H','ZD1L')
+    AgentItemRecipe.of('I61D','ZD23')..addComponents('ZD16','ZD1A','ZD1E','ZD1I','ZD1M')
+    AgentItemRecipe.of('I61D','ZD24')..addComponents('ZD17','ZD1B','ZD1F','ZD1J','ZD1N')
+    AgentItemRecipe.of('I61D','ZD25')..addComponents('ZD18','ZD1C','ZD1G','ZD1K','ZD1O')

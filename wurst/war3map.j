@@ -181,6 +181,11 @@ trigger gg_trg____________________004= null
 trigger gg_trg____________________002= null
 unit gg_unit_NP0A_0027= null
 unit gg_unit_n005_0005= null
+rect gg_rct_old_god_1= null
+rect gg_rct_old_god_2= null
+rect gg_rct_old_god_3= null
+rect gg_rct_old_god_4= null
+rect gg_rct_old_god_5= null
 hashtable j_slk_unit= InitHashtable()
 hashtable j_slk_item= InitHashtable()
 hashtable j_slk_abil= InitHashtable()
@@ -4227,6 +4232,92 @@ endglobals
     
                     call SaveInteger(j_slk_item, 'ZD21', 13, 10)
     
+                    call SaveStr(j_slk_item, 'ZD22', 2081955386, "|cFFFF9933[上古之神]上古之躯|r")
+                
+                    call SaveStr(j_slk_item, 'ZD22', - 844856191, "|cFFFFFF99基础属性|r|n攻击:3000000|n力量:800000|n敏捷:800000|n智力:800000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:100|n力量增幅:25|n敏捷增幅:25|n智力增幅:25")
+                
+                    call SaveInteger(j_slk_item, 'ZD22', 0, 3000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 4, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 5, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 6, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 9, 100)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 19, 25)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 20, 25)
+    
+                    call SaveInteger(j_slk_item, 'ZD22', 21, 25)
+    
+                    call SaveStr(j_slk_item, 'ZD23', 2081955386, "|cFFFF9933[上古之神]古神之印记|r")
+                
+                    call SaveStr(j_slk_item, 'ZD23', - 844856191, "|cFFFFFF99基础属性|r|n攻击:3000000|n力量:800000|n敏捷:800000|n智力:800000|n血量:8000000|n护甲:80000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:20|n伤害增幅:20|n附加伤害:20")
+                
+                    call SaveInteger(j_slk_item, 'ZD23', 0, 3000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 4, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 5, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 6, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 3, 8000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 1, 80000)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 9, 20)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 7, 20)
+    
+                    call SaveInteger(j_slk_item, 'ZD23', 11, 20)
+    
+                    call SaveStr(j_slk_item, 'ZD24', 2081955386, "|cFFFF9933[上古之神]堕落神明战甲|r")
+                
+                    call SaveStr(j_slk_item, 'ZD24', - 844856191, "|cFFFFFF99基础属性|r|n攻击:3000000|n力量:800000|n敏捷:800000|n智力:800000|n血量:8000000|n护甲:80000|n|cFFFFFF55附加属性|r(%)|n暴击概率:35|n暴击伤害:50|n力量增幅:10|n敏捷增幅:10|n智力增幅:10")
+                
+                    call SaveInteger(j_slk_item, 'ZD24', 0, 3000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 4, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 5, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 6, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 3, 8000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 1, 80000)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 8, 35)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 9, 50)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 19, 10)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 20, 10)
+    
+                    call SaveInteger(j_slk_item, 'ZD24', 21, 10)
+    
+                    call SaveStr(j_slk_item, 'ZD25', 2081955386, "|cFFFF9933[上古之神]上古之神的灵魂|r")
+                
+                    call SaveStr(j_slk_item, 'ZD25', - 844856191, "|cFFFFFF99基础属性|r|n攻击:3000000|n力量:800000|n敏捷:800000|n智力:800000|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n伤害增幅:50|n附加伤害:50")
+                
+                    call SaveInteger(j_slk_item, 'ZD25', 0, 3000000)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 4, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 5, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 6, 800000)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 9, 50)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 7, 50)
+    
+                    call SaveInteger(j_slk_item, 'ZD25', 11, 50)
+    
     endfunction
 
 //library RegisterItem ends
@@ -6079,6 +6170,9 @@ endfunction
             call SaveInteger(j_slk_item, 'I667', 406492257, 0)
             call SaveInteger(j_slk_item, 'I667', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'I687', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I687', - 85356197, 0)
+        
             call SaveInteger(j_slk_item, 'JS01', 406492257, 10)
             call SaveInteger(j_slk_item, 'JS01', - 85356197, 0)
         
@@ -7129,6 +7223,18 @@ endfunction
             call SaveInteger(j_slk_item, 'ZD21', 406492257, 1000)
             call SaveInteger(j_slk_item, 'ZD21', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'ZD22', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD22', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD23', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD23', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD24', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD24', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'ZD25', 406492257, 1000)
+            call SaveInteger(j_slk_item, 'ZD25', - 85356197, 0)
+        
     endfunction
 
 //library itemRecipeAgent ends
@@ -7138,7 +7244,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Sat May 18 21:26:17 2019
+//   Date: Mon May 20 13:45:51 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
@@ -7381,6 +7487,11 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_choice_hero_center=Rect(16384.0, 14080.0, 16864.0, 14368.0)
     set gg_rct_choice_hero_come=Rect(16448.0, 13120.0, 16768.0, 13344.0)
     set gg_rct_flower_u1=Rect(- 14048.0, - 15328.0, - 12448.0, - 14432.0)
+    set gg_rct_old_god_1=Rect(4608.0, 12864.0, 6016.0, 15104.0)
+    set gg_rct_old_god_2=Rect(6272.0, 12992.0, 7648.0, 15104.0)
+    set gg_rct_old_god_3=Rect(7936.0, 12896.0, 9312.0, 15008.0)
+    set gg_rct_old_god_4=Rect(9472.0, 12800.0, 11072.0, 15136.0)
+    set gg_rct_old_god_5=Rect(11232.0, 12800.0, 12672.0, 15040.0)
 endfunction
 //***************************************************************************
 //*

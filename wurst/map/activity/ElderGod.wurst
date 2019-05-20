@@ -8,6 +8,8 @@ import Challenge
 import dropItem
 import PlayersSave
 import attrMapper
+import ClosureTimers
+import Rects
 AuthSave array open = [
     new AuthSave("o1",1),
     new AuthSave("o2",2),
@@ -43,6 +45,14 @@ int    array ids = [
     'H10D',
     'H10E'
     ]
+Rects array oldAreas = [
+    oldGod1,
+    oldGod2,
+    oldGod3,
+    oldGod4,
+    oldGod5
+]
+bool actEldGodOpen = false
 
 public class EldGodPowerEntity
     use LinkedListModule
@@ -108,18 +118,20 @@ public class PlayerElderGod
         _player.print("[活动]当前虚空碎片"+voidScore)
     
     function onChallengeOldGod(int i)
-        if killed[i - 1]
-            _player.print("已经击杀过了.(活动结束后开放无限挑战)")
-            return
-        if open[i - 1].test(_player)
-            ps.hero._self.setPosPro(posr[i - 1])
-        else if voidScore >= 100
-            addVoidScore(-100)
-            open[i - 1].setAuth(_player)
-            ps.saveInfoAndAuth()
-            ps.hero._self.setPosPro(posr[i - 1])
+        if actEldGodOpen
+            if killed[i - 1]
+                _player.print("已经击杀过了.(活动结束后开放无限挑战)")
+                return
+            if open[i - 1].test(_player)
+                ps.hero._self.setPosPro(posr[i - 1])
+            else
+                _player.print("失败")
         else
-            _player.print("失败")
+            if ps.testGameScore(5)
+                ps.subGameScore(5)
+                ps.hero._self.setPosPro(posr[i - 1])
+            else
+                _player.print("积分不足!")
 
     function addVoidScore(int a) returns int
         voidScore += a
@@ -136,6 +148,10 @@ public class PlayerElderGod
         killed[i - 1] = true
         EldGodPowerEntity.active(ps,i)
         ps.saveInfoAndAuth()
+        _player.print("5秒后将你传送离开!")
+        doAfter(5) ->
+            if ps.hero._self.isInRegion(oldAreas[i-1].i)
+                ps.hero._self.setPosPro(springReturn.pos)
 
     static function inite()
         EldGodPowerEntity.inite()
@@ -161,10 +177,10 @@ public class PlayerElderGod
                 let p =  Players.get(b)
                 let ps = PlayerElderGod.get(p._player)
                 switch id
-                    case 'I680'
-                        ps.addVoidScore(1)
-                    case 'I681'
-                        ps.showScore()
+                    // case 'I680'
+                    //     ps.addVoidScore(1)
+                    // case 'I681'
+                    //     ps.showScore()
                     case 'I682'
                         ps.onChallengeOldGod(1)
                     case 'I683'

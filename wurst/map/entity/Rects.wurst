@@ -106,6 +106,12 @@ public Rects hideWay2 = new Rects(gg_rct_hide_way_2)
 public Rects hideWay3 = new Rects(gg_rct_hide_way_3)
 public Rects hideWay4 = new Rects(gg_rct_hide_way_4)
 
+public Rects oldGod1 = new Rects(gg_rct_old_god_1)
+public Rects oldGod2 = new Rects(gg_rct_old_god_2)
+public Rects oldGod3 = new Rects(gg_rct_old_god_3)
+public Rects oldGod4 = new Rects(gg_rct_old_god_4)
+public Rects oldGod5 = new Rects(gg_rct_old_god_5)
+
 init
     seniorDungeon[1] = new Rects(gg_rct_senior_dungeon_1)
     seniorDungeon[2] = new Rects(gg_rct_senior_dungeon_2)
