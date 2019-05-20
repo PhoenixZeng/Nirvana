@@ -169,7 +169,7 @@ public class Players
         this.role = role
 
     static function get(player p) returns thistype
-        if p==null or p.isIngame()
+        if p.isIngame()
             if map.has(p)
                 return map.get(p)
             return new Players(p)

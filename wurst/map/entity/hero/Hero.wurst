@@ -16,9 +16,8 @@ import School
 import skin
 import Guard
 import AffixsItem
-import initlater RandomSpell
 import SavedArtifact
-import NirvanaSpellEntity
+import NirvanaSpellEntity 
 import YDJapiOther
 
 public interface EachHeroDo

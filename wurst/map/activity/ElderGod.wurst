@@ -124,6 +124,11 @@ public class PlayerElderGod
             //     return
             if open[i - 1].test(_player)
                 ps.hero._self.setPosPro(posr[i - 1])
+            else if voidScore >= 100
+                addVoidScore(-100)
+                open[i - 1].setAuth(_player)
+                ps.saveInfoAndAuth()
+                ps.hero._self.setPosPro(posr[i - 1])
             else
                 _player.print("失败")
         else
