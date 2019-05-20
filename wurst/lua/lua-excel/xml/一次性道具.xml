@@ -5816,10 +5816,10 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">I680</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r虚空碎片 - 已结束&quot;"><Data
-      ss:Type="String">|cffFF8000[活动]|r虚空碎片 - 已结束</Data></Cell>
+    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r虚空碎片&quot;"><Data
+      ss:Type="String">|cffFF8000[活动]|r虚空碎片</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">虚空碎片!</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r虚空碎片 - 已结束</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r虚空碎片</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">虚空碎片!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -5834,10 +5834,10 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">I681</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
-    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r查看进度 - 已结束&quot;"><Data
-      ss:Type="String">|cffFF8000[活动]|r查看进度 - 已结束</Data></Cell>
+    <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r查看进度&quot;"><Data
+      ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r查看进度 - 已结束</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
@@ -6002,7 +6002,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>294</ActiveRow>
+     <ActiveRow>283</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -177,10 +177,10 @@ public class PlayerElderGod
                 let p =  Players.get(b)
                 let ps = PlayerElderGod.get(p._player)
                 switch id
-                    // case 'I680'
-                    //     ps.addVoidScore(1)
-                    // case 'I681'
-                    //     ps.showScore()
+                    case 'I680'
+                        ps.addVoidScore(1)
+                    case 'I681'
+                        ps.showScore()
                     case 'I682'
                         ps.onChallengeOldGod(1)
                     case 'I683'
