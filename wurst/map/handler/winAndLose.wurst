@@ -47,7 +47,7 @@ public function getPlayerCurrentEndlessWare()
             ps.saveInfoAndAuth()
 
 function Players.getEndlessAwardScore()
-    if GAME.endless
+    if GAME.endless and this != null
         let lv = Level.get()
         this.endlessWare = max(lv,this.endlessWare )
         let ew = lv

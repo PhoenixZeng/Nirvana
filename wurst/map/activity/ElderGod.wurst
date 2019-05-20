@@ -52,7 +52,7 @@ Rects array oldAreas = [
     oldGod4,
     oldGod5
 ]
-bool actEldGodOpen = false
+bool actEldGodOpen = true
 
 public class EldGodPowerEntity
     use LinkedListModule
@@ -119,9 +119,9 @@ public class PlayerElderGod
     
     function onChallengeOldGod(int i)
         if actEldGodOpen
-            if killed[i - 1]
-                _player.print("已经击杀过了.(活动结束后开放无限挑战)")
-                return
+            // if killed[i - 1]
+            //     _player.print("已经击杀过了.(活动结束后开放无限挑战)")
+            //     return
             if open[i - 1].test(_player)
                 ps.hero._self.setPosPro(posr[i - 1])
             else

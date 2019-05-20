@@ -27,6 +27,8 @@ init
                     let hs = HeroService.get(p.hero)
                     hs.onKill(u)
                 if u.getOwner() == enemyNormal
+                    if 0.5 .random()
+                        createItem('I680', u.getPos())
                     let us = Attacker.getAttacker(u)
                     if us != null
                         doAfter(1)->

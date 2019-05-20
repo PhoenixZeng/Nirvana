@@ -177,7 +177,7 @@ public class PersonalWorkRoom extends WorkRoom
         pw.clear()
 
     static function initi()
-        for p = 0 to 5
+        for p = 0 to 4
             new PersonalWorkRoom(Players.get(p),persion[p+1],workRoomRects[p+1],persionReturn[p+1])
         CreateTrigger()
         ..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)

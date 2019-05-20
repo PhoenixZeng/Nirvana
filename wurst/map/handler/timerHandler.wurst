@@ -13,13 +13,13 @@ public function initTimeHandler()
     onAlways(600) task->
         for ip = 0 to 4
             if Player(ip).isIngame()
-            let s = Players.get(ip)
-            int add = 0
-            if not GAME.difficult == 0
-                add=3
-            s.enableAddGameScore = true
-            s.addGameScore(add)
-            s.save()
+                let s = Players.get(ip)
+                int add = 0
+                if not GAME.difficult == 0
+                    add=3
+                s.enableAddGameScore = true
+                s.addGameScore(add)
+                s.save()
     onAlways(600) task->
         for ip = 0 to 4
             if Player(ip).isIngame()

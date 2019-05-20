@@ -40,9 +40,11 @@ public class PlayerService
             flushExItemUberTip(i)
 
     static function get(player p) returns thistype
-        if map.has(p)
-            return map.get(p)
-        return new PlayerService(p)
+        if p != null and p.isIngame()
+            if map.has(p)
+                return map.get(p)
+            return new PlayerService(p)
+        return null
 
     int array[8] modelSkinLvNeeds = [6,6,10,10,8,8,10,10]
     int array[8] modelSkinScoreNeeds = [200,400,600,800,500,500,500,500]

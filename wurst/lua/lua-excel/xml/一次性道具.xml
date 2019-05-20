@@ -5855,10 +5855,11 @@
     <Cell><Data ss:Type="String">克苏恩</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000克苏恩|r</Data></Cell>
-    <Cell ss:StyleID="s62" ss:Formula="=&quot;|cffFF8000[消耗]：游戏积分5|r&quot;"><Data
-      ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!&quot;"><Data
+      ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-克苏恩]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000克苏恩|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-克苏恩]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\120.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5875,10 +5876,11 @@
     <Cell><Data ss:Type="String">尤格萨隆</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000尤格萨隆|r</Data></Cell>
-    <Cell ss:StyleID="s62" ss:Formula="=&quot;|cffFF8000[消耗]：游戏积分5|r&quot;"><Data
-      ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!&quot;"><Data
+      ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-尤格萨隆]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000尤格萨隆|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-尤格萨隆]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\121.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5895,10 +5897,11 @@
     <Cell><Data ss:Type="String">亚煞极</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000亚煞极|r</Data></Cell>
-    <Cell ss:StyleID="s62" ss:Formula="=&quot;|cffFF8000[消耗]：游戏积分5|r&quot;"><Data
-      ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!&quot;"><Data
+      ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-亚煞极]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000亚煞极|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-亚煞极]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\122.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5915,10 +5918,11 @@
     <Cell><Data ss:Type="String">恩佐斯</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000恩佐斯|r</Data></Cell>
-    <Cell ss:StyleID="s62" ss:Formula="=&quot;|cffFF8000[消耗]：游戏积分5|r&quot;"><Data
-      ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!&quot;"><Data
+      ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-恩佐斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000恩佐斯|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-恩佐斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\123.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5935,10 +5939,11 @@
     <Cell><Data ss:Type="String">萨拉塔斯</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[上古之神]|r挑战|cffFF8000&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
       ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000萨拉塔斯|r</Data></Cell>
-    <Cell ss:StyleID="s62" ss:Formula="=&quot;|cffFF8000[消耗]：游戏积分5|r&quot;"><Data
-      ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-&quot;&amp;RC[-2]&amp;&quot;]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!&quot;"><Data
+      ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-萨拉塔斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[上古之神]|r挑战|cffFF8000萨拉塔斯|r</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：游戏积分5|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">首次挑战消耗100点虚空碎片|n激活后不再消耗碎片|r|n挑战后可以激活存档道具[古神之力-萨拉塔斯]|n|cffFF11FF[提示]:虚空碎片击杀进攻怪有概率获得,通关根据难度获得!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\124.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5997,9 +6002,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>284</ActiveRow>
-     <ActiveCol>10</ActiveCol>
-     <RangeSelection>R285C11:R288C11</RangeSelection>
+     <ActiveRow>294</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
