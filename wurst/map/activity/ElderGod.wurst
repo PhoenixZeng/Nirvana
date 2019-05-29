@@ -246,6 +246,7 @@ public class PlayerElderGod
         print("Legend:"+i+":"+save)
         if save
             legends[i-1].setAuth(_player)
+            ps.saveInfoAndAuth()
             LegendEntity.active(ps,i,true)
         else
             LegendEntity.active(ps,i,false)
@@ -254,6 +255,7 @@ public class PlayerElderGod
         print("LegendSkin:"+i+":"+save)
         if save
             legendSkin[i-1].setAuth(_player)
+            ps.saveInfoAndAuth()
             ps.auths.add(legendSkin[i-1])
             if i == 1
                 ps.hero._self.addItemById('Y149')
