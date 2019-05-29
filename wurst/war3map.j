@@ -816,7 +816,7 @@ endglobals
         
                 call SaveStr(j_slk_abil, 'Z149', 2081955386, "[皮肤]悟空")
             
-                call SaveStr(j_slk_abil, 'Z149', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:30|n暴击伤害:60|n伤害增幅:20|n附加伤害:20|n|n激活后输入'-pf9'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z149', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:30|n暴击伤害:60|n伤害增幅:20|n附加伤害:20|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n|n激活后输入'-pf9'切换皮肤和皮肤属性效果!")
             
                         call SaveInteger(j_slk_abil, 'Z149', 8, 30)
         
@@ -826,9 +826,15 @@ endglobals
         
                         call SaveInteger(j_slk_abil, 'Z149', 11, 20)
         
+                        call SaveInteger(j_slk_abil, 'Z149', 19, 10)
+        
+                        call SaveInteger(j_slk_abil, 'Z149', 20, 10)
+        
+                        call SaveInteger(j_slk_abil, 'Z149', 21, 10)
+        
                 call SaveStr(j_slk_abil, 'Z14A', 2081955386, "[皮肤]花梨")
             
-                call SaveStr(j_slk_abil, 'Z14A', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n伤害增幅:50|n附加伤害:50|n力量增幅:25|n敏捷增幅:25|n智力增幅:25|n|n激活后输入'-pf10'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z14A', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n伤害增幅:50|n附加伤害:50|n力量增幅:10|n敏捷增幅:10|n智力增幅:10|n|n激活后输入'-pf10'切换皮肤和皮肤属性效果!")
             
                         call SaveInteger(j_slk_abil, 'Z14A', 9, 50)
         
@@ -836,11 +842,11 @@ endglobals
         
                         call SaveInteger(j_slk_abil, 'Z14A', 11, 50)
         
-                        call SaveInteger(j_slk_abil, 'Z14A', 19, 25)
+                        call SaveInteger(j_slk_abil, 'Z14A', 19, 10)
         
-                        call SaveInteger(j_slk_abil, 'Z14A', 20, 25)
+                        call SaveInteger(j_slk_abil, 'Z14A', 20, 10)
         
-                        call SaveInteger(j_slk_abil, 'Z14A', 21, 25)
+                        call SaveInteger(j_slk_abil, 'Z14A', 21, 10)
         
                 call SaveStr(j_slk_abil, 'Z150', 2081955386, "一级精髓")
             
@@ -1060,49 +1066,49 @@ endglobals
             
                 call SaveStr(j_slk_abil, 'Z231', 2081955386, "阿曼苏尔的预见")
             
-                call SaveStr(j_slk_abil, 'Z231', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n力量增幅:40|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z231', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n力量增幅:40")
             
                         call SaveInteger(j_slk_abil, 'Z231', 19, 40)
         
                 call SaveStr(j_slk_abil, 'Z232', 2081955386, "基尔加丹的炽燃决心")
             
-                call SaveStr(j_slk_abil, 'Z232', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n敏捷增幅:40|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z232', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n敏捷增幅:40")
             
                         call SaveInteger(j_slk_abil, 'Z232', 20, 40)
         
                 call SaveStr(j_slk_abil, 'Z233', 2081955386, "维伦的未来预言")
             
-                call SaveStr(j_slk_abil, 'Z233', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n智力增幅:40|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z233', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n智力增幅:40")
             
                         call SaveInteger(j_slk_abil, 'Z233', 21, 40)
         
                 call SaveStr(j_slk_abil, 'Z234', 2081955386, "阿克蒙德的重生之恨")
             
-                call SaveStr(j_slk_abil, 'Z234', - 844856191, "|n|cFFFFFF11核心属性|r|n每秒属性:1000|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z234', - 844856191, "|n|cFFFFFF11核心属性|r|n每秒属性:1000")
             
                         call SaveInteger(j_slk_abil, 'Z234', 18, 1000)
         
                 call SaveStr(j_slk_abil, 'Z235', 2081955386, "诺甘农的威能")
             
-                call SaveStr(j_slk_abil, 'Z235', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z235', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n附加伤害:30")
             
                         call SaveInteger(j_slk_abil, 'Z235', 11, 30)
         
                 call SaveStr(j_slk_abil, 'Z236', 2081955386, "卡兹格罗斯的勇气")
             
-                call SaveStr(j_slk_abil, 'Z236', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害增幅:30|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z236', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害增幅:30")
             
                         call SaveInteger(j_slk_abil, 'Z236', 7, 30)
         
                 call SaveStr(j_slk_abil, 'Z237', 2081955386, "艾欧娜尔的怜悯")
             
-                call SaveStr(j_slk_abil, 'Z237', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z237', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60")
             
                         call SaveInteger(j_slk_abil, 'Z237', 9, 60)
         
                 call SaveStr(j_slk_abil, 'Z238', 2081955386, "高戈奈斯的活力")
             
-                call SaveStr(j_slk_abil, 'Z238', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:20|n|cFFCCCCCC永久有效|r")
+                call SaveStr(j_slk_abil, 'Z238', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:20")
             
                         call SaveInteger(j_slk_abil, 'Z238', 8, 20)
         
@@ -7302,7 +7308,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Thu May 30 04:07:21 2019
+//   Date: Thu May 30 04:42:58 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================
