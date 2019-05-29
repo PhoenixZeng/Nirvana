@@ -223,17 +223,17 @@ public class PlayerElderGod
             cost = 4
         if legendScore >= cost
             addLegendScore(-cost)
-            if 80 .random()
+            if 70 .random()
                 _player.print("[活动]啥也没抽到!")
-            else if 90 .random()
-                if 90 .random()
+            else if 80 .random()
+                if 80 .random()
                     let itm = ps.hero._self.addItemById('I68A'+8 .nextInt())
                     _player.print("[活动]恭喜你获得"+itm.getName())
                 else
                     let itm = ps.hero._self.addItemById('I68Q'+2 .nextInt())
                     _player.print("[活动]恭喜你获得"+itm.getName())
             else
-                if 80 .random()
+                if 90 .random()
                     let itm = ps.hero._self.addItemById('I68I'+8 .nextInt())
                     _player.print("[活动]恭喜你获得永久"+itm.getName())
                 else
