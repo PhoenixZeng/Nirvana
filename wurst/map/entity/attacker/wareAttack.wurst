@@ -37,7 +37,7 @@ function finalTrigger()
 public function attackFinal()
     //将泉水位置改成到最终区域
     springReturn = finalCome
-    for i = 0 to 4
+    for i = 0 to 5
         if Player(i).isIngame()
             Players.get(i).hero._self.setPosPro(finalCome.pos)
     deathHandler.disable()

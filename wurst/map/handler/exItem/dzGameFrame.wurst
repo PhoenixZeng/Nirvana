@@ -204,6 +204,7 @@ public Frame array frame_icon
 public Frame frame_tipBack
 public Frame frame_tipText
 public Frame frame_help
+public bool array show_frame_help
 public Frame array frame_button
 string array str
 public function dzFrameInit()
@@ -273,6 +274,7 @@ public function dzFrameInit()
             frame_tipBack.show(false)
         frame_button[x]..addEvent(FrameEvents.PRESSED) ->
             let f = Frame.find()
+            let p = Frame.getEventPlayer()
             let index = f.getData("index")
             switch index
                 case 1
@@ -284,7 +286,8 @@ public function dzFrameInit()
                 case 4
                 case 5
                 case 6
-                    frame_help.show(true)
+                    show_frame_help[p.getId()] = not show_frame_help[p.getId()]
+                    frame_help.show(show_frame_help[p.getId()])
         
     frame_tipBack = new Frame(BzFrameType.BACKDROP,"UIts框背景")
     ..setTexture("UI\\Glues\\SinglePlayer\\HumanCampaign3D\\Black32.blp", 0)
@@ -301,6 +304,8 @@ public function dzFrameInit()
     ..setTexture("UI\\help.tga", 0)
     ..setAlpha(225)
     ..show(true)
+    for ii = 0 to 11
+        show_frame_help[ii] = true
 
 init
     DzLoadToc( "UI\\Shadow.toc" )

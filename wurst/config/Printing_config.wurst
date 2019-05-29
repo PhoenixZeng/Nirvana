@@ -4,7 +4,7 @@ import JapiNative
 @config public var DEBUG_LEVEL = Loglevel.WARNING
 @config public var DEBUG_MSG_DURATION = 20.
 
-public var DEBUG_LOCAL_LEVEL = Loglevel.WARNING
+public var DEBUG_LOCAL_LEVEL = Loglevel.INFO
 public var PRINT_IN_GAME  = true
 public var PRINT_TO_LOCAL = true
 

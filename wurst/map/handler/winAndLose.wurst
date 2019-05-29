@@ -39,7 +39,7 @@ function Players.getAwardScore()
     PlayerElderGod.get(this._player).addOnWin()
 
 public function getPlayerCurrentEndlessWare()
-    for i = 0 to 4
+    for i = 0 to 5
         if Player(i).isIngame()
             let ps = Players.get(i)
             let lv = Level.get()
@@ -71,7 +71,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
     let db = new DialogBox("神器")
     ene += (2*GAME.difficult)
     if GAME.difficult <= 5
-        for i = 0 to 2
+        for i = 0 to 3
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
                 db.addButton(pg.page.name+"+"+ene) ->
@@ -89,7 +89,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
             else
                 printTimedToPlayer("[系统]:部分神器能量达到当前等级的最大值!提升地图等级才可解锁后续!", 30, ps._player)
     if GAME.difficult <= 7 and GAME.difficult >= 4
-        for i = 3 to 4
+        for i = 4 to 7
             let pg = sb.pageses.get(i)
             if not ((pg.score >= 100 and ps.dzLv>0 and ps.dzLv <= 5) or (pg.score >= 300 and ps.dzLv>5 and ps.dzLv <= 8))
                 db.addButton(pg.page.name+"+"+ene) ->
@@ -113,7 +113,7 @@ public function askPlayerSaveArtifactEnergy(Players ps)
 public function registerWinForEndless()
     if not isWin
         isWin = true
-        for i = 0 to 4
+        for i = 0 to 5
             if Player(i).isIngame()
                 let ps = Players.get(i)
                 ps.getEndlessAwardScore()
@@ -133,7 +133,7 @@ public function registerWin()
                 ps.getAwardScore()
                 ps.saveInfoAndAuth()
                 askPlayerSaveArtifactEnergy(ps)
-                for i = 0 to 4
+                for i = 0 to 5
                     SetPlayerAllianceStateBJ(Player(p), Player(i), bj_ALLIANCE_UNALLIED_VISION)
         cantAttackFriend.destr()
         if not GAME.playerSizeStart == 1

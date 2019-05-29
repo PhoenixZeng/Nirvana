@@ -9,14 +9,14 @@
   <Author>Phoenix</Author>
   <LastAuthor>Phoenix Zeng</LastAuthor>
   <Created>2018-10-13T14:56:26Z</Created>
-  <LastSaved>2019-05-18T04:47:21Z</LastSaved>
+  <LastSaved>2019-05-29T18:40:46Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
+  <WindowHeight>8052</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -37,7 +37,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="ItemData">
-  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="290" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="44" ss:ExpandedRowCount="314" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="184.8"/>
@@ -2421,9 +2421,9 @@
     <Cell><Data ss:Type="String">等级礼包</Data></Cell>
     <Cell ss:Formula="=&quot;|cffFF8000[礼包]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
       ss:Type="String">|cffFF8000[礼包]|r等级礼包</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n更高等级敬请期待|n</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n等级25|n升级属性1000,每秒属性100|n等级30|n伤害增幅100,附加伤害100|n</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[礼包]|r等级礼包</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n更高等级敬请期待|n</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8005[领取方式]:当地图等级达到以下值时,自动领取小于等于等级的效果!|n提示:技能书在练功房|n|r[礼包内容]:|n等级2 |n开局金币8000|n等级6 |n护甲5000,杀敌属性10,每秒属性20|n等级10|n三维10000,升级属性300,每秒属性30,暴击伤害40|n等级12|n血量50000,开局金币16000,附加伤害40|n等级15|n护甲20000,杀敌属性20,伤害增幅40,普通技能书|n等级18|n三维20000,升级属性600,三维增幅30,每秒属性80|n等级25|n升级属性1000,每秒属性100|n等级30|n伤害增幅100,附加伤害100|n</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\gift\dengjilibao.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5440,6 +5440,48 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I65O</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[皮肤]悟空</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]悟空|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]悟空|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\133.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I65P</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[皮肤]花梨</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;|r&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r[皮肤]花梨|r</Data></Cell>
+    <Cell ss:StyleID="s62"
+     ss:Formula="=&quot;|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!&quot;"><Data
+      ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r[皮肤]花梨|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[消耗]：消耗488点无尽积分和500点游戏积分兑换|r|n地图等级10以上才可以兑换!</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\book\134.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">335</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
     <Cell><Data ss:Type="String">I660</Data></Cell>
     <Cell><Data ss:Type="String">rdis</Data></Cell>
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
@@ -5836,9 +5878,9 @@
     <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
     <Cell ss:Index="6" ss:Formula="=&quot;|cffFF8000[活动]|r查看进度&quot;"><Data
       ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">查看有多少虚空碎片和传说点!</Data></Cell>
     <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[活动]|r查看进度</Data></Cell>
-    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">查看有多少虚空碎片!</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">查看有多少虚空碎片和传说点!</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -5971,6 +6013,464 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I688</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">传说诉求</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000传说诉求</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">花费传说点5点进行传说诉求|n|nVIP玩家只需要消耗4点|n|n传说点通过击杀任意单位有概率掉落|n|n|cffFF8000可能获得的奖励|r|n无|n临时传说激活|n临时悟空和花梨皮肤|n永久传说激活|n永久悟空和花梨皮肤</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000传说诉求</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">花费传说点5点进行传说诉求|n|nVIP玩家只需要消耗4点|n|n传说点通过击杀任意单位有概率掉落|n|n|cffFF8000可能获得的奖励|r|n无|n临时传说激活|n临时悟空和花梨皮肤|n永久传说激活|n永久悟空和花梨皮肤</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\book\12.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I689</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">传说点</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000传说点</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">传说点</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000传说点</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">传说点</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s62"><Data ss:Type="String">blp\item\xukongsuipian.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68A</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">阿曼苏尔的预见</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r阿曼苏尔的预见</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度0可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r阿曼苏尔的预见</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度0可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_1_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68B</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">基尔加丹的炽燃决心</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r基尔加丹的炽燃决心</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r基尔加丹的炽燃决心</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_2_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68C</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">维伦的未来预言</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r维伦的未来预言</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度2可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r维伦的未来预言</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度2可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_3_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68D</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">阿克蒙德的重生之恨</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r阿克蒙德的重生之恨</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度3可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r阿克蒙德的重生之恨</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度3可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_4_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68E</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">诺甘农的威能</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r诺甘农的威能</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度4可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r诺甘农的威能</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度4可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_5_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68F</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">卡兹格罗斯的勇气</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r卡兹格罗斯的勇气</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度5可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r卡兹格罗斯的勇气</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度5可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_6_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68G</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">艾欧娜尔的怜悯</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r艾欧娜尔的怜悯</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度6可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r艾欧娜尔的怜悯</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度6可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_7_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68H</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">高戈奈斯的活力</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r高戈奈斯的活力</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r高戈奈斯的活力</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68I</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">阿曼苏尔的预见</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r阿曼苏尔的预见</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度0可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r阿曼苏尔的预见</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度0可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_1_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68J</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">基尔加丹的炽燃决心</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r基尔加丹的炽燃决心</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r基尔加丹的炽燃决心</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度1可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_2_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68K</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">维伦的未来预言</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r维伦的未来预言</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度2可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r维伦的未来预言</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度2可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_3_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68L</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">阿克蒙德的重生之恨</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r阿克蒙德的重生之恨</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度3可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r阿克蒙德的重生之恨</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度3可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_4_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68M</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">诺甘农的威能</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r诺甘农的威能</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度4可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r诺甘农的威能</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度4可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_5_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68N</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">卡兹格罗斯的勇气</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r卡兹格罗斯的勇气</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度5可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r卡兹格罗斯的勇气</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度5可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_6_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68O</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">艾欧娜尔的怜悯</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r艾欧娜尔的怜悯</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度6可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r艾欧娜尔的怜悯</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度6可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_7_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell><Data ss:Type="String">I68P</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell><Data ss:Type="String">高戈奈斯的活力</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r高戈奈斯的活力</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r高戈奈斯的活力</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68Q</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">悟空</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r悟空</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r悟空</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68R</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">花梨</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[临时兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[临时兑换]|r花梨</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[临时兑换]|r花梨</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68S</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">悟空</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r悟空</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r悟空</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OBJECT</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">I68T</Data></Cell>
+    <Cell><Data ss:Type="String">rdis</Data></Cell>
+    <Cell><Data ss:Type="String">ZZZZ</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">花梨</Data></Cell>
+    <Cell ss:Formula="=&quot;|cffFF8000[兑换]|r&quot;&amp;RC[-1]&amp;&quot;&quot;"><Data
+      ss:Type="String">|cffFF8000[兑换]|r花梨</Data></Cell>
+    <Cell><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cffFF8000[兑换]|r花梨</Data></Cell>
+    <Cell ss:Formula="=RC[-2]"><Data ss:Type="String">|cFFFFFFFF[兑换需求]消耗5000点守家积分或20000杀敌积分(优先判断守家积分)|r|n|cffFF03FF[提示]:副本也会掉落哦!实在刷不到了再来兑换吧!|n[提示]:难度1只可以熔炼2个宝珠,每提升难度7可以多熔炼一个!|r</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">blp\baseItem\gem\bz_8_1.blp</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">PowerUp</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">339</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="42"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
@@ -5984,9 +6484,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>259</TopRowBottomPane>
+   <TopRowBottomPane>282</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>17</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6002,8 +6502,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>289</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>297</ActiveRow>
+     <ActiveCol>19</ActiveCol>
+     <RangeSelection>R298C20:R299C20</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

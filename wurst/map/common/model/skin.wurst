@@ -94,6 +94,8 @@ init
     new ModelSkin("-pf6","[皮肤]道姑",_model_6,"model\\skins_hero\\daogu.mdx")
     new ModelSkin("-pf7","[皮肤]米雪",_model_7,"model\\skins_hero\\mixue.mdx")
     new ModelSkin("-pf8","[皮肤]翎羽",_model_8,"model\\skins_hero\\lingyu.mdx")
+    new ModelSkin("-pf9","[皮肤]悟空",_model_9,"model\\skins_hero\\wukong.mdx")
+    new ModelSkin("-pf10","[皮肤]花梨",_model_10,"model\\skins_hero\\huali.mdx")
 
     new TitleSkin("-ch1" ,'SK15',"黑铁",_map_lv2)
     new TitleSkin("-ch2" ,'SK16',"青铜",_map_lv5)

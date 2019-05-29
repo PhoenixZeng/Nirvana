@@ -898,6 +898,14 @@ public class PlayerService
                 hero.addAttr(AttrKey.agiPlus, 30)
                 hero.addAttr(AttrKey.intPlus, 30)
                 _player.print(color(0, 255, 55).toColorString()+" - 三维20000，升级属性600，三维增幅30，每秒属性80|r")
+            if lv>= 25
+                hero.addAttr(AttrKey.propTimed, 100)
+                hero.addAttr(AttrKey.propLevelUp, 1000)
+                _player.print(color(0, 255, 55).toColorString()+" - 升级属性1000，每秒属性100|r")
+            if lv>= 30
+                hero.addAttr(AttrKey.dmgPlus, 100)
+                hero.addAttr(AttrKey.addDmg, 100)
+                _player.print(color(0, 255, 55).toColorString()+" - 附加伤害100，伤害增幅100|r")
         else
             _player.print("[系统]:已经领取过了")
         

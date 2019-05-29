@@ -72,7 +72,6 @@ function initGame(int diff,int us)
     initializeYD()
     GAME.difficult = diff
     handleDiffcult()
-    dzFrameInit()
     initTimeHandler()
     CreateFogModifierRectBJ(true, Player(10), FOG_OF_WAR_VISIBLE, attack.origin)
     BeastGod.inite()
@@ -105,50 +104,81 @@ function initGame(int diff,int us)
             PracticeEntity.initPracticeEntity()
             initPlayersEvent()
         execute()  ->
-            for ii = 0 to 4
-                if Player(ii).isIngame()
-                    // SetPlayerHandicapXP(Player(ii),1+0.8*(us-1))
-                    enableFog(Player(ii))
-                    Players.get(ii)
+            Log.info("初始化players")
+            for ii = 0 to 11
+                execute()  ->
+                    if Player(ii).isIngame()
+                        // SetPlayerHandicapXP(Player(ii),1+0.8*(us-1))
+                        enableFog(Player(ii))
+                        Log.info("初始化players."+(ii+1))
+                        Players.get(ii)
+            Log.info("完成初始化players")
         execute()  ->
-            for ii = 0 to 4
-                if Player(ii).isIngame()
-                    Players.get(ii).initSave()
+            Log.info("初始化players.save")
+            for ii = 0 to 11
+                execute()  ->
+                    if Player(ii).isIngame()
+                        Log.info("初始化players.save."+(ii+1))
+                        Players.get(ii).initSave()
+            Log.info("完成初始化players.save")
         execute()  ->
-            for ii = 0 to 4
-                if Player(ii).isIngame()
-                    let ps = Players.get(ii)
-                    let pss = PlayerService.get(ps._player)
-                    pss.initVIP()
+            Log.info("初始化playersService")
+            for ii = 0 to 11
+                execute()  ->
+                    if Player(ii).isIngame()
+                        let ps = Players.get(ii)
+                        Log.info("初始化playersService."+(ii+1))
+                        let pss = PlayerService.get(ps._player)
+                        pss.initVIP()
+            Log.info("完成初始化playersService")
         execute()  ->
+            Log.info("初始化.HeroAttr")
             HeroAttr.initi()
+            Log.info("初始化.HpBar")
             HpBar.inite()
+            Log.info("初始化.initChallenge")
             initChallenge()
+            Log.info("初始化.WorkRoom")
             WorkRoom.initi()
+            Log.info("初始化.PersonalWorkRoom")
             PersonalWorkRoom.initi()
+            Log.info("初始化.DivineSoulRoom")
             DivineSoulRoom.inite()
         execute()  ->
+            Log.info("初始化.Dungeon")
             Dungeon.initi()
+            Log.info("初始化.Tip")
             Tip.initi()
+            Log.info("初始化.GemEntity")
             GemEntity.initi()
+            Log.info("初始化.HeroItemEntity")
             HeroItemEntity.initi()
         execute() ->
+            Log.info("初始化.AffixItemEntity")
             AffixItemEntity.initi()
         execute() ->
+            Log.info("初始化.NirvanaSpellEntity")
             NirvanaSpellEntity.initi()
         // execute() ->
         //     NameRangeEffectPair.inite()
         //     NameLineRangeEffectPair.inite()
         //     NameBulletEffectPair.inite()
         execute() ->
+            Log.info("初始化.RandomSpellEntityManager")
             RandomSpellEntityManager.initRandomSpell()
         execute()  ->
+            Log.info("初始化.initDrop")
             initDrop()
+            Log.info("初始化.ItemMutex")
             ItemMutex.initi()
+            Log.info("初始化.AIBoss")
             AIBoss.inite()
         execute()  ->
+            Log.info("初始化.PlayerElderGod")
             PlayerElderGod.inite()
+    Log.info("初始化.createPlayerMultiboard")
     createPlayerMultiboard()
+    Log.info("初始化.initAI")
     initAI()
     // testBuffInit()
     // initMouseItem()
@@ -236,6 +266,7 @@ init
     let us =  getOnlinePlayerSize()
     GAME.playerSizeStart = us
     doAfter(0.5)->
+        dzFrameInit()
         print("[系统]:玩家"+getMainPlayer().getName()+"正在选择难度和模式")
         let box1 = new DialogBox("模式选择")
         box1.addButton("正常模式")->

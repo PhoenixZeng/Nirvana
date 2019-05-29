@@ -29,11 +29,15 @@ init
                 if u.getOwner() == enemyNormal
                     if 0.5 .random()
                         createItem('I680', u.getPos())
+                    if 1.0 .random()
+                        createItem('I689', u.getPos())
                     let us = Attacker.getAttacker(u)
                     if us != null
                         doAfter(1)->
                             us.destr()
                 else if u.getOwner() == enemySpecial
+                    if 0.2 .random()
+                        createItem('I689', u.getPos())
                     if not u.isHero()
                         doAfter(3)->
                             u.remove()

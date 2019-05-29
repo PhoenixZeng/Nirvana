@@ -100,6 +100,7 @@ public let affix_baoji20_5 = new AbilItemAffix('A004')
 public let affix_baoji10_5 = new AbilItemAffix('A01L')
 public let affix_baoji10_10 = new AbilItemAffix('A01J')
 public let affix_baoji20_10 = new AbilItemAffix('A034')
+public let affix_baoji30_1 = new AbilItemAffix('A00C')
 public let affix_move1000 = new AbilItemAffix('A01G')
 public let affix_gedang20 = new AbilItemAffix('A01U')
 public let affix_fenlie15 = new AbilItemAffix('A01P')
@@ -659,6 +660,9 @@ public ItemAffix affix_AttackDamageRange30_3
 public ItemAffix affix_AttackAdd_addDmg_WhenWeak
 
 public ItemAffix affix_DamageRangeBaseOnDmgSub_10
+public ItemAffix affix_DamageRangeBaseOnStrPlus_10
+public ItemAffix affix_DamageRangeBaseOnAgiPlus_10
+public ItemAffix affix_DamageRangeBaseOnIntPlus_10
 
 public ItemAffix affix_DamageRangeWhenKill
 
@@ -772,6 +776,30 @@ init
     affix_DamageRangeBaseOnDmgSub_10 = AttackItemAffix.register() (i,j)->
         if 10 .random()
             let s = Unit.getUnit(i).getAttr(AttrKey.dmgSub)
+            let dmg = i.getPropSum() * s / 10.
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+    affix_DamageRangeBaseOnStrPlus_10 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let s = Unit.getUnit(i).getAttr(AttrKey.strPlus)
+            let dmg = i.getPropSum() * s / 10.
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+    affix_DamageRangeBaseOnAgiPlus_10 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let s = Unit.getUnit(i).getAttr(AttrKey.agiPlus)
+            let dmg = i.getPropSum() * s / 10.
+            for is in ENUM_GROUP
+                if enemyFilter(i, is)
+                    i.damageSpell(is, dmg)
+            ENUM_GROUP.clear()
+    affix_DamageRangeBaseOnIntPlus_10 = AttackItemAffix.register() (i,j)->
+        if 10 .random()
+            let s = Unit.getUnit(i).getAttr(AttrKey.intPlus)
             let dmg = i.getPropSum() * s / 10.
             for is in ENUM_GROUP
                 if enemyFilter(i, is)

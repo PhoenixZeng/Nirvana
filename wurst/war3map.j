@@ -768,51 +768,79 @@ endglobals
         
                         call SaveInteger(j_slk_abil, 'Z144', 9, 60)
         
-                call SaveStr(j_slk_abil, 'Z145', 2081955386, "[皮肤]翎羽")
+                call SaveStr(j_slk_abil, 'Z145', 2081955386, "[皮肤]风暴希尔瓦娜斯")
             
-                call SaveStr(j_slk_abil, 'Z145', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n力量增幅:25|n敏捷增幅:25|n智力增幅:25|n|n激活后输入'-pf8'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z145', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n攻速:30|n暴击概率:30|n暴击伤害:30|n|n激活后输入'-pf5'切换皮肤和皮肤属性效果!")
             
-                        call SaveInteger(j_slk_abil, 'Z145', 8, 10)
+                        call SaveInteger(j_slk_abil, 'Z145', 2, 30)
         
-                        call SaveInteger(j_slk_abil, 'Z145', 19, 25)
+                        call SaveInteger(j_slk_abil, 'Z145', 8, 30)
         
-                        call SaveInteger(j_slk_abil, 'Z145', 20, 25)
+                        call SaveInteger(j_slk_abil, 'Z145', 9, 30)
         
-                        call SaveInteger(j_slk_abil, 'Z145', 21, 25)
-        
-                call SaveStr(j_slk_abil, 'Z146', 2081955386, "[皮肤]风暴希尔瓦娜斯")
+                call SaveStr(j_slk_abil, 'Z146', 2081955386, "[皮肤]道姑")
             
-                call SaveStr(j_slk_abil, 'Z146', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n攻速:30|n暴击概率:30|n暴击伤害:30|n|n激活后输入'-pf5'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z146', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n伤害增幅:50|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n|n激活后输入'-pf6'切换皮肤和皮肤属性效果!")
             
-                        call SaveInteger(j_slk_abil, 'Z146', 2, 30)
+                        call SaveInteger(j_slk_abil, 'Z146', 10, 5)
         
-                        call SaveInteger(j_slk_abil, 'Z146', 8, 30)
+                        call SaveInteger(j_slk_abil, 'Z146', 7, 50)
         
-                        call SaveInteger(j_slk_abil, 'Z146', 9, 30)
+                        call SaveInteger(j_slk_abil, 'Z146', 19, 5)
         
-                call SaveStr(j_slk_abil, 'Z147', 2081955386, "[皮肤]道姑")
+                        call SaveInteger(j_slk_abil, 'Z146', 20, 5)
+        
+                        call SaveInteger(j_slk_abil, 'Z146', 21, 5)
+        
+                call SaveStr(j_slk_abil, 'Z147', 2081955386, "[皮肤]米雪")
             
-                call SaveStr(j_slk_abil, 'Z147', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n攻击吸血:5|n伤害增幅:50|n力量增幅:5|n敏捷增幅:5|n智力增幅:5|n|n激活后输入'-pf6'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z147', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:40|n伤害增幅:40|n附加伤害:40|n|n激活后输入'-pf7'切换皮肤和皮肤属性效果!")
             
-                        call SaveInteger(j_slk_abil, 'Z147', 10, 5)
+                        call SaveInteger(j_slk_abil, 'Z147', 9, 40)
         
-                        call SaveInteger(j_slk_abil, 'Z147', 7, 50)
+                        call SaveInteger(j_slk_abil, 'Z147', 7, 40)
         
-                        call SaveInteger(j_slk_abil, 'Z147', 19, 5)
+                        call SaveInteger(j_slk_abil, 'Z147', 11, 40)
         
-                        call SaveInteger(j_slk_abil, 'Z147', 20, 5)
-        
-                        call SaveInteger(j_slk_abil, 'Z147', 21, 5)
-        
-                call SaveStr(j_slk_abil, 'Z148', 2081955386, "[皮肤]米雪")
+                call SaveStr(j_slk_abil, 'Z148', 2081955386, "[皮肤]翎羽")
             
-                call SaveStr(j_slk_abil, 'Z148', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:40|n伤害增幅:40|n附加伤害:40|n|n激活后输入'-pf7'切换皮肤和皮肤属性效果!")
+                call SaveStr(j_slk_abil, 'Z148', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:10|n力量增幅:25|n敏捷增幅:25|n智力增幅:25|n|n激活后输入'-pf8'切换皮肤和皮肤属性效果!")
             
-                        call SaveInteger(j_slk_abil, 'Z148', 9, 40)
+                        call SaveInteger(j_slk_abil, 'Z148', 8, 10)
         
-                        call SaveInteger(j_slk_abil, 'Z148', 7, 40)
+                        call SaveInteger(j_slk_abil, 'Z148', 19, 25)
         
-                        call SaveInteger(j_slk_abil, 'Z148', 11, 40)
+                        call SaveInteger(j_slk_abil, 'Z148', 20, 25)
+        
+                        call SaveInteger(j_slk_abil, 'Z148', 21, 25)
+        
+                call SaveStr(j_slk_abil, 'Z149', 2081955386, "[皮肤]悟空")
+            
+                call SaveStr(j_slk_abil, 'Z149', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:30|n暴击伤害:60|n伤害增幅:20|n附加伤害:20|n|n激活后输入'-pf9'切换皮肤和皮肤属性效果!")
+            
+                        call SaveInteger(j_slk_abil, 'Z149', 8, 30)
+        
+                        call SaveInteger(j_slk_abil, 'Z149', 9, 60)
+        
+                        call SaveInteger(j_slk_abil, 'Z149', 7, 20)
+        
+                        call SaveInteger(j_slk_abil, 'Z149', 11, 20)
+        
+                call SaveStr(j_slk_abil, 'Z14A', 2081955386, "[皮肤]花梨")
+            
+                call SaveStr(j_slk_abil, 'Z14A', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:50|n伤害增幅:50|n附加伤害:50|n力量增幅:25|n敏捷增幅:25|n智力增幅:25|n|n激活后输入'-pf10'切换皮肤和皮肤属性效果!")
+            
+                        call SaveInteger(j_slk_abil, 'Z14A', 9, 50)
+        
+                        call SaveInteger(j_slk_abil, 'Z14A', 7, 50)
+        
+                        call SaveInteger(j_slk_abil, 'Z14A', 11, 50)
+        
+                        call SaveInteger(j_slk_abil, 'Z14A', 19, 25)
+        
+                        call SaveInteger(j_slk_abil, 'Z14A', 20, 25)
+        
+                        call SaveInteger(j_slk_abil, 'Z14A', 21, 25)
         
                 call SaveStr(j_slk_abil, 'Z150', 2081955386, "一级精髓")
             
@@ -942,15 +970,15 @@ endglobals
             
                 call SaveStr(j_slk_abil, 'Z215', - 844856191, "万年前的上古之战中，伊利丹从末日守卫军中缴获。|n能量值满足[]内数值时,激活后面的效果!")
             
-                call SaveStr(j_slk_abil, 'Z216', 2081955386, "[神器]群星之怒 - 未开放")
+                call SaveStr(j_slk_abil, 'Z216', 2081955386, "[神器]群星之怒")
             
                 call SaveStr(j_slk_abil, 'Z216', - 844856191, "索利达尔-群星之怒，一把传奇弓箭。|n能量值满足[]内数值时,激活后面的效果!")
             
-                call SaveStr(j_slk_abil, 'Z217', 2081955386, "[神器]毁灭之锤 - 未开放")
+                call SaveStr(j_slk_abil, 'Z217', 2081955386, "[神器]毁灭之锤")
             
                 call SaveStr(j_slk_abil, 'Z217', - 844856191, "用元素熔岩铸造而成，唯有能与元素沟通的人可以使用。|n能量值满足[]内数值时,激活后面的效果!")
             
-                call SaveStr(j_slk_abil, 'Z218', 2081955386, "[神器]龙父之牙 - 未开放")
+                call SaveStr(j_slk_abil, 'Z218', 2081955386, "[神器]龙父之牙")
             
                 call SaveStr(j_slk_abil, 'Z218', - 844856191, "用死亡之翼的牙齿打造的武器。|n能量值满足[]内数值时,激活后面的效果!")
             
@@ -1026,42 +1054,58 @@ endglobals
         
                         call SaveInteger(j_slk_abil, 'Z228', 9, 80)
         
-                call SaveStr(j_slk_abil, 'Z230', 2081955386, "传说-未开放")
+                call SaveStr(j_slk_abil, 'Z230', 2081955386, "传说")
             
                 call SaveStr(j_slk_abil, 'Z230', - 844856191, "传说中的道具，可以增强能力!")
             
                 call SaveStr(j_slk_abil, 'Z231', 2081955386, "阿曼苏尔的预见")
             
-                call SaveStr(j_slk_abil, 'Z231', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z231', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n力量增幅:40|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z231', 19, 40)
+        
                 call SaveStr(j_slk_abil, 'Z232', 2081955386, "基尔加丹的炽燃决心")
             
-                call SaveStr(j_slk_abil, 'Z232', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z232', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n敏捷增幅:40|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z232', 20, 40)
+        
                 call SaveStr(j_slk_abil, 'Z233', 2081955386, "维伦的未来预言")
             
-                call SaveStr(j_slk_abil, 'Z233', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z233', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n智力增幅:40|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z233', 21, 40)
+        
                 call SaveStr(j_slk_abil, 'Z234', 2081955386, "阿克蒙德的重生之恨")
             
-                call SaveStr(j_slk_abil, 'Z234', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z234', - 844856191, "|n|cFFFFFF11核心属性|r|n每秒属性:1000|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z234', 18, 1000)
+        
                 call SaveStr(j_slk_abil, 'Z235', 2081955386, "诺甘农的威能")
             
-                call SaveStr(j_slk_abil, 'Z235', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z235', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n附加伤害:30|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z235', 11, 30)
+        
                 call SaveStr(j_slk_abil, 'Z236', 2081955386, "卡兹格罗斯的勇气")
             
-                call SaveStr(j_slk_abil, 'Z236', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z236', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n伤害增幅:30|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z236', 7, 30)
+        
                 call SaveStr(j_slk_abil, 'Z237', 2081955386, "艾欧娜尔的怜悯")
             
-                call SaveStr(j_slk_abil, 'Z237', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z237', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击伤害:60|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z237', 9, 60)
+        
                 call SaveStr(j_slk_abil, 'Z238', 2081955386, "高戈奈斯的活力")
             
-                call SaveStr(j_slk_abil, 'Z238', - 844856191, "")
+                call SaveStr(j_slk_abil, 'Z238', - 844856191, "|n|cFFFFFF55附加属性|r(%)|n暴击概率:20|n|cFFCCCCCC永久有效|r")
             
+                        call SaveInteger(j_slk_abil, 'Z238', 8, 20)
+        
                 call SaveStr(j_slk_abil, 'Z240', 2081955386, "圣魂")
             
                 call SaveStr(j_slk_abil, 'Z240', - 844856191, "[信仰]|n神圣之魂!轮回完毕可以选择信仰,将基本装备合成圣魂!")
@@ -2368,21 +2412,29 @@ endglobals
                 
                     call SaveStr(j_slk_item, 'Y144', - 844856191, "激活皮肤")
                 
-                    call SaveStr(j_slk_item, 'Y145', 2081955386, "[皮肤]翎羽")
+                    call SaveStr(j_slk_item, 'Y145', 2081955386, "[皮肤]风暴希尔瓦娜斯")
                 
                     call SaveStr(j_slk_item, 'Y145', - 844856191, "激活皮肤")
                 
-                    call SaveStr(j_slk_item, 'Y146', 2081955386, "[皮肤]风暴希尔瓦娜斯")
+                    call SaveStr(j_slk_item, 'Y146', 2081955386, "[皮肤]道姑")
                 
                     call SaveStr(j_slk_item, 'Y146', - 844856191, "激活皮肤")
                 
-                    call SaveStr(j_slk_item, 'Y147', 2081955386, "[皮肤]道姑")
+                    call SaveStr(j_slk_item, 'Y147', 2081955386, "[皮肤]米雪")
                 
                     call SaveStr(j_slk_item, 'Y147', - 844856191, "激活皮肤")
                 
-                    call SaveStr(j_slk_item, 'Y148', 2081955386, "[皮肤]米雪")
+                    call SaveStr(j_slk_item, 'Y148', 2081955386, "[皮肤]翎羽")
                 
                     call SaveStr(j_slk_item, 'Y148', - 844856191, "激活皮肤")
+                
+                    call SaveStr(j_slk_item, 'Y149', 2081955386, "[皮肤]悟空")
+                
+                    call SaveStr(j_slk_item, 'Y149', - 844856191, "激活皮肤")
+                
+                    call SaveStr(j_slk_item, 'Y14A', 2081955386, "[皮肤]花梨")
+                
+                    call SaveStr(j_slk_item, 'Y14A', - 844856191, "激活皮肤")
                 
                     call SaveStr(j_slk_item, 'Y151', 2081955386, "[精髓]盗贼王")
                 
@@ -2474,11 +2526,11 @@ endglobals
                 
                     call SaveStr(j_slk_item, 'Y215', 2081955386, "[激活][神器]埃辛诺斯战刃")
                 
-                    call SaveStr(j_slk_item, 'Y216', 2081955386, "[激活][神器]群星之怒 - 未开放")
+                    call SaveStr(j_slk_item, 'Y216', 2081955386, "[激活][神器]群星之怒")
                 
-                    call SaveStr(j_slk_item, 'Y217', 2081955386, "[激活][神器]毁灭之锤 - 未开放")
+                    call SaveStr(j_slk_item, 'Y217', 2081955386, "[激活][神器]毁灭之锤")
                 
-                    call SaveStr(j_slk_item, 'Y218', 2081955386, "[激活][神器]龙父之牙 - 未开放")
+                    call SaveStr(j_slk_item, 'Y218', 2081955386, "[激活][神器]龙父之牙")
                 
                     call SaveStr(j_slk_item, 'Y221', 2081955386, "[激活]点击使用时空石激活第一层效果!")
                 
@@ -6146,6 +6198,12 @@ endfunction
             call SaveInteger(j_slk_item, 'I65N', 406492257, 0)
             call SaveInteger(j_slk_item, 'I65N', - 85356197, 0)
         
+            call SaveInteger(j_slk_item, 'I65O', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I65O', - 85356197, 0)
+        
+            call SaveInteger(j_slk_item, 'I65P', 406492257, 0)
+            call SaveInteger(j_slk_item, 'I65P', - 85356197, 0)
+        
             call SaveInteger(j_slk_item, 'I660', 406492257, 0)
             call SaveInteger(j_slk_item, 'I660', - 85356197, 0)
         
@@ -7244,7 +7302,7 @@ endfunction
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Mon May 20 16:32:03 2019
+//   Date: Thu May 30 04:07:21 2019
 //   Map Author: 火凌之凤
 // 
 //===========================================================================

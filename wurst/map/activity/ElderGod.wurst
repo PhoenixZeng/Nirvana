@@ -24,6 +24,20 @@ AuthSave array kill = [
     new AuthSave("ko4",9),
     new AuthSave("ko5",10)
     ]
+AuthSave array legends = [
+    new AuthSave("le1",21),
+    new AuthSave("le2",22),
+    new AuthSave("le3",23),
+    new AuthSave("le4",24),
+    new AuthSave("le5",25),
+    new AuthSave("le6",26),
+    new AuthSave("le7",27),
+    new AuthSave("le8",28)
+    ]
+AuthSave array legendSkin = [
+    _model_9,
+    _model_10
+    ]
 vec2    array posr = [
     vec2( 5300,13500),
     vec2( 7000,13500),
@@ -93,19 +107,68 @@ public class EldGodPowerEntity
                 pg.activation()
                 ps.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1 )
 
+
+public class LegendEntity
+    use LinkedListModule
+    static let subbookName = "传说"
+    AuthSave auth
+    string name
+    int pageIndex
+    construct(string name,AuthSave auth,int pageIndex)
+        this.name = name
+        this.auth = auth
+        this.pageIndex = pageIndex
+
+    static function inite()
+        new LegendEntity("阿曼苏尔的预见"    ,legends[1-1],1)
+        new LegendEntity("基尔加丹的炽燃决心" ,legends[2-1],2)
+        new LegendEntity("维伦的未来预言"    ,legends[3-1],3)
+        new LegendEntity("阿克蒙德的重生之恨",legends[4-1],4)
+        new LegendEntity("诺甘农的威能"     ,legends[5-1],5)
+        new LegendEntity("卡兹格罗斯的勇气" ,legends[6-1],6)
+        new LegendEntity("艾欧娜尔的怜悯"   ,legends[7-1],7)
+        new LegendEntity("高戈奈斯的活力"   ,legends[8-1],8)
+
+    static function active(Players ps)
+        let sb = ps.hero.souji.getSubBook(subbookName)
+        for e in LegendEntity
+            let pg = sb.getPageByIndex(e.pageIndex)
+            if e.auth.test(ps._player)
+                if not pg.isActivation
+                    pg.activation()
+                    ps.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1 )
+
+    static function active(Players ps,int i,bool check)
+        LegendEntity en = null
+        for e in LegendEntity
+            if e.pageIndex == i
+                en = e
+        if en != null 
+            if (en.auth.test(ps._player) and check) or (not check)
+                let sb = ps.hero.souji.getSubBook(subbookName)
+                let pg = sb.getPageByIndex(en.pageIndex)
+                if not pg.isActivation
+                    pg.activation()
+                    ps.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1 )
+
+
 public class PlayerElderGod
     static   let      map          = new   HashMap<player,thistype>()
     static   let      voidKey      = "jji"
+    static   let      legendKey    = "jjji"
     player   _player
     Players  ps
     private  int      voidScore
+    private  int      legendScore
     bool     array[5] killed
 
     private construct(player p)
         _player = p
         ps = Players.get(p)
         voidScore = p.dzLoadInt(voidKey)
+        legendScore = p.dzLoadInt(legendKey)
         EldGodPowerEntity.active(ps)
+        LegendEntity.active(ps)
         map.put(p,this)
 
     static function get(player p) returns thistype
@@ -116,6 +179,7 @@ public class PlayerElderGod
 
     function showScore()
         _player.print("[活动]当前虚空碎片"+voidScore)
+        _player.print("[活动]当前传说点"+legendScore)
     
     function onChallengeOldGod(int i)
         if actEldGodOpen
@@ -145,6 +209,64 @@ public class PlayerElderGod
         return voidScore
     function getVoidScore() returns int
         return voidScore
+    function addLegendScore(int a) returns int
+        legendScore += a
+        _player.dzSave(legendKey, legendScore)
+        _player.print("[活动]传说点"+a+",当前总传说点"+legendScore)
+        return legendScore
+    function getLegendScore() returns int
+        return legendScore
+    
+    function exLegend()
+        int cost = 5
+        if ps.role == PlayerRole.Vip
+            cost = 4
+        if legendScore >= cost
+            addLegendScore(-cost)
+            if 80 .random()
+                _player.print("[活动]啥也没抽到!")
+            else if 90 .random()
+                if 90 .random()
+                    let itm = ps.hero._self.addItemById('I68A'+8 .nextInt())
+                    _player.print("[活动]恭喜你获得"+itm.getName())
+                else
+                    let itm = ps.hero._self.addItemById('I68Q'+2 .nextInt())
+                    _player.print("[活动]恭喜你获得"+itm.getName())
+            else
+                if 80 .random()
+                    let itm = ps.hero._self.addItemById('I68I'+8 .nextInt())
+                    _player.print("[活动]恭喜你获得永久"+itm.getName())
+                else
+                    let itm = ps.hero._self.addItemById('I68S'+2 .nextInt())
+                    _player.print("[活动]恭喜你获得永久"+itm.getName())
+        else
+            _player.print("[活动]传说点不足"+cost+",当前传说点"+legendScore)
+
+    function activeLegend(int i,bool save)
+        print("Legend:"+i+":"+save)
+        if save
+            legends[i-1].setAuth(_player)
+            LegendEntity.active(ps,i,true)
+        else
+            LegendEntity.active(ps,i,false)
+
+    function activeLegendSkin(int i,bool save)
+        print("LegendSkin:"+i+":"+save)
+        if save
+            legendSkin[i-1].setAuth(_player)
+            ps.auths.add(legendSkin[i-1])
+            if i == 1
+                ps.hero._self.addItemById('Y149')
+            else
+                ps.hero._self.addItemById('Y14A')
+        else
+            ps.auths.add(legendSkin[i-1])
+            if i == 1
+                ps.hero._self.addItemById('Y149')
+            else
+                ps.hero._self.addItemById('Y14A')
+
+
     function addOnWin()
         let d = GAME.difficult
         addVoidScore(15+d*2)
@@ -160,6 +282,7 @@ public class PlayerElderGod
 
     static function inite()
         EldGodPowerEntity.inite()
+        LegendEntity.inite()
         for i = 0 to 4
             new SelfRebothChallenge(ids[i]-'H000'+'L000', ids[i], posc[i],90,1100)..setFreshTime(20)
         UnitDropManager.of("k1",'H10A',100)..adds('ZD15','ZD16','ZD17','ZD18')..onKill() (u,k)->
@@ -184,6 +307,8 @@ public class PlayerElderGod
                 switch id
                     case 'I680'
                         ps.addVoidScore(1)
+                    case 'I689'
+                        ps.addLegendScore(1)
                     case 'I681'
                         ps.showScore()
                     case 'I682'
@@ -196,4 +321,46 @@ public class PlayerElderGod
                         ps.onChallengeOldGod(4)
                     case 'I686'
                         ps.onChallengeOldGod(5)
+                    case 'I688'
+                        ps.exLegend()
+                    case 'I68A'
+                        ps.activeLegend(1,false)
+                    case 'I68B'
+                        ps.activeLegend(2,false)
+                    case 'I68C'
+                        ps.activeLegend(3,false)
+                    case 'I68D'
+                        ps.activeLegend(4,false)
+                    case 'I68E'
+                        ps.activeLegend(5,false)
+                    case 'I68F'
+                        ps.activeLegend(6,false)
+                    case 'I68G'
+                        ps.activeLegend(7,false)
+                    case 'I68H'
+                        ps.activeLegend(8,false)
+                    case 'I68I'
+                        ps.activeLegend(1,true)
+                    case 'I68J'
+                        ps.activeLegend(2,true)
+                    case 'I68K'
+                        ps.activeLegend(3,true)
+                    case 'I68L'
+                        ps.activeLegend(4,true)
+                    case 'I68M'
+                        ps.activeLegend(5,true)
+                    case 'I68N'
+                        ps.activeLegend(6,true)
+                    case 'I68O'
+                        ps.activeLegend(7,true)
+                    case 'I68P'
+                        ps.activeLegend(8,true)
+                    case 'I68Q'
+                        ps.activeLegendSkin(1,false)
+                    case 'I68R'
+                        ps.activeLegendSkin(2,false)
+                    case 'I68S'
+                        ps.activeLegendSkin(1,true)
+                    case 'I68T'
+                        ps.activeLegendSkin(2,true)
                         

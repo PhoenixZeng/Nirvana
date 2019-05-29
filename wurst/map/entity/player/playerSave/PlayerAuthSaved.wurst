@@ -31,16 +31,17 @@ function string.getExSign() returns string
 
 public function testAndLoad(player p,string key,string sign) returns string
     let a = p.dzLoad(key)
-    let s = p.dzLoad(sign)
-    if ((a.getHash()).toString()+a.getExSign()+key+p.getName()).getHash().toString() == s and a.charAt(0)== "0"
-        return a
-    else if (a == "" and s == "") or (a == null and s == null)
-        return ""
-    return "o"+a.substring(1, a.length())
+    // let s = p.dzLoad(sign)
+    // if ((a.getHash()).toString()+a.getExSign()+key+p.getName()).getHash().toString() == s and a.charAt(0)== "0"
+    //     return a
+    // else if (a == "" and s == "") or (a == null and s == null)
+    //     return ""
+    // return "o"+a.substring(1, a.length())
+    return a
 
 public function signAndSave(player p,string key,string sign,string val)
     p.dzSave(key, val)
-    p.dzSave(sign, (val.getHash().toString()+val.getExSign()+key+p.getName()).getHash().toString())
+    // p.dzSave(sign, (val.getHash().toString()+val.getExSign()+key+p.getName()).getHash().toString())
 
 
 public function loadAuth(player p)

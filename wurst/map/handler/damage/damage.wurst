@@ -146,7 +146,7 @@ function showDamageFont(unit dsu,unit dtu,string s,real damage ,int wans,vec2 of
 
 init
     onAlways(0.2)task-> 
-        for i = 0 to 4
+        for i = 0 to 5
             showDamageDelayAttack[i] = true
             showDamageDelaySpell[i] = true
             showDamageDelayCode[i] = true

@@ -43,10 +43,10 @@ init
 					HT.saveBoolean(PRIMARY_ERROR_KEY, hash, false)
 				else if HT.hasBoolean(PRIMARY_ERROR_KEY, hash)
 					if not HT.loadBoolean(PRIMARY_ERROR_KEY, hash)
-						Log.error("|cffFF3A29重复的错误被隐藏|r")
+						Log.error("|cffFF3A29重复的错误|r"+msg)
 						HT.saveBoolean(PRIMARY_ERROR_KEY, hash, true)	
 				else
-					Log.error("|cffFF3A29重复的错误被隐藏|r")
+					Log.error("|cffFF3A29重复的错误|r"+msg)
 					HT.saveBoolean(PRIMARY_ERROR_KEY, hash, true)	
 			else
 				HT.saveInt(PRIMARY_ERROR_KEY, hash, currentTime.toInt())

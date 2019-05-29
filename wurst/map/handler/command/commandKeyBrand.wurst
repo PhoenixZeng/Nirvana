@@ -40,7 +40,10 @@ init
     ..registerPlayerEvent(Player(5),EVENT_PLAYER_END_CINEMATIC)
     ..addAction() ->
         if GetTriggerPlayer() == localPlayer
-            frame_help.show(false)
+            let p = GetTriggerPlayer()
+            if show_frame_help[p.getId()]
+                show_frame_help[p.getId()] = not show_frame_help[p.getId()]
+                frame_help.show(false)
 
     code a = ()->
         if exIsKeyDown(DzGameKey.alt)

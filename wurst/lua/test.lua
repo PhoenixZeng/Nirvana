@@ -157,6 +157,7 @@ for i = 1, 100 do
     bk1:addSubbooks(class.book.create("_"..i))
 end
 
-print(bk1._type)
-print(bk1._class)
-print(bk1._classes)
+-- print(bk1._type)
+-- print(bk1._class)
+-- print(bk1._classes)
+
