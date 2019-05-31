@@ -770,18 +770,20 @@ public class PlayerService
         hero = p.hero
         HeroService.get(p.hero)
         PlayerElderGod.get(_player)
-        doAfter(0.1) ->
+        Log.info(_player.getId()+"开始激活皮肤等属性")
+        execute() ->
             for i in WeaponSkin
                 execute()->
                     if i.auth.testAuths(p.auths)
                         printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
                         let pg = p.hero.daoju.getSubBook("武器皮肤").getPage(i.name)
                         if pg !=null and not pg.isActivation
+                            Log.info(_player.getId()+"激活武器皮肤"+pg.page.name)
                             pg.activation(false)
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
                         else
                             print(i.name +":"+pg.page.name)
-        doAfter(0.11) ->
+        execute() ->
             for i in TitleSkin
                 execute()->
                     if i.auth.testAuths(p.auths)
@@ -789,34 +791,38 @@ public class PlayerService
                         let pg1 = p.hero.daoju.getSubBook("等级称号").getPage(i.name)
                         let pg2 = p.hero.daoju.getSubBook("其他称号").getPage(i.name)
                         if pg1 !=null and not pg1.isActivation
+                            Log.info(_player.getId()+"激活称号"+pg1.page.name)
                             pg1.activation(false)
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg1.page.id), 1)
                         else if pg2 !=null and not pg2.isActivation
+                            Log.info(_player.getId()+"激活称号"+pg2.page.name)
                             pg2.activation(false)
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg2.page.id), 1)
-        doAfter(0.12) ->
+        execute() ->
             for i in WingSkin
                 execute()->
                     if i.auth.testAuths(p.auths)
                         printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
                         let pg = p.hero.daoju.getSubBook("翅膀皮肤").getPage(i.name)
                         if pg !=null and not pg.isActivation
+                            Log.info(_player.getId()+"激活翅膀"+pg.page.name)
                             pg.activation(false)
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
                         else
                             print(i.name +":"+pg.page.name)
-        doAfter(0.13) ->
+        execute() ->
             for i in HaloSkin
                 execute()->
                     if i.auth.testAuths(p.auths)
                         printTimedToPlayer("[系统]:你已经获取"+i.name+"请使用指令"+i.cmd+"激活!", 10, _player)
                         let pg = p.hero.daoju.getSubBook("光环").getPage(i.name)
                         if pg !=null and not pg.isActivation
+                            Log.info(_player.getId()+"激活光环"+pg.page.name)
                             pg.activation(false)
                             p.hero.addExAttr(AttrPlus.loadBookPageAttr(pg.page.id), 1)
                         else
                             print(i.name +":"+pg.page.name)
-        doAfter(0.14) ->
+        execute() ->
             for i in ModelSkin
                 execute()->
                     if i.auth.testAuths(p.auths)
@@ -824,7 +830,8 @@ public class PlayerService
                         let pg = hero.renwu.getSubBook("皮肤").getPage(i.name)
                         if pg !=null and not pg.isActivation
                             pg.activation(false)
-        doAfter(0.15) ->
+                            Log.info(_player.getId()+"激活皮肤"+pg.page.name)
+        execute() ->
             getLvExGift()
             getConsumptionGift()
             // 设置检测到的降低伤害
@@ -848,6 +855,7 @@ public class PlayerService
                 p.hero.hasXingGuangShanYao = true
             if _wing_shengyu.testAuths(p.auths)
                 p.hero.hasShengYuChiBang = true
+        Log.info(_player.getId()+"初始化完成")
 
     // 等级2 |n开局金币8000
     // 等级6 |n护甲5000，杀敌属性10，每秒属性20
@@ -857,6 +865,7 @@ public class PlayerService
     // 等级18|n三维20000，升级属性600，三维增幅30，每秒属性80
     function getLvExGift()
         if not p.lvExGiftFlag
+            Log.info(_player.getId()+"领取等级奖励")
             p.lvExGiftFlag = true
             let lv = p.dzLv
             if lv >= 2
@@ -922,6 +931,7 @@ public class PlayerService
     // 2388    附加伤害+80,暴击伤害+120,随机史诗技能书一本
     function getConsumptionGift()
         if not p.consumptionGiftFlag
+            Log.info(_player.getId()+"领取消费奖励")
             p.consumptionGiftFlag = true
             int mallPrices = 0
             for auth in p.auths
