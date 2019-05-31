@@ -243,7 +243,7 @@ public class PlayerElderGod
             _player.print("[活动]传说点不足"+cost+",当前传说点"+legendScore)
 
     function activeLegend(int i,bool save)
-        print("Legend:"+i+":"+save)
+        Log.info("Legend:"+i+":"+save)
         if save
             legends[i-1].setAuth(_player)
             ps.saveInfoAndAuth()
@@ -252,7 +252,7 @@ public class PlayerElderGod
             LegendEntity.active(ps,i,false)
 
     function activeLegendSkin(int i,bool save)
-        print("LegendSkin:"+i+":"+save)
+        Log.info("LegendSkin:"+i+":"+save)
         if save
             legendSkin[i-1].setAuth(_player)
             ps.saveInfoAndAuth()

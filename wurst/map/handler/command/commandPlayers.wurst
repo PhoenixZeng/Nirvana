@@ -59,9 +59,9 @@ init
     Command.when("-id",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
         let hx = p._player.getName().getHash()
         printTimedToPlayer(hx.toString(), 30, p._player)
-    Command.when("-at",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
-        let index = s.replace(c.command, "").toInt()
-        KEY_AUTH_VAL[p._player.getId() *1000 + index] = true
+    // Command.when("-at",CommandScope.All,ContainScope.Contain,PlayerRole.Normal) (p,s,c)->
+    //     let index = s.replace(c.command, "").toInt()
+    //     KEY_AUTH_VAL[p._player.getId() *1000 + index] = true
     Command.when("save",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->
         p.save()
     Command.when("火鸟玩",CommandScope.All,ContainScope.All,PlayerRole.Normal) (p,s,c)->

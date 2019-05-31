@@ -769,7 +769,8 @@ public class PlayerService
     function onChioceHero()
         hero = p.hero
         HeroService.get(p.hero)
-        PlayerElderGod.get(_player)
+        execute() ->
+            PlayerElderGod.get(_player)
         Log.info(_player.getId()+"开始激活皮肤等属性")
         execute() ->
             for i in WeaponSkin
