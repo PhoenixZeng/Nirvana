@@ -114,7 +114,7 @@ public let anchorGuild = new AuthGuild("魔域","魔域主播公会")
 
 public let defAuth = new Auth("是")..setTest((a,p)-> true)    
 public let defNotAuth = new Auth("否")..setTest((a,p)-> false)    
-public let rank100Auth = new Auth("rank<100")..setTest((a,p)-> 100 <= p.dzRank() and p.dzRank() > 0 and p.dzLevel() >= 30)    
+public let rank100Auth = new Auth("rank<100")..setTest((a,p)-> 100 >= p.dzRank() and p.dzRank() > 0 and p.dzLevel() >= 30)    
 
 public let _gift_gold   = new AuthMall("金币礼包","SGIFTGOLDK",0)
 public let _gift_lumber   = new AuthMall("木头礼包","SGIFTLUMBK",0)
