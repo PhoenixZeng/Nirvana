@@ -138,6 +138,13 @@ init
                 else if users.containsUnit(dmg.j)
                     if enemy.containsUnit(dmg.i) 
                         d *= 2.8
+            else if GAME.difficult == 8
+                if  users.containsUnit(dmg.i) 
+                    if enemy.containsUnit(dmg.j) 
+                        d *= 1 - 0.992
+                else if users.containsUnit(dmg.j)
+                    if enemy.containsUnit(dmg.i) 
+                        d *= 3.5
         return DmgWrapper(dmg.i, dmg.j, d, dmg.t)
 
     //无尽全局伤害处理

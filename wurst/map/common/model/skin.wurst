@@ -106,7 +106,7 @@ init
     new TitleSkin("-ch7" ,'SK21',"大师",_map_lv24)
     new TitleSkin("-ch8" ,'SK22',"宗师",_map_lv28)
     new TitleSkin("-ch9" ,'SK23',"王者",_map_lv30)
-    new TitleSkin("-ch10",'SK24',"皇者",rank100Auth)
+    new TitleSkin("-ch10",'SK24',"皇者",_map_lv36)
     new TitleSkin("-chxy",'SK33',"星悦至尊",starGuild)
     new TitleSkin("-chzb",'SK34',"魔域主播",anchorGuild)
 
@@ -134,6 +134,7 @@ init
     new WingSkin("-cb4",'SK04',"黄金翅膀",_wing_huangjin)
     new WingSkin("-cb5",'SK05',"真神翅膀",_wing_zhenshen)
     new WingSkin("-cb6",'SK06',"圣羽翅膀",_wing_shengyu)
+    new WingSkin("-cb7",'SK35',"花蝶翅膀",_map_p8_lv15)
 
     // new PetEntity("-cw1","牦牛"    ,'pT00',0.4,_map_p1)
     // new PetEntity("-cw2","剧毒蝎"  ,'pT01',0.5,_map_p2)

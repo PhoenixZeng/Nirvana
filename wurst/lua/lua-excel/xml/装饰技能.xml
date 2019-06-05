@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9684</WindowHeight>
+  <WindowHeight>8988</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -40,7 +40,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="SKIN">
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="56" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="57" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.8">
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:AutoFitWidth="0" ss:Width="70.8"/>
@@ -595,6 +595,17 @@
     <Cell><Data ss:Type="String">overhead</Data></Cell>
     <Cell><Data ss:Type="String">model\npc_title\titleNP0D.mdx</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">59</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">[皮肤]翅膀</Data></Cell>
+    <Cell><Data ss:Type="String">花蝶翅膀</Data></Cell>
+    <Cell><Data ss:Type="String">SK35</Data></Cell>
+    <Cell><Data ss:Type="String">chest</Data></Cell>
+    <Cell ss:Formula="=RC[2]&amp;RC[4]&amp;RC[3]"><Data ss:Type="String">model\skins_wing\huadie.mdx</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">model\skins_wing\</Data></Cell>
+    <Cell><Data ss:Type="String">.mdx</Data></Cell>
+    <Cell><Data ss:Type="String">huadie</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -610,12 +621,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>20</TopRowVisible>
+   <TopRowVisible>40</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>55</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>62</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

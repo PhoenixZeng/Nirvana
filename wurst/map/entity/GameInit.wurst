@@ -235,7 +235,7 @@ function initF9Tip()
 
 function choiceDiff(int us)
     let box = new DialogBox("难度选择")
-    for i = 1 to 7
+    for i = 1 to 8
         box.addButton("难度"+i)->
             initGame(i,us)
             destroy box
