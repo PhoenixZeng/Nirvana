@@ -1,2 +1,0 @@
-ui\Shadow_UI.fdf
-ui\Shadow_ZiTi.fdf
